@@ -1,0 +1,46 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-create-rp-wiz-02.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap,amazon elastic vmware service
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. Select the virtual machines to be protected using NetApp Disaster Recovery. 
+
+---
+
+= Create a replication plan: Step 2 - Select VM resources in NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Select the virtual machines to be protected using NetApp Disaster Recovery. 
+
+There are several ways to select VMs for protection:
+
+* *Select individual VMs*: Clicking on the *Virtual machines* button enables you to select individual VMs to protect. As you select each VM, the service adds it to a default resource group located on the right-hand side of the screen. 
+
+* *Select previously created resource groups*: You can create custom resource groups beforehand using the Resource group option from the NetApp Disaster Recovery menu. This is not a requirement as you can use the other two methods to create a resource group as part of the replication plan process. For details, see link:../use/drplan-create.html[Create a replication plan].
+
+* *Select entire vCenter datastores*: If you have a lot of VMs to protect with this replication plan, it may not be as efficient to select individual VMs. Because NetApp Disaster Recovery uses volume-based SnapMirror replication to protect the VMs, all VMs residing on a datastore will be replicated as part of the volume. In most cases, you should have NetApp Disaster Recovery protect and restart any VMs located on the datastore. Use this option to tell the service to add any VMs hosted on a selected datastore to the list of protected VMs.
+
+For this guided instruction, we select the entire vCenter datastore. 
+
+.Steps to access this page
+
+. From the *Replication plan* page, continue to the *Applications* section.
+. Review the information in the *Applications* page that opens.
++
+image:evs-create-rp-wiz-b-1-4.png[Replication plan, Applications page]
+
+.Steps to select the datastore or datastores:
+
+. Select *Datastores*. 
+
+. Check the checkboxes beside each datastore you want to protect.
+
+. (Optionally) Rename the resource group to a suitable name by selecting the pencil icon next to the resource group name.
+
+. Select *Next*.
+
+
+Continue with link:evs-deploy-guide-create-rp-wiz-03.html[Create replication plan wizard Step 3].

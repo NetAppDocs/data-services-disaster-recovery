@@ -1,0 +1,70 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-add-sites.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service
+summary: Before you can protect your VM infrastructure, the NetApp Disaster Recovery service needs to know which VMware vCenter clusters are hosting the VMs to be protected and where those vCenters are located. The first step is to create a site to represent the source and destination datacenters. A site is a failure domain or a recovery domain.
+
+---
+
+= Add sites in NetApp Disaster Recovery for Amazon EVS 
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Before you can protect your VM infrastructure, identify which VMware vCenter clusters are hosting the VMs to be protected and where those vCenters are located. The first step is to create a site to represent the source and destination datacenters. A site is a failure domain or a recovery domain. 
+
+You need to create the following: 
+
+* A site to represent each production datacenter where your production vCenter clusters reside
+* A site for your Amazon EVS/Amazon FSx for NetApp ONTAP cloud datacenter
+
+== Create on-premises sites
+
+Create a production vCenter site.
+
+.Steps 
+
+. From the NetApp Console left navigation bar, select *Protection* > *Disaster Recovery*.
+
+. From any page in NetApp Disaster Recovery, select the *Sites* option.
++
+image:evs-create-site-op-1.png[Sites option]
+
+. From the Sites option, select *Add*. 
++
+image:evs-create-site-op-2.png[Add option on the Sites option]
+
+. In the Add site dialog box, provide a site name. 
+
+. Select “On-prem” as the Location.
+
+. Select *Add*.
++
+image:evs-create-site-op-3-5.png[Create site dialog box]
+ 
+If you have other production vCenter sites, you can add them using the same steps.
+
+== Create Amazon cloud sites
+
+Create a DR site for Amazon EVS using Amazon FSx for NetApp ONTAP storage.
+
+. From any page in NetApp Disaster Recovery, select the *Sites* option.
++
+image:evs-create-site-op-1.png[Sites option]
+    
+. From the Sites option, select *Add*.
++
+image:evs-create-site-aws-2.png[Add option on the Sites page]
+ 
+. In the Add site dialog box, provide a site name. 
+
+. Select "AWS-EVS" as the Location.
+
+. Select *Add*.
++
+image:evs-create-site-aws-3-5.png[Add dialog box]
+
+.Result 
+You now have a production (source) site and a DR (destination) site created. 

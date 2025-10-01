@@ -1,0 +1,36 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-solution-overview.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, bluexp, evs, console, amazon elastic vmware service
+summary: Solution Overview of NetApp Disaster Recovery using Amazon EVS and Amazon FSxN.
+
+---
+
+= Solution overview of NetApp Disaster Recovery using Amazon EVS and Amazon FSs for NetApp ONTAP
+
+:hardbreaks-option:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+NetApp Disaster Recovery is a value-added service hosted within the NetApp Console software-as-a-service environment, which depends on the core NetApp Console architecture. Several main components comprise the DR service for VMware protection within the Console. 
+
+For a complete overview of the NetApp Disaster Recovery solution, see link:../get-started/dr-intro.html[Learn about NetApp Disaster Recovery for VMware].
+
+If you want to protect your on-premises VMware hosted virtual machines to Amazon AWS, use the service to back up to Amazon EVS with Amazon FSx for NetApp ONTAP storage hosted datastores. 
+
+The following figure shows how the service works to protect your VMs with Amazon EVS.
+
+Overview of NetApp Disaster Recovery using Amazon EVS and FSx for ONTAP
+image:evs-soloverview-evs.png[Overview of NetApp Disaster Recovery using Amazon EVS and FSx for ONTAP]
+
+. Amazon EVS is deployed in your account in a single Availability Zone (AZ) configuration and within the your Virtual Private Cloud (VPC).
+. An FSx for ONTAP file system is deployed in the same AZ as the Amazon EVS deployment. The file system connects to Amazon EVS either directly through an Elastic Network Interface (ENI), a VPC peer connection, or an AmazonTransit Gateway.
+. The NetApp Console agent is installed in your VPC. The NetApp Console agent hosts multiple data management services (called agents), including the NetApp Disaster Recovery agent that manages DR of the VMware infrastructure on both your local physical datacenters and your Amazon AWS hosted resources.
+. The NetApp Disaster Recovery agent securely communicates with the NetApp Console cloud-hosted service to receive tasks and distributes those tasks to the appropriate on-premises and AWS hosted vCenter and ONTAP storage instances.
+. You create a replication plan by using the NetApp Console cloud-hosted UI console indicating the VMs that should be protected, the frequency those VMs should be protected, and the procedures that need to be performed to restart those VMs in the event of a failover from the on-premises site.
+. The replication plan determines which vCenter datastores are hosting the protected VMs and the ONTAP volumes that are hosting those datastores. If volumes do not yet exist on the FSx for ONTAP cluster, NetApp Disaster Recovery automatically creates them.
+. A SnapMirror relationship is created for each identified source ONTAP volume to each destination FSx for ONTAP hosted ONTAP volume and a replication schedule is created based on the user-provided RPO in the replication plan.
+. In the event of the primary site failure, an administrator initiates a manual failover process within the NetApp Console and  selects a backup to use as the restore point.
+. The NetApp Disaster Recovery agent activates the FSx for ONTAP hosted data protection volumes.
+. The agent registers each activated FSx for ONTAP volume with the Amazon EVS vCenter, registers each protected VM with the Amazon EVS vCenter, and starts each according to the predefined rules contained in the replication plan.

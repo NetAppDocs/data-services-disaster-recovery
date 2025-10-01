@@ -1,0 +1,70 @@
+---
+sidebar: sidebar
+permalink: use/monitor-jobs.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp
+summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. You can monitor all disaster recovery jobs and determine their progress.
+---
+
+= Monitor NetApp Disaster Recovery jobs
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+You can monitor all NetApp Disaster Recovery jobs and determine their progress. 
+
+== View jobs 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery application admin, or Disaster recovery viewer role. 
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+.Steps 
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+. From the menu, select *Job monitoring*. 
+
+. Explore all jobs related to operations and review their timestamps and status.
+. To view details of a particular job, select that row. 
+. To refresh information, select *Refresh*. 
+
+
+== Cancel a job
+
+If a job is in progress or in a queued state and you don't want it to continue, you can cancel it. You might want to cancel a job if it is stuck in the same state and you want to free up the next operation in the queue. You might want cancel a job before it times out.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+.Steps 
+
+. From the NetApp Console left navigation bar, select *Protection* > *Disaster recovery*. 
+. From the menu, select *Job monitoring*. 
+
+
+. In the Job monitor page, note the ID of the job you want to cancel. 
++
+The job must be in an "In progress" or "Queued" state. 
+. In the Actions column, select *Cancel job*. 
+
+//. Access the NetApp Disaster Recovery Swagger URL: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_[Swagger^].
+//+
+//"https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_"
+//+ 
+//image:dr-swagger-job-cancel.png[Swagger page showing how to cancel a job]
+//+
+//For details about Swagger, see https://swagger.io/docs/[Swagger docs^].
+
+//. From Swagger, obtain the security token, also called the _bearer token_, from the Authorize option. 
+
+
+//. Enter the Account ID and Job ID. 
+//. Select *Try it out*.
+

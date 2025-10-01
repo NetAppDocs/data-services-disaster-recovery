@@ -1,0 +1,50 @@
+section: reference
+title: Reference
+entries:
+  - title: vCenter privileges required for NetApp Disaster Recovery
+    url: /reference/vcenter-privileges.html    
+  - title: NetApp Disaster Recovery roles and privileges
+    url: /reference/dr-reference-roles.html
+  - title: Use NetApp Disaster Recovery with Amazon EVS
+    entries: 
+    - title: NetApp Disaster Recovery with Amazon EVS overview
+      url: /reference/evs-deploy-guide-introduction.html
+    - title: Solution overview 
+      url: /reference/evs-deploy-guide-solution-overview.html
+    - title: Install the NetApp Console agent
+      url: /reference/evs-deploy-guide-install-connector.html 
+    - title: Configure NetApp Disaster Recovery for Amazon EVS
+      entries:
+      - title: Configure NetApp Disaster Recovery for Amazon EVS overview
+        url: /reference/evs-deploy-guide-config-draas.html
+      - title: Prerequisites for Amazon EVS
+        url: /reference/evs-deploy-guide-config-prereqs.html
+      - title: Add ONTAP storage arrays for Amazon EVS
+        url: /reference/evs-deploy-guide-config-add-arrays.html
+      - title: Add NetApp Disaster Recovery for Amazon EVS
+        url: /reference/evs-deploy-guide-enable-draas.html
+      - title: Add sites in NetApp Disaster Recovery for Amazon EVS
+        url: /reference/evs-deploy-guide-add-sites.html  
+      - title: Add vCenter clusters for Amazon EVS
+        url: /reference/evs-deploy-guide-add-vcenters.html
+    - title: Create replication plans for Amazon EVS
+      entries: 
+      - title: Create replication plans for Amazon EVS overview
+        url: /reference/evs-deploy-guide-creating-replication-plans.html  
+      - title: Create a replication plan Step 1 for Amazon EVS
+        url: /reference/evs-deploy-guide-create-rp-wiz-01.html
+      - title: Create a replication plan Step 2 for Amazon EVS
+        url: /reference/evs-deploy-guide-create-rp-wiz-02.html
+      - title: Create a replication plan Step 3 for Amazon EVS
+        url: /reference/evs-deploy-guide-create-rp-wiz-03.html 
+      - title: Create a replication plan Step 4 for Amazon EVS
+        url: /reference/evs-deploy-guide-create-rp-wiz-04.html
+      - title: Verify the replication plan for Amazon EVS
+        url: /reference/evs-deploy-guide-verify-rp.html           
+    - title: Perform replication plan operations  
+      url: /reference/evs-deploy-guide-rp-operations.html
+
+
+
+
+

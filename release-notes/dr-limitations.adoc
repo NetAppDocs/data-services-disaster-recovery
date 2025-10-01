@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: release-notes/dr-limitations.html
+keywords: disaster recovery, bluexp
+summary: Known limitations identify platforms, devices, or functions that are not supported by this release of the service, or that do not interoperate correctly with it.
+---
+
+= Limitations in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Known limitations identify platforms, devices, or functions that are not supported by this release of the service, or that do not interoperate correctly with it.
+
+== Wait until failback completes before running discovery
+
+After a failover has finished, do not initiate discovery on the source vCenter manually. Wait until the failback has finished and then initiate discovery on the source vCenter.
+
+== NetApp Console might not discover Amazon FSx for NetApp ONTAP
+
+Sometimes, the NetApp Console does not discover Amazon FSx for NetApp ONTAP clusters. This might be because the FSx credentials were not correct.
+
+*Workaround*: Add the Amazon FSx for NetApp ONTAP cluster in the NetApp Console and periodically refresh the cluster to display any changes.
+
+If you need to remove the ONTAP FSx cluster from NetApp Disaster Recovery, complete the following steps: 
+
+. In the NetApp Console agent, use the connectivity options from your cloud provider, connect to the Linux VM that the Console agent runs on, restart the "occm" service using the `docker restart occm` command.
+
+Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[Manage existing Console agents^].           
+
+. In the NetApp Console Systems page, add the Amazon FSx for ONTAP system again and provide the FSx credentials.
++
+Refer to https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html[Create an Amazon FSx for NetApp ONTAP file system^].
+
+. From NetApp Disaster Recovery, select *Sites*, on the vCenter row select the *Actions* option image:../use/icon-vertical-dots.png[Actions menu icon in NetApp Disaster Recovery], and from the Actions menu, select *Refresh* to refresh the FSx discovery in NetApp Disaster Recovery. 
++
+This rediscovers the datastore, its virtual machines, and its destination relationship. 
+
+

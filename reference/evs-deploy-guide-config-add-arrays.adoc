@@ -1,0 +1,79 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-config-add-arrays.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service
+summary: Before using NetApp Disaster Recovery, you must add on-premises and cloud-hosted storage instances to the NetApp Console system. 
+
+---
+= Add on-premises arrays to the NetApp Console system for Amazon EVS with NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Before using NetApp Disaster Recovery, you must add on-premises and cloud-hosted storage instances to the NetApp Console system. 
+
+You need to do the following: 
+
+* Add on-premises arrays to your NetApp Console system.
+* Add Amazon FSx for NetApp ONTAP (FSx for ONTAP) instances to your NetApp Console system.
+
+== Add on-premises storage arrays to NetApp Console system
+
+Add on-premises ONTAP storage resources to your NetApp Console system.
+
+[start 1]
+
+. From the NetApp Console Systems page, select *Add System*.
++
+image:evs-canvas-add-working-env-1.png[Add system]
+ 
+. From the Add System page, select the *On-Premises* card.
++ 
+image:evs-canvas-add-working-env-2.png[Add system image]
+
+. Select *Discover*  on the On-Premises ONTAP card.
++
+image:evs-canvas-add-working-env-3.png[Add system image]
+
+ 
+. On the Discover Cluster page, enter the following information:
+
+.. The IP address of the ONTAP array cluster management port
+.. The administrator username
+.. The administrator password
+
+. Select *Discover* at the bottom of the page.
++
+image:evs-canvas-add-working-env-4-5.png[Add system image]
+ 
+. Repeat steps 1-5 for each ONTAP array that will host vCenter datastores.
+
+== Add Amazon FSx for NetApp ONTAP storage instances to NetApp Console system
+
+Next, add an Amazon FSx for NetApp ONTAP storage resources to your NetApp Console system.
+
+. From the NetApp Console Systems page, select *Add System*.
+
++
+image:evs-canvas-add-working-env-1.png[Add system image]
+ 
+. From the Add System page, select the *Amazon Web Services* card.
++
+image:evs-canvas-add-working-evs-2.png[Add system image]
+
+. Select the *Discover Existing* link on the Amazon FSx for ONTAP card.
+
++
+image:evs-canvas-add-working-evs-3.png[Add system image]
+
+. Select the credentials and AWS region hosting the FSx for ONTAP instance.
+
+. Select one or more FSx for ONTAP file systems to be added.
+
+. Select *Discover* at the bottom of the page.
++
+image:evs-needs-updates-canvas-add-working-evs-4-5.png[Add system image]
+
+. Repeat steps 1-6 for each FSx for ONTAP instance that will host vCenter datastores.

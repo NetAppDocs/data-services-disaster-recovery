@@ -1,0 +1,51 @@
+---
+sidebar: sidebar
+permalink: get-started/dr-quick-start.html
+keywords: how to get started with bluexp disaster recovery, disaster recovery quick start, failover, failback
+summary: Get started with the NetApp Disaster Recovery service in a few steps.
+---
+
+= Quick start for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+[.lead]
+Here's an overview of the steps needed to get started with NetApp Disaster Recovery. The links within each step take you to a page that provides more details.
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png[One] Review prerequisites 
+
+[role="quick-margin-para"]
+link:../get-started/dr-prerequisites.html[Ensure your system meets these requirements].
+ 
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Set up NetApp Disaster Recovery 
+
+
+[role="quick-margin-list"]
+* link:../get-started/dr-setup.html[Set up the infrastructure for the service].
+
+* link:../get-started/dr-licensing.html[Set up licensing].
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png[Three] What's next?
+
+
+[role="quick-margin-para"]
+After you set up the service, here's what you might do next. 
+
+[role="quick-margin-list"]
+* link:../use/sites-add.html[Add your vCenter sites to NetApp Disaster Recovery].
+* link:../use/manage.html#manage-resource-groups[Create your first resource group].
+* link:../use/drplan-create.html[Create your first replication plan].
+* link:../use/replicate.html[Replicate applications to another site].
+* link:../use/failover.html[Fail over applications to a remote site].
+* link:../use/failback.html[Fail back applications to the original source site].
+* link:../use/manage.html[Manage sites, resource groups, and replication plans].
+* link:../use/monitor-jobs.html[Monitor disaster recovery operations].
+
+

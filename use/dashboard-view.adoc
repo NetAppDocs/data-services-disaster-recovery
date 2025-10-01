@@ -1,0 +1,58 @@
+---
+sidebar: sidebar
+permalink: use/dashboard-view.html
+keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
+---
+
+= View the health of your NetApp Disaster Recovery plans on the Dashboard
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can quickly ascertain which sites and plans are healthy, disconnected, or degraded. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery application admin, or Disaster recovery viewer role. 
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+.Steps 
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+
+. From the NetApp Disaster Recovery menu, select *Dashboard*. 
++
+image:dr-dashboard.png[NetApp Disaster Recovery Dashboard]
+
+. Review the following information on the Dashboard: 
+
+* *Sites*: View the health of your sites. A site can have one of the following statuses: 
+
+** *Running*: The vCenter is connected, healthy, and running. 
+** *Down*: The vCenter is not reachable or having connectivity issues. 
+** *Issue*: The vCenter is not reachable or having connectivity issues. 
++ 
+To see site details, select *View all* for a status or *View sites* to see them all. 
+
+* *Replication plans*: View the health of your plans. A plan can have one of the following statuses: 
+
+** *Ready*
+** *Failed*
++ 
+To review replication plan details, select *View all* for a status or *View replication plans* to see them all. 
+
+* *Resource groups*: View the health of your resource groups. A resource group can have one of the following statuses: 
+
+* *Protected VMs*: The VMs are part of a resource group. 
+* *Unprotected VMs*: The VMs are not part of a resource group. 
++ 
+To review details, select the *View* link below each. 
+
+* The number of failovers, test failovers, and migrations. For example, if you created two plans and migrated to the destinations, the migration count appears as "2."
+
+. Review all operations in the Activity pane. To view all operations on the Job Monitor, select *View all jobs*. 

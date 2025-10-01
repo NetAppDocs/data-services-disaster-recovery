@@ -1,0 +1,15 @@
+=== NetApp Disaster Recovery updates
+
+This release includes the following updates: 
+
+* Improved the VMFS support to handle the same LUN presented from multiple storage virtual machines.
+* Improved the test teardown cleanup to handle the datastore already being unmounted and or deleted.
+* Improved subnet mapping so that it now validates that the gateway entered is contained within the network provided.
+* Corrected an issue that could cause the replication plan to fail if the VM name contains ".com".
+* Removed a restriction preventing the destination volume from being the same as the source volume when creating the volume as part of the replication plan creation.
+* Added support for a pay-as-you-go (PAYGO) subscription to NetApp Intelligent Services in the Azure Marketplace and added a link to the Azure Marketplace in the free trial dialog. 
+//+
+//For details, see  link:../get-started/dr-intro.html#licensing[NetApp Disaster Recovery licensing] and link:../get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery].
++
+For details, see https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html#licensing[NetApp Disaster Recovery licensing] and https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery].
+

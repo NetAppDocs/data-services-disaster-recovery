@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: get-started/dr-faq.html
+keywords: disaster recovery faq, disaster recovery frequently asked questions
+summary: This FAQ can help if you're just looking for a quick answer to a question.
+---
+
+= Frequently asked questions for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+This FAQ can help if you're just looking for a quick answer to a question.
+
+
+
+*What's the NetApp Disaster Recovery URL?*
+For the URL, in a browser, enter: https://console.netapp.com/[https://console.netapp.com/^] to access the NetApp console. 
+
+
+*Do you need a license to use NetApp Disaster Recovery?*
+A NetApp Disaster Recovery license is required for complete access. However, you can try it out with the free trial. 
+
+For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up NetApp Disaster Recovery licensing].
+
+
+*How do you access NetApp Disaster Recovery?*
+NetApp Disaster Recovery does not require any enablement. The disaster recovery option automatically appears on the NetApp Console left navigation.  
+
+//*Does this service support a cloud-to-cloud scenario?*  
+//This preview will support a cloud-to-cloud scenario for cross-region replication using VMware Cloud on AWS with Amazon FSx for NetApp ONTAP in separate AWS regions.  

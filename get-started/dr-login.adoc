@@ -1,0 +1,45 @@
+---
+sidebar: sidebar
+permalink: get-started/dr-login.html
+keywords: bluexp login, disaster recovery log in
+summary: Get started with NetApp Disaster Recovery by accessing the service in the NetApp Console.
+---
+
+= Access NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+[.lead]
+You use the NetApp Console to log in to the NetApp Disaster Recovery service. 
+
+To log in, you can use your NetApp Support Site credentials or you can sign up for a NetApp cloud login using your email and a password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Learn more about logging in^].
+
+Specific tasks require specific user roles. 
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+.Steps
+
+. Open a web browser and go to the https://console.netapp.com/[NetApp Console^].
++ 
+The NetApp Console login page appears.
+
+. Log in to the NetApp Console. 
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
++
+If this is your first time logging in to this service, the landing page appears and you can sign up for a free trial. 
+
++
+image:draas-landing6-free-trial.png[Landing page screenshot for NetApp Disaster Recovery]
+
++ 
+Otherwise, the NetApp Disaster Recovery Dashboard appears. 
++
+* If you haven't yet added a NetApp Console agent, you'll need to add one. To add the agent, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Console agents^].
+
+* If you are a NetApp Console user with an existing agent, when you select "Disaster recovery," a message appears about signing up. 
+* If you are already using the service, when you select "Disaster recovery," the Dashboard appears. 
+
++
+image:dr-dashboard.png[NetApp Disaster Recovery Dashboard]

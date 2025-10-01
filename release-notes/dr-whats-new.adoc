@@ -1,0 +1,349 @@
+---
+sidebar: sidebar
+permalink: release-notes/dr-whats-new.html
+keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas, disaster
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in public clouds as a disaster recovery site using NetApp cloud storage.
+---
+
+= What's new in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/
+
+[.lead]
+Learn what’s new in NetApp Disaster Recovery.
+
+//tag::whats-new[]
+
+== 06 October 2025 
+
+include::../_whatsnew/2025-10-06.adoc[]
+
+
+== 04 August 2025
+Version 4.2.5P2 
+
+include::../_whatsnew/2025-08-04.adoc[]
+
+== 14 July 2025 
+Version 4.2.5
+
+include::../_whatsnew/2025-07-14.adoc[]
+
+//include 3 most recent releases
+//end::whats-new[]
+
+== 30 June 2025
+Version 4.2.4P2
+
+include::../_whatsnew/2025-06-30.adoc[]
+
+== 23 June 2025
+Version 4.2.4P1
+
+include::../_whatsnew/2025-06-23.adoc[]
+
+== 09 June 2025
+Version 4.2.4
+
+include::../_whatsnew/2025-06-09.adoc[]
+
+
+
+== 13 May 2025 
+Version 4.2.3
+
+include::../_whatsnew/2025-05-12.adoc[] 
+
+
+
+== 16 April 2025
+Version 4.2.2 
+
+include::../_whatsnew/2025-04-14.adoc[]
+
+
+== 10 March 2025 
+Version 4.2.1
+
+include::../_whatsnew/2025-03-10.adoc[]
+
+
+== 19 February 2025
+Version 4.2 
+
+include::../_whatsnew/2025-02-19.adoc[]
+
+
+
+== 30 October 2024
+include::../_whatsnew/2024-10-30.adoc[]
+
+
+
+== 20 September 2024
+
+include::../_whatsnew/2024-09-20.adoc[]
+
+
+== 02 August 2024
+
+include::../_whatsnew/2024-08-02.adoc[]
+
+//For details, see link:../use/monitor-jobs.html[Monitor jobs].
+
+
+
+== 17 July 2024 
+
+=== Failover test schedules
+This release includes updates to the failover test schedule structure, which was needed to support daily and weekly schedules. This update requires that you disable and re-enable all existing replication plans so that you will be able to use the new daily and weekly failover test schedules. This is a one-time requirement.  
+
+Here's how: 
+
+. From the menu, select *Replication plans*. 
+. Select a plan and select the Actions icon to show the drop-down menu. 
+. Select *Disable*. 
+. After a few minutes, select *Enable*.
+
+=== Replication plan updates
+This release includes updates to replication plan data, which resolves a "snapshot not found" issue. This requires that you change the retention count in all replication plans to 1 and initiate an on-demand snapshot. This process creates a new backup and removes all older backups. 
+
+Here's how: 
+
+. From the menu, select *Replication plans*. 
+. Select the replication plan, click the *Failover mapping* tab, and click the *Edit* pencil icon. 
+. Click the *Datastores* arrow to expand it. 
+//+
+//image:use/dr-plan-failover-edit.png[Edit failover mappings page]
+. Note the value of the retention count in the replication plan. You will need to reinstate this original value when you're finished with these steps. 
+. Reduce the count to 1.
+. Initiate an on-demand snapshot. To do so, on the Replication plan page, select the plan, click the Actions icon, and select *Take snapshot now*. 
+. After the snapshot job completes successfully, increase the count in the replication plan back to its original value that you noted in the first step. 
+. Repeat these steps for all existing replication plans. 
+
+== 05 July 2024
+
+This NetApp Disaster Recovery release includes the following updates: 
+
+=== Support for AFF A-series
+This release supports the NetApp AFF A-series hardware platforms. 
+
+//The three new platforms are: AFF A1K, AFF A90 and AFF A70
+
+=== Support for on-premises to on-premises VMware VMFS datastores 
+This release includes a _technology preview_ of support for VMs mounted on VMware vSphere virtual machine file system (VMFS) datastores protected to on-premises storage. With this release, disaster recovery is supported in a technology preview for on-premises VMware workloads to on-premises VMware environment with VMFS datastores. 
+
+NOTE: NetApp doesn't charge you for any previewed workload capacity.
+
+
+=== Replication plan updates 
+You can add a replication plan more easily by filtering VMs by datastore on the Applications page and by selecting more target details on the Resource mapping page.
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+ 
+
+
+=== Edit replication plans
+With this release, the Failover mappings page has been enhanced for better clarity. 
+
+//Refer to link:../use/manage.html[Manage plans].
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage plans].
+
+=== Edit VMs
+With this release, the process for editing VMs in the plan included some minor UI improvements. 
+
+//Refer to link:../use/manage.html[Manage VMs].
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage VMs].
+
+=== Fail over updates
+Before you initiate a failover, you can now determine the status of VMs and whether they are powered on or off. The failover process now enables you to take a snapshot now or choose the snapshots.
+
+//Refer to link:../use/failover.html[Fail over applications to a remote site].
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html[Fail over applications to a remote site].
+
+=== Failover test schedules 
+You can now edit the failover tests and set daily, weekly, and monthly schedules for the failover test. 
+
+//Refer to link:../use/manage.html[Manage plans].
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage plans].
+
+=== Updates to prerequisite information 
+NetApp Disaster Recovery prerequisites information has been updated.
+
+//Refer to link:../get-started/dr-prerequisites.html[NetApp Disaster Recovery prerequisites]. 
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-prerequisites.html[NetApp Disaster Recovery prerequisites]. 
+
+== 15 May 2024 
+This NetApp Disaster Recovery release includes the following updates: 
+
+=== Replicating VMware workloads from on-premises to on-premises
+This is now released as a general availability feature. Previously, it was a technology preview with limited functionality.
+
+=== Licensing updates
+With NetApp Disaster Recovery, you can sign up for a 90-day free trial, purchase a pay-as-you-go (PAYGO) subscription with Amazon Marketplace, or Bring Your Own License (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep or from the NetApp Support Site (NSS). 
+
+For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up licensing].
+//For details about setting up licensing for NetApp Disaster Recovery, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html[Set up licensing]. 
+
+https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html[Learn more about NetApp Disaster Recovery]. 
+
+//include 3 most recent releases
+//end::whats-new[]
+
+== 05 March 2024
+This is the General Availability release of NetApp Disaster Recovery, which includes the following updates. 
+
+=== Licensing updates 
+With NetApp Disaster Recovery, you can sign up for a 90-day free trial or Bring Your Own License (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console subscriptions. NetApp Disaster Recovery charges are based on provisioned capacity of datastores. 
+
+//For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up licensing].
+For details about setting up licensing for NetApp Disaster Recovery, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html[Set up licensing]. 
+
+For details about managing licenses for *all* NetApp Console data services, refer to https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Manage licenses for all NetApp Console data services^].
+
+//*Licensing updates*: With NetApp Disaster Recovery, you can sign up for a 90-day free trial, purchase a pay-as-you-go (PAYGO) subscription with Amazon Marketplace, or Bring Your Own License (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep or from the NetApp Support Site (NSS). You can upload the NLF directly in NetApp Console Subscriptions page or use the license serial number to get the BYOL activated in NetApp Console Subscriptions page. NetApp Disaster Recovery charges are based on provisioned capacity of datastores. 
+
+=== Edit schedules
+With this release, you can now set up schedules to test compliance and failover tests so that you ensure that they will work correctly should you need them. 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create the replication plan].
+
+//* *Terminology change*: In the UI, the "Backups" label has been changed to "Snapshots".
+
+
+
+== 01 February 2024
+
+This NetApp Disaster Recovery preview release includes the following updates: 
+
+=== Network enhancement
+With this release, you can now resize the VM CPU and RAM values. You can also now select a network DHCP or static IP address for the VM.  
+
+** DHCP: If you choose this option, you provide credentials for the VM. 
+** Static IP: You can select the same or different information from the source VM. If you choose the same as the source, you do not need to enter credentials. On the other hand, if you choose to use different information from the source, you can provide the credentials, IP address, subnet mask, DNS, and gateway information.  
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+=== Custom scripts
+Can now be included as post failover processes. With custom scripts, you can have NetApp Disaster Recovery run your script after a failover process. For example, you can use a custom script to resume all database transactions after the failover is complete.  
+//to pause all database transactions before a failover 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html[Fail over to a remote site].
+
+
+=== SnapMirror relationship 
+You can now create a SnapMirror relationship while developing the replication plan. Previously, you had to create the relationship outside of NetApp Disaster Recovery. 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+=== Consistency groups
+When you create a replication plan, you can include VMs that are from different volumes and different SVMs. NetApp Disaster Recovery creates a Consistency Group Snapshot by including all the volumes and updates all the secondary locations. 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+=== VM power-on delay option
+When you create a replication plan, you can add VMs to a Resource Group. With Resource Groups, you can set a delay on each VM so that they power up on a delayed sequence. 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+=== Application-consistent Snapshot copies
+You can specify to create application-consistent Snapshot copies. The service will quiesce the application and then take a Snapshot to obtain a consistent state of the application. 
+
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+== 11 January 2024
+This preview release of NetApp Disaster Recovery includes the following updates: 
+
+=== Dashboard more quickly
+With this release, you can access information on other pages from the Dashboard more quickly. 
+
+https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html[Learn about NetApp Disaster Recovery].
+
+
+== 20 October 2023 
+This preview release of NetApp Disaster Recovery includes the following updates. 
+
+=== Protect on-premises, NFS-based VMware workloads
+Now with NetApp Disaster Recovery, you can protect your on-premises, NFS-based VMware workloads against disasters to another on-premises, NFS-based VMware environment in addition to the public cloud. NetApp Disaster Recovery orchestrates the completion of the disaster recovery plans.  
+
+NOTE: With this preview offering, NetApp reserves the right to modify offering details, contents and timeline before General Availability.   
+
+https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html[Learn more about NetApp Disaster Recovery]. 
+
+
+== 27 September 2023
+
+This preview release of NetApp Disaster Recovery includes the following updates: 
+
+=== Dashboard updates
+You can now click into the options on the Dashboard, making it easier for you to review the information quickly. Also, the Dashboard now shows the status of failovers and migrations.  
+
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/dashboard-view.html[View the health of your disaster recovery plans on the Dashboard].
+
+
+=== Replication plan updates
+** *RPO*: You can now enter the Recovery Point Objective (RPO) and Retention count in the Datastores section of the Replication plan. This indicates the amount of data that must exist that is not older than the set time. If, for example, you set it at 5 minutes, the system can lose up to 5 minutes of data if there’s a disaster without impacting business critical needs. 
++
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+** *Networking enhancements*: When you are mapping networking between source and target locations in the virtual machines section of the replication plan, NetApp Disaster Recovery now offers two options: DHCP or static IP. Previously, just DHCP was supported. For static IPs, you configure the subnet, gateway, and DNS servers. Additionally, you can now enter credentials for virtual machines. 
++
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+** *Edit schedules*: You can now update replication plan schedules. 
++
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage resources].
+
+** *SnapMirror automation*: While you are creating the replication plan in this release, you can define the SnapMirror relationship between source and target volumes in one of the following configurations: 
+
+*** 1 to 1
+*** 1 to many in a fanout architecture
+*** Many to 1 as a Consistency Group
+*** Many to many 
++
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+
+
+== 01 August 2023
+
+=== NetApp Disaster Recovery preview
+NetApp Disaster Recovery preview is a cloud-based disaster recovery service that automates disaster recovery workflows. Initially, with the NetApp Disaster Recovery preview, you can protect your on-premises, NFS-based VMware workloads running NetApp storage to VMware Cloud (VMC) on AWS with Amazon FSx for ONTAP. 
+
+NOTE: With this preview offering, NetApp reserves the right to modify offering details, contents and timeline before General Availability.   
+
+https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html[Learn more about NetApp Disaster Recovery]. 
+
+This release includes the following updates: 
+
+=== Resource groups update for boot order
+When you create a disaster recovery or replication plan, you can add virtual machines into functional resource groups. Resource groups enable you to put a set of dependent virtual machines into logical groups that meet your requirements. For example, groups could contain boot order that can be executed upon recovery. With this release, each resource group can include one or more virtual machines. The virtual machines will power on based on the sequence in which you include them in the plan. Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html#select-applications-to-replicate-and-assign-resource-groups[Select applications to replicate and assign resource groups].
+ 
+
+
+=== Replication verification
+After you create the disaster recovery or replication plan, identify the recurrence in the wizard, and initiate a replication to a disaster recovery site, every 30 minutes NetApp Disaster Recovery verifies that the replication is actually occurring according to the plan. You can monitor the progress in the Job Monitor page. Refer to  https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/replicate.html[Replicate applications to another site].
+
+=== Replication plan shows recovery point objective (RPO) transfer schedules
+When you create a disaster recovery or replication plan, you select the VMs. In this release, you can now view the SnapMirror associated with each of the volumes that are associated with the datastore or VM. You can also see the RPO transfer schedules that are associated with the SnapMirror schedule. RPO helps you determine whether your backup schedule is enough to recover after a disaster. Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+=== Job Monitor update
+The Job Monitor page now includes a Refresh option so that you can get an up-to-date status of operations. Refer to  https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/monitor-jobs.html[Monitor disaster recovery jobs].
+
+== 18 May 2023 
+
+This is the initial release of NetApp Disaster Recovery. 
+
+=== Cloud-based disaster recovery service
+NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. Initially, with the NetApp Disaster Recovery preview, you can protect your on-premises, NFS-based VMware workloads running NetApp storage to VMware Cloud (VMC) on AWS with Amazon FSx for ONTAP. 
+
+
+link:https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html[Learn more about NetApp Disaster Recovery].
+
+
+

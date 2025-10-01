@@ -14,5 +14,5 @@ include::https://raw.githubusercontent.com/NetAppDocs/common/main/_include/commo
 // Include the open source notice intro
 include::https://raw.githubusercontent.com/NetAppDocs/common/main/_include/open-source-notice-intro.adoc[]
 
-
 // Add required link(s)
+link:media/NOTICE.pdf[Notice for NetApp Disaster Recovery^]

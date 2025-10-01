@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-config-prereqs.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter 
+summary: You should ensure that several prerequisites are met before you continue to configure Amazon EVS with NetApp Disaster Recovery. 
+
+---
+= Prerequisites for Amazon EVS with NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+You should ensure that several prerequisites are met before you continue to configure Amazon EVS with NetApp Disaster Recovery. 
+
+Specifically, do the following:
+
+[start 1]
+
+* Create a vCenter user account with the specific VMware privileges required for NetApp Disaster Recovery to perform the necessary operations. 
++
+NOTE: We do not recommend using the default "\administrator@vsphere.com" administrator account. Instead, you should create a NetApp Disaster Recovery specific user account on all vCenter clusters that will participate in the DR process. For a list of specific privileges required, see link:vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
+
+* Ensure that all vCenter datastores that will host VMs protected by NetApp Disaster Recovery are located on NetApp ONTAP storage resources. 
++
+The service supports NFS and VMFS on iSCSI (and not FC) when using Amazon FSx on NetApp ONTAP. While the service supports FC, Amazon FSx for NetApp ONTAP does not.
+
+* Ensure that your Amazon EVS vCenter is connected to an Amazon FSx for NetApp ONTAP storage cluster.
+
+* Ensure that VMware tools are installed on all protected VMs.
+
+* Ensure that your on-premises network is connected to your AWS VPC network using an Amazon approved connection method. We recommend that you use AWS Direct Connect, AWS Private Link, or an AWS Site-to-Site VPN.

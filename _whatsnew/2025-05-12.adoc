@@ -1,0 +1,49 @@
+=== Subnet mapping 
+
+With this release, you can manage IP addresses on failover in a new way using subnet mapping, which enables you to add subnets for each vCenter. When you do so, you define the IPv4 CIDR, the default gateway, and the DNS for each virtual network. 
+
+Upon failover, NetApp Disaster Recovery determines the appropriate IP address of each vNIC by looking at the CIDR provided for the mapped virtual network and uses it to derive the new IP address. 
+
+For example: 
+
+* NetworkA = 10.1.1.0/24
+* NetworkB = 192.168.1.0/24
+
+VM1 has a vNIC (10.1.1.50) that is connected to NetworkA. 
+NetworkA is mapped to NetworkB in the replication plan settings. 
+
+Upon failover, NetApp Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, NetApp Disaster Recovery looks at the CIDR settings for NetworkB and uses that the NetworkB network portion 192.168.1 while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
+
+In summary, the host address stays the same, while the network address is replaced with whatever is configured in the site subnet mapping. This enables you to manage IP address reassignment upon failover more easily, especially if you have hundreds of networks and thousands of VMs to manage. 
+
+//For details about including subnet mapping in your sites, see  link:../use/sites-add.html[Add vCenter server sites].
+
+For details about including subnet mapping in your sites, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html[Add vCenter server sites].
+
+=== Skip protection 
+
+You can now skip protection so that the service does not automatically create a reverse protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
+
+When you initiate a failover, by default the service automatically creates a reverse protection relationship for each volume in the replication plan, if the original source site is online. This means that the service creates a SnapMirror relationship from the target site back to the source site. The service also automatically reverses the SnapMirror relationship when you initiate a failback.
+
+When initiating a failover, you can now choose a *Skip protection* option. With this, the service does not automatically reverse the SnapMirror relationship. Instead, it leaves the writable volume on both sides of the replication plan. 
+
+After the original source site is back online, you can establish reverse protection by selecting *Protect resources* from the Replication plan Actions menu. This attempts to create a reverse replication relationship for each volume in the plan. You can run this job repeatedly until protection is restored. When protection is restored, you can initiate a failback in the usual way.
+
+//For details about skipping protection, see  link:../use/failover.html[Fail over applications to a remote site].
+
+For details skipping protection, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html[Fail over applications to a remote site].
+
+=== SnapMirror schedule updates in the replication plan
+
+NetApp Disaster Recovery now supports the use of external snapshot management solutions such as the native ONTAP SnapMirror policy scheduler or third-party integrations with ONTAP. If every datastore (volume) in the replication plan already has a SnapMirror relationship that is being managed elsewhere, you can use those snapshots as recovery points in NetApp Disaster Recovery. 
+
+To configure, in the Replication plan > Resource mapping section, check the *Use platform managed backups and retention schedules* checkbox when configuring the Datastores mapping. 
+
+When the option is selected, NetApp Disaster Recovery does not configure a backup schedule. However, you still need to configure a retention schedule because snapshots might still be taken for testing, failover, and failback operations. 
+
+After this is configured, the service doesn't take any regularly scheduled snapshots, but instead relies on the external entity to take and update those snapshots.
+
+//For details using external snapshot solutions in the replication plan, see  link:../use/drplan-create.html[Create a replication plan].
+
+For details about using external snapshot solutions in the replication plan, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].

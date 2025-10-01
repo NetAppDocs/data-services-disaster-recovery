@@ -1,14 +1,52 @@
 indexpage:
-  title: # Unquoted string 
-  lead: # Quoted string
-  summary: # Quoted string 
-  keywords: # Unquoted comma-delimited list of keywords 
-  tiles: 
-    # Tile definition 
-    - title: # Quoted or unquoted string
-      links: 
-        # Link definition
-        - title: # Quoted or unquoted string
-          url: # Path to target
-        # Next link on this tile (title/url pair)
-    # Next tile on this page (title/links)
+  title: NetApp Disaster Recovery documentation
+  lead: Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events (for example, ransomware). With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud or to another on-premises site as a disaster recovery site. 
+  summary: "With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud as a disaster recovery site using NetApp cloud storage."
+  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage
+  tiles:
+  - title: Get started
+    #image: ./media/outline_directions_run_black_18dp.png
+    links:
+    - title: Learn about NetApp Disaster Recovery
+      url: /get-started/dr-intro.html
+    - title: What's new in NetApp Disaster Recovery
+      url: /release-notes/dr-whats-new.html
+#   - title: Release notes
+#     url: /release-notes/rn_overview.html
+    - title: Quick start
+      url: /get-started/dr-quick-start.html
+    - title: Prerequisites
+      url: /get-started/dr-prerequisites.html
+    - title: Access NetApp Disaster Recovery 
+      url: /get-started/dr-login.html
+    - title: FAQ
+      url: /get-started/dr-faq.html 
+  - title: Use NetApp Disaster Recovery
+    links:
+    - title: Add vCenters to a site
+      url: /use/sites-add.html
+    - title: Create a disaster recovery plan
+      url: /use/drplan-create.html
+    - title: Replicate apps to another site 
+      url: /use/replicate.html
+    - title: Migrate apps to another site
+      url: /use/migrate.html 
+    - title: Fail over apps to a remote site
+      url: /use/failover.html
+    - title: Fail back apps to the original source site
+      url: /use/failback.html 
+  - title: Blogs & community
+    links:
+    - title: NetApp Console
+      url: https://www.netapp.com/console
+    - title: NetApp Data Services
+      url: https://www.netapp.com/data-services/
+    - title: NetApp Community
+      url: https://community.netapp.com
+    - title: NetApp Disaster Recovery blog
+      url: https://community.netapp.com/t5/Tech-ONTAP-Blogs/BlueXP-disaster-recovery-service-for-BC-with-VMware-Cloud-on-AWS-and-FSx-for/ba-p/447066  
+    - title: Getting Started with NetApp Disaster Recovery as a Service Lab on Demand 
+      url: https://labondemand.netapp.com/lab/draas 
+    - title: Videos
+      url: https://www.youtube.com/@netapp/videos
+

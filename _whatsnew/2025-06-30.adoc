@@ -1,0 +1,3 @@
+=== Discovery improvements
+This update improves the discovery process, which reduces the time needed for discovery.
+

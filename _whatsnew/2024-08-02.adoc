@@ -1,0 +1,9 @@
+=== Support for on-premises to on-premises VMware VMFS datastores for FC 
+This release includes a _technology preview_ of support for VMs mounted on VMware vSphere virtual machine file system (VMFS) datastores for FC protected to on-premises storage. Previously, the service provided a technology preview supporting VMFS datastores for iSCSI. 
+
+NOTE: NetApp doesn't charge you for any previewed workload capacity.
+
+=== Job cancel
+With this release, you can now cancel a job in the Job Monitor UI.  
+
+Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/monitor-jobs.html[Monitor jobs].
