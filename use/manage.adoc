@@ -45,14 +45,19 @@ While you can add a resource group as part of creating a replication plan, you m
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role.
 
-
-
 You can create a resource group by datastores in the following ways:
 
 * When you're adding a resource group using datastores, you can see a list of datastores. You can select one or more datastores to create a resource group.
 * When you're creating a replication plan and creating a resource group within the plan, you can see the VMs in the datastores. 
 
-You can also edit and delete resource groups. 
+You can do the following tasks with resource groups: 
+
+* Change the resource group name. 
+* Add VMs to the resource group.    
+* Remove VMs from the resource group.
+* Delete resource groups. 
+
+For details about creating a resource group, refer to link:resource-group.html[Create a resource group to organize VMs together].
 
 .Steps 
 

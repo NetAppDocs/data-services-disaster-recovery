@@ -23,11 +23,15 @@ Organization admin, Folder or project admin, or Disaster recovery admin.
 link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
+*About this task*
+
 If you added vCenters in previous releases and want to customize the discovery schedule, you must edit the vCenter server site and set the schedule. 
 
 TIP: NetApp Disaster Recovery performs discovery once every 24 hours. After setting up a site, you can later edit the vCenter to customize the discovery schedule that meets your needs. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours. The minimum interval is 30 minutes and the maximum is 24 hours. 
 
-You should first do a few manual discoveries to get the most up-to-date information about your environment. After that, you can set the schedule to run automatically.
+You should first perform a few manual discoveries to get the most up-to-date information about your environment. After that, you can set the schedule to run automatically.
+
+If you have vCenters from earlier versions and want to change when discovery runs, edit the vCenter server site and set the schedule. 
 
 Newly added or deleted VMs are recognized in the next scheduled discovery or during an immediate manual discovery. 
 
@@ -37,6 +41,17 @@ VMs can be protected only if the replication plan is in one of the following sta
 * Failback committed
 * Test failover committed
 
+*vCenter clusters in a site*
+Each site contains one or more vCenters. These vCenters use one or more ONTAP storage clusters to host NFS or VMFS datastores. 
+
+A vCenter cluster can reside in only one site. You need the following information to add a vCenter cluster to a site: 
+
+* The vCenter management IP address or FQDN
+* Credentials for a vCenter account with the required privileges to perform operations. See link:vcenter--privileges.html[required vCenter privileges] for more information.
+* For cloud-hosted VMware sites, the required cloud access keys
+* A security certificate to access your vCenter. 
++
+NOTE: The service supports self-signed security certificates or certificates from a central certificate authority (CA). 
 
 .Steps
 
@@ -51,7 +66,10 @@ NOTE: Different fields appear depending on the type of site you are adding.
 +
 . If some vCenter sites already exist and you want to add more, from the menu, select *Sites* and then select *Add*.
 . In the Sites page, select the site, and select *Add vCenter*.
- 
+
+. *Source*: Select *Discover vCenter servers* to enter information about the source vCenter site.  
++
+TIP: If some vCenter sites already exist and you want to add more, from the top menu, select *Sites* and then select *Add*.  
 +
 image:vcenter-add.png[Add vCenter server screenshot ]
 
@@ -88,9 +106,9 @@ image:sites-list2.png[Sites page screenshot]
 
 == Add subnet mapping for a vCenter site
 
-Manage IP addresses on failover in a new way using subnet mapping, which enables you to add subnets for each vCenter. When you do so, you define the IPv4 CIDR, the default gateway, and the DNS for each virtual network. 
+You can manage IP addresses on failover operations using subnet mapping, which enables you to add subnets for each vCenter. When you do so, you define the IPv4 CIDR, the default gateway, and the DNS for each virtual network. 
 
-Upon failover, NetApp Disaster Recovery determines the appropriate IP address of each vNIC by looking at the CIDR provided for the mapped virtual network and uses it to derive the new IP address. 
+Upon failover, NetApp Disaster Recovery uses the mapped network's CIDR to assign each vNIC a new IP address. 
 
 For example: 
 
@@ -107,7 +125,7 @@ In summary, the host address stays the same, while the network address is replac
 Using subnet mapping is an optional two-step process: 
 
 * First, add the subnet mapping for each vCenter site.
-* Second, in the replication plan, indicate that you want to use subnet mapping.
+* Second, in the replication plan, indicate that you want to use subnet mapping in the Virtual Machines tab and Target IP field.
 
 .Steps
 
@@ -159,10 +177,9 @@ NOTE: If there are two VMs (for example, one is Linux and the other is Windows),
 
 == Edit the vCenter server site and customize the discovery schedule
 
-
 You can edit the vCenter server site to customize the discovery schedule. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
 
-If you added vCenters in previous releases and want to customize the discovery schedule, you must edit the vCenter server site and set the schedule. 
+If you have vCenters from earlier versions and want to change when discovery runs, edit the vCenter server site and set the schedule. 
 
 If you don't want to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
 
