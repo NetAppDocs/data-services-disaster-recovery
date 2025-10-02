@@ -11,13 +11,15 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you’ve added vCenter sites, you might want to create resource groups that group VMs together by VMs or by datastores. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
+After addeding vCenter sites, you can create resource groups to protect VMs by VM or datastore as a single unit. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
 
 link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+*About this task* 
 
 You can group VMs themselves or VMs in datastores. 
 
@@ -30,11 +32,10 @@ TIP: Each resource group can include one or more VMs or datastores. The VMs will
 
 .About resource groups
 
-Resource groups enable you to combine VMs or datastores that include VMs that are related operationally and need to be protected as a single unit. 
+Resource groups let you combine VMs or datastores to them as a single unit. 
 
-For example, a point-of-sale application might consist of several VMs hosting databases, several VMs hosting business logic rules management, and several VMs acting as a webserver-based storefront. It might be beneficial to manage the entire application’s availability with a single protection process by placing these VMs in a single resource group. 
+For example, a point-of-sale application might use several VMs for databases, business logic, and storefronts. You can manage all these VMs with one resource group. Set up resource groups to apply replication plan rules for VM startup order, network connection, and recovery of all VMs needed for the application.
 
-With resource groups set up, you can apply the replication plan rules for proper VM startup order, network connection, and more to ensure proper recovery of all VMs required for the application.
 
 .How does it work?
 
@@ -62,8 +63,8 @@ If VMs in the resource group are hosted on different data stores, NetApp Disaste
 
 When you create resource groups, consider the following issues: 
 
-* Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not trigger a manual discovery, the VMs might not be listed in the resource group.
-* Ensure that there is at least one VM in the datastore. If there are no VMs in the datastore, the datastore will not be discovered.
+* Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not start a manual discovery, the VMs might not be listed in the resource group.
+* Ensure that there is at least one VM in the datastore. If there are no VMs in the datastore, Disaster Recovery does not discover the datastore.
 * A single datastore should not host VMs protected by more than one replication plan.
 * Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, the following issues could arise:  
 ** Because NetApp Disaster Recovery uses SnapMirror and the system replicates entire ONTAP volumes, the used capacity of that volume is used for licensing considerations. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.

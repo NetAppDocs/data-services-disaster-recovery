@@ -19,7 +19,11 @@ Organization admin, Folder or project admin, Disaster recovery admin, or Disaste
 link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
-During a failover, the most recent SnapMirror snapshot copy is used. Or, you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). The point-in-time option can be helpful if you are facing a corruption event such as ransomware, where the most recent replicas are already compromised or encrypted. NetApp Disaster Recovery shows all available points in time.
+*About this task*
+
+During a failover, Disaster Recovery uses the most recent SnapMirror snapshot copy. Or, you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). 
+
+Use the point-in-time option if the most recent replicas are compromised, such as during a ransomware attack. BlueXP disaster recovery shows all available points in time.
 
 This process differs depending on whether the production site is healthy and you are performing a failover to the disaster recovery site for reasons other than a critical infrastructure failure:
 
@@ -29,19 +33,27 @@ This process differs depending on whether the production site is healthy and you
 This procedure breaks the replication relationship, places the vCenter source VMs offline, registers the volumes as datastores in the disaster recovery vCenter, restarts the protected VMs using the failover rules in the plan, and enables read/write on the target site. 
 
 
-
-
 == Test the failover process
 
 Before you start the failover, you can test the process. The test does not place the virtual machines offline. 
 
-During a failover test, virtual machines are temporarily created. NetApp Disaster Recovery does not map the target volume. Instead, it makes a new FlexClone volume from the selected snapshot, and a temporary datastore backing the FlexClone volume is mapped to the ESXi hosts.
+During a failover test, BlueXP disaster recovery temporarily creates virtual machines. BlueXP disaster recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
 
 This process doesn’t consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
 When you finish the test, you should reset the virtual machines with the *Clean up test* option. While this is recommended, it is not required. 
 
 A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
+
+For a test failover, Disaster Recovery performs the following operations:
+
+* Perform prechecks on the destination cluster and the SnapMirror relationship.
+* Create a new FlexClone volume from the selected snapshot for each protected ONTAP volume on the target site ONTAP cluster. 
+* If any datastores are VMFS, create and map an iGroup to each LUN.
+* Register the target virtual machines within vCenter as new datastores.
+* Power on the target virtual machines based on the boot order captured in the Resource groups page.
+* Unquiesce any supported database applications in VMs indicated as "application consistent."
+* If the source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. 
 
 .Steps 
 
@@ -79,15 +91,20 @@ In case of a disaster, fail over your primary on-premises VMware site on demand 
 
 The failover process involves in the following operations: 
 
+* Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship. 
 * If you selected the latest snapshot, the SnapMirror update is performed to replicate the latest changes. 
 * The source virtual machines are powered down. 
 * The SnapMirror relationship is broken and the target  volume is made read/write. 
-* Based on the selection of the snapshot, the active file system is restored to the specified snapshot (latest or selected) 
-* Datastores are created and mounted to the VMware or VMC cluster or host based on the information captured in the replication plan.
-* The target virtual machines are registered and powered on based on the order captured in the Resource groups page.  
-* The SnapMirror relationship is reversed from target to source virtual machine. 
+* Based on the selection of the snapshot, the active file system is restored to the specified snapshot (latest or selected). 
+* Datastores are created and mounted to the VMware or VMC cluster or host based on the information captured in the replication plan. If any datastores are VMFS, create and map an iGroup to each LUN. 
+* The target virtual machines are registered within vCenter as new datastores.  
+* The target virtual machines are powered on based on the boot order captured in the Resource groups page.  
+* If the source vCenter is still active, power off all source side VMs that are being failed over. 
+* Unquiesce any supported database applications in VMs indicated as "application consistent." 
+* If source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source virtual machine. 
 
-TIP: After the failover starts, the recovered VMs can be seen in the vCenter of the disaster recovery site (virtual machines, networks, and datastores). By default, the virtual machines are recovered to the Workload folder.
+
+TIP: After the failover starts, you can see the recovered VMs in the vCenter of the disaster recovery site (virtual machines, networks, and datastores). By default, the virtual machines are recovered to the Workload folder.
 
 .Steps 
 

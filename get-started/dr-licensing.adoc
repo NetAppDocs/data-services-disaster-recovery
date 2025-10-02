@@ -27,7 +27,6 @@ You can use the following licensing options:
 //* Purchase a pay-as-you-go (PAYGO) subscription to *NetApp Intelligent Services* with Amazon Web Services (AWS) Marketplace or to Microsoft Azure Marketplace.
 * Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console.
 
-//NOTE: NetApp Disaster Recovery charges are based on provisioned capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license, upgrade the license in the NetApp Console, or purchase a subscription in AWS. If you choose an AWS subscription, any capacity used above the contract limits is charged based on the AWS Marketplace plans. 
 
 NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
 
@@ -35,7 +34,6 @@ NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores 
 
 link:https://docs.netapp.com/us-en/bluexp-digital-wallet/concept-digital-wallet.html[Learn more about subscriptions^].
 
-//After the free trial ends or the license or AWS subscription expires, you can still do the following in the service:
 
 After the free trial ends or the license expires, you can still do the following in the service:
 
@@ -95,8 +93,6 @@ image:dr-licensing-payment-methods.png[The NetApp Disaster Recovery Payment meth
 +
 You can view subscription details in the NetApp Console subscription page. link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html[Learn more managing subscriptions with the NetApp Console^].
 
-+
-
 
 
 == After the trial ends, purchase a BYOL license through NetApp
@@ -106,11 +102,9 @@ After the trial ends, you can purchase a license through your NetApp Sales Rep.
 If you bring your own license (BYOL), the set up includes purchasing the license, getting the NetApp License File (NLF), and adding the license to the NetApp Console. 
 
 *Add the license to the NetApp Console**
-After you've purchased your NetApp Disaster Recovery license from your NetApp Sales Rep, you can manage the license in the Console.
+After you've purchased your NetApp Disaster Recovery license from a NetApp Sales Rep, you can manage the license in the Console.
 
 https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about adding licenses with the NetApp Console^].
-
-
 
 
 
@@ -136,9 +130,9 @@ image:draas-trial-end3.png[End free trial page]
 
 . If you want to delete all data, check *Delete data immediately after ending my free trial*. 
 +
-This will delete all schedules, replication plans, resource groups, vCenters, and sites. Audit data, operation logs, and jobs history are retained until the end of the life of the product. 
+This deletes all schedules, replication plans, resource groups, vCenters, and sites. Audit data, operation logs, and jobs history are retained until the end of the life of the product. 
 +
-NOTE: If you end the free trial, did not request to delete data and don't purchase a license or subscription, then NetApp Disaster Recovery deletes all of your data 60 days after the free trial ends. 
+NOTE: If you end the free trial, did not request to delete data, and don't purchase a license or subscription, then NetApp Disaster Recovery deletes all of your data 60 days after the free trial ends. 
 
 . Type "end trial" in the text box. 
 . Select *End*. 
