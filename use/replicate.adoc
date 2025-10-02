@@ -13,13 +13,15 @@ summary: Using NetApp Disaster Recovery, you can replicate VMware apps on your s
 [.lead]
 Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.
 
+TIP: After you create the disaster recovery plan, identify the recurrence in the wizard, and initiate a replication to a disaster recovery site, every 30 minutes NetApp Disaster Recovery verifies that the replication is actually occurring according to the plan. You can monitor the progress in the Job Monitor page. 
+
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery failover admin role. 
 
 link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
-TIP: After you create the disaster recovery plan, identify the recurrence in the wizard, and initiate a replication to a disaster recovery site, every 30 minutes NetApp Disaster Recovery verifies that the replication is actually occurring according to the plan. You can monitor the progress in the Job Monitor page. 
+
 
 .Before you begin
 Before you initiate the replication, you should have created a replication plan and selected to replicate the apps. Then, the *Replicate* option appears in the Actions menu. 
