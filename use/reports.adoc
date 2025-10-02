@@ -1,0 +1,62 @@
+---
+sidebar: sidebar
+permalink: use/reports.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports
+summary: Reviewing disaster recovery reports can help you analyze your disaster recovery preparedness. Predesigned reports include a summary of failovers and failbacks, replication details on all sites, and job details for the past year. 
+---
+
+= Create NetApp Disaster Recovery reports
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Reviewing NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Predesigned reports include a summary of test failovers, replication plan details, and job details on all sites within an account for the past seven days. 
+
+You can download reports in PDF, HTML, or JSON format. 
+
+
+The Download link is valid for six hours. 
+
+.Steps 
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+ . From the NetApp Console left navigation bar, select *Replication plans*. 
+. Select *Create report*.
+. Select the type of file format and the time period within the last 7 days. 
+. Select *Create*. 
++
+NOTE: The report might take a few minutes to display. 
+. To download a report, select *Download report* and select it in the administrator's Download folder.  
+
+
+
+
+
+//== Create your own disaster recovery report
+
+//You can create a custom report where you can specify the sites, replication plans, and data. You can specify whether to include failover and failback summaries for the past year, VM details for each replication plan, and job details for each replication plan for the past year. 
+
+//. From the menu, select *Reports*. 
+//. Before you create a report, refresh the data by clicking the *Refresh* option. 
+//. Select the *Custom* option. 
+//. Select *Add* to add a new report. 
+//+
+//image:dr-reports-add.png[Add custom report dialog]
+//. Select the options to customize your report: 
+//** Sites
+//** Replication plans
+//** Data
+//*** Summary of failover and failbacks for the past year
+//*** VM details for each replication plan
+//*** Job details for each replication plan for the past year
+
+//. Select *Add* to add a new report. 
+//+
+//Your custom report appears on the list of Custom reports. 
+//+
+//TIP: To see all the sites or plans included in the report, click the number to the right of the report name or plan names. 
+
+//. Download your custom report by clicking on *Download*. 

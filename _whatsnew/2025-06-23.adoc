@@ -1,0 +1,2 @@
+=== Subnet mapping improvements
+This update enhances the Add and Edit Subnet Mapping dialog with a new search functionality. You can now quickly find specific subnets by entering search terms, making it easier to manage subnet mappings.

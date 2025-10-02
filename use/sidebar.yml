@@ -1,0 +1,27 @@
+section: use
+title: Use NetApp Disaster Recovery 
+entries:
+  - title: Use NetApp Disaster Recovery overview 
+    url: /use/use-overview.html
+  - title: View the health of your disaster recovery plans on the Dashboard
+    url: /use/dashboard-view.html 
+  - title: Add vCenters to a site 
+    url: /use/sites-add.html
+  - title: Create a resource group 
+    url: /use/resource-group.html
+  - title: Create a replication plan
+    url: /use/drplan-create.html
+  - title: Replicate to another site 
+    url: /use/replicate.html
+  - title: Migrate to another site
+    url: /use/migrate.html
+  - title: Fail over to a remote site
+    url: /use/failover.html
+  - title: Fail back applications to the original source site
+    url: /use/failback.html 
+  - title: Manage sites, plans, datastores, and virtual machines information 
+    url: /use/manage.html
+  - title: Monitor disaster recovery jobs
+    url: /use/monitor-jobs.html 
+  - title: Create disaster recovery reports
+    url: /use/reports.html

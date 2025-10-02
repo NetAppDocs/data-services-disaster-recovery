@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: reference/vcenter-privileges.html
+keywords: disaster recovery, bluexp, vcenter,
+summary: The vCenter account must have a minimum set of vCenter privileges to allow NetApp Disaster Recovery to perform its services, such as registering and deregistering datastores, starting and stopping VMs, and reconfiguring virtual machines (VMs). The following table lists all privileges required for NetApp Disaster Recovery to interface with a vCenter cluster.
+---
+
+= vCenter privileges needed for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+The vCenter account must have a minimum set of vCenter privileges to allow NetApp Disaster Recovery to perform its services, such as registering and deregistering datastores, starting and stopping VMs, and reconfiguring virtual machines (VMs). The following table lists all privileges required for NetApp Disaster Recovery to interface with a vCenter cluster.
+
+
+[cols=3*,options="header",cols="25,35a,40a",width="100%"]
+|===
+| Type
+| Privilege name
+| Description
+
+
+| *Datastore* | Datastore.Configure datastore | Use to configure a datastore. 
+| | Datastore.Remove datastore | Use to remove a datastore. 
+| *Virtual Machine* | Virtual machine.Configuration.Change Settings | Use to change general VM settings. 
+| | Virtual machine.Configuration.Modify device settings | Use to change the properties of an existing device.
+| | Virtual machine.Configuration.Reload from path | Use to change a VM configuration patch while preserving the identity of the VM. Solutions such as VMware vCenter Site Recovery Manager use this operation to maintain VM identify during failover and failback. 
+|  | Virtual machine.Configuration.Rename | Use to rename a VM or modify the associated nodes of a VM. 
+| | Virtual machine.Configuration.Reset guest information | Use to edit the guest operating system information for a VM. 
+| | Virtual machine.Configuration.Change Memory | Use to change the amount of memory allocated to the VM. 
+| | Virtual machine.Configuration.Change CPU count | Use to change the number of virtual CPUs. 
+| *Virtual Machine Guest* | Virtual machine.Guest Operations.Guest Operation Modifications | Enables VM guest operations that involve changes to a guest operating system in a VM, such as transferring a file to the VM. 
+| *Virtual Machine Interaction* | Virtual machine.Interaction.Power Off | Use to power off a powered-on VM. This operation powers down the guest operating system. 
+| | Virtual machine.Interaction.Power on | Use to power on a powered-off VM and resume a suspended VM. 
+
+| | Virtual machine.Interaction.VMware Tools install | Use to mount and unmount the VMware Tools CD installer as a CD-ROM for the guest operating system. 
+
+| *Virtual Machine Inventory* | Virtual machine.Inventory.Create new | Use to create a VM and allocate resources for its execution. 
+| | Virtual machine.Inventory.Register | Use to add an existing VM to a vCenter Server or host inventory. 
+| | Virtual machine.Inventory.Unregister | Use to unregister a VM from a vCenter Server or host inventory. 
+| *Virtual Machine State* | Virtual machine.Snapshot management.Create snapshot | Use to create a snapshot from the VM's current state. 
+| | Virtual machine.Snapshot management.Remove Snapshot | Use to remove a snapshot from the snapshot history.
+| | Virtual machine.Snapshot management.Revert to snapshot | Use to set the VM to the state it was in at a given snapshot. 
+
+
+|===
