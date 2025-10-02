@@ -19,12 +19,16 @@ Organization admin, Folder or project admin, Disaster recovery admin, or Disaste
 link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
+*About this task*
+
 In this workflow, NetApp Disaster Recovery replicates (resyncs) any changes back to the original source virtual machine before reversing the replication direction. This process starts from a relationship that has completed failing over to a target and involves the following steps:
 
-* On the target site, the virtual machines are powered off and unregistered, and volumes are unmounted.  
-* The SnapMirror relationship on the original source is broken to make it read/write.
-* The SnapMirror relationship is resynchronized to reverse the replication.
-* The source virtual machines are powered on and registered, and volumes are mounted on the source. 
+* Perform a compliance check on the recovered site. 
+* Refresh the vCenter information for each vCenter cluster identified as located in the recovered site. 
+* On the target site, power off and unregister the virtual machines, and unmount volumes.  
+* Break the SnapMirror relationship on the original source to make it read/write.
+* Resynchronize the SnapMirror relationship to reverse the replication.
+* Power on and register the source virtual machines, and mount the volumes on the source. 
 
 .Steps 
 

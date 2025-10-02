@@ -15,7 +15,93 @@ To use NetApp Disaster Recovery, perform a few steps to set it up both in Amazon
 
 TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure that your system is ready.
 
-== Get ready for NetApp Disaster Recovery for on-premises-to-on-premises protection
+You can use NetApp Disaster Recovery in the following infrastructures:
+
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS and Amazon FSx for NetApp ONTAP. 
+
+* Private cloud DR that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
+
+== Hybrid cloud with VMware Cloud and Amazon FSx for NetApp ONTAP 
+
+This method consists of an on-premises production vCenter infrastructure using datastores hosted on ONTAP FlexVol volumes using an NFS protocol. The DR site consists of one or more VMware Cloud SDDC instances using datastores hosted on FlexVol volumes provided by one or more FSx for ONTAP instances using an NFS protocol. 
+
+The production and DR sites are connected by an AWS-compatible secure connection. Common connection typs are a secure VPN (private or AWS provided), AWS Direct Connect, or other approved interconnect methods. 
+
+For Disaster Recovery involving AWS cloud infrastructure, you must use the Console agent for AWS. The agent should be installed in the same VPC as the FSx for ONTAP instance. If additional FSx for ONTAP instances were deployed in other VPCs, the VPC hosting the agent must have access to the other VPCs. 
+
+=== AWS availability zones
+
+AWS supports deploying solutions in one or more availability zones (AZ) within a given region. Disaster Recovery uses two AWS hosted services: VMware Cloud for AWS and AWS FSx for NetApp ONTAP.
+
+* *VMware Cloud for AWS*: Supports the deployment in a single-AZ or in a dual-AZ stretch-cluster SDDC environment. Disaster Recovery supports a single-AZ SDDC deployment only for Amazon VMware Cloud for AWS.
+
+* *AWS FSx for NetApp ONTAP*: When this is deployed in a dual-AZ configuration, each volume is owned by a single FSx system. Each volume is owned by a single FSx system. The volume's data is mirrored to the second FSx system. The FSx for ONTAP systems can be deployed in either single- or dual-AZ deployments. Disaster Recovery supports both single- and multi-AZ FSx for FSx for ONTAP deployments.
+
+*BEST PRACTICE*: For AWS DR site configuration, NetApp recommends using single-AZ deployments for both VMware Cloud and AWS FSx for ONTAP instances. Because AWS is being used for DR, there is no advantage to introducing multiple AZs. Multi-AZs can increase costs and complexity. 
+
+=== On-premises to AWS 
+AWS provides the following methods to connect private datacenters to the AWS cloud. Each solution has its benefits and cost considerations. 
+
+* *AWS Direct Connect*: This is an AWS cloud interconnect located in the same geographic area as your private datacenter and provided by an AWS partner. This solution provides a secure, private connection between your local datacenter and the AWS cloud without the need for a public internet connection. This is the most direct and efficient connection method offeredy by AWS. 
+
+* *AWS Internet Gateway*: This provides public connectivity between AWS cloud resources and external compute resources. This type of connection is typically used to provide service offerings to external customers, such as HTTP/HTTPS service where security is not a requirement. There is no quality-of-service control, security, or guarantee of connectivity. For this reason, this connection method is not recommended for connecting a production datacenter to the cloud.
+
+* *AWS Site-Site VPN*: This virtual private network connection can be used to provide secure access connections along with a public internet service provider. The VPN encrypts and decrypts all data traveling to and from the AWS cloud. VPNs can be either software- or hardware-based. For enterprise applications, the public internet service provider (ISP) should offer quality-of-service guarantees to ensure that adequate bandwidth and latency are provide for DR replication. 
+
+*BEST PRACTICE*: For AWS DR site configuration, NetApp recommends using AWS Direct Connect. This solution provides the highest performance and security for enterprise applications. If it is not available, a high-performance public ISP connection along with a VPN should be used. Ensure that the ISP offers commercial QoS service levels to ensure adequate network performance. 
+
+=== VPC-to-VPC interconnections 
+AWS offers the following types of VPC-to-VPC interconnections. Each solution has its benefits and cost considerations.
+
+* *VPC Peering*: This is a private connection between two VPCs. It is the most direct and efficient connection method offered by AWS. VPC peering can be used to connect VPCs in the same or different AWS regions. 
+
+* *AWS Internet Gateway*: This is typically used to provide connections between AWS VPC resources and non-AWS resources and endpoints. All traffic follows a "hair-pin" path where VPC traffic destined to another VPC exits the AWS infrastructure through the internet gateway and returns to the AWS infrastructure through the same or different gateway. This is not a suitable VPC connection type for enterprise VMware solutions. 
+
+* *AWS Transit Gateway*: This is a centralized router-based connection type that enables each VPC to connect to a single, central gateway, which acts as a central hub for all VPC-to-VPC traffic. This can also be connected to your VPN solution to enable on-premises datacenter resources to access AWS VPC-hosted resources. This type of connection typically requires an additional cost to implement. 
+
+*BEST PRACTICE*: For DR solutions involving VMware Cloud and a single FSx for ONTAP VPC, NetApp recommends that you use the VPC peer connection. If multiple FSx for ONTAP VPCs are deployed, then we recommend using an AWS Transit Gateway to reduce the management overhead of multiple VPC peer connections.
+
+
+=== Get ready for on-premises-to-cloud protection using AWS
+
+To set up NetApp Disaster Recovery for on-premises-to-cloud protection using AWS, you need to set up the following:
+
+* Set up AWS FSx for NetApp ONTAP
+* Set up VMware Cloud on AWS SDDC
+
+
+==== Set up AWS FSx for NetApp ONTAP
+
+* Create an Amazon FSx for NetApp ONTAP file system. 
+** Provision and configure FSx for ONTAP. Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage, built on the NetApp ONTAP file system.
+ 
+** Follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html[Technical Report 4938: Mount Amazon FSx ONTAP as an NFS datastore with VMware Cloud on AWS^] and https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html[Quick start for Amazon FSx for NetApp ONTAP] to provision and configure FSx for ONTAP.
+ 
+* Add Amazon FSx for ONTAP to the system, and add AWS credentials for FSx for ONTAP.
+* Create or verify your destination ONTAP SVM in AWS FSx for ONTAP instance.
+* Configure replication between your source on-premises ONTAP cluster and your FSx for ONTAP instance in the NetApp Console. 
+
+
+Refer to https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[how to set up an FSx for ONTAP system^] for detailed steps.
+
+
+
+==== Set up VMware Cloud on AWS SDDC
+
+https://www.vmware.com/products/vmc-on-aws.html[VMware Cloud on AWS^] provides a cloud-native experience for VMware-based workloads in the AWS ecosystem. Each VMware software-defined data center (SDDC) runs in an Amazon Virtual Private Cloud (VPC) and provides a full VMware stack (including vCenter Server), NSX-T software-defined networking, vSAN software-defined storage, and one or more ESXi hosts that provide compute and storage resources to the workloads.
+ 
+To configure a VMware Cloud environment on AWS, follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-setup.html[Deploy and configure the Virtualization Environment on AWS^]. A pilot-light cluster can also be used for disaster recovery purposes.
+
+== Private cloud 
+
+You can use NetApp Disaster Recovery to protect VMware VMs hosted on one or more vCenter clusters by replicating VM datastores to another vCenter cluster either in the same private datacenter or to a remote private or collocated datacenter.
+
+For on-premises to on-premises situations, install the Console agent at one of the physical sites. 
+
+Disaster Recovery supports site-to-site replication using Ethernet and TCP/IP. Ensure that adequate bandwidth is available to support data change rates on the production site VMs so that all changes can be replicated to the DR site within the Recovery Point Objective (RPO) time frame.
+
+
+=== Get ready for on-premises-to-on-premises protection
 
 Ensure that the following requirements are met before you set up NetApp Disaster Recovery for on-premises-to-on-premises protection:
 
@@ -38,35 +124,4 @@ When a proxy is configured, NetApp Disaster Recovery attempts to communicate dir
 NetApp Disaster Recovery proxy implementation requires port 443 communication between the Console agent and any vCenter Servers and ONTAP arrays using an HTTPS protocol. The NetApp Disaster Recovery agent within the Console agent communicates directly with VMware vSphere, the VC, or ONTAP when performing any actions.
  
 For more information about general proxy set up in the NetApp Console, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html[Configure the Console agent to use a proxy server^].
-
-== Get ready for NetApp Disaster Recovery for on-premises-to-cloud protection using AWS
-
-To set up NetApp Disaster Recovery for on-premises-to-cloud protection using AWS, you need to set up the following:
-
-* Set up AWS FSx for NetApp ONTAP
-* Set up VMware Cloud on AWS SDDC
-
-
-=== Set up AWS FSx for NetApp ONTAP
-
-* Create an Amazon FSx for NetApp ONTAP file system. 
-** Provision and configure FSx for ONTAP. Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage, built on the NetApp ONTAP file system.
- 
-** Follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html[Technical Report 4938: Mount Amazon FSx ONTAP as an NFS datastore with VMware Cloud on AWS^] and https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html[Quick start for Amazon FSx for NetApp ONTAP] to provision and configure FSx for ONTAP.
- 
-* Add Amazon FSx for ONTAP to the system, and add AWS credentials for FSx for ONTAP.
-* Create or verify your destination ONTAP SVM in AWS FSx for ONTAP instance.
-* Configure replication between your source on-premises ONTAP cluster and your FSx for ONTAP instance in the NetApp Console. 
-
-
-Refer to https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[how to set up an FSx for ONTAP system^] for detailed steps.
-
-
-
-=== Set up VMware Cloud on AWS SDDC
-
-https://www.vmware.com/products/vmc-on-aws.html[VMware Cloud on AWS^] provides a cloud-native experience for VMware-based workloads in the AWS ecosystem. Each VMware software-defined data center (SDDC) runs in an Amazon Virtual Private Cloud (VPC) and provides a full VMware stack (including vCenter Server), NSX-T software-defined networking, vSAN software-defined storage, and one or more ESXi hosts that provide compute and storage resources to the workloads.
- 
-To configure a VMware Cloud environment on AWS, follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-setup.html[Deploy and configure the Virtualization Environment on AWS^]. A pilot-light cluster can also be used for disaster recovery purposes.
- 
 
