@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-verify-rp.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service 
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP.
+
+---
+
+= Verify that everything is working in NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+After you add the replication plan in NetApp Disaster Recovery, you return to the Replication plans page where you can view your replication plans and their status. You should verify that the replication plan is in the *Healthy* state. If it is not, you should check the status of the replication plan and correct any issues before proceeding.
+
+Figure: Replication plans page image:evs-replication-plan-post-create.png[Replication plans page]
+ 
+NetApp Disaster Recovery performs a series of tests to verify that all the components (ONTAP cluster, vCenter clusters, and VMs) are accessible and in the proper state for the service to protect the VMs. This is called a compliance check, and it is run on a regular basis.
+
+From the Replication plans page, you can see the following information:
+
+* Status of the last compliance check
+
+* The replication plan’s replication state
+
+* The name of the protected (source) site
+
+* The list of resource groups protected by the replication plan
+
+* The name of the failover (destination) site

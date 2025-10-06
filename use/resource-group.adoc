@@ -1,0 +1,102 @@
+---
+sidebar: sidebar
+permalink: use/resource-group.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you’ve added vCenter sites, you’re ready to create a disaster recovery or replication plan. 
+---
+
+= Create a resource group to organize VMs together in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+After addeding vCenter sites, you can create resource groups to protect VMs by VM or datastore as a single unit. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+*About this task* 
+
+You can group VMs themselves or VMs in datastores. 
+
+You can create resource groups using the following methods: 
+
+* From the Resource groups option  
+* While you’re creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:drplan-create.html[Create a replication plan].
+
+TIP: Each resource group can include one or more VMs or datastores. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
+
+.About resource groups
+
+Resource groups let you combine VMs or datastores to them as a single unit. 
+
+For example, a point-of-sale application might use several VMs for databases, business logic, and storefronts. You can manage all these VMs with one resource group. Set up resource groups to apply replication plan rules for VM startup order, network connection, and recovery of all VMs needed for the application.
+
+
+.How does it work?
+
+NetApp Disaster Recovery protects VMs by replicating the underlying ONTAP volumes and LUNs hosting the VMs in the resource group. To do this, the system queries vCenter for the name of each data store hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store. All protection is performed at the ONTAP volume level using SnapMirror replication.
+
+If VMs in the resource group are hosted on different data stores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.
+
+[cols=2*,options="header",cols="30,65a",width="100%"]
+|===
+| Relative location of FlexVol volumes 
+| Snapshot replica process
+
+
+| Multiple data stores - FlexVol volumes in the *same SVM* 
+| * ONTAP consistency group created
+* Snapshots of the consistency group taken
+* Volume-scoped SnapMirror replication performed
+
+
+| Multiple data stores - FlexVol volumes in *multiple SVMs* 
+| * ONTAP API: `cg_start`. Quieces all volumes so snapshots can be taken and initiates volume-scoped snapshots of all resource group volumes.
+* ONTAP API: `cg_end`. Resumes I/O on all volumes and enables volume-scoped SnapMirror replication after snapshots are taken.
+
+|===
+
+When you create resource groups, consider the following issues: 
+
+* Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not start a manual discovery, the VMs might not be listed in the resource group.
+* Ensure that there is at least one VM in the datastore. If there are no VMs in the datastore, Disaster Recovery does not discover the datastore.
+* A single datastore should not host VMs protected by more than one replication plan.
+* Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, the following issues could arise:  
+** Because NetApp Disaster Recovery uses SnapMirror and the system replicates entire ONTAP volumes, the used capacity of that volume is used for licensing considerations. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.
+** If the resource group and its associated datastores need to be failed over to the disaster recovery site, any unprotected VMs (VMs not part of the resource group, but hosted on the ONTAP volume) will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
+
+* To have a VM protected, it must be included in a resource group.
+
+*BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Ensure that the VMs on any given datastore are not protected by different replication plans.
+
+.Steps
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+. From the NetApp Disaster Recovery menu, select *Resource groups*.
+
+. Select *Add*. 
+
+. Enter a name for the resource group.
+. Select the source vCenter cluster where the VMs are located.
+
+. Select either *Virtual machines* or *Datastores* depending on how you want to search. 
+. Select the *Add resource groups* tab. The system lists all datastores or VMs in the selected vCenter cluster. If you selected *Datastores*, the system lists all datastores in the selected vCenter cluster. If you selected *Virtual machines*, the system lists all VMs in the selected vCenter cluster.
+. On the left side of the Add resource groups page, select the VMs that you want to protect. 
++
+image:dr-resource-groups-add.png[Screenshot showing the Add resource groups page]
++
+image:dr-resource-groups-datastores-add.png[Screenshot showing the Add resource groups page]
+
+. Optionally, change the order of the VMs on the right by dragging each VM up or down the list. The VMs will power on based on the sequence in which you include them.
+
+
+. Select *Add*.
+
+

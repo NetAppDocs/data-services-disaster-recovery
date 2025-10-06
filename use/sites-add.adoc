@@ -1,0 +1,210 @@
+---
+sidebar: sidebar
+permalink: use/sites-add.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter
+summary: Before you can create a disaster recovery plan, you need to add a primary vCenter site and a target vCenter disaster recovery site in NetApp Disaster Recovery. 
+---
+
+= Add vCenters to a site in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+Before you can create a disaster recovery plan, you need to add a primary vCenter server to a site and a target vCenter disaster recovery site in the NetApp Console. 
+
+TIP: Ensure that both the source and destination vCenters use the same NetApp Console agent. 
+
+After vCenters are added, NetApp Disaster Recovery performs a deep discovery of the vCenter environments, including vCenter clusters, ESXi hosts, datastores, storage foot print, virtual machine details, SnapMirror replicas, and virtual machine networks.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, or Disaster recovery admin.
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+*About this task*
+
+If you added vCenters in previous releases and want to customize the discovery schedule, you must edit the vCenter server site and set the schedule. 
+
+TIP: NetApp Disaster Recovery performs discovery once every 24 hours. After setting up a site, you can later edit the vCenter to customize the discovery schedule that meets your needs. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours. The minimum interval is 30 minutes and the maximum is 24 hours. 
+
+You should first perform a few manual discoveries to get the most up-to-date information about your environment. After that, you can set the schedule to run automatically.
+
+If you have vCenters from earlier versions and want to change when discovery runs, edit the vCenter server site and set the schedule. 
+
+Newly added or deleted VMs are recognized in the next scheduled discovery or during an immediate manual discovery. 
+
+VMs can be protected only if the replication plan is in one of the following states: 
+
+* Ready
+* Failback committed
+* Test failover committed
+
+*vCenter clusters in a site*
+Each site contains one or more vCenters. These vCenters use one or more ONTAP storage clusters to host NFS or VMFS datastores. 
+
+A vCenter cluster can reside in only one site. You need the following information to add a vCenter cluster to a site: 
+
+* The vCenter management IP address or FQDN
+* Credentials for a vCenter account with the required privileges to perform operations. See link:vcenter--privileges.html[required vCenter privileges] for more information.
+* For cloud-hosted VMware sites, the required cloud access keys
+* A security certificate to access your vCenter. 
++
+NOTE: The service supports self-signed security certificates or certificates from a central certificate authority (CA). 
+
+.Steps
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+
++
+You’ll land on NetApp Disaster Recovery Dashboard page. When you first start with the service, you need to add vCenter information. Later, the Dashboard displays data about your sites and replication plans. 
++
+NOTE: Different fields appear depending on the type of site you are adding. 
++
+. If some vCenter sites already exist and you want to add more, from the menu, select *Sites* and then select *Add*.
+. In the Sites page, select the site, and select *Add vCenter*.
+
+. *Source*: Select *Discover vCenter servers* to enter information about the source vCenter site.  
++
+TIP: If some vCenter sites already exist and you want to add more, from the top menu, select *Sites* and then select *Add*.  
++
+image:vcenter-add.png[Add vCenter server screenshot ]
+
+
+* Select a site, select the NetApp Console agent, and provide vCenter credentials. 
+
+
+* (Applies only to on-premises sites) To accept self-signed certificates for the source vCenter, check the box. 
++
+NOTE: Self-signed certificates are not as secure as other certificates. If your vCenter is *NOT* configured with certificate authority (CA) certificates, you should check this box; otherwise, the connection to the vCenter will not work.  
+
+
+
+. Select *Add*. 
++
+Next, you will add a target vCenter. 
+. Add a site again for the target vCenter. 
+. Again, select *Add vCenter* and add target vCenter information.
+
+. *Target*: 
+
+.. Choose the target site and the location. If the target is cloud, select *AWS*.  
+* (Applies only to cloud sites) *API token*: Enter the API token to authorize service access for your organization. Create the API token by providing specific organization and service roles. 
+* (Applies only to cloud sites) *Long organization ID*: Enter the unique ID for the organization. You can identify this ID by clicking on the username in the Account section of the NetApp Console.
+
+.. Select *Add*. 
++
+The source and target vCenters appear on the list of sites. 
++
+image:sites-list2.png[Sites page screenshot]
+
+. To see the progress of the operation, from the menu, select *Job monitoring*. 
+
+
+== Add subnet mapping for a vCenter site
+
+You can manage IP addresses on failover operations using subnet mapping, which enables you to add subnets for each vCenter. When you do so, you define the IPv4 CIDR, the default gateway, and the DNS for each virtual network. 
+
+Upon failover, NetApp Disaster Recovery uses the mapped network's CIDR to assign each vNIC a new IP address. 
+
+For example: 
+
+* NetworkA = 10.1.1.0/24
+* NetworkB = 192.168.1.0/24
+
+VM1 has a vNIC (10.1.1.50) that is connected to NetworkA. 
+NetworkA is mapped to NetworkB in the replication plan settings. 
+
+Upon failover, NetApp Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, NetApp Disaster Recovery looks at the CIDR settings for NetworkB and uses that the NetworkB network portion 192.168.1 while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
+
+In summary, the host address stays the same, while the network address is replaced with whatever is configured in the site subnet mapping. This enables you to manage IP address reassignment upon failover more easily, especially if you have hundreds of networks and thousands of VMs to manage.
+
+Using subnet mapping is an optional two-step process: 
+
+* First, add the subnet mapping for each vCenter site.
+* Second, in the replication plan, indicate that you want to use subnet mapping in the Virtual Machines tab and Target IP field.
+
+.Steps
+
+. From the NetApp Disaster Recovery menu, select *Sites*.
+. From the Actions image:icon-vertical-dots.png[Actions icon] icon on the right, select *Add subnet*.
++
+image:dr-sites-subnet-menu.png[Add subnet menu screenshot]
++
+The Configure subnet page appears: 
++ 
+image:sites-subnet-add.png[Add subnet mapping screenshot]    
+
+. In the Configure subnet page, enter the following information:    
+
+.. Subnet: Enter the IPv4 CIDR for the subnet up to /32.  
++
+TIP: CIDR notation is a method of specifying IP addresses and their network masks. The /24 denotes the netmask. The number consists of an IP address with the number after the "/" indicating how many bits of the IP address denote the network. For example, 192.168.0.50/24, the IP address is 192.168.0.50 and the total number of bits in the network address is 24. 192.168.0.50 255.255.255.0 becomes 192.168.0.0/24. 
+
+.. Gateway: Enter the default gateway for the subnet.
+.. DNS: Enter the DNS for the subnet.
+
+. Select *Add subnet mapping*.   
+
+=== Select subnet mapping for a replication plan
+
+When you create a replication plan, you can select the subnet mapping for the replication plan.
+
+Using subnet mapping is an optional two-step process: 
+
+* First, add the subnet mapping for each vCenter site.
+* Second, in the replication plan, indicate that you want to use subnet mapping.
+
+.Steps
+
+. From the NetApp Disaster Recovery menu, select *Replication plans*.
+. Select *Add* to add a replication plan.     
+. Complete the fields in the usual way by adding the vCenter servers, selecting the resource groups or applications, and completing the mappings. 
+. In the Replication plan > Resource mapping page, select the *Virtual machines* section. 
++
+image:dr-plan-vm-subnet-option.png[Subnet mapping selection screenshot]
+
+. In the *Target IP* field, select *Use subnet mapping* from the drop-down list.
++
+NOTE: If there are two VMs (for example, one is Linux and the other is Windows), credentials are needed only for Windows.
+
+. Continue with the creating the replication plan.
+
+
+
+== Edit the vCenter server site and customize the discovery schedule
+
+You can edit the vCenter server site to customize the discovery schedule. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
+
+If you have vCenters from earlier versions and want to change when discovery runs, edit the vCenter server site and set the schedule. 
+
+If you don't want to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
+
+.Steps
+. From the NetApp Disaster Recovery menu, select *Sites*.
+
+. Select the site you want to edit.
+. Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Edit*.
++
+. In the Edit vCenter server page, edit the fields as needed.
+
+. To customize the discovery schedule, check the *Enable scheduled discovery* box and select the date and time interval you want.
+
++
+
+image:sites-edit-schedule.png[Edit discovery schedule screenshot]
+
+. Select *Save*.
+
+== Refresh discovery manually
+You can refresh the discovery manually at any time. This is useful if you have added or removed VMs and want to update the information in NetApp Disaster Recovery.
+
+
+.Steps
+. From the NetApp Disaster Recovery menu, select *Sites*.
+
+. Select the site you want to refresh.
+. Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Refresh*.

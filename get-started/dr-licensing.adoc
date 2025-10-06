@@ -1,0 +1,138 @@
+---
+sidebar: sidebar
+permalink: get-started/dr-licensing.html
+keywords: bluexp license, disaster recovery licensing
+summary: With NetApp Disaster Recovery, you can use different licensing plans including a free trial, a pay-as-you-go subscription, or bring your own license.  
+---
+
+= Set up licensing for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+[.lead]
+With NetApp Disaster Recovery, you can use different licensing plans including a free trial, a pay-as-you-go subscription, or bring your own license.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
+
+*Licensing options*
+You can use the following licensing options:
+
+* Sign up for a 30-day free trial.
+* Purchase a pay-as-you-go (PAYGO) subscription to Amazon Web Services (AWS) Marketplace or to Microsoft Azure Marketplace.
+//* Purchase a pay-as-you-go (PAYGO) subscription to *NetApp Intelligent Services* with Amazon Web Services (AWS) Marketplace or to Microsoft Azure Marketplace.
+* Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console.
+
+
+NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
+
+//After you set up your BYOL or purchase a subscription in AWS, you can see the license in the NetApp Console *Data service Licenses* option or the active subscription in the Console *Subscriptions* option.
+
+link:https://docs.netapp.com/us-en/bluexp-digital-wallet/concept-digital-wallet.html[Learn more about subscriptions^].
+
+
+After the free trial ends or the license expires, you can still do the following in the service:
+
+* View any resource, such as a workload or replication plan.
+* Delete any resource, such as a workload or replication plan.
+* Run all scheduled operations that were created during the trial period or under the license. 
+
+== Try it out using a 30-day free trial
+You can try NetApp Disaster Recovery out by using a 30-day free trial.
+
+NOTE: No capacity limits are enforced during the trial.  
+
+//You can get a license or subscribe at any time and you will not be charged until the trial ends. 
+
+To continue after the trial, you'll need to purchase a BYOL license or PAYGO AWS subscription. You can get a license at any time and you will not be charged until the trial ends. 
+
+During the trial, you have full functionality. 
+
+
+.Steps
+
+. Log in to the https://console.netapp.com/[NetApp Console^].
+
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
++
+If this is your first time logging in to this service, the landing page appears. 
+
++
+image:draas-landing6-free-trial.png[Landing page screenshot for NetApp Disaster Recovery]
+. If you haven't already added a Console agent for other services, add one. 
++ 
+To add a Console agent, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Console agents^].
+. After you set up the agent, in the NetApp Disaster Recovery landing page, the button to add the agent changes to a button for starting a free trial. Select *Start free trial*. 
+
+. Begin by adding vCenters. 
++
+For details, see link:../use/sites-add.html[Add vCenter sites].
+
+
+== After the trial ends, subscribe through one of the Marketplaces
+
+After the free trial ends, you can either purchase a license from NetApp or subscribe through AWS Marketplace or Microsoft Azure Marketplace. This procedure provides a high level overview of how to subscribe directly in one of the Marketplaces. 
+
+.Steps
+. In the NetApp Disaster Recovery, you see a message that the free trial is expiring. In the message, select *Subscribe or purchase a license*.
++
+Or, from the , select *View payment methods*. 
++
+image:dr-licensing-payment-methods.png[The NetApp Disaster Recovery Payment methods page]
+
+. Select *Subscribe in AWS Marketplace* or *Subscribe in Azure Marketplace*. 
+. Use AWS Marketplace or Microsoft Azure Marketplaceto subscribe to *NetApp Disaster Recovery*. 
+//. Use AWS Marketplace or Microsoft Azure Marketplaceto subscribe to *NetApp Intelligent Services* and *NetApp Disaster Recovery*. 
+
+ 
+. When you return to NetApp Disaster Recovery, a message states that you are subscribed. 
++
+You can view subscription details in the NetApp Console subscription page. link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html[Learn more managing subscriptions with the NetApp Console^].
+
+
+
+== After the trial ends, purchase a BYOL license through NetApp
+
+After the trial ends, you can purchase a license through your NetApp Sales Rep. 
+
+If you bring your own license (BYOL), the set up includes purchasing the license, getting the NetApp License File (NLF), and adding the license to the NetApp Console. 
+
+*Add the license to the NetApp Console**
+After you've purchased your NetApp Disaster Recovery license from a NetApp Sales Rep, you can manage the license in the Console.
+
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about adding licenses with the NetApp Console^].
+
+
+
+== Update your license when it expires
+
+If your licensed term is nearing the expiration date, or if your licensed capacity is reaching the limit, you'll be notified in the NetApp Disaster Recovery UI. You can update your NetApp Disaster Recovery license before it expires so that there is no interruption in your ability to access your scanned data.
+
+TIP: This message also appears in the NetApp Console and in https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center[Notifications]. 
+
+
+https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about updating licenses with the NetApp Console^].
+
+== End the free trial
+
+You can stop the free trial at any time or you can wait until it expires. 
+
+.Steps
+. In NetApp Disaster Recovery, select *Free trial - View details*. 
+
+. In the drop-down details, select *End free trial*. 
++
+image:draas-trial-end3.png[End free trial page]
+
+. If you want to delete all data, check *Delete data immediately after ending my free trial*. 
++
+This deletes all schedules, replication plans, resource groups, vCenters, and sites. Audit data, operation logs, and jobs history are retained until the end of the life of the product. 
++
+NOTE: If you end the free trial, did not request to delete data, and don't purchase a license or subscription, then NetApp Disaster Recovery deletes all of your data 60 days after the free trial ends. 
+
+. Type "end trial" in the text box. 
+. Select *End*. 

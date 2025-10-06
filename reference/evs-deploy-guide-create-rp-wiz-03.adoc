@@ -1,0 +1,174 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-create-rp-wiz-03.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap,amazon elastic vmware service
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. After you have a list of VMs to be protected, NetApp Disaster Recovery requires that you provide failover mapping and VM configuration information to use during a failover. 
+
+---
+
+= Create a replication plan: Step 3 - Map resources in NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+After you have a list of VMs that you want to protect using NetApp Disaster Recovery, provide failover mapping and VM configuration information to use during a failover. 
+
+You need to map four primary types of information:
+
+* Compute resources
+* Virtual networks
+* VM reconfiguration
+* Datastore mapping
+
+Each VM requires the first three types of information. Datastore mapping is required for each datastore that hosts VMs to be protected.
+
+* The sections with the caution icon (image:evs-caution-icon.png[25,25]) require that you provide mapping information. 
+* The section marked with the check icon (image:evs-check-icon.png[25,25]) have been mapped or have default mappings. Review them to make sure that the current configuration meets your requirements.
+
+.Steps to access this page 
+. From the *Replication plan* page, continue to the *Resource mapping* section.
+. Review the information on the *Resource mapping* page that opens.
++
+image:evs-create-rp-wiz-c0.png[Create replication plan, resource mapping page]
+
+. To open each category of mappings required, select the down arrow (*v*) beside the section.
+
+
+== Compute resource mapping
+
+Because a site could host multiple virtual datacenters and multiple vCenter clusters, you need to identify which vCenter cluster to recover VMs on in the event of a failover. 
+
+.Steps to map compute resources
+
+. Select the virtual datacenter from the list of datacenters located at the DR site.
+
+. Select the cluster to host the datastores and VMs from the list of clusters within the selected virtual datacenter.
+
+. (Optional) Select a target host in the target cluster. 
++
+This step is not required because NetApp Disaster Recovery selects the first host added to the cluster in vCenter. At that point, the VMs either continue to run on that ESXi host or VMware DRS moves the VM to a different ESXi host as needed based on DRS rules configured.
+
+. (Optional) Provide the name of a top-level vCenter folder to place the VM registrations into. 
++
+This is for your organizational needs and is not required. 
+
++
+image:evs-create-rp-wiz-c-compute-resources-1-4.png[Create replication plan, compute resources]
+ 
+
+== Map virtual network resources
+
+Each VM can have one or more virtual NICs connected to virtual networks within the vCenter network infrastructure. To ensure that each VM is properly connected to the desired networks upon restarting in the DR site, identify which DR site virtual networks to connect these VMs. Do this by mapping each virtual network in the on-premises site to an associated network on the DR site. 
+
+.Select which destination virtual network to map each source virtual network
+
+. Select the Target segment from the drop-down list.
+
+. Repeat the previous step for each source virtual network listed. 
++
+image:evs-create-rp-wiz-c-network-resources-1-2.png[Create replication plan, network resources]
+ 
+== Define options for VM reconfiguration during failover
+
+Each VM might require modifications to work correctly in the DR vCenter site. The Virtual machines section enables you to provide the necessary changes.
+
+By default, NetApp Disaster Recovery uses the same settings for each VM as used on the source on-premises site. This assumes that VMs will use the same IP address, virtual CPU, and virtual DRAM configuration. 
+
+=== Network reconfiguration
+
+Supported IP address types are static and DHCP. For static IP addresses, you have the following Target IP settings:
+
+* *Same as source*: As the name suggests, the service uses the same IP address on the destination VM that was used on the VM at the source site. This requires that you configure the virtual networks that were mapped in the previous step for the same subnet settings.
+
+* *Different from source*: The service provides a set of IP address fields for each VM that must be configured for the appropriate subnet used on the destination virtual network, which you mapped in the previous section. For each VM you must provide an IP address, subnet mask, DNS, and default gateway values. Optionally, use the same subnet mask, DNS, and gateway settings for all VMs to simplify the process when all VMs attach to the same subnet.
+
+* *Subnet mapping*: This option reconfigures each VM's IP address based on the destination virtual network's CIDR configuration. To use this feature, ensure that each vCenter's virtual networks have a defined CIDR setting within the service, as changed in the vCenter information in the Sites page. 
+
+After you configure subnets, Subnet mapping uses the same unit component of the IP address for both source and destination VM configuration, but replaces the subnet component of the IP address based on the provided CIDR information. This feature also requires that both the source and destination virtual networks have the same IP address class (the `/xx` component of the CIDR). This ensures that there are enough IP addresses available at the destination site to host all of the protected VMs.
+
+For this EVS setup, we assume that the source and destination IP configurations are the same and do not require any additional reconfiguration. 
+
+.Make changes to network settings reconfiguration
+
+. Select the type of IP addressing to use for failed over VMs.
+
+. (Optional) Provide a VM renaming scheme for restarted VMs by providing an optional prefix and suffix value. 
++
+image:evs-create-rp-wiz-c-vm-resources-network-1-2.png[Create replication plan, network resources]
+ 
+=== VM compute resource reconfiguration
+
+There are several options for reconfiguring VM compute resources. NetApp Disaster Recovery supports changing the number of virtual CPUs, the amount of virtual DRAM, and the VM name. 
+
+.Specify any VM configuration changes
+
+. (Optional) Modify the number of virtual CPUs each VM should use. This might be needed if your DR vCenter cluster hosts do not have as many CPU cores as the source vCenter cluster.
+
+. (Optional) Modify the amount of virtual DRAM each VM should use. This might be needed if your DR vCenter cluster hosts do not have as much physical DRAM as the source vCenter cluster hosts.
++
+image:evs-create-rp-wiz-c-vm-resources-cpu-mem-1-2.png[Create replication plan, VM resources]
+ 
+=== Boot order
+
+NetApp Disaster Recovery supports an ordered restart of VMs based on a boot order field. The Boot order field indicates how the VMs in each resource group start. Those VMs with the same value in the Boot order field boot in parallel.
+
+.Modify the boot order settings
+
+. (Optionally) Modify the order you would like your VMs to be restarted. This field takes any numeric value. NetApp Disaster Recovery tries to restart VMs that have the same numeric value in parallel. 
+
+. (Optionally) Provide a delay to be used between each VM restart. The time is injected after this VM’s restart has completed and before the VM(s) with the next higher boot order number. This number is in minutes. 
++
+image:evs-create-rp-wiz-c-vm-resources-boot-delay-1-2.png[Create replication plan, boot order]
+ 
+=== Custom guest OS operations
+
+NetApp Disaster Recovery supports performing some guest OS operations for each VM:
+
+* NetApp Disaster Recovery can take application-consistent backups of VMs for VMs running Oracle databases and Microsoft SQL Server databases. 
+
+* NetApp Disaster Recovery can execute custom defined scripts suitable for the guest OS for each VM. Executing such scripts requires user credentials acceptable to the guest OS with ample privileges to execute the operations listed in the script.
+
+.Modify each VM's custom guest OS operations
+
+. (Optional) Check the *Create application consistent replicas* checkbox if the VM is hosting an Oracle or SQL Server database.
+
+. (Optional) To take custom actions within the guest OS as part of the startup process, upload a script for any VMs. To run a single script in all VMs, use the checkbox highlighted and complete the fields.
+
+. Certain configuration changes require user credentials with adequate permissions to perform the operations. Provide credentials in the following cases:
+
+* A script will be executed within the VM by the guest OS.
+
+* An application-consistent snapshot needs to be performed.
+
+image:evs-create-rp-wiz-c-vm-resources-ac-scripts-creds-1-2.png[Create replication plan, custom guest OS operations]
+ 
+== Map datastores
+
+The final step in creating a replication plan is identifying how ONTAP should protect the datastores. These settings define the replication plans recovery point objective (RPO), how many backups should be maintained, and where to replicate each vCenter datastore’s hosting ONTAP volumes. 
+
+By default, NetApp Disaster Recovery manages its own snapshot replication schedule; however, optionally, you can specify that you would like to use the existing SnapMirror replication policy schedule for datastore protection.
+
+In addition, you can optionally customize which data LIFs (logical interfaces) and export policy to use. If you don't provide these settings, NetApp Disaster Recovery uses all data LIFs associated with the appropriate protocol (NFS, iSCSI, or FC) and uses the default export policy for NFS volumes.
+
+.To configure datastore (volume) mapping
+
+. (Optional) Decide whether you want to use an existing ONTAP SnapMirror replication schedule or have NetApp Disaster Recovery manage protection of your VMs (default). 
+
+. Provide a starting point for when the service should start taking backups.
+
+. Specify how often the service should take a backup and replicate it to the DR destination Amazon FSx for NetApp ONTAP cluster.
+
+. Specify how many historical backups should be retained. The service maintains the same number of backups on the source and destination storage cluster.
+
+. (Optional) Select a default logical interface (data LIFs) for each volume. If none is selected, all the data LIFs in the destination SVM that support the volume access protocol are configured.
+
+. (Optional) Select an export policy for any NFS volumes. If not selected, the default export policy is used
++
+image:evs-create-rp-wiz-c-datastore-mapping.png[Create replication plan, datastore mapping]
+
+
+Continue with link:evs-deploy-guide-create-rp-wiz-04.html[Create replication plan wizard Step 4].
+ 
+

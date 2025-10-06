@@ -1,0 +1,188 @@
+---
+sidebar: sidebar
+permalink: use/manage.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plans, resource groups
+summary: You can get a quick glance of all your NetApp Disaster Recovery resources and manage vCenter sites, resource groups, and replication plans.
+---
+
+= Manage sites, resource groups, replication plans, datastores and virtual machines information with NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+You can get a quick glance of all your NetApp Disaster Recovery resources or look at each in detail: 
+
+* Sites
+* Resource groups
+* Replication plans
+* Datastores 
+* Virtual machines
+
+Tasks require different NetApp Console roles. For details, see the *Required NetApp Console role* section in each task.
+
+link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+
+
+== Manage vCenter sites
+You can edit the vCenter site name and the site type (on-premises or AWS).
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, or Disaster recovery admin role.
+
+
+.Steps 
+
+. From the menu, select *Sites*. 
+. Select the *Actions* option image:../use/icon-vertical-dots.png[Actions menu icon in NetApp Disaster Recovery service]  on the right of the vCenter name and select *Edit*. 
+. Edit the vCenter site name and location. 
+
+== Manage resource groups 
+
+While you can add a resource group as part of creating a replication plan, you might find it more convenient to add the groups separately and later use those groups in the plan. You create resource groups by VMs or by datastores.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role.
+
+You can create a resource group by datastores in the following ways:
+
+* When you're adding a resource group using datastores, you can see a list of datastores. You can select one or more datastores to create a resource group.
+* When you're creating a replication plan and creating a resource group within the plan, you can see the VMs in the datastores. 
+
+You can do the following tasks with resource groups: 
+
+* Change the resource group name. 
+* Add VMs to the resource group.    
+* Remove VMs from the resource group.
+* Delete resource groups. 
+
+For details about creating a resource group, refer to link:resource-group.html[Create a resource group to organize VMs together].
+
+.Steps 
+
+. From the menu, select *Resource groups*. 
+. To add a resource group, select *Add group*.  
+. To perform actions with the resource group, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  at the right and select any of the options, such as *Edit resource group* or *Delete resource group*. 
+
+== Manage replication plans 
+
+You can disable, enable and delete replication plans. You can change schedules. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+
+
+* If you want to pause a replication plan temporarily, you can disable it and later enable it. 
+* If you no longer need the plan, you can delete it.
+
+
+.Steps 
+
+. From the menu, select *Replication plans*. 
++
+image:../use/dr-plan-list.png[Replication plan list]
+. To view the plan details, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *View plan details*.  
+
+. Do any of the following: 
++
+* To edit the plan details (change the recurrence), select the *Plan details* tab and select the *Edit* icon to the right. 
+* To edit the resource mappings, select the *Failover mapping* tab and select the *Edit* icon. 
+* To add or edit the virtual machines, select the *Virtual machines* tab and select the *Add VMs* option or *Edit* icon. 
+
+. Return to the list of plans by selecting "Replication plans" in the breadcrumbs at the left. 
+
+. To perform actions with the plan, from the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select any of the options, such as *Edit schedules*, *Test failover*, *Fail over*, *Fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshots*, *Disable*, *Enable*, or *Delete*. 
+
+. To set or change a test failover schedule or set the compliance frequency check, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Edit schedules*.
+
+.. In the Edit schedules page, enter how often in minutes you want the failover compliance check to occur. 
+
+.. Check *Run test failovers on a schedule*. 
+.. In the Repeat option, select the daily, weekly, or monthly schedule. 
+.. Select *Save*.
+
+=== Reconcile snapshots on demand
+You can reconcile snapshots that are out of sync between the source and target. This might occur if snapshots are deleted on a target outside of NetApp Disaster Recovery. The service automatically deletes the snapshot on the source automatically every 24 hours. However, you can perform this on demand. This feature enables you to ensure that the snapshots are consistent across all sites.
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+
+.Steps 
+
+. From the menu, select *Replication plans*. 
++
+image:../use/dr-plan-list.png[Replication plan list]
+
+. From the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Reconcile snapshots*. 
+
+. Review the reconciliation information. 
+. Select *Reconcile*.
+
+
+=== Delete a replication plan
+You can delete a replication plan if you no longer need it. If you delete a replication plan, you can also delete the primary and secondary snapshots created by the plan. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+
+
+
+.Steps 
+
+. From the menu, select *Replication plans*. 
+
+
+. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Delete*. 
+
+. Select whether you want to delete the primary snapshots,  secondary snapshots, or just the metadata created by the plan. 
+
+. Type "delete" to confirm the deletion.
+. Select *Delete*.
+
+
+=== Change retention count for failover schedules
+
+You can change how many datastores are retained. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+
+
+.Steps
+. From the menu, select *Replication plans*. 
+. Select the replication plan, select the *Failover mapping* tab, and select the *Edit* pencil icon. 
+. Select the *Datastores* arrow to expand it. 
++
+image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
+. Change the value of the retention count in the replication plan. 
+. With the replication plan selected, select the Actions menu, then select *Clean up old snapshots* to remove old snapshots on the target to match the new retention count.
+
+== View datastores information 
+
+You can view information about how many datastores exist on the source and on the target. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
+
+
+.Steps
+. From the menu, select *Dashboard*. 
+. Select the vCenter in the site row. 
+. Select *Datastores*. 
+. View the datastores information. 
+
+== View virtual machines information 
+
+You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity. 
+
+*Required NetApp Console role*
+Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
+
+
+.Steps
+. From the menu, select *Dashboard*. 
+. Select the vCenter in the site row. 
+. Select *Virtual machines*. 
+. View the virtual machines information. 
+

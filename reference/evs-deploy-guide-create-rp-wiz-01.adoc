@@ -1,0 +1,34 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-create-rp-wiz-01.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service
+summary: First, using NetApp Disaster Recovery provide a replication plan name and select the source and destination vCenters for the replication.
+
+---
+
+= Create a replication plan: Step 1 - Select vCenters in NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+First, using NetApp Disaster Recovery, provide a replication plan name and select the source and destination vCenters for the replication. 
+
+
+
+. Enter a unique name for the replication plan.
++
+Only alpha-numeric characters and underscores (_) are allowed for replication plan names.
+
+. Select a source vCenter cluster.
+
+. Select a destination vCenter cluster.
+
+. Select *Next*.
++
+image:evs-create-rp-wiz-a-1-4.png[Create replication plan, select vCenters]
+
+
+Continue with link:evs-deploy-guide-create-rp-wiz-02.html[Create replication plan wizard Step 2].
+ 

@@ -1,0 +1,36 @@
+=== Scheduled discovery for VMs
+
+NetApp Disaster Recovery performs discovery once every 24 hours. With this release, you can now customize the discovery schedule to meet your needs and reduce impact on performance when you need it. For example, if you have a large number of VMs, you can set the discovery schedule to run every 48 hours. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
+
+If you don't wan to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
+
+//For details, see link:../use/sites-add.html[Add vCenter server sites].
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html[Add vCenter server sites].
+
+=== Resource group datastore support 
+
+Previously, you could create resource groups only by VMs. With this release, you can create a resource group by datastores. When you're creating a replication plan and creating a resource group for that plan, all the VMs in a datastore will be listed. This is useful if you have a large number of VMs and want to group them by datastore. 
+
+You can create a resource group with a datastore in the following ways:
+
+* When you're adding a resource group using datastores, you can see a list of datastores. You can select one or more datastores to create a resource group.
+* When you're creating a replication plan and creating a resource group within the plan, you can see the VMs in the datastores. 
+
+
+//For details, see link:../use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+
+=== Notifications of free trial or license expiration
+
+This release provides notifications that the free trial will expire in 60 days to ensure you have time to get a license. This release also provides notifications on the day that the license expires.
+
+=== Notification of service updates
+
+With this release, a banner appears at the top to indicate that services are getting upgraded and that the service is placed in maintenance mode. The banner appears when the service is being upgraded and disappears when the upgrade is complete. While you can continue to work in the UI while the upgrade is in progress, you cannot submit new jobs. Scheduled jobs will run after the update is complete and the service returns to production mode. 
+
+
+
+
+
+
+ 

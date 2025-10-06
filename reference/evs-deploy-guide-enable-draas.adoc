@@ -1,0 +1,56 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-enable-draas.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. NetApp Disaster Recovery is a licensed product offering that must be purchased before it can be used. There are several types of licenses and several ways that you can purchase licenses. 
+
+---
+= Add NetApp Disaster Recovery service to your NetApp Console account for Amazon EVS
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+NetApp Disaster Recovery is a licensed product offering that must be purchased before it can be used. There are several types of licenses and several ways that you can purchase licenses. A license entitles you to protect a specific amount data for a specific span of time. 
+
+For more information about NetApp Disaster Recovery licenses, see link:../get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery]. 
+
+== License types
+
+There are two primary license types:
+
+* NetApp offers a link:../get-started/dr-licensing.html[30-day trial license] that you can use to evaluate NetApp Disaster Recovery using your ONTAP and VMware resources. This license provides 30 days of use for an unlimited amount of protected capacity.
+
+* Purchase a production license if you want DR protection beyond the 30-day trial period. This license can be purchased through the marketplaces of any of NetApp’s cloud partners, but for this guide, we recommend that you purchase your marketplace license for NetApp Disaster Recovery using the Amazon AWS Marketplace. To learn more about purchasing a license through the Amazon Marketplace, see link:../get-started/dr-licensing.html[Subscribe through AWS Marketplace].
+
+//* Purchase a production license if you want DR protection beyond the 30-day trial period. This license can be purchased through the marketplaces of any of NetApp’s cloud partners, but for this guide, we recommend that you purchase your *NetApp Intelligent Services* license for NetApp Disaster Recovery using the Amazon AWS Marketplace. To learn more about purchasing a license through the Amazon Marketplace, see link:../get-started/dr-licensing.html[Subscribe through AWS Marketplace].
+
+== Size your disaster recovery capacity needs
+
+Before you purchase your license, you should understand how much ONTAP storage capacity you need to protect. One of the advantages of using NetApp ONTAP storage is the high efficiency with which NetApp stores your data. All data stored in an ONTAP volume -- such as VMware datastore hosting VMs -- is that the data is stored in a highly efficient manner. ONTAP defaults to three types of storage efficiency when writing data to physical storage: compaction, deduplication, and compression. The net result is storage efficiencies of between 1.5:1 and 4:1 depending on the types of data being stored. In fact, NetApp offers a https://www.netapp.com/media/79014-ng-937-Efficiency-Guarantee-Customer-Flyer.pdf[storage efficiency guarantee^] for certain workloads.
+
+This can benefit you because NetApp Disaster Recovery computes capacity for the purposes of licensing after all ONTAP storage efficiencies are applied. For example, let’s say you have provisioned a 100 terabyte (TiB) NFS datastore within vCenter to host 100 VMs that you want to protect using the service. Additionally, let’s assume when the data is written to the ONTAP volume, automatically applied storage efficiency techniques result in those VMs consuming only 33TiB (3:1 storage efficiency). NetApp Disaster Recovery needs to be licensed only for 33TiB, not 100TiB. This can be a very large benefit to the total cost of ownership for your DR solution when compared to other DR solutions.
+
+.Steps 
+. To determine how much data is being consumed on each volume hosting a VMware datastore to be protected, determine the on-disk capacity consumption by running the ONTAP CLI command for each volume: `volume show-space -volume < _volume name_ > -vserver < _SVM name_ >` . 
++
+For example:
++
+----
+cluster1::> volume show-space
+Vserver : vm-nfs-ds1
+Volume  : vol0
+Feature                                Used      Used%
+-----------------------------      --------     ------
+User Data                           163.4MB         3%
+Filesystem Metadata                   172KB         0%
+Inodes                               2.93MB         0%
+Snapshot Reserve                    292.9MB         5%
+Total Metadata                        185KB         0%
+Total Used                          459.4MB         8%
+Total Physical Used                 166.4MB         3%
+
+----
+
+. Note the *Total Physical Used* value for each volume. This is the amount of data that NetApp Disaster Recovery needs to protect, and it is the value that you will use to determine how much capacity you need to license.

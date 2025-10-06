@@ -1,0 +1,15 @@
+section: get-started
+title: Get started
+entries:
+  - title: Learn about NetApp Disaster Recovery
+    url: /get-started/dr-intro.html
+  - title: Prerequisites
+    url: /get-started/dr-prerequisites.html
+  - title: Quick start
+    url: /get-started/dr-quick-start.html
+  - title: Set up your infrastructure for NetApp Disaster Recovery 
+    url: /get-started/dr-setup.html 
+  - title: Access NetApp Disaster Recovery
+    url: /get-started/dr-login.html    
+  - title: Set up licensing
+    url: /get-started/dr-licensing.html 

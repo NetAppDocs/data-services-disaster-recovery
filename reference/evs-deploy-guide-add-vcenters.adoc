@@ -1,0 +1,40 @@
+---
+sidebar: sidebar
+permalink: reference/evs-deploy-guide-add-vcenters.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter,amazon elastic vmware service 
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSxN.With sites created, you now add your vCenter clusters to each site in NetApp Disaster Recovery. When we created each site, we indicated what type of site each was. This tells NetApp Disaster Recovery what type of access is required for the vCenters hosted in each site type. One of the advantages of Amazon EVS is that there is no real differentiation between an Amazon EVS vCenter and an on-premises vCenter. Both require the same connection and authentication information.
+
+---
+
+= Add on-premises and Amazon EVS vCenter clusters in NetApp Disaster Recovery
+
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+With sites created, you now add your vCenter clusters to each site in NetApp Disaster Recovery. When we created each site, we indicated each type of site. This tells NetApp Disaster Recovery what type of access is required for the vCenters hosted in each site type. One of the advantages of Amazon EVS is that there is no real differentiation between an Amazon EVS vCenter and an on-premises vCenter. Both require the same connection and authentication information.
+
+.Steps to add a vCenter to each site
+
+. From the *Sites* option, select *Add vCenter* for the site you want. 
++
+image:evs-add-vcenter-1.png[Add vCenter option]
+ 
+. In the Add vCenter server dialog box, select or provide the following information:
+
+.. The NetApp Console agent hosted within your AWS VPC.
+
+.. The IP address or FQDN for the vCenter to be added.
+
+.. If different, change the port value to the TCP port used by your vCenter cluster manager.
+
+.. The vCenter username for the account created earlier that will be used by NetApp Disaster Recovery to manage the vCenter.
+
+.. The vCenter password for the provided username.
+
+.. If your company uses an external Certificate Authority (CA) or the vCenter Endpoint Certificate Store to gain access to your vCenters, uncheck the *Use self-signed certificates* checkbox. Otherwise, leave the box checked.
+
+. Select *Add*.
++
+image:evs-add-vcenter-2-3.png[Add vCenter dialog box]
