@@ -151,11 +151,12 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 
 .Steps
 . From the menu, select *Replication plans*. 
-. Select the replication plan, select the *Failover mapping* tab, and select the *Edit* pencil icon. 
-. Select the *Datastores* arrow to expand it. 
+. Select the replication plan then the *Failover mapping* tab.Select the *Edit* pencil icon. 
+. Select the down arrow in the *Datastores* row to expand it. 
 +
 image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
-. Change the value of the retention count in the replication plan. 
+. Change the value of the **Retention count for all datastores**.
+// verify
 . With the replication plan selected, select the Actions menu, then select *Clean up old snapshots* to remove old snapshots on the target to match the new retention count.
 
 == View datastores information 
