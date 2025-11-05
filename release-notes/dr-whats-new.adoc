@@ -11,9 +11,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/
 
 [.lead]
-Learn what’s new in NetApp Disaster Recovery.
-
-//tag::whats-new[]
+Learn what's new in NetApp Disaster Recovery.
 
 == 06 October 2025 
 
@@ -29,9 +27,6 @@ include::../_whatsnew/2025-08-04.adoc[]
 Version 4.2.5
 
 include::../_whatsnew/2025-07-14.adoc[]
-
-//include 3 most recent releases
-//end::whats-new[]
 
 == 30 June 2025
 Version 4.2.4P2
@@ -112,13 +107,13 @@ This release includes updates to replication plan data, which resolves a "snapsh
 Here's how: 
 
 . From the menu, select *Replication plans*. 
-. Select the replication plan, click the *Failover mapping* tab, and click the *Edit* pencil icon. 
-. Click the *Datastores* arrow to expand it. 
+. Select the replication plan, select the *Failover mapping* tab, and select the *Edit* pencil icon. 
+. Select the *Datastores* arrow to expand it. 
 //+
 //image:use/dr-plan-failover-edit.png[Edit failover mappings page]
-. Note the value of the retention count in the replication plan. You will need to reinstate this original value when you're finished with these steps. 
+. Note the value of the retention count in the replication plan. You need to reinstate this original value when you're finished with these steps. 
 . Reduce the count to 1.
-. Initiate an on-demand snapshot. To do so, on the Replication plan page, select the plan, click the Actions icon, and select *Take snapshot now*. 
+. Initiate an on-demand snapshot. To do so, on the Replication plan page, select the plan, select the Actions icon, and select *Take snapshot now*. 
 . After the snapshot job completes successfully, increase the count in the replication plan back to its original value that you noted in the first step. 
 . Repeat these steps for all existing replication plans. 
 
@@ -280,7 +275,7 @@ https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html
 This preview release of NetApp Disaster Recovery includes the following updates: 
 
 === Dashboard updates
-You can now click into the options on the Dashboard, making it easier for you to review the information quickly. Also, the Dashboard now shows the status of failovers and migrations.  
+You can now select into the options on the Dashboard, making it easier for you to review the information quickly. Also, the Dashboard now shows the status of failovers and migrations.  
 
 Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/dashboard-view.html[View the health of your disaster recovery plans on the Dashboard].
 
