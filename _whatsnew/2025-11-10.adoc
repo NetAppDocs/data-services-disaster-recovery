@@ -1,0 +1,17 @@
+=== Cascading failover support
+
+You can now configure a cascading relationship in ONTAP and use any leg of that replication relationship for disaster recovery. 
+
+=== Downgrade VMware hardware support during registration
+
+Disaster Recovery now supports downgrading VMware hardware to an earlier version of vSphere during registration. This is useful when the source ESX host is running a later version than the disaster recovery location. 
+
+=== Graceful shut down
+
+Disaster Recovery now gracefully shuts down VMs instead of powering them off. If a given VM takes more than ten minutes to power down, Disaster Recovery powers it off. 
+
+==== Pre-backup scripting support
+
+Pre-backup support allows customers to control the state of the VM before the snapshot is replicated. 
+
+You can now inject custom scripting into the failover workflow to run before before creating a backup. Pre-backup scripting enables you to control the VM's state before a snapshot is replicated and prepare a VM for a transition. For example, you can inject a script that unmounts an NFS mount that will be remounted using a different script after failover. 
