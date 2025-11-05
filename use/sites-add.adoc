@@ -60,7 +60,7 @@ NOTE: The service supports self-signed security certificates or certificates fro
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
 +
-You’ll land on NetApp Disaster Recovery Dashboard page. When you first start with the service, you need to add vCenter information. Later, the Dashboard displays data about your sites and replication plans. 
+If this is your first time using NetApp Disaster recovery, you need to add vCenter information. If you've already added vCenter infromation, you see the dashboard.
 +
 NOTE: Different fields appear depending on the type of site you are adding. 
 +
@@ -69,15 +69,15 @@ NOTE: Different fields appear depending on the type of site you are adding.
 
 . *Source*: Select *Discover vCenter servers* to enter information about the source vCenter site.  
 +
-TIP: If some vCenter sites already exist and you want to add more, from the top menu, select *Sites* and then select *Add*.  
+TIP: To add more vCenter sites, select *Sites* then *Add*.  
 +
 image:vcenter-add.png[Add vCenter server screenshot ]
 
 
-* Select a site, select the NetApp Console agent, and provide vCenter credentials. 
+* Select a site, then the NetApp Console agent, and provide vCenter credentials. 
 
 
-* (Applies only to on-premises sites) To accept self-signed certificates for the source vCenter, check the box. 
+* **For on-premises sites only:** To accept self-signed certificates for the source vCenter, check the box. 
 +
 NOTE: Self-signed certificates are not as secure as other certificates. If your vCenter is *NOT* configured with certificate authority (CA) certificates, you should check this box; otherwise, the connection to the vCenter will not work.  
 
@@ -85,7 +85,7 @@ NOTE: Self-signed certificates are not as secure as other certificates. If your 
 
 . Select *Add*. 
 +
-Next, you will add a target vCenter. 
+Next add a target vCenter. 
 . Add a site again for the target vCenter. 
 . Again, select *Add vCenter* and add target vCenter information.
 
