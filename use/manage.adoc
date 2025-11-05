@@ -40,7 +40,7 @@ Organization admin, Folder or project admin, or Disaster recovery admin role.
 
 == Manage resource groups 
 
-While you can add a resource group as part of creating a replication plan, you might find it more convenient to add the groups separately and later use those groups in the plan. You create resource groups by VMs or by datastores.
+You can create resource groups by VMs or datastores. They can be added when you create the replication plan or after. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role.
@@ -50,7 +50,7 @@ You can create a resource group by datastores in the following ways:
 * When you're adding a resource group using datastores, you can see a list of datastores. You can select one or more datastores to create a resource group.
 * When you're creating a replication plan and creating a resource group within the plan, you can see the VMs in the datastores. 
 
-You can do the following tasks with resource groups: 
+You can perform the following tasks with resource groups: 
 
 * Change the resource group name. 
 * Add VMs to the resource group.    
@@ -63,7 +63,7 @@ For details about creating a resource group, refer to link:resource-group.html[C
 
 . From the menu, select *Resource groups*. 
 . To add a resource group, select *Add group*.  
-. To perform actions with the resource group, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  at the right and select any of the options, such as *Edit resource group* or *Delete resource group*. 
+. You can modify or delete the resource group by selecting the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service].
 
 == Manage replication plans 
 
@@ -103,7 +103,8 @@ image:../use/dr-plan-list.png[Replication plan list]
 .. Select *Save*.
 
 === Reconcile snapshots on demand
-You can reconcile snapshots that are out of sync between the source and target. This might occur if snapshots are deleted on a target outside of NetApp Disaster Recovery. The service automatically deletes the snapshot on the source automatically every 24 hours. However, you can perform this on demand. This feature enables you to ensure that the snapshots are consistent across all sites.
+
+Disaster Recovery automatically deletes snapshots on the source every 24 hours. If you discover that snapshots are out of sync between the source and destination, you need to resolve the discrepancy between the snapshots to ensure consistency across sites. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
@@ -114,40 +115,34 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 +
 image:../use/dr-plan-list.png[Replication plan list]
 
-. From the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Reconcile snapshots*. 
+. From the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] then *Reconcile snapshots*. 
 
 . Review the reconciliation information. 
 . Select *Reconcile*.
 
 
 === Delete a replication plan
-You can delete a replication plan if you no longer need it. If you delete a replication plan, you can also delete the primary and secondary snapshots created by the plan. 
+
+If you delete a replication plan, you can also delete the primary and secondary snapshots created by the plan. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
 
-
-
 .Steps 
 
 . From the menu, select *Replication plans*. 
-
-
 . Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Delete*. 
-
-. Select whether you want to delete the primary snapshots,  secondary snapshots, or just the metadata created by the plan. 
-
-. Type "delete" to confirm the deletion.
+. Select whether you want to delete the primary snapshots,  secondary snapshots, or only the metadata created by the plan. 
+. Enter "delete" to confirm the deletion.
 . Select *Delete*.
 
 
 === Change retention count for failover schedules
 
-You can change how many datastores are retained. 
+Changing the retention count enables you to increase or decrease the number of datastore saved. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
-
 
 .Steps
 . From the menu, select *Replication plans*. 
