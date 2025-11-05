@@ -86,7 +86,8 @@ A Console agent must be set up in the NetApp Console. When you use the agent, it
 ** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
 +
 TIP: For on-premises to on-premises, use the on-premises Console agent. For on-premises to AWS, use the AWS Console agent, which has access to the source on-premises vCenter and the destination on-premises vCenter.
-** The installed Console agent must be able to access any VMware cluster that NetApp Disaster Recovery will manage. 
+** The installed Console agent must be able to access any VMware vCenter cluster instances and ESXi hosts managed by those vCenter clusters that Disaster Recovery will manage.
+
 * All ONTAP arrays to be managed by NetApp Disaster Recovery must be added to any system within the NetApp Console project that will be used to manage NetApp Disaster Recovery.
 +
 See https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^]. 

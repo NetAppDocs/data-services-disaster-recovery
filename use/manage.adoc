@@ -11,7 +11,7 @@ summary: You can get a quick glance of all your NetApp Disaster Recovery resourc
 :imagesdir: ../media/use/
 
 [.lead]
-You can get a quick glance of all your NetApp Disaster Recovery resources or look at each in detail: 
+NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources: 
 
 * Sites
 * Resource groups
