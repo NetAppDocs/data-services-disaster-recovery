@@ -32,7 +32,7 @@ NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores 
 
 //After you set up your BYOL or purchase a subscription in AWS, you can see the license in the NetApp Console *Data service Licenses* option or the active subscription in the Console *Subscriptions* option.
 
-link:https://docs.netapp.com/us-en/bluexp-digital-wallet/concept-digital-wallet.html[Learn more about subscriptions^].
+link:https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-licenses-subscriptions.html[Learn more about subscriptions^].
 
 
 After the free trial ends or the license expires, you can still do the following in the service:
