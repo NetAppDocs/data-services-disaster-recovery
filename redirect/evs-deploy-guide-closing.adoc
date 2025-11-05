@@ -1,0 +1,4 @@
+---
+permalink: reference/evs-deploy-guide-closing.html
+redirect: data-services-disaster-recovery/
+---
