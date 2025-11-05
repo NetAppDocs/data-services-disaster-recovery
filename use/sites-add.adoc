@@ -47,7 +47,7 @@ Each site contains one or more vCenters. These vCenters use one or more ONTAP st
 A vCenter cluster can reside in only one site. You need the following information to add a vCenter cluster to a site: 
 
 * The vCenter management IP address or FQDN
-* Credentials for a vCenter account with the required privileges to perform operations. See link:vcenter--privileges.html[required vCenter privileges] for more information.
+* Credentials for a vCenter account with the required privileges to perform operations. See link:vcenter-privileges.html[required vCenter privileges] for more information.
 * For cloud-hosted VMware sites, the required cloud access keys
 * A security certificate to access your vCenter. 
 +
