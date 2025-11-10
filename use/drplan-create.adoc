@@ -252,6 +252,8 @@ To enable script execution with the VM guest OS, the following conditons must be
 +
 *VMs running Linux*: can run any shell script (.sh) supported by the version of Linux used by the VM. Linux scripts can use command-line arguments. Provide arguments in a list of values separated by semi-colons. Named arguments are not supported. Add each argument to the `Arg[x]` argument list and reference each value using a pointer into the `Arg[x]` array, for example, `value1;value2;value3`.
 +
+* *Downgrade VM hardware version and register*: Select this if the destination ESX host version is earlier than the source so they match during registration.
+
 * *Target VM prefix and suffix*: Under the virtual machines details, you can optionally add a prefix and suffix to each failed over VM name. This can be helpful in differentiating the failed over VMs from the production VMs running on the same vCenter cluster. For example, you can add a prefix of "DR-" and a suffix of "-failover" to the VM name. Some people add a second production vCenter to host VMs temporarily at a different site in the event of a disaster. Adding a prefix or suffix can help you quickly identify failed over VMs. You can also use the prefix or suffix in custom scripts. 
 +
 You can use the alternative method of setting the Target VM folder in the Compute resources section. 
@@ -358,7 +360,8 @@ You can optionally use specific data interfaces (LIFs) for a volume after a fail
 +
 For additional control over NAS data access security, the service can assign different datastore volumes specific NAS export policies. Export policies define the access control rules for NFS clients that access the datastore volumes. If you don't specify an export policy, the service uses the default export policy for the SVM.
 
-*BEST PRACTICE*: We strongly recommend that you create a dedicated export policy that limits volume access only to the source and destination vCenter ESXi hosts that will host the protected VMs. This helps to ensure that external entities can't gain access to the NFS export. 
+[TIP]
+It's recommended you create a dedicated export policy that limits volume access to _only_ the source and destination vCenter ESXi hosts that will host the protected VMs. This ensure external entities can't gain access to the NFS export. 
 
 
 === Add test failover mappings 
