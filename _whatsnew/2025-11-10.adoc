@@ -6,9 +6,7 @@ You can now configure a cascading relationship in ONTAP and use any leg of that 
 
 Disaster Recovery now supports downgrading VMware hardware to an earlier version of vSphere during registration. This is useful when the source ESX host is running a later version than the disaster recovery site. 
 
-For more information, see xref:drplan-create.html#map-resources-virtual-machines-section[Create a replication plan in NetApp Disaster Recovery].
-
-// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers[Create a replication plan in NetApp Disaster Recovery].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers[Create a replication plan in NetApp Disaster Recovery].
 
 === Graceful shutdown
 
@@ -18,6 +16,4 @@ Disaster Recovery now gracefully shuts down VMs instead of powering them off. If
 
 You can now inject custom scripting into the failover workflow to run before creating a backup. Pre-backup scripting enables you to control the VM's state before a snapshot is replicated and prepare a VM for a transition. For example, you can inject a script that unmounts an NFS mount that will be remounted using a different script after failover. 
 
-For more information, see xref:drplan-create.html#map-resources-virtual-machines-section[Create a replication plan in NetApp Disaster Recovery].
-
-// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers[Create a replication plan in NetApp Disaster Recovery].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#select-vcenter-servers[Create a replication plan in NetApp Disaster Recovery].
