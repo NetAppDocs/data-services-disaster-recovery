@@ -21,8 +21,8 @@ NetApp Disaster Recovery provides overviews and more detailed perspectives into 
 
 Tasks require different NetApp Console roles. For details, see the *Required NetApp Console role* section in each task.
 
-link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 
 == Manage vCenter sites

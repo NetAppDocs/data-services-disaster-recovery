@@ -16,8 +16,8 @@ In case of a disaster, fail over your primary on-premises VMware site to another
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery failover admin role. 
 
-link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 *About this task*
 

@@ -2,13 +2,13 @@
 You can now generate and download reports to help you analyze your landscape. Predesigned reports summarize failovers and failbacks, show replication details on all sites, and show job details for the past seven days. 
 
 //For details, see link:../use/reports.html[Create disaster recovery reports].
-Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/reports.html[Create disaster recovery reports].
+Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.html[Create disaster recovery reports].
 
 === 30-day free trial
 You can now sign up for a 30-day free trial of NetApp Disaster Recovery. Previously, free trials were for 90 days.
 
 //For details, see link:../get-started/dr-licensing.html[Set up licensing].
-Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html[Set up licensing].
+Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html[Set up licensing].
 
 === Disable and enable replication plans 
 A previous release included updates to the failover test schedule structure, which was needed to support daily and weekly schedules. This update required that you disable and re-enable all existing replication plans so that you will be able to use the new daily and weekly failover test schedules. This is a one-time requirement.  
@@ -25,41 +25,41 @@ Here's how:
 When you create a replication plan and map compute resources, you can now map folders so that VMs are recovered in a folder you specify for datacenter, cluster, and host.
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 === VM details available for failover, failback, and test failover
 When a failure occurs and you are starting a failover, performing a failback, or testing the failover, you can now see details of the VMs and identify which VMs did not restart. 
 
 //Refer to link:../use/failover.html[Fail over applications to a remote site].
-Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html[Fail over applications to a remote site].
+Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications to a remote site].
 
 === VM boot delay with ordered boot sequence
 When you create a replication plan, you can now set a boot delay for each VM in the plan. This enables you to set a sequence for the VMs to start to ensure that all your priority one VMs are running before subsequent priority VMs are started. 
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 === VM operating system information
 When you create a replication plan, you can now see the operating system for each VM in the plan. This is helpful in deciding how to group VMs together in a resource group.
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 
 === VM name aliasing
 When you create a replication plan, you can now add a prefix and suffix to the VM names on the disaster recovery sit. This enables you to use a more descriptive name for the VMs in the plan.
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 === Clean up old snapshots
 You can delete any snapshots that are no longer needed beyond your specified retention count. Snapshots might accumulate over time when you lower your snapshot retention count, and you can now remove them to free up space. You can do this anytime on demand or when you delete a replication plan. 
 
 //For details, see link:../use/manage.html[Manage sites, resource groups, replication plans, datastores, and virtual machines information].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage sites, resource groups, replication plans, datastores, and virtual machines information].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html[Manage sites, resource groups, replication plans, datastores, and virtual machines information].
 
 === Reconcile snapshots 
 You can now reconcile snapshots that are out of sync between the source and target. This might occur if snapshots are deleted on a target outside of NetApp Disaster Recovery. The service deletes the snapshot on the source automatically every 24 hours. However, you can perform this on demand. This feature enables you to ensure that the snapshots are consistent across all sites.
 
 //For details, see link:../use/manage.html[Manage replication plans].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/manage.html[Manage replication plans].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html[Manage replication plans].

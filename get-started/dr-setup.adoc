@@ -75,7 +75,7 @@ To set up NetApp Disaster Recovery for on-premises-to-cloud protection using AWS
 * Create an Amazon FSx for NetApp ONTAP file system. 
 ** Provision and configure FSx for ONTAP. Amazon FSx for NetApp ONTAP is a fully managed service that provides highly reliable, scalable, high-performing, and feature-rich file storage, built on the NetApp ONTAP file system.
  
-** Follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html[Technical Report 4938: Mount Amazon FSx ONTAP as an NFS datastore with VMware Cloud on AWS^] and https://docs.netapp.com/us-en/bluexp-fsx-ontap/start/task-getting-started-fsx.html[Quick start for Amazon FSx for NetApp ONTAP] to provision and configure FSx for ONTAP.
+** Follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-native-overview.html[Technical Report 4938: Mount Amazon FSx ONTAP as an NFS datastore with VMware Cloud on AWS^] and https://docs.netapp.com/us-en/storage-management-fsx-ontap/start/task-getting-started-fsx.html[Quick start for Amazon FSx for NetApp ONTAP] to provision and configure FSx for ONTAP.
  
 * Add Amazon FSx for ONTAP to the system, and add AWS credentials for FSx for ONTAP.
 * Create or verify your destination ONTAP SVM in AWS FSx for ONTAP instance.
@@ -123,5 +123,5 @@ When a proxy is configured, NetApp Disaster Recovery attempts to communicate dir
 
 NetApp Disaster Recovery proxy implementation requires port 443 communication between the Console agent and any vCenter Servers and ONTAP arrays using an HTTPS protocol. The NetApp Disaster Recovery agent within the Console agent communicates directly with VMware vSphere, the VC, or ONTAP when performing any actions.
  
-For more information about general proxy set up in the NetApp Console, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html[Configure the Console agent to use a proxy server^].
+For more information about general proxy set up in the NetApp Console, see https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html[Configure the Console agent to use a proxy server^].
 

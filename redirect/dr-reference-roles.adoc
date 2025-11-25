@@ -1,0 +1,5 @@
+---
+sidebar: sidebar
+permalink: reference/dr-reference-roles.html
+redirect: console-setup-admin/reference-iam-disaster-rec-roles.html
+---

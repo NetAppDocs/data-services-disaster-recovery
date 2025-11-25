@@ -45,7 +45,7 @@ The NetApp Console provides centralized management of NetApp storage and data se
  
 You don’t need a license or subscription to start using NetApp Console and you only incur charges when you need to deploy Console agents in your cloud to ensure connectivity to your storage systems or NetApp data services. However, some NetApp data services accessible from the Console are licensed or subscription-based.
  
-Learn more about the https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html[NetApp Console].
+Learn more about the https://docs.netapp.com/us-en/console-setup-admin/concept-overview.html[NetApp Console].
 
 == Benefits of using NetApp Disaster Recovery for VMware
 

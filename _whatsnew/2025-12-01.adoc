@@ -1,0 +1,8 @@
+===  Support for Google Cloud VMware Engine using Google Cloud NetApp Volumes
+
+NetApp Disaster Recovery now supports Google Cloud VMware Engine using Google Cloud NetApp Volumes.
+
+Ensure you review the link:../release-notes/dr-limitations.adoc[Limitations for Google Cloud NetApp Volumes].
+
+Ensure you review the link:../get-started/dr-prerequisites.html[prerequisites for Google Cloud VMware Enginge^].
+

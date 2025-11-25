@@ -20,12 +20,25 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 | Component
 | Minimum version
 
-
-| ONTAP software | ONTAP 9.10.0 or later
-| VMware on-premises vCenter | 7.0u3 or later
-| VMware Cloud for AWS | Latest available version
 | Amazon FSx for NetApp ONTAP | Latest available version 
+| Google Cloud VMware Engine using Google Cloud NetApp Volumes | Latest available version 
+| ONTAP software | ONTAP 9.10.0 or later
+| VMware Cloud for AWS | Latest available version
+| VMware on-premises vCenter | 7.0u3 or later
+
 |=== 
+
+== Google Cloud prerequisites
+
+
+**Failover considerations**
+* Failover is only supported using the latest snapshot. If necessary, you can create a new snapshot during snapshot (that is, the selective snapshot option must be disabled).
+* You can't create a new snapshot after failover.
+* You can't retain and reconcile snapshots after failover. 
+
+**Failback considerations**
+* Failback is only possible with the selective snapshot option. You can't perform a failback by taking a new snapshot. 
+* If you remove cluster peering between on-premises storage and Google Cloud NetApp Volumes storage clusters, you must manually clear the cluster and storage VM peering entry from the on-premises cluster. For more information, see link:https://docs.netapp.com/us-en/ontap-cli/vserver-peer-delete.html[Delete a vserver peer relationship^].
 
 == ONTAP storage prerequisites
 
@@ -60,7 +73,7 @@ These prerequisites apply to both on-premises vCenter clusters and to VMware Clo
 
 === Get started with the NetApp Console
 
-If you haven't already done so, https://docs.netapp.com/us-en/bluexp-setup-admin/task-sign-up-saas.html[sign up to the NetApp Console and create an organization^].
+If you haven't already done so, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html[sign up to the NetApp Console and create an organization^].
 
 === Gather credentials for ONTAP and VMware
 
@@ -77,18 +90,18 @@ The Console agent is a software component that enables the Console to communicat
 
 A Console agent must be set up in the NetApp Console. When you use the agent, it will include the appropriate capabilities for the Disaster Recovery service.
  
-* NetApp Disaster Recovery works only with the standard mode agent deployment. See https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-standard-mode.html[Getting started with the NetApp Console in standard mode^]. 
+* NetApp Disaster Recovery works only with the standard mode agent deployment. See https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html[Getting started with the NetApp Console in standard mode^]. 
 * Ensure that both the source and destination vCenters use the same Console agent. 
 * Type of Console agent needed:
-** *On-premises to on-premises disaster recovery*: Install the Console on-premises agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
-** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
+** *On-premises to on-premises disaster recovery*: Install the Console on-premises agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
+** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
 +
 TIP: For on-premises to on-premises, use the on-premises Console agent. For on-premises to AWS, use the AWS Console agent, which has access to the source on-premises vCenter and the destination on-premises vCenter.
 ** The installed Console agent must be able to access any VMware vCenter cluster instances and ESXi hosts managed by those vCenter clusters that Disaster Recovery will manage.
 
 * All ONTAP arrays to be managed by NetApp Disaster Recovery must be added to any system within the NetApp Console project that will be used to manage NetApp Disaster Recovery.
 +
-See https://docs.netapp.com/us-en/bluexp-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^]. 
+See https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^]. 
 
 
 * For information about setting up an intelligent proxy for NetApp Disaster Recovery, see link:../get-started/dr-setup.html[Set up your infrastructure for NetApp Disaster Recovery].
