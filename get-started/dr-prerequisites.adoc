@@ -32,9 +32,11 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 
 With Disaster Recovery on Google Cloud VMware Engine using Google Cloud NetApp Volumes, ensure you configure the correct permissions and adhere to the noted considerations. 
 
+* Contact the Google SRE team to allow-list the:
+** sync API to transfer snapshots from on-premises storage to Google Cloud NetApp Volumes. 
+** the Google project with the VMware engine for creating, mounting, and unmounting datastores.
 * You must link:https://docs.google.com/forms/d/1zuaHu437MNpUf8i5oByK-OTLWXcNIg0es9t036riYRc/viewform?edit_requested=true[File a request to allow-list your volumes hybrid replication^].
 * Be aware of the link:https://docs.cloud.google.com/netapp/volumes/docs/quotas[Google Cloud NetApp Volumes quota and limits^].
-* The Google project with the VMware engine needs to be allow-listed for creating, mounting, and unmounting datastores. Contact the Google SRE team for allow-listing. 
 * You can only add one volume or datastore to a replication plan. 
 * Review the link:../release-notes/dr-limitations.html#limitations-with-google-cloud-netApp-volumes[limitations].
 
