@@ -4,3 +4,4 @@ NetApp Disaster Recovery now supports Google Cloud VMware Engine using Google Cl
 
 Ensure you review the link:../get-started/dr-prerequisites.html[prerequisites for Google Cloud] and link:../release-notes/dr-limitations.adoc[limitations].
 
+//Ensure you review the link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html[prerequisites for Google Cloud] and link:https://docs.netapp.com/us-en/data-services-disaster-recovery/release-notes/dr-limitations.adoc[limitations].

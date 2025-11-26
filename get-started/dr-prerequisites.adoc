@@ -39,11 +39,13 @@ With Disaster Recovery on Google Cloud VMware Engine using Google Cloud NetApp V
 * Review the link:../release-notes/dr-limitations.html#limitations-with-google-cloud-netApp-volumes[limitations].
 
 **Failover considerations**
+
 * Failover is only supported using the latest snapshot. If necessary, you can create a new snapshot during snapshot (that is, the selective snapshot option must be disabled).
 * You can't create a new snapshot after failover.
 * You can't retain and reconcile snapshots after failover. 
 
 **Failback considerations**
+
 * Failback is only possible with the selective snapshot option. You can't perform a failback by taking a new snapshot. 
 * If you remove cluster peering between on-premises storage and Google Cloud NetApp Volumes storage clusters, you must manually clear the cluster and storage VM peering entry from the on-premises cluster. For more information, see link:https://docs.netapp.com/us-en/ontap-cli/vserver-peer-delete.html[Delete a vserver peer relationship^].
 
