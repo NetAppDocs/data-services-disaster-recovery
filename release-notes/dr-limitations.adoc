@@ -39,5 +39,5 @@ This rediscovers the datastore, its virtual machines, and its destination relati
 
 == Limitations with Google Cloud NetApp Volumes 
 
-. After running a failover test, you have to wait at least 52 hours to delete the clone volume. You must delete the volume manually. After 52 hours, you can test failover again. 
-. If any part of the mount operation fails, failover will not succeed and the jobs will time out. It takes up to three days for Google to look into the issue, during which all datastore-related operations on the vCenter are blocked. 
+* After running a failover test, you have to wait at least 52 hours to delete the clone volume. You must delete the volume manually. After 52 hours, you can test failover again. 
+* If any part of the mount operation fails, failover will not succeed and the jobs will time out. It takes up to three days for Google to look into the issue, during which all datastore-related operations on the vCenter are blocked. 

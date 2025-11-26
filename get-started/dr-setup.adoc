@@ -92,6 +92,7 @@ https://www.vmware.com/products/vmc-on-aws.html[VMware Cloud on AWS^] provides a
  
 To configure a VMware Cloud environment on AWS, follow the steps in https://docs.netapp.com/us-en/netapp-solutions/ehc/aws/aws-setup.html[Deploy and configure the Virtualization Environment on AWS^]. A pilot-light cluster can also be used for disaster recovery purposes.
 
+
 == Private cloud 
 
 You can use NetApp Disaster Recovery to protect VMware VMs hosted on one or more vCenter clusters by replicating VM datastores to another vCenter cluster either in the same private datacenter or to a remote private or collocated datacenter.

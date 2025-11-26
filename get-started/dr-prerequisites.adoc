@@ -28,8 +28,14 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 
 |=== 
 
-== Google Cloud prerequisites
+== Google Cloud prerequisites and considerations
 
+With Disaster Recovery on Google Cloud VMware Engine using Google Cloud NetApp Volumes, ensure you configure the correct permissions and adhere to the noted considerations. 
+
+* You must link:https://docs.google.com/forms/d/1zuaHu437MNpUf8i5oByK-OTLWXcNIg0es9t036riYRc/viewform?edit_requested=true[File a request to allow-list your volumes hybrid replication^].
+* Be aware of the link:https://docs.cloud.google.com/netapp/volumes/docs/quotas[Google Cloud NetApp Volumes quota and limits^].
+* You can only add one volume or datastore to a replication plan. 
+* Review the link:../release-notes/dr-limitations.html#limitations-with-google-cloud-netApp-volumes[limitations].
 
 **Failover considerations**
 * Failover is only supported using the latest snapshot. If necessary, you can create a new snapshot during snapshot (that is, the selective snapshot option must be disabled).
@@ -39,6 +45,23 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 **Failback considerations**
 * Failback is only possible with the selective snapshot option. You can't perform a failback by taking a new snapshot. 
 * If you remove cluster peering between on-premises storage and Google Cloud NetApp Volumes storage clusters, you must manually clear the cluster and storage VM peering entry from the on-premises cluster. For more information, see link:https://docs.netapp.com/us-en/ontap-cli/vserver-peer-delete.html[Delete a vserver peer relationship^].
+
+=== Google Cloud permissions
+
+The service principal in Google Cloud should be assigned the following roles or equivalent permissions:
+
+- link:https://docs.cloud.google.com/compute/docs/access/iam[Compute Admin role^]
+- link:https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html[Google Cloud Permissions for NetApp Console^]
+- link:https://docs.cloud.google.com/iam/docs/roles-permissions/netapp[Google Cloud NetApp Volumes Admin]
+- link:https://docs.cloud.google.com/vmware-engine/docs/iam#vmware-engine-roles[VMware Engine Service Admin^]
+
+=== NetApp Console permissions
+
+The NetApp Console user must have the following roles:
+
+* link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-gcnv-roles.html[Google Cloud NetApp Volumes admin^]
+* link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html#data-service-roles[SnapCenter admin^]
+* link:https://docs.netapp.com/us*-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Disaster Recovery failover admin^]
 
 == ONTAP storage prerequisites
 

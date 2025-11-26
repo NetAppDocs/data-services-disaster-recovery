@@ -17,10 +17,10 @@ Disaster recovery to the cloud is a resilient and cost-effective way of protecti
 NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can protect your on-premises, NFS-based workloads and VMware vSphere virtual machine file system (VMFS) datastores for iSCSI and FC running NetApp storage to one of the following: 
 
 
-* VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP 
 * Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP  For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction of NetApp Disaster Recovery using Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
+* VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP 
 * Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
-//* Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
+* Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
 * Another on-premises NFS and or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
 
 
@@ -51,7 +51,7 @@ Learn more about the https://docs.netapp.com/us-en/console-setup-admin/concept-o
 
 NetApp Disaster Recovery offers the following benefits:
 
-* Simplified user experience for vCenter discovery and recovery of applications with multiple point-in-time recovery operations. 
+* Simplified user experience for vCenter discovery and recovery of applications with multiple point-in-time recovery operations.
 * Lower total cost of ownership with reduced cost of operations and ability to create and adjust disaster recovery plans with minimal resources.
 * Continuous disaster recovery readiness with virtual failover testing that does not disrupt operations. You can regularly test your DR failover plans without impacting production workloads. 
 * Faster time to value with dynamic changes in your IT environment and ability to address it in your disaster recovery plans.
@@ -68,15 +68,13 @@ NetApp Disaster Recovery provides you with full use of several NetApp technologi
 * After the disaster has been resolved, fail back on demand from the disaster recovery site to the primary site.
 * Group VMs or datastores into logical resource groups for efficient management. 
  
-
 image:../use/evs-use-cases.png[Diagram showing use cases for NetApp Disaster Recovery for VMware]
 
 NOTE: Configuration of the vSphere server is done outside of NetApp Disaster Recovery in vSphere Server. 
 
-
 == Cost
 
-NetApp doesn’t charge you for using the trial version of NetApp Disaster Recovery.
+NetApp doesn't charge you for using the trial version of NetApp Disaster Recovery.
 
 NetApp Disaster Recovery can be used either with a NetApp license or an annual subscription-based plan through Amazon Web Services. 
 
@@ -101,18 +99,15 @@ Protected volumes can host many VMs. Some might not be part of a NetApp Disaster
 
 NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
 
-
-
 For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up NetApp Disaster Recovery licensing].
 
-
 == 30-day free trial
+
 You can try out NetApp Disaster Recovery by using a 30-day free trial. 
 
 To continue after the 30-day trial, you'll need to obtain a Pay-as-you-go (PAYGO) subscription from your cloud provider or purchase a BYOL license from NetApp.
 
 You can purchase a license at any time and you will not be charged until the 30-day trial ends. 
-
 
 == How NetApp Disaster Recovery works
 
@@ -179,6 +174,7 @@ NetApp Disaster Recovery supports the following datastore types:
 * Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMSF 
 * Amazon Elastic VMware Service  
 * Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
 
 == Terms that might help you with NetApp Disaster Recovery
 You might benefit by understanding some terminology related to disaster recovery.
