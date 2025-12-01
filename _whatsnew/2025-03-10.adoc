@@ -8,9 +8,9 @@ NetApp Disaster Recovery proxy implementation requires port 443 communication be
  
 //For more information about the intelligent proxy for NetApp Disaster Recovery, see link:../get-started/dr-setup.html[Set up your infrastructure for NetApp Disaster Recovery].
 
-For more information about the intelligent proxy for NetApp Disaster Recovery, see https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-setup.html[Set up your infrastructure for NetApp Disaster Recovery].
+For more information about the intelligent proxy for NetApp Disaster Recovery, see https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-setup.html[Set up your infrastructure for NetApp Disaster Recovery].
 
-For more information about general proxy set up in the NetApp Console, see https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html[Configure the Console agent to use a proxy server^].
+For more information about general proxy set up in the NetApp Console, see https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html[Configure the Console agent to use a proxy server^].
 
 
 
@@ -18,5 +18,5 @@ For more information about general proxy set up in the NetApp Console, see https
 
 You can stop the free trial at any time or you can wait until it expires. 
 
-See https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html#end-the-free-trial[End the free trial].
+See https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html#end-the-free-trial[End the free trial].
 

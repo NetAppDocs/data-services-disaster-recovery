@@ -11,13 +11,13 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you’ve added vCenter sites, you’re ready to create a disaster recovery or _replication plan_. Replication plans manage the data protection of the VMware infrastructure. Select the source and destination vCenters, pick the resource groups, and group how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. Such plans are sometimes called _blueprints_. 
+After you've added vCenter sites, you're ready to create a disaster recovery or _replication plan_. Replication plans manage the data protection of the VMware infrastructure. Select the source and destination vCenters, pick the resource groups, and group how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. Such plans are sometimes called _blueprints_. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
 
-link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 *About this task* 
 
@@ -54,6 +54,9 @@ The service performs snapshot symmetry checks every 24 hours.
 Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
 
 *BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Use datastore-based protection to ensure that the VMs on any given datastore are protected.
+
+>[!IMPORTANT]
+>With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 == Create the plan
 A wizard takes you through these steps: 

@@ -18,7 +18,7 @@ In summary, the host address stays the same, while the network address is replac
 
 //For details about including subnet mapping in your sites, see  link:../use/sites-add.html[Add vCenter server sites].
 
-For details about including subnet mapping in your sites, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html[Add vCenter server sites].
+For details about including subnet mapping in your sites, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html[Add vCenter server sites].
 
 === Skip protection 
 
@@ -32,7 +32,7 @@ After the original source site is back online, you can establish reverse protect
 
 //For details about skipping protection, see  link:../use/failover.html[Fail over applications to a remote site].
 
-For details skipping protection, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/failover.html[Fail over applications to a remote site].
+For details skipping protection, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications to a remote site].
 
 === SnapMirror schedule updates in the replication plan
 
@@ -46,4 +46,4 @@ After this is configured, the service doesn't take any regularly scheduled snaps
 
 //For details using external snapshot solutions in the replication plan, see  link:../use/drplan-create.html[Create a replication plan].
 
-For details about using external snapshot solutions in the replication plan, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details about using external snapshot solutions in the replication plan, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].

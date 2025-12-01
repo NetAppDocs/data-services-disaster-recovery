@@ -16,8 +16,8 @@ With NetApp Disaster Recovery, you can use different licensing plans including a
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
 
-link:../reference/dr-reference-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
 
 *Licensing options*
 You can use the following licensing options:
@@ -65,7 +65,7 @@ If this is your first time logging in to this service, the landing page appears.
 image:draas-landing6-free-trial.png[Landing page screenshot for NetApp Disaster Recovery]
 . If you haven't already added a Console agent for other services, add one. 
 + 
-To add a Console agent, refer to https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html[Learn about Console agents^].
+To add a Console agent, refer to https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html[Learn about Console agents^].
 . After you set up the agent, in the NetApp Disaster Recovery landing page, the button to add the agent changes to a button for starting a free trial. Select *Start free trial*. 
 
 . Begin by adding vCenters. 
@@ -91,7 +91,7 @@ image:dr-licensing-payment-methods.png[The NetApp Disaster Recovery Payment meth
  
 . When you return to NetApp Disaster Recovery, a message states that you are subscribed. 
 +
-You can view subscription details in the NetApp Console subscription page. link:https://docs.netapp.com/us-en/bluexp-digital-wallet/task-homepage.html[Learn more managing subscriptions with the NetApp Console^].
+You can view subscription details in the NetApp Console subscription page. link:https://docs.netapp.com/us-en/console-licenses-subscriptions/task-homepage.html[Learn more managing subscriptions with the NetApp Console^].
 
 
 
@@ -104,7 +104,7 @@ If you bring your own license (BYOL), the set up includes purchasing the license
 *Add the license to the NetApp Console**
 After you've purchased your NetApp Disaster Recovery license from a NetApp Sales Rep, you can manage the license in the Console.
 
-https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about adding licenses with the NetApp Console^].
+https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html[Learn about adding licenses with the NetApp Console^].
 
 
 
@@ -112,10 +112,10 @@ https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-li
 
 If your licensed term is nearing the expiration date, or if your licensed capacity is reaching the limit, you'll be notified in the NetApp Disaster Recovery UI. You can update your NetApp Disaster Recovery license before it expires so that there is no interruption in your ability to access your scanned data.
 
-TIP: This message also appears in the NetApp Console and in https://docs.netapp.com/us-en/bluexp-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center[Notifications]. 
+TIP: This message also appears in the NetApp Console and in https://docs.netapp.com/us-en/console-setup-admin/task-monitor-cm-operations.html#monitoring-operations-status-using-the-notification-center[Notifications]. 
 
 
-https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html[Learn about updating licenses with the NetApp Console^].
+https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-data-services-licenses.html[Learn about updating licenses with the NetApp Console^].
 
 == End the free trial
 

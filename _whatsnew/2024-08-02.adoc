@@ -6,4 +6,4 @@ NOTE: NetApp doesn't charge you for any previewed workload capacity.
 === Job cancel
 With this release, you can now cancel a job in the Job Monitor UI.  
 
-Refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/monitor-jobs.html[Monitor jobs].
+Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html[Monitor jobs].
