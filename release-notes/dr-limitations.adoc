@@ -27,7 +27,7 @@ If you need to remove the ONTAP FSx cluster from NetApp Disaster Recovery, compl
 
 . In the NetApp Console agent, use the connectivity options from your cloud provider, connect to the Linux VM that the Console agent runs on, restart the "occm" service using the `docker restart occm` command.
 
-Refer to https://docs.netapp.com/us-en/bluexp-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[Manage existing Console agents^].           
+Refer to https://docs.netapp.com/us-en/console-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm[Manage existing Console agents^].           
 
 . In the NetApp Console Systems page, add the Amazon FSx for ONTAP system again and provide the FSx credentials.
 +
@@ -37,4 +37,7 @@ Refer to https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1
 +
 This rediscovers the datastore, its virtual machines, and its destination relationship. 
 
+== Limitations with Google Cloud NetApp Volumes 
 
+* After running a failover test, you have to wait at least 52 hours to delete the clone volume. You must delete the volume manually. After 52 hours, you can test failover again. 
+* If any part of the mount operation fails, failover will not succeed and the jobs will time out. It takes up to three days for Google to look into the issue, during which all datastore-related operations on the vCenter are blocked. 

@@ -5,7 +5,7 @@ NetApp Disaster Recovery performs discovery once every 24 hours. With this relea
 If you don't wan to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
 
 //For details, see link:../use/sites-add.html[Add vCenter server sites].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/sites-add.html[Add vCenter server sites].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html[Add vCenter server sites].
 
 === Resource group datastore support 
 
@@ -18,7 +18,7 @@ You can create a resource group with a datastore in the following ways:
 
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 === Notifications of free trial or license expiration
 

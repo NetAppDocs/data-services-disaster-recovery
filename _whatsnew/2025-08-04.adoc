@@ -11,5 +11,5 @@ This release includes the following updates:
 //+
 //For details, see  link:../get-started/dr-intro.html#licensing[NetApp Disaster Recovery licensing] and link:../get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery].
 +
-For details, see https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-intro.html#licensing[NetApp Disaster Recovery licensing] and https://docs.netapp.com/us-en/bluexp-disaster-recovery/get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery].
+For details, see https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-intro.html#licensing[NetApp Disaster Recovery licensing] and https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery].
 

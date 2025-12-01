@@ -6,10 +6,10 @@ Windows Local Administrator Password Solution (Windows LAPS) is a Windows featur
 You can now select subnet mapping options and check the LAPS option by providing the domain controller details. Using this option, you don't need to provide a password for each of your virtual machines.
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/bluexp-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
 
 //=== NetApp Console access role needed
 
 //You now need one of the following access roles to view, discover, or manage NetApp Disaster Recovery: Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery read-only user.
 
-//https://docs.netapp.com/us-en/bluexp-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
+//https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
