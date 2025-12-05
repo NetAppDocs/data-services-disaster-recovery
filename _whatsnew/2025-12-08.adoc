@@ -11,5 +11,5 @@ For more information, see link:../use/failover.html[Fail over applications].
 
 Disaster Recovery now supports a streamlined process for using multiple Console agents in a working environment. To switch between Console agents, you must edit your vCenter configuration, rediscover the credentials, and refresh the replication plans to use the new Console agent. 
 
-For more information, see link:../reference/switch-console-agents.html[Switch console agents].
+For more information, see link:../reference/switch-console-agent.html[Switch console agents].
 // For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html[Switch console agents].
