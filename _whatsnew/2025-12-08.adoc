@@ -4,8 +4,8 @@ By default, Disaster Recovery retains the VM inventory hierarchy (folder structu
 
 You can now override this setting by designating a new parent VM folder or by unchecking the **Retain original folder hierarchy** option. 
 
-For more information, see link:../use/failover.html[Fail over applications].
-// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications].
+For more information, see link:../use/dr-plan-create.adoc[Create a replication plan].
+// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dr-plan-create.adoc[Create a replication plan].
 
 === Streamlined Console agent updating process 
 
