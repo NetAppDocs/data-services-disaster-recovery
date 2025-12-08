@@ -4,7 +4,6 @@ permalink: reference/switch-console-agent.html
 keywords: disaster recovery, console agent, high availability
 summary: Learn about the requirements for using multiple Console agents with NetApp Disaster Recovery.
 ---
-
 = Switch Console agents when using NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
