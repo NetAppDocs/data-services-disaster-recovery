@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: use/drplan-create.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
-summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you’ve added vCenter sites, you’re ready to create a disaster recovery or replication plan. 
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you've added vCenter sites, you're ready to create a disaster recovery or replication plan. 
 ---
 
 = Create a replication plan in NetApp Disaster Recovery
@@ -51,12 +51,12 @@ The service performs snapshot symmetry checks every 24 hours.
 
 *Before you begin*
 
-Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
+* Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
+* With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
-*BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Use datastore-based protection to ensure that the VMs on any given datastore are protected.
+[TIP]
+Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Use datastore-based protection to ensure that the VMs on any given datastore are protected.
 
->[!IMPORTANT]
->With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 == Create the plan
 A wizard takes you through these steps: 
@@ -73,9 +73,8 @@ When you create the plan, you should follow these guidelines:
 * Use the same script for all VMs in the plan.
 * Use the same subnet, DNS, and gateway for all VMs in the plan.
  
-
-
 === Select vCenter servers
+
 First, you select the source vCenter and then select the destination vCenter. 
 
 .Steps 
@@ -112,7 +111,8 @@ When you create resource groups, consider the following issues:
 
 * To have a VM protected, it must be included in a resource group.
 
-*BEST PRACTICE*: Create a separate dedicated set of mappings for your failover tests to prevent VMS from being connected to production networks using the same IP addresses. 
+[TIP]
+Create a separate dedicated set of mappings for your failover tests to prevent VMS from being connected to production networks using the same IP addresses. 
 
 .Steps
 
@@ -199,7 +199,7 @@ In the Failover mappings tab, select the down arrow next to *Virtual networks*. 
 
 Select the network mapping to the appropriate virtual LAN. The virtual LANs should already be provisioned, so select the appropriate virtual LAN to map the VM.
 
-=== Map resources > Virtual machines section 
+=== Map resources > virtual machines section 
 
 You can configure each VM in the resource group protected by the replication plan to suit the destination vCenter virtual environment by setting any of the following options: 
 
