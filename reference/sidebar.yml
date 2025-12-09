@@ -1,8 +1,10 @@
 section: reference
 title: Reference
 entries:
-  - title: vCenter privileges required for NetApp Disaster Recovery
+  - title: vCenter privileges required for Disaster Recovery
     url: /reference/vcenter-privileges.html    
+  - title: Switch Console agent
+    url: /reference/switch-console-agent.html
   - title: Use NetApp Disaster Recovery with Amazon EVS
     entries: 
     - title: NetApp Disaster Recovery with Amazon EVS overview
