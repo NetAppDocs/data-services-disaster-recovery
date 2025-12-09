@@ -4,12 +4,10 @@ By default, Disaster Recovery retains the VM inventory hierarchy (folder structu
 
 You can now override this setting by designating a new parent VM folder or by unchecking the **Retain original folder hierarchy** option. 
 
-For more information, see link:../use/drplan-create.adoc[Create a replication plan].
-// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan].
 
 === Streamlined Console agent updating 
 
 Disaster Recovery now supports a streamlined process for using multiple Console agents in a working environment. To switch between Console agents, you must edit your vCenter configuration, rediscover the credentials, and refresh the replication plans to use the new Console agent. 
 
-For more information, see link:../reference/switch-console-agent.html[Switch Console agents].
-// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html[Switch Console agents].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html[Switch Console agents].
