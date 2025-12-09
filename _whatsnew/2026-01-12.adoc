@@ -1,0 +1,8 @@
+
+== Cluster migration 
+
+// https://confluence.ngage.netapp.com/spaces/DSE/pages/1373844732/BXP+DR+-+Jan+2026
+
+== Add or remove VMs after failover 
+
+// FS https://confluence.ngage.netapp.com/spaces/AP/pages/1216903649/Add+VM+Datastore+to+existing+Replication+Plan
