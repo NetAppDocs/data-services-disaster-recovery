@@ -11,21 +11,19 @@ For information about the Console agent in Disaster Recovery, see xref:../get-st
 
 === Add VMs after failover for replication plans using datastore-based protection
 
-When failover is triggered, any replication plan using datastore-based protection includes VMs that have been added to the datastore. The inclusion of the added VMs might require additional mapping information before performing failback. 
+When failover is triggered, any replication plan using datastore-based protection includes VMs that have been added to the datastore, provided they have been discovered. You need to provide mapping details for the added VMs before failover completes.  
 
-[NOTE]
-You must perform discovery before Disaster Recovery detects the new VMs. 
-
-// is it before or after failover? 
+For more information, see xref:../use/failover.html[Fail over applications].
+// For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications].
 
 === New email notifications 
 
 Disaster Recovery now provides email notifications for the following events:
 
+- Approaching capacity usage limit
 - Completed report generation
 - Job failures
-- License expiration 
-// capacity limit? 
+- License expiration or violations
 
 === Swagger improvements 
 
