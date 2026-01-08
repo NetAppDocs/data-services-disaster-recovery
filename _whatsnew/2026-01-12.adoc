@@ -1,17 +1,22 @@
 
-=== Cluster migration 
+=== Support for multiple Console agents in on-premises environments
 
-// https://confluence.ngage.netapp.com/spaces/DSE/pages/1373844732/BXP+DR+-+Jan+2026
+If you're using Disaster Recovery on-premises, you can now deploy a Console agent for each vCenter instance, improving resiliency.  
+
+For example, if you had two sites (site A and B), site A can have Console agent A attached to vCenter 1, ONTAP deployment 1 and ONTAP deployment 2. Site B can have Console agent B attached to vCenter 2 and ONTAP deployments 1 and 2. 
+
+For information about the Console agent in Disaster Recovery, see xref:../get-started/dr-prerequisites.html#netapp-console-prerequisites[Create the Console agent].
+
+//link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html#netapp-console-prerequisites[Create the Console agent].
 
 === Add VMs after failover for replication plans using datastore-based protection
 
-When failover is triggered, any replication plan using datastore-based protection will includes VMs that have been added to the datastore. The inclusion of the added VMs might require that you supply additional mapping information before performing failback. 
+When failover is triggered, any replication plan using datastore-based protection includes VMs that have been added to the datastore. The inclusion of the added VMs might require additional mapping information before performing failback. 
 
 [NOTE]
 You must perform discovery before Disaster Recovery detects the new VMs. 
 
-
-// FS 
+// is it before or after failover? 
 
 === New email notifications 
 
@@ -19,47 +24,19 @@ Disaster Recovery now provides email notifications for the following events:
 
 - Completed report generation
 - Job failures
-- License violations 
+- License expiration 
+// capacity limit? 
 
 === Swagger improvements 
 
-You can now access the Swagger from within Disaster Recovery. In Disaster Recovery, select **Settings** then **API documentation** to link to the Swagger, or visit the following URL in incognito mode: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas^].
+You can now access the Swagger documentation from within Disaster Recovery. In Disaster Recovery, select **Settings** then **API documentation** to link to the Swagger, or visit this URL in your browser's incognito/private mode: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas^].
 
 === Improved user interfaces 
 
-Disaster Recovery has provided improved warnings and error fixes. This release fixes an error that prevent cancelled jobs from displaying in the user interface. Cancelled jobs are now visible. There's also a new warning that conveys when the same destination network was mapped to multiple different source networks.
+Disaster Recovery has provided improved warnings and error fixes. This release fixes an error that prevented canceled jobs from displaying in the user interface. Canceled jobs are now visible. There's also a new warning when the same destination network is mapped to multiple different source networks.
 
-=== Retain VM folder stucture added as default in replicaiton plans
+=== Retain VM folder structure added as default in replication plans
 
-When you create a replication, the new default is to retain the VM folder structure meaning the recovery target does _not_ have the original folder hierarchy, Disaster Recovery creates it. You can deselect this option to disregard the original file hierarchy. 
+When you create a replication, the new default is to retain the VM folder structure. If the recovery target does not have the original folder hierarchy, Disaster Recovery creates it. You can deselect this option to disregard the original folder hierarchy. 
 
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html[Switch Console agents].
-
-
-
-
-Multi-Agent Support: On-Premises Customers can now deploy an Agent in each Site. Thus, increasing resilience by providing an Agent for each VC instance. 
-
-Example: 
-
-Site-A
-Agent-A
-VC1
-ONTAP1
-ONTAP2
-Site-B
-Agent-B
-VC2
-ONTAP1
-ONTAP2
-Add VMs after failover for Replication plans using Datastore-based protection. Upon failover, any replication plan using datastore-based protection will include VMs that have been to the datastore. This may necessitate additional mapping information be supplied prior to failback.  Note: discovery must run before the service will detect the new VMs.
-
-
-
-
-
-Disaster Recovery now supports a streamlined process for using multiple Console agents in a working environment. To switch between Console agents, you must edit your vCenter configuration, rediscover the credentials, and refresh the replication plans to use the new Console agent. 
-
-
-
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/switch-console-agents.html[Switch Console agents].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan^].
