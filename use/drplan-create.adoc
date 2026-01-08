@@ -156,11 +156,9 @@ If you plan to perform test failovers as part of your DR plan, you should provid
 
 If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of NetApp Disaster Recovery. 
 
-
-
 .Steps 
 
-. In the Resource mapping page, to use the same mappings for both failover and test operations, check the box. 
+. In the Resource mapping page, check the box to use the same mappings for both failover and test operations. 
 +
 image:dr-plan-resource-mapping2.png[Replication plan, Resource mapping tab]
 
@@ -256,7 +254,7 @@ To enable script execution with the VM guest OS, the following conditons must be
 *VMs running Linux*: can run any shell script (.sh) supported by the version of Linux used by the VM. Linux scripts can use command-line arguments. Provide arguments in a list of values separated by semi-colons. Named arguments are not supported. Add each argument to the `Arg[x]` argument list and reference each value using a pointer into the `Arg[x]` array, for example, `value1;value2;value3`.
 +
 * *Downgrade VM hardware version and register*: Select this if the destination ESX host version is earlier than the source so they match during registration.
-* *Retain original folder hierarchy*: When selected, Disaster Recovery retains the VM inventory hierarchy (folder structure) on failover. If the recovery target does _not_ have the original folder hierarchy, Disaster Recovery creates.
+* *Retain original folder hierarchy*: By default, Disaster Recovery retains the VM inventory hierarchy (folder structure) on failover. If the recovery target does _not_ have the original folder hierarchy, Disaster Recovery creates it. 
 +
 Uncheck this box to disregard the original folder hierarchy.
 
