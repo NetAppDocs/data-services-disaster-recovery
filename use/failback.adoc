@@ -19,9 +19,9 @@ Organization admin, Folder or project admin, Disaster recovery admin, or Disaste
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
-*About this task*
+== About failback
 
-In this workflow, NetApp Disaster Recovery replicates (resyncs) any changes back to the original source virtual machine before reversing the replication direction. This process starts from a relationship that has completed failing over to a target and involves the following steps:
+In failback, NetApp Disaster Recovery replicates (resyncs) any changes back to the original source virtual machine before reversing the replication direction. This process starts from a relationship that has completed failing over to a target and involves the following steps:
 
 * Perform a compliance check on the recovered site. 
 * Refresh the vCenter information for each vCenter cluster identified as located in the recovered site. 
@@ -30,9 +30,11 @@ In this workflow, NetApp Disaster Recovery replicates (resyncs) any changes back
 * Resynchronize the SnapMirror relationship to reverse the replication.
 * Power on and register the source virtual machines, and mount the volumes on the source. 
 
-.Steps 
+== Before you begin
 
-. Log in to the https://console.netapp.com/[NetApp Console^].
+If you're using datastore-based protection, VMs that have been added to the datastore might be added to the datastore in the failover process. If this has happened, ensure you provide the additional mapping information for these VMs before initiating failback. To edit the resource mapping, see link:manage.html#manage-replication-plans[Manage replication plans].
+
+== Steps 
 
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
@@ -42,8 +44,8 @@ In this workflow, NetApp Disaster Recovery replicates (resyncs) any changes back
 
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  and select *Fail back*.
 
-. Enter the replication plan name to confirm and start the failback. 
+. Enter the replication plan's name to start the failback. 
   
-. Choose the snapshot for the datastore from which to recover.  The default is the latest. 
+. Choose the snapshot for the datastore from which to recover. The default is the latest. 
 
-. To check the progress, in the menu, select *Job monitoring*.
+. To monitor the job's progress, select *Job monitoring* in the Disaster Recovery menu.
