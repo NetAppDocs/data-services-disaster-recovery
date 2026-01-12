@@ -123,7 +123,7 @@ A Console agent must be set up in the NetApp Console. When you use the agent, it
 * Type of Console agent needed:
 ** *On-premises to on-premises disaster recovery*: Install the Console on-premises agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
 +
-Disaster Recovery also supports using multiple Console agents with on-premises configurations. For this scenario, a the Console agents direct actions to vCenters and ONTAP array clusters, and the source and target would each have their own Console agent. Using multiple Console agents is recommended to reduce latency and improve recovery time if a Console agent or site fails. 
+Disaster Recovery also supports using multiple Console agents with on-premises configurations. For this scenario, the Console agents direct actions to vCenters and ONTAP array clusters, and the source and target would each have their own Console agent. Using multiple Console agents is recommended to reduce latency and improve recovery time if a Console agent or site fails. 
 ** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
 +
 TIP: For on-premises to on-premises, use the on-premises Console agent. For on-premises to AWS, use the AWS Console agent, which has access to the source on-premises vCenter and the destination on-premises vCenter.
