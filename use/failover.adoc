@@ -21,9 +21,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 *About this task*
 
-During a failover, Disaster Recovery uses the most recent SnapMirror snapshot copy. Or, you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). 
-
-Use the point-in-time option if the most recent replicas are compromised, such as during a ransomware attack. BlueXP disaster recovery shows all available points in time.
+During a failover, Disaster Recovery by default uses the most recent SnapMirror snapshot copy, though you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). Use the point-in-time option if the most recent replicas are compromised, such as during a ransomware attack.
 
 This process differs depending on whether the production site is healthy and you are performing a failover to the disaster recovery site for reasons other than a critical infrastructure failure:
 
@@ -37,9 +35,9 @@ This procedure breaks the replication relationship, places the vCenter source VM
 
 Before you start the failover, you can test the process. The test does not place the virtual machines offline. 
 
-During a failover test, BlueXP disaster recovery temporarily creates virtual machines. BlueXP disaster recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
+During a failover test, Disaster Recovery temporarily creates virtual machines. Risaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
 
-This process doesn’t consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
+This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
 When you finish the test, you should reset the virtual machines with the *Clean up test* option. While this is recommended, it is not required. 
 
@@ -81,9 +79,9 @@ After the failover test finishes, you should clean up the test environment. This
 
 . Select the replication plan.
 
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  and select *Clean up failover test*.
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] then *Clean up failover test*.
 
-. In the Test failover page, enter “Clean up failover” and select *Clean up failover test*.  
+. In the Test failover page, enter "Clean up failover" then select *Clean up failover test*.  
 
 == Fail over the source site to a disaster recovery site
 
@@ -103,12 +101,12 @@ The failover process involves in the following operations:
 * Unquiesce any supported database applications in VMs indicated as "application consistent." 
 * If source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source virtual machine. 
 
+[NOTE]
+For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover will fail with a notification in the jobs. You must provide the mapping details to complete the failover successfully.  
 
 TIP: After the failover starts, you can see the recovered VMs in the vCenter of the disaster recovery site (virtual machines, networks, and datastores). By default, the virtual machines are recovered to the Workload folder.
 
 .Steps 
-
-
 
 . From the NetApp Disaster Recovery menu, select *Replication plans*. 
 
@@ -118,7 +116,7 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 +
 image:dr-plan-failover3.png[Fail over page]
 
-. In the Fail over page, either initiate a snapshot now or choose the snapshot for the datastore from which to recover.  The default is the latest. 
+. In the Fail over page, either create a new snapshot now or choose an existing snapshot for the datastore to use as the basis for recovery. The default is the latest. 
 +
 A snapshot of the current source will be taken and replicated to the current destination before the fail over occurs. 
 

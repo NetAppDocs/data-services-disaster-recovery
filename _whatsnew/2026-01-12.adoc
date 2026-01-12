@@ -1,0 +1,37 @@
+
+=== Support for multiple Console agents in on-premises environments
+
+If you're using Disaster Recovery on-premises, you can now deploy a Console agent for each vCenter instance, improving resiliency.  
+
+For example, if you have two sites (Sites A and B), Site A can have Console agent A attached to vCenter 1, ONTAP deployment 1 and ONTAP deployment 2. Site B can have Console agent B attached to vCenter 2 and ONTAP deployments 3 and 4. 
+
+For information about the Console agent in Disaster Recovery, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-prerequisites.html#netapp-console-prerequisites[Create the Console agent^].
+
+=== Add VMs after failover for replication plans using datastore-based protection
+
+When failover is triggered, any replication plan using datastore-based protection includes VMs that have been added to the datastore, provided they have been discovered. You must provide mapping details for the added VMs before failover completes.  
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications^].
+
+=== New email notifications 
+
+Disaster Recovery now provides email notifications for the following events:
+
+- Approaching capacity usage limit
+- Completed report generation
+- Job failures
+- License expiration or violations
+
+=== Swagger improvements 
+
+You can now access the Swagger documentation from within Disaster Recovery. In Disaster Recovery, select **Settings** then **API documentation** to link to the Swagger, or visit this URL in your browser's incognito/private mode: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas^].
+
+=== Improved user interfaces 
+
+Disaster Recovery now provides improved warnings and error resolutions. This release fixes an error that prevented canceled jobs from displaying in the user interface. Canceled jobs are now visible. There's also a new warning when the same destination network is mapped to multiple different source networks.
+
+=== Retain VM folder structure added as default in replication plans
+
+When you create a replication, the new default is to retain the VM folder structure. If the recovery target does not have the original folder hierarchy, Disaster Recovery creates it. You can deselect this option to disregard the original folder hierarchy. 
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
