@@ -35,7 +35,7 @@ NetApp Disaster Recovery uses ONTAP SnapMirror technology with integrated native
 
 //image:draas-onprem-to-cloud-onprem.png[Diagram showing components of the NetApp Disaster Recovery for VMware]
 
-image:../use/evs-bluexp-architecture.png[Diagram showing components of the NetApp Disaster Recovery for VMware]
+image:../use/evs-console-architecture.png[Diagram showing components of the NetApp Disaster Recovery for VMware]
 
 == NetApp Console
  
