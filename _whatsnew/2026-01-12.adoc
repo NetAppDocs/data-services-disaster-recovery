@@ -34,4 +34,4 @@ Disaster Recovery now provides improved warnings and error resolutions. This rel
 
 When you create a replication, the new default is to retain the VM folder structure. If the recovery target does not have the original folder hierarchy, Disaster Recovery creates it. You can deselect this option to disregard the original folder hierarchy. 
 
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan^].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
