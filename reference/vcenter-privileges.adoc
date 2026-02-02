@@ -17,7 +17,7 @@ The following table lists all privileges required for Disaster Recovery to inter
 
 [cols="1,2,2,3", options="header"]
 |===
-| Type | Privilege name (API) | Privilege name (vSphere Client) | Description
+| Type | Privilege name (vSphere client) | Privilege name (API) | Description
 
 .3+| Datastore
 
