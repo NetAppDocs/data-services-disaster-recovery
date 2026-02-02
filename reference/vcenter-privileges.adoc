@@ -2,46 +2,197 @@
 sidebar: sidebar
 permalink: reference/vcenter-privileges.html
 keywords: disaster recovery, bluexp, vcenter,
-summary: The vCenter account must have a minimum set of vCenter privileges to allow NetApp Disaster Recovery to perform its services, such as registering and deregistering datastores, starting and stopping VMs, and reconfiguring virtual machines (VMs). The following table lists all privileges required for NetApp Disaster Recovery to interface with a vCenter cluster.
+summary: The vCenter account must have a minimum set of vCenter privileges for NetApp Disaster Recovery to function successfully.
 ---
-
-= vCenter privileges needed for NetApp Disaster Recovery
+= Required vCenter privileges for NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-The vCenter account must have a minimum set of vCenter privileges to allow NetApp Disaster Recovery to perform its services, such as registering and deregistering datastores, starting and stopping VMs, and reconfiguring virtual machines (VMs). The following table lists all privileges required for NetApp Disaster Recovery to interface with a vCenter cluster.
+For NetApp Disaster Recovery to perform its services, the vCenter account must have a minimum set of vCenter privileges. These privileges include registering and deregistering datastores, starting and stopping virtual machines (VMs), and reconfiguring VMs.
+
+The following table lists all privileges required for Disaster Recovery to interface with a vCenter cluster.
 
 
-[cols=3*,options="header",cols="25,35a,40a",width="100%"]
+[cols="1,2,2,3", options="header"]
 |===
-| Type
-| Privilege name
-| Description
+| Type | Privilege name (vSphere client) | Privilege name (API) | Description
 
+.3+| Datastore
 
-| *Datastore* | Datastore.Configure datastore | Use to configure a datastore. 
-| | Datastore.Remove datastore | Use to remove a datastore. 
-| *Virtual Machine* | Virtual machine.Configuration.Change Settings | Use to change general VM settings. 
-| | Virtual machine.Configuration.Modify device settings | Use to change the properties of an existing device.
-| | Virtual machine.Configuration.Reload from path | Use to change a VM configuration patch while preserving the identity of the VM. Solutions such as VMware vCenter Site Recovery Manager use this operation to maintain VM identify during failover and failback. 
-|  | Virtual machine.Configuration.Rename | Use to rename a VM or modify the associated nodes of a VM. 
-| | Virtual machine.Configuration.Reset guest information | Use to edit the guest operating system information for a VM. 
-| | Virtual machine.Configuration.Change Memory | Use to change the amount of memory allocated to the VM. 
-| | Virtual machine.Configuration.Change CPU count | Use to change the number of virtual CPUs. 
-| *Virtual Machine Guest* | Virtual machine.Guest Operations.Guest Operation Modifications | Enables VM guest operations that involve changes to a guest operating system in a VM, such as transferring a file to the VM. 
-| *Virtual Machine Interaction* | Virtual machine.Interaction.Power Off | Use to power off a powered-on VM. This operation powers down the guest operating system. 
-| | Virtual machine.Interaction.Power on | Use to power on a powered-off VM and resume a suspended VM. 
+|  Datastore.Config
+| Configure datastore
+| Permits configuring a datastore.
 
-| | Virtual machine.Interaction.VMware Tools install | Use to mount and unmount the VMware Tools CD installer as a CD-ROM for the guest operating system. 
+| Datastore.Delete
+| Remove datastore
+| Permits removing a datastore.
 
-| *Virtual Machine Inventory* | Virtual machine.Inventory.Create new | Use to create a VM and allocate resources for its execution. 
-| | Virtual machine.Inventory.Register | Use to add an existing VM to a vCenter Server or host inventory. 
-| | Virtual machine.Inventory.Unregister | Use to unregister a VM from a vCenter Server or host inventory. 
-| *Virtual Machine State* | Virtual machine.Snapshot management.Create snapshot | Use to create a snapshot from the VM's current state. 
-| | Virtual machine.Snapshot management.Remove Snapshot | Use to remove a snapshot from the snapshot history.
-| | Virtual machine.Snapshot management.Revert to snapshot | Use to set the VM to the state it was in at a given snapshot. 
+| Datastore.Rename
+| Rename datastore
+| Permits renaming a datastore.
 
+.3+| Folder
+| Folder.Create
+| Create folder
+| Permits creating a new folder.
+
+| Folder.Delete
+| Delete folder
+| Permits deleting a folder. Requires privilege on both the object and its parent.
+
+| Folder.Rename
+| Rename folder
+| Permits modifying a folder name.
+
+.2+| Network
+| Network.Assign
+| Assign network
+| Permits assigning a network to a VM.
+
+| Network.Config
+| Configure
+| Permits configuring a network.
+
+.9+| Virtual machine configuration
+
+| VirtualMachine.Config.AdvancedConfig
+| Advanced configuration
+| Permits adding or modifying advanced parameters in the VM's configuration file.
+
+| VirtualMachine.Config.Settings
+| Change settings
+| Permits changing general VM settings.
+
+| VirtualMachine.Config.CPUCount
+| Change CPU count
+| Permits changing the number of virtual CPUs.
+
+| VirtualMachine.Config.Memory
+| Change memory
+| Permits changing the amount of memory allocated to the VM.
+
+| VirtualMachine.Config.Resource
+| Change resource
+| Permits changing the resource configuration of VM nodes in a resource pool.
+
+| VirtualMachine.Config.Rename
+| Rename
+| Permits renaming a VM or modifying its notes.
+
+| VirtualMachine.Config.EditDevice
+| Modify device settings
+| Permits changing an existing device's properties.
+
+| VirtualMachine.Config.ReloadFromPath
+| Reload from path
+| Permits changing a VM configuration path while preserving identity.
+
+| VirtualMachine.Config.ResetGuestInfo
+| Reset guest information
+| Permits editing the guest operating system information for a VM.
+
+.5+| Virtual machine guest
+| VirtualMachine.GuestOperations.ModifyAliases
+| Guest operation alias modification
+| Permits modifying the alias for the VM.
+
+| VirtualMachine.GuestOperations.QueryAliases
+| Guest operation alias query
+| Permits querying a VM's alias.
+
+| VirtualMachine.GuestOperations.Modify
+| Guest operation modifications
+| Permits modification operations, including transferring a file to the VM.
+
+| VirtualMachine.GuestOperations.Execute
+| Guest operation program execution
+| Permits running an application inside the VM.
+
+| VirtualMachine.GuestOperations.Query
+| Guest operation queries
+| Permits querying the guest OS. Operations include listing files.
+
+.9+| Virtual machine interaction
+| VirtualMachine.Interact.AnswerQuestion
+| Answer question
+| Permits resolving issues during VM state transitions or runtime errors.
+
+| VirtualMachine.Interact.PowerOff
+| Power off
+| Permits powering off a powered-on VM.
+
+| VirtualMachine.Interact.PowerOn
+| Power on
+| Permits powering on or resuming a VM.
+
+| VirtualMachine.Interact.ToolsInstall
+| VMware Tools install
+| Permits mounting/unmounting the VMware Tools installer.
+
+| VirtualMachine.Inventory.CreateFromExisting
+| Create from existing
+| Permits cloning or deploying a VM from a template.
+
+| VirtualMachine.Inventory.Create
+| Create new
+| Permits creating a VM and allocating resources.
+
+| VirtualMachine.Inventory.Register
+| Register
+| Permits adding an existing VM to an inventory.
+
+| VirtualMachine.Inventory.Delete
+| Remove
+| Permits deleting a VM and its files. Requires privileges on both the object and its parent.
+
+| VirtualMachine.Inventory.Unregister
+| Unregister
+| Permits unregistering a VM. This permission requires privileges on both the object and its parent.
+
+.4+| Virtual machine provisioning
+
+| VirtualMachine.Provisioning.Clone
+| Clone virtual machine
+| Permits cloning a VM and allocating resources.
+
+| VirtualMachine.Provisioning.Customize
+| Customize guest
+| Permits customizing the VM's guest operating system.
+
+| VirtualMachine.Provisioning.ModifyCustSpecs
+| Modify customization specification
+| Permits creating, modifying, or deleting customization specifications.
+
+| VirtualMachine.Provisioning.ReadCustSpecs
+| Read customization specifications
+| Permits reading a customization specification for a VM.
+
+.2+| Virtual machine service configuration
+| VirtualMachine.Namespace.Query
+| Query service configurations
+| Permits retrieving a list of VM services.
+
+| VirtualMachine.Namespace.ReadContent
+| Read service configuration
+| Permits retrieving the existing VM service configuration.
+
+.4+| Virtual machine snapshot
+| VirtualMachine.State.CreateSnapshot
+| Create snapshot
+| Permits creating a snapshot from the VM's current state.
+
+| VirtualMachine.State.RemoveSnapshot
+| Remove snapshot
+| Permits removing a snapshot.
+
+| VirtualMachine.State.RenameSnapshot
+| Rename snapshot
+| Permits renaming a snapshot or updating its description.
+
+| VirtualMachine.State.RevertToSnapshot
+| Revert to snapshot
+| Permits reverting the VM to the state of a given snapshot.
 
 |===
