@@ -12,12 +12,15 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-A NetApp Console agent is NetApp software running in your cloud or on-premises network. It executes the actions that the NetApp Console needs to perform to manage your data infrastructure. The Console agent constantly polls the NetApp Disaster Recovery software as a service layer for any actions that it needs to take.
+A NetApp Console agent enables you to connect your NetApp Console deployments to your infrastructure in order to securely orchestrate solutions across AWS, Azure, Google Cloud, or on-premises environments. The Console agent executes the actions that the NetApp Console needs to perform to manage your data infrastructure. The Console agent constantly polls the NetApp Disaster Recovery software as a service layer for any actions that it needs to take.
 
-For NetApp Disaster Recovery, the actions that are performed orchestrate VMware vCenter clusters and ONTAP storage instances using native APIs for each respective service to provide protection for production VMs running in an on-premises location. While the Console agent can be installed in any of your network locations, for NetApp Disaster Recovery we recommend that you install the Console agent in the DR site. This ensures that in the event of a failure of the primary site, the NetApp cloud-based console UI continues to have contact with the Console agent and can orchestrate the recovery process within that DR site.
+For NetApp Disaster Recovery, the actions that are performed orchestrate VMware vCenter clusters and ONTAP storage instances using native APIs for each respective service to provide protection for production VMs running in an on-premises location. Although the Console agent can be installed in any of your network locations, it's recommended you install the Console agent in the disaster recovery site for NetApp Disaster Recovery. Installing in the DR site ensures that in the event of a failure of the primary site, the NetApp console UI maintains its connection to the Console agent and can orchestrate the recovery process within that DR site.
 
-To use the service, install the Console agent in standard mode. To learn more about the types of Console agent installations, visit https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html[Learn about NetApp Console deployment modes | NetApp Documentation^].
+== Installation 
 
-While the Console agent is critical to using the service, the installation steps to install the Console agent depend on your needs and network configuration. It is beyond the scope of this information to provide specific instructions for installation. 
+* To use Disaster Recovery, install the Console agent in standard mode. To learn more about the types of Console agent installations, visit https://docs.netapp.com/us-en/console-setup-admin/concept-modes.html[Learn about NetApp Console deployment modes^].
 
-The simplest method for installing the Console agent with Amazon AWS is to use the AWS Marketplace. For details about Console agent installation using the AWS Marketplace, see https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html[Create a Console agent from the AWS Marketplace | NetApp Documentation^].
+The specific installation steps for the Console agent depend on your deployment type. See link:https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html[Learn about Console agents^] for more information.  
+
+[TIP]
+The simplest method for installing the Console agent with Amazon AWS is to use the AWS Marketplace. For details about Console agent installation using the AWS Marketplace, see https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html[Create a Console agent from the AWS Marketplace^].
