@@ -12,13 +12,14 @@ summary: You should ensure that several prerequisites are met before you continu
 :imagesdir: ../media/use/
 
 [.lead]
-Ensure you review and meet the requirements to configure Amazon EVS with with NetApp Disaster Recovery. 
+Ensure you review and meet the requirements to configure Amazon EVS with NetApp Disaster Recovery. 
 
 
 .Prerequisites 
+* Review the link:../get-started/dr-prerequisites[general prerequisites for Disaster Recovery].
 * Create a vCenter user account with the specific VMware privileges required for NetApp Disaster Recovery to perform the necessary operations. 
 +
-NOTE: It's recommended you **not** use the default "\administrator@vsphere.com" administrator account. Instead, you should create a NetApp Disaster Recovery specific user account on all vCenter clusters that will participate in the disaster recovery process. For a list of specific privileges required, see link:vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
+NOTE: It's recommended you do **not** use the default "\administrator@vsphere.com" administrator account. Instead, you should create a NetApp Disaster Recovery specific user account on all vCenter clusters that will participate in the disaster recovery process. For a list of specific privileges required, see link:vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
 
 * Ensure that all vCenter datastores that will host VMs protected by Disaster Recovery are located on NetApp ONTAP storage resources. 
 +
