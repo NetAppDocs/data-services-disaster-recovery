@@ -42,7 +42,7 @@ With Disaster Recovery on Google Cloud VMware Engine using Google Cloud NetApp V
 
 **Failover considerations**
 
-* Failover is only supported using the latest snapshot. If necessary, you can create a new snapshot during snapshot (that is, the selective snapshot option must be disabled).
+* Failover is only supported using the latest snapshot. If necessary, you can create a new snapshot during failover (that is, the selective snapshot option must be disabled).
 * You can't create a new snapshot after failover.
 * You can't retain and reconcile snapshots after failover. 
 
@@ -119,9 +119,9 @@ The Console agent is a software component that enables the Console to communicat
 A Console agent must be set up in the NetApp Console. When you use the agent, it will include the appropriate capabilities for the Disaster Recovery service.
  
 * NetApp Disaster Recovery works only with the standard mode agent deployment. See https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html[Getting started with the NetApp Console in standard mode^]. 
-* Ensure that both the source and destination vCenters use the same Console agent. 
+* Ensure both the source and destination vCenter clusters use the same Console agent. 
 * Type of Console agent needed:
-** *On-premises to on-premises disaster recovery*: Install the Console on-premises agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
+** *On-premises to on-premises disaster recovery*: Install the on-premises Console agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
 +
 Disaster Recovery also supports using multiple Console agents with on-premises configurations. For this scenario, the Console agents direct actions to vCenters and ONTAP array clusters, and the source and target would each have their own Console agent. Using multiple Console agents is recommended to reduce latency and improve recovery time if a Console agent or site fails. 
 ** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
@@ -143,5 +143,7 @@ To ensure that application-consistency processes are successful, apply these pre
 * For Windows VMs running Microsoft SQL Server, Oracle Database, or both, the databases must have their VSS Writers enabled. 
 * Oracle databases that are running on a Linux operating system must have the operating system user authentication enabled for the Oracle database SYSDBA role.  
 
+## More information
 
-
+* xref:../reference/vcenter-privileges.html[Required vCenter privileges]
+* xref:../reference/evs-deploy-guide-config-prereqs.html[Prerequisites for Amazon EVS with NetApp Disaster Recovery]
