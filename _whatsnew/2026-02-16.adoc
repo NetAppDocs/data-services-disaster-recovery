@@ -1,0 +1,7 @@
+=== Improved user interface
+
+The Disaster Recovery UI has been refreshed to improve performance and user experience based on feedback. 
+
+=== API Swagger documentation 
+
+The Disaster Recovery API Swagger documentation can now be accessed in a regular browser; incognito mode is no longer required. To access the API documentation, browse to the Disaster Recovery dashboard,  select the top-right context menu image:../media/use/icon-vertical-dots.png[Action icon] then **API Documentation** to open the Swagger documentation. You can also link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas[bookmark the URL^].
