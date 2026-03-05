@@ -1,16 +1,18 @@
 
 === Exclude a datastore from replication plans
 
-// This is useful in situations where a VM is configured to use multiple datastores, but one or more of them should not be replicated.
+When you create a replication plan, you can now exclude specific datastores from replication. For situations where a VM is configure to use multiple datastore, this allows you to limit which ones are replicated. 
+
+For details, see link:../use/drplan-create.adoc[Create a replication plan].
 
 === Removed password validation from vCenter password
 
-// This was to allow passwords with spaces.
+NetApp Disaster Recovery has removed password restrictions on vCenter passwords to allow passwords that include spaces. 
 
 === New replication plan submenu 
 
-// Added menu options to trigger VC refresh from the replication plan submenu. To access ... -> Plan Health -> Refresh Source vCenter / Refresh Target vCenter
+Disaster Recover now includes new menu options to trigger vCenter refreshes from the replication plan dashboard. You can access the submenu from the replication plan dashboard's action menu: select **Plan Health** then **Refresh Source vCenter / Refresh Target vCenter**.
 
 === Improved network discovery 
 
-// Improved network discovery to support a broader array of configurations. 
+Disaster Recovery now includes improved network discovery to support a broader array of network configurations.
