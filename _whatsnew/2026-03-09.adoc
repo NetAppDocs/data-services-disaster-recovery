@@ -1,0 +1,16 @@
+
+=== Exclude a datastore from replication plans
+
+// This is useful in situations where a VM is configured to use multiple datastores, but one or more of them should not be replicated.
+
+=== Removed password validation from vCenter password
+
+// This was to allow passwords with spaces.
+
+=== New replication plan submenu 
+
+// Added menu options to trigger VC refresh from the replication plan submenu. To access ... -> Plan Health -> Refresh Source vCenter / Refresh Target vCenter
+
+=== Improved network discovery 
+
+// Improved network discovery to support a broader array of configurations. 
