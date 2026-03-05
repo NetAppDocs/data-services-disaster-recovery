@@ -189,7 +189,7 @@ TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manag
 
 === Map resources > Virtual networks section 
 
-VMs use virtual NICs conneccted to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, the service requires a destination virtual network assignment. 
+VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, the service requires a destination virtual network assignment. 
 
 NOTE: You can assign multiple source virtual networks to the same target virtual network. This might however create IP network configuration conflicts. You can map multiple source networks to a single target network to ensure that all source networks have the same configuration. 
 

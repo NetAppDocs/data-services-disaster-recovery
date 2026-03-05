@@ -28,11 +28,6 @@ Version 4.2.9
 
 include::../_whatsnew/2026-01-12.adoc[]
 
-== 12 January 2026
-Version 4.2.9
-
-include::../_whatsnew/2026-01-12.adoc[]
-
 == 09 December 2025
 Version 4.2.8P1
 
