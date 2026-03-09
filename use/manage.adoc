@@ -92,7 +92,7 @@ image:../use/dr-plan-list.png[Replication plan list]
 
 . Return to the list of plans by selecting "Replication plans" in the breadcrumbs at the left. 
 
-. To perform actions with the plan, from the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select any of the options, such as *Edit schedules*, *Test failover*, *Fail over*, *Fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshots*, *Disable*, *Enable*, or *Delete*. 
+. To perform actions with the plan, from the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] to the right of the plan then choose an action: *Edit schedules*, *Test failover*, *Fail over*, *Fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshots*, *Disable*, *Enable*, or *Delete*. 
 
 . To set or change a test failover schedule or set the compliance frequency check, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Edit schedules*.
 
