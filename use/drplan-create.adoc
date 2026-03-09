@@ -395,9 +395,9 @@ TIP: You can later disable or delete the replication plan.
 +
 The plan is added to the list of plans.
 
-== Edit schedules to test compliance and ensure failover tests work
+== Modify a replication plan
 
-You might want to set up schedules to test compliance and failover tests so that you ensure that they will work correctly should you need them. 
+You can modify a replication plan schedule to test compliance and ensure failover tests complete successfully. 
 
 * *Compliance time impact*: When a replication plan is created, the service creates a compliance schedule by default. The default compliance time is 30 minutes. To change this time, you can use edit the schedule in the replication plan.
 
