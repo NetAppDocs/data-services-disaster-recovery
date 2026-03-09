@@ -1,0 +1,22 @@
+
+=== Exclude a datastore from replication plans
+
+When you create a replication plan in Disaster, you can now exclude specific datastores from replication. For situations where a VM is configure to use multiple datastore, this allows you to limit which ones are replicated. 
+
+For details, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan^].
+
+=== Removed password validation from vCenter password
+
+Disaster Recovery removed password restrictions on vCenter passwords to allow passwords that contain spaces. 
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/reference/evs-deploy-guide-add-vcenters.html[Add on-premises and Amazon EVS vCenter clusters in NetApp Disaster Recovery^].
+
+=== New replication plan submenu 
+
+Disaster Recover now includes new menu options to trigger vCenter refreshes from the replication plan dashboard. You can access the submenu from the replication plan dashboard's action menu: select **Plan Health** then **Refresh Source vCenter / Refresh Target vCenter**.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#modify-a-replication-plan[Modify a replication plan^].
+
+=== Improved network discovery 
+
+Disaster Recovery now includes improved network discovery to support a broader array of network configurations.

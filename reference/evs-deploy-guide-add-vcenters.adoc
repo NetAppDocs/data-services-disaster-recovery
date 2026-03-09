@@ -31,7 +31,7 @@ image:evs-add-vcenter-1.png[Add vCenter option]
 
 .. The vCenter username for the account created earlier that will be used by NetApp Disaster Recovery to manage the vCenter.
 
-.. The vCenter password for the provided username.
+// .. The vCenter password for the provided username.
 
 .. If your company uses an external Certificate Authority (CA) or the vCenter Endpoint Certificate Store to gain access to your vCenters, uncheck the *Use self-signed certificates* checkbox. Otherwise, leave the box checked.
 

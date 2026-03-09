@@ -60,7 +60,7 @@ NOTE: The service supports self-signed security certificates or certificates fro
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
 +
-If this is your first time using NetApp Disaster recovery, you need to add vCenter information. If you've already added vCenter infromation, you see the dashboard.
+If this is your first time using NetApp Disaster recovery, you need to add vCenter information. If you've already added vCenter information, you see the dashboard.
 +
 NOTE: Different fields appear depending on the type of site you are adding. 
 +

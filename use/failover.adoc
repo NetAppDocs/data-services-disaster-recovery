@@ -35,7 +35,7 @@ This procedure breaks the replication relationship, places the vCenter source VM
 
 Before you start the failover, you can test the process. The test does not place the virtual machines offline. 
 
-During a failover test, Disaster Recovery temporarily creates virtual machines. Risaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
+During a failover test, Disaster Recovery temporarily creates virtual machines. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
 
 This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 

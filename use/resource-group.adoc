@@ -4,14 +4,13 @@ permalink: use/resource-group.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you’ve added vCenter sites, you’re ready to create a disaster recovery or replication plan. 
 ---
-
 = Create a resource group to organize VMs together in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-After addeding vCenter sites, you can create resource groups to protect VMs by VM or datastore as a single unit. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
+After you've added vCenter sites, you can create resource groups to groups of VMs or datastores as a single unit. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
@@ -32,7 +31,7 @@ TIP: Each resource group can include one or more VMs or datastores. The VMs will
 
 .About resource groups
 
-Resource groups let you combine VMs or datastores to them as a single unit. 
+Resource groups let you combine VMs or datastores into a single unit. 
 
 For example, a point-of-sale application might use several VMs for databases, business logic, and storefronts. You can manage all these VMs with one resource group. Set up resource groups to apply replication plan rules for VM startup order, network connection, and recovery of all VMs needed for the application.
 
