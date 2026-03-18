@@ -67,7 +67,7 @@ A wizard takes you through these steps:
 * Set how often the plan runs, run a guest-hosted script, set the boot order, and select the recovery point objective.
 * Review the plan.
 
-When you create the plan, you should follow these guidelines: 
+When you create the plan, follow these guidelines: 
 
 * Use the same credentials for all VMs in the plan.
 * Use the same script for all VMs in the plan.
@@ -79,34 +79,28 @@ First, you select the source vCenter and then select the destination vCenter.
 
 .Steps 
 
-. Log in to the https://console.netapp.com/[NetApp Console^].
-
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
-. From the NetApp Disaster Recovery menu, select *Replication plans* and select *Add*. Or, if you are just beginning to use the service, from the Dashboard, select *Add replication plan*. 
+. From the NetApp Disaster Recovery menu, select *Replication plans* and select *Add*. If this is your first time creating a replication plan, from the Dashboard, select *Add replication plan*. 
+. Enter a name for the replication plan. 
+. Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target vCenter*, select the vCenter to replicate the data to from the dropdown menu. 
 +
-image:dr-plan-create-name2.png[Screenshot showing the Add replication plan > Add plan page]
-
-. Create a name for the replication plan. 
-
-. Select the source and target vCenters from the Source and Target vCenter lists. 
+image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
 . Select *Next*.
 
 === Select applications to replicate and assign resource groups
 
 The next step is to group the required VMs or datastores into functional resource groups. Resource groups enable you to protect a set of VMs or datastores with a common snapshot. 
 
-When you select applications in the replication plan, you can see the operating system for each VM or datastore in the plan. This is helpful in deciding how to group VMs or datastores together in a resource group.
-
 TIP: Each resource group can include one or more VMs or datastores. 
 
 When you create resource groups, consider the following issues: 
 
 * Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not trigger a manual discovery, the VMs might not be listed in the resource group.
-* Ensure that there is at least one VM in the datastore. If there are no VMs in the datastore, the datastore will not be discovered.
+* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't discovered.
 * A single datastore should not host VMs protected by more than one replication plan.
-* Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, the following issues could arise:  
-** Because NetApp Disaster Recovery uses SnapMirror and the system replicates entire ONTAP volumes, the used capacity of that volume is used for licensing considerations. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.
+* Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, you can encounter these issues:  
+** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.
 ** If the resource group and its associated datastores need to be failed over to the disaster recovery site, any unprotected VMs (VMs not part of the resource group, but hosted on the ONTAP volume) will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
 
 * To have a VM protected, it must be included in a resource group.
