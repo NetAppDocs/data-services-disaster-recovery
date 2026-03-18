@@ -1,0 +1,232 @@
+---
+sidebar: sidebar
+permalink: faq-disaster-recovery.html
+keywords: faq, frequently asked questions, frequently asked questions about disaster recovery, disaster recovery, vmware, vcenter, snapmirror, failover, failback, replication, ontap, fsxn, fsx for ontap, console agent, resource groups, replication plans, rpo, rto
+summary: "Frequently asked questions about NetApp Disaster Recovery for VMware."
+---
+
+= FAQ for NetApp Disaster Recovery
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: ./media/
+
+[.lead]
+This FAQ answers common questions about NetApp Disaster Recovery for VMware. It focuses on concepts, terminology, system behavior, and constraints that are useful when implementing disaster recovery configurations and managing failover operations.
+
+== Getting started
+
+.What is NetApp Disaster Recovery for VMware?
+
+NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows for VMware environments. It enables you to replicate on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud using NetApp cloud storage, or to another on-premises VMware environment with ONTAP storage as a disaster recovery site. The service uses ONTAP SnapMirror technology with integrated native VMware orchestration to protect VMware VMs and their associated on-disk OS images.
+
+.What are the supported protection targets for NetApp Disaster Recovery?
+
+NetApp Disaster Recovery supports the following protection targets:
+
+* VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP
+* Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMFS
+* Amazon Elastic VMware Service
+* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
+
+.What datastore types are supported by NetApp Disaster Recovery?
+
+NetApp Disaster Recovery supports the following datastore types:
+
+* NFS datastores hosted on ONTAP FlexVol volumes residing on ONTAP clusters
+* VMware vSphere virtual machine file system (VMFS) datastores using the iSCSI or FC protocol
+
+== Prerequisites and setup
+
+.What are the minimum software version requirements for NetApp Disaster Recovery?
+
+The minimum software version requirements are:
+
+* ONTAP software: ONTAP 9.10.0 or later
+* VMware on-premises vCenter: 7.0u3 or later
+* Amazon FSx for NetApp ONTAP: Latest available version
+* VMware Cloud for AWS: Latest available version
+* Google Cloud VMware Engine using Google Cloud NetApp Volumes: Latest available version
+
+.What prerequisites must be met before using NetApp Disaster Recovery?
+
+Before using NetApp Disaster Recovery, ensure the following prerequisites are met:
+
+* Source and destination clusters must have a peer relationship
+* The SVM that hosts the disaster recovery volumes must exist on the destination cluster
+* The source SVM and destination SVM must have a peer relationship
+* All VMware clusters that you want NetApp Disaster Recovery to manage must use ONTAP volumes to host any VMs that you want to protect
+* VMware tools (or Open VM tools) must be running on the VMs that will be protected
+* For Windows VMs running Microsoft SQL Server or Oracle Database, the databases must have their VSS Writers enabled
+* For Oracle databases running on Linux, operating system user authentication must be enabled for the Oracle database SYSDBA role
+
+.What is a Console agent and why is it required?
+
+A Console agent is a software component that enables the NetApp Console to communicate with your ONTAP storage and VMware vCenter clusters. It is required for Disaster Recovery to function properly. The agent resides in your private network (either an on-premises data center or a cloud VPC) and communicates with your ONTAP storage instances and vCenter clusters.
+
+For on-premises to on-premises disaster recovery, install the on-premises Console agent in the disaster recovery site. For on-premises to AWS, install the Console agent for AWS in your AWS VPC. Both the source and destination vCenter clusters should use the same Console agent.
+
+== Licensing
+
+.What licensing options are available for NetApp Disaster Recovery?
+
+NetApp Disaster Recovery offers the following licensing options:
+
+* 30-day free trial
+* Pay-as-you-go (PAYGO) subscription through Amazon Web Services (AWS) Marketplace or Microsoft Azure Marketplace
+* Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep
+
+NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan.
+
+.How is NetApp Disaster Recovery licensed and what happens if capacity is exceeded?
+
+The service is licensed based on the amount of data hosted on protected ONTAP volumes. The service determines which volumes should be considered for licensing purposes by mapping protected VMs to their vCenter datastores. Each datastore is hosted on an ONTAP volume or LUN, and the used capacity reported by ONTAP for that volume or LUN is used for licensing determinations.
+
+For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.
+
+.What happens after the 30-day free trial ends?
+
+After the free trial ends, you can still view and delete resources such as workloads and replication plans, and run all scheduled operations that were created during the trial period. However, to continue using the service with full functionality, you'll need to obtain either a Pay-as-you-go (PAYGO) subscription from your cloud provider or purchase a BYOL license from NetApp.
+
+You can purchase a license at any time and you will not be charged until the 30-day trial ends. If you end the free trial and request to delete data, NetApp Disaster Recovery will delete all data immediately. If you end the trial without requesting data deletion and don't purchase a license or subscription, NetApp Disaster Recovery will delete all of your data 60 days after the free trial ends.
+
+== Core concepts
+
+.What is a replication plan in NetApp Disaster Recovery?
+
+A replication plan (sometimes called a blueprint) is a set of rules about how often backups occur and how to handle failover events. It manages the data protection of the VMware infrastructure by selecting the source and destination vCenters, picking the resource groups, and grouping how applications should be restored and powered on. Plans are assigned to one or more resource groups and define the recovery point objective (RPO) through the frequency of data replication.
+
+.What is a resource group and how is it used?
+
+A resource group is a logical container that enables you to manage multiple VMs or datastores as a single unit. It allows you to protect a set of VMs or datastores with a common snapshot. A VM can be in only one resource group at a time. You can create a resource group for each application or workload that you want to protect. Each resource group can include one or more VMs or datastores.
+
+.What is the difference between RPO and RTO?
+
+Recovery point objective (RPO) is the maximum amount of data loss that is acceptable in the event of a disaster. RPO is defined in the replication plan's frequency of data replication or replication schedule.
+
+Recovery time objective (RTO) is the maximum amount of time that is acceptable to recover from a disaster. RTO is defined in the replication plan and is the time it takes to fail over to the DR site and restart all VMs.
+
+== Replication and protection
+
+.What is snapshot reconciliation and why is it important?
+
+NetApp Disaster Recovery maintains the same number of snapshots on the source and destination clusters. By default, the service performs a snapshot reconciliation process every 24 hours to ensure that the number of snapshots on the source and destination clusters is the same.
+
+Snapshot reconciliation is important because situations outside of Disaster Recovery can cause the number of snapshots to differ between clusters, such as ONTAP operations that add or remove snapshots from volumes. During reconciliation, Disaster Recovery may delete older snapshots from the source and destination clusters to maintain symmetry. You can also perform an immediate snapshot cleanup manually by selecting the 'Clean up snapshots' option from the Actions menu on the replication plan.
+
+.Can protected and unprotected VMs be hosted on the same datastore?
+
+No, you should not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, the following issues could arise:
+
+1. Because NetApp Disaster Recovery uses SnapMirror and the system replicates entire ONTAP volumes, the used capacity of that volume is used for licensing considerations. The volume space consumed by both protected and unprotected VMs would be included in this calculation.
+
+2. If the resource group and its associated datastores need to be failed over to the disaster recovery site, any unprotected VMs (VMs not part of the resource group, but hosted on the ONTAP volume) will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site.
+
+.What are application-consistent snapshots and when should they be used?
+
+Application-consistent snapshots ensure that databases and applications are in a consistent state when the snapshot is taken. This is important for VMs hosting database servers such as Oracle or Microsoft SQL Server because it ensures that the database can be restored to a consistent state after a failover or failback operation.
+
+To enable application-consistent snapshots, the following conditions must be met:
+* VMware Tools must be installed on the VM
+* For Windows VMs running Microsoft SQL Server or Oracle Database, the databases must have their VSS Writers enabled
+* For Oracle databases running on Linux, operating system user authentication must be enabled for the Oracle database SYSDBA role
+
+When creating a replication plan, you can indicate whether to create application-consistent replicas. The service will quiesce the application and then take a snapshot to get a consistent state of the application.
+
+.How often does NetApp Disaster Recovery perform discovery of vCenter environments?
+
+NetApp Disaster Recovery performs discovery once every 24 hours by default. However, you can customize the discovery schedule to meet your needs. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours. The minimum interval is 30 minutes and the maximum is 24 hours.
+
+You should first perform a few manual discoveries to get the most up-to-date information about your environment. After that, you can set the schedule to run automatically. Newly added or deleted VMs are recognized in the next scheduled discovery or during an immediate manual discovery.
+
+== Failover and testing
+
+.Can I test my disaster recovery plan without impacting production workloads?
+
+Yes, you can conduct a failover test without disrupting operations. During a test failover, NetApp Disaster Recovery creates temporary virtual machines by making a new FlexClone volume from the selected snapshot. A temporary datastore, which is backed by the FlexClone volume, is mapped to the ESXi hosts. This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery. After the test is complete, you should clean up the test environment with the 'Clean up test' option.
+
+.What happens during a failover operation?
+
+During a failover operation, NetApp Disaster Recovery performs the following steps:
+
+1. Performs prechecks on the destination cluster and SnapMirror relationship
+2. If you selected the latest snapshot, performs a SnapMirror update to replicate the latest changes
+3. Powers down the source virtual machines
+4. Breaks the SnapMirror relationship and makes the target volume read/write
+5. Based on the snapshot selection, restores the active file system to the specified snapshot
+6. Creates datastores and mounts them to the VMware or VMC cluster or host
+7. If any datastores are VMFS, creates and maps an iGroup to each LUN
+8. Registers the target virtual machines within vCenter as new datastores
+9. Powers on the target virtual machines based on the boot order captured in the Resource groups page
+10. If the source vCenter is still active, powers off all source side VMs being failed over
+11. Unquiesces any supported database applications in VMs indicated as 'application consistent'
+12. If source vCenter and ONTAP clusters are still active, creates a reverse direction SnapMirror relationship to replicate changes back to the original source site
+
+.Can I customize the boot order of VMs during failover?
+
+Yes, you can modify the boot order after a failover for all selected virtual machines across the resource groups. By default, all VMs boot together in parallel; however, you can make changes in the Resource mapping step of creating a replication plan.
+
+You can configure boot order in two ways:
+* Sequential boot: Assign each VM a unique number to boot in the assigned order (e.g., 1, 2, 3, 4, 5)
+* Simultaneous boot: Assign the same number to any VMs to boot them at the same time (e.g., 1, 1, 1, 1, 2, 2, 3, 4, 4)
+
+NetApp Disaster Recovery boots any VMs with the same boot order number in parallel. You can also adjust the boot delay in minutes (from 0 to 10 minutes), indicating the amount of time that the VM will wait before it starts the power-on process. This is helpful to ensure that all your priority one VMs are running before subsequent priority VMs are started.
+
+== Failback
+
+.What is the failback process and when should it be used?
+
+Failback is the process of returning operations to the original source site after a disaster has been resolved. The process starts from a relationship that has completed failing over to a target. NetApp Disaster Recovery replicates (resyncs) any changes back to the original source virtual machine before reversing the replication direction.
+
+The failback process includes:
+1. Performing a compliance check on the recovered site
+2. Refreshing vCenter information for each vCenter cluster in the recovered site
+3. On the target site, powering off and unregistering the virtual machines, and unmounting volumes
+4. Breaking the SnapMirror relationship on the original source to make it read/write
+5. Resynchronizing the SnapMirror relationship to reverse the replication
+6. Powering on and registering the source virtual machines, and mounting the volumes on the source
+
+== Configuration
+
+.Can I configure different network settings for failover tests versus actual failovers?
+
+Yes, when creating a replication plan, you can create a separate dedicated set of mappings for your failover tests to prevent VMs from being connected to production networks using the same IP addresses. In the Resource mapping step, you have the option to check a box to use the same mappings for both failover and test operations, or you can provide different settings for test failovers.
+
+This is particularly useful for ensuring that VMs started during the failover test don't interfere with production VMs. You can accomplish this by either providing test VMs with different IP addresses, or by mapping the virtual NICs of the test VMs to a different network that is isolated from production yet has the same IP configuration (referred to as a 'bubble' or 'test network').
+
+.What is subnet mapping and how does it help manage IP addresses during failover?
+
+Subnet mapping enables you to manage IP addresses on failover operations by defining the IPv4 CIDR, default gateway, and DNS for each virtual network. When you configure subnet mapping for a vCenter site, NetApp Disaster Recovery uses the mapped network's CIDR to assign each vNIC a new IP address upon failover.
+
+The host address portion of the IP stays the same, while the network address portion is replaced with the configured subnet mapping. For example, if NetworkA (10.1.1.0/24) is mapped to NetworkB (192.168.1.0/24), a VM with IP 10.1.1.50 on NetworkA would receive IP 192.168.1.50 on NetworkB after failover.
+
+This enables you to manage IP address reassignment upon failover more easily, especially if you have hundreds of networks and thousands of VMs to manage. Using subnet mapping is an optional two-step process: first add the subnet mapping for each vCenter site, then indicate in the replication plan that you want to use subnet mapping.
+
+== Limitations and troubleshooting
+
+.What are the limitations when using Google Cloud NetApp Volumes?
+
+When using NetApp Disaster Recovery with Google Cloud NetApp Volumes, be aware of the following limitations:
+
+* After running a failover test, you have to wait at least 52 hours to delete the clone volume. You must delete the volume manually. After 52 hours, you can test failover again.
+* If any part of the mount operation fails, failover will not succeed and the jobs will time out. It takes up to three days for Google to look into the issue, during which all datastore-related operations on the vCenter are blocked.
+* You can only add one volume or datastore to a replication plan.
+* Failover is only supported using the latest snapshot.
+* You can't create a new snapshot after failover.
+* You can't retain and reconcile snapshots after failover.
+* Failback is only possible with the selective snapshot option.
+
+.What should I do if Amazon FSx for NetApp ONTAP is not discovered by NetApp Console?
+
+If the NetApp Console does not discover Amazon FSx for NetApp ONTAP clusters (which might be because the FSx credentials were not correct), follow these steps:
+
+1. In the NetApp Console agent, use the connectivity options from your cloud provider to connect to the Linux VM that the Console agent runs on
+2. Restart the 'occm' service using the `docker restart occm` command
+3. In the NetApp Console Systems page, add the Amazon FSx for ONTAP system again and provide the FSx credentials
+4. From NetApp Disaster Recovery, select Sites, on the vCenter row select the Actions option, and from the Actions menu, select 'Refresh' to refresh the FSx discovery in NetApp Disaster Recovery
+
+This will rediscover the datastore, its virtual machines, and its destination relationship.
