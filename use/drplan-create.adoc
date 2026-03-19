@@ -148,7 +148,7 @@ image:dr-plan-resource-mapping2.png[Replication plan, Resource mapping tab]
 * Virtual machines
 * Datastores   
 
-=== Map resources > Compute resources section 
+==== Compute resources section 
 
 The Compute resources section defines where VMs will be restored after a failover. Map the source vCenter data center and cluster to a target data center and cluster. 
 
@@ -165,7 +165,7 @@ Select the down arrow next to *Compute resources*.
 TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manage multiple hosts in a cluster, you don't need to select a host. If you select a host, NetApp Disaster Recovery will place all the VMs on the selected host. 
 * *Target VM folder* (optional): Create a new root folder to store the selected VMs. 
 
-=== Map resources > Virtual networks section 
+==== Virtual networks
 
 VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, the service requires a destination virtual network assignment. 
 
@@ -175,7 +175,7 @@ In the Failover mappings tab, select the down arrow next to *Virtual networks*. 
 
 Select the network mapping to the appropriate virtual LAN. The virtual LANs should already be provisioned, so select the appropriate virtual LAN to map the VM.
 
-=== Map resources > virtual machines section 
+==== Virtual machines
 
 You can configure each VM in the resource group protected by the replication plan to suit the destination vCenter virtual environment by setting any of the following options: 
 
@@ -199,6 +199,9 @@ This section might display different fields depending on your selection.
 //SnapMirror is at the volume level. So, all virtual machines are replicated to the replication target. Make sure to select all virtual machines that are part of the datastore. If they are not selected, only the virtual machines that are part of the replication plan are processed.
 
 You can increase or decrease the number of virtual CPUs assigned to each failed over VM. However, each VM requires at least one virtual CPU. You can change the number of virtual CPUs and virtual DRAM assigned to each VM. The most common reason why you might want to change the default virtual CPU and virtual DRAM settings is if the target vCenter cluster nodes do not have as many available resources as the source vCenter cluster. 
+
+[NOTE]
+Toggle the advance settings to add *Scripts* and *Application consistency* settings. 
 
 *Network settings* 
 Disaster Recovery supports an extensive set of configuation options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
@@ -240,11 +243,9 @@ Uncheck this box to disregard the original folder hierarchy.
 +
 You can use the alternative method of setting the Target VM folder in the Compute resources section. 
 
-* *Source VM CPU and RAM*: Under the virtual machines details, you can optionally resize the VM CPU and RAM parameters. 
+* *CPU* and *Memory (GB)*: Under the virtual machines details, you can optionally resize the VM CPU and . 
 +
 NOTE: You can configure DRAM either in gigabytes (GiB) or megabytes (MiB). While each VM requires at least one MiB of RAM, the actual amount must ensure that the VM guest OS and any running applications can operate efficiently. 
-+
-image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing Add replication plan > Resource mapping > virtual machines] 
 +
 * *Boot order*: You can modify the boot order after a failover for all the selected virtual machines across the resource groups. By default, all VMs boot together in parallel; however, you can make changes at this stage. This is helpful to ensure that all your priority one VMs are running before subsequent priority VMs are started. 
 +
@@ -253,17 +254,15 @@ Disaster Recovery boots any VMs with the same boot order number in parallel.
 ** Sequential boot: Assign each VM a unique number to boot the in the assigned order, for example, 1,2,3,4,5.
 ** Simultaneous boot: Assign the same number to any VMs to boot them at the same time, for example, 1,1,1,1,2,2,3,4,4.
 +
-* *Boot delay*: Adjust the delay in minutes of the boot up action, indicating the amount of time that the VM will wait before it starts the power-on process. Enter a value from 0 to 10 minutes. 
+* *Boot delay*: Adjust the delay in minutes of the boot up action, indicating the amount of time that the VM will wait before it starts the power-on process. Enter a value from 0 to 10 minutes.
 +
-TIP: To reset the boot order to the default, select *Reset VM settings to default* and then choose which settings you want to change back to the default. 
+* *App consistent*: Indicate whether to create application-consistent snapshot copies. The service will quiesce the application and then take a snapshot to get a consistent state of the application. This feature is supported with Oracle running on Windows and Linux and SQL Server running on Windows. See more details next.
 +
-* *Create application-consistent replicas*: Indicate whether to create application-consistent snapshot copies. The service will quiesce the application and then take a snapshot to get a consistent state of the application. This feature is supported with Oracle running on Windows and Linux and SQL Server running on Windows. See more details next. 
+You must switch the *Advance settings* toggle for this option. If you enable application consistency, you must provide credentials in the form of username and password. 
 
-* *Use Windows LAPS*: If you are using Windows Local Administrator Password Solution (Windows LAPS), check this box. This option is available only if you have selected the *Static IP* option. When you check this box, you do not need to provide a password for each of your virtual machines. Instead, you provide the domain controller details.
-+
-If you do not use Windows LAPS, then the VM is a Windows VM and the credentials option on the VM row is enabled. You can provide the credentials for the VM.
-+
-image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing Add replication plan > Resource mapping > virtual machines] 
+//* *Use Windows LAPS*: If you are using Windows Local Administrator Password Solution (Windows LAPS), check this box. This option is available only if you have selected the *Static IP* option. When you check this box, you do not need to provide a password for each of your virtual machines. Instead, you provide the domain controller details. + If you do not use Windows LAPS, then the VM is a Windows VM and the credentials option on the VM row is enabled. You can provide the credentials for the VM.
+
+image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing the virtual machine section of resource mappings] 
 
 ==== Create application-consistent replicas
 
@@ -301,7 +300,7 @@ To enable application-consistent replicas of the VMs and their hosting datastore
 
 
 
-=== Map resources > Datastores section 
+==== Datastores section 
 
 VMware datastores are hosted on ONTAP FlexVol volumes, or ONTAP iSCSI or FC LUNs using VMware VMFS. Use the Datastores section to define the target ONTAP cluster, storage virtual machine (SVM), and volume or LUN to replicate the on-disk data to the destination.
 
@@ -355,9 +354,6 @@ It's recommended you create a dedicated export policy that limits volume access 
 On the Test mappings tab, the Virtual machines and Datastores mappings are disabled. 
 +
 TIP: You can later test the entire plan. Right now, you are setting up the mappings for the test environment. 
-
-
-
 
 === Review the replication plan
 
