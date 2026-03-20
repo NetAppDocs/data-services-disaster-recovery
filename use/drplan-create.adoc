@@ -161,6 +161,7 @@ Select the down arrow next to *Compute resources*.
 * *Source and target datacenters*
 * *Target cluster* 
 * *Target host* (optional): After you select the cluster, you can then set this information. 
+* *Folder* (optional)
 
 TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manage multiple hosts in a cluster, you don't need to select a host. If you select a host, NetApp Disaster Recovery will place all the VMs on the selected host. 
 * *Target VM folder* (optional): Create a new root folder to store the selected VMs. 
@@ -211,7 +212,6 @@ At the most basic (and default) level, the settings simply use the same TCP/IP n
 The service supports network settings of static or Dynamic Host Configuration Protocol (DHCP) IP configuration for VMs. DHCP provides a standards-based method of dynamically configuring the TCP/IP settings of a host network port. DHCP must provide, at a minimum, a TCP/IP address, and can also provide a default gateway address (for routing to an external internet connection), a subnet mask, and a DNS server address. DHCP is commonly used for end-user computing devices such as employee desktop, laptop, and mobile phone connections, while it can also be used for any networking computing device such as servers. 
 
 * *Use the same subnet mask, DNS, and gateway settings* option: Because these settings are typically the same for all VMs connected to the same virtual networks, you might find it easier to configure these once and let Disaster Recovery use the settings for all VMs in the resource group protected by the replication plan. If some VMs use different settings, you need to uncheck this box and provide those settings for each VM.
-
 
 * *IP address type*: Reconfigure the VMs configuration to match the target virtual network requirements. NetApp Disaster Recovery offers two options: DHCP or static IP. For static IPs, configure the subnet mask, gateway, and DNS servers. Additionally, enter credentials for VMs. 
 +
@@ -316,11 +316,11 @@ When this option selected, NetApp Disaster Recovery does not configure a backup 
 +
 After this is configured, the service doesn't take any regularly scheduled snapshots, but instead relies on the external entity to take and update those snapshots.
 
-* *Start time*: Enter the date and time when you want backups and retention to start running. 
+* *Backups and retention start time*: Enter the date and time when you want backups and retention to start running. 
 
-* *Run interval*: Enter the time interval in hours and minutes. For example, if you enter 1 hour, the service will take a snapshot every hour.
+* *Backups and retention frequency*: Enter the time interval in hours and minutes. For example, if you enter 1 hour, the service will take a snapshot every hour.
 
-* *Retention count*: Enter the number of snapshots you want to retain. 
+* *Retention count for all datastores*: Enter the number of snapshots you want to retain. 
 +
 TIP: The number of snapshots retained along with the data change rate between each snapshot determines the amount of storage space consumed on both the source and destination. The more snapshots you retain, the more storage space is consumed.
 +
@@ -333,16 +333,7 @@ NOTE: If you want to create a SnapMirror relationship in this service, the clust
 ** If the VMs are from different volume and different SVM, the service performs a consistency group start phase and commit phase snapshot by including all the volumes in the same or different cluster and updates the secondary destinations.
 ** During the failover, you can select any snapshot. If you select the latest snapshot, the service creates on on-demand backup, updates the destination, and uses that snapshot for the failover.
 
-* *Preferred NFS LIF* and *Export policy*: Typically, let the service select the preferred NFS LIF and export policy. If you want to use a specific NFS LIF or export policy, select the down arrow next to each field and select the appropriate option.
-
-+
-You can optionally use specific data interfaces (LIFs) for a volume after a failover event. This is useful for data traffic balancing if the target SVM has multiple LIFs.
-
-+
-For additional control over NAS data access security, the service can assign different datastore volumes specific NAS export policies. Export policies define the access control rules for NFS clients that access the datastore volumes. If you don't specify an export policy, the service uses the default export policy for the SVM.
-
-[TIP]
-It's recommended you create a dedicated export policy that limits volume access to _only_ the source and destination vCenter ESXi hosts that will host the protected VMs. This ensure external entities can't gain access to the NFS export. 
+// * *Preferred NFS LIF* and *Export policy*: Typically, let the service select the preferred NFS LIF and export policy. If you want to use a specific NFS LIF or export policy, select the down arrow next to each field and select the appropriate option. You can optionally use specific data interfaces (LIFs) for a volume after a failover event. This is useful for data traffic balancing if the target SVM has multiple LIFs. For additional control over NAS data access security, the service can assign different datastore volumes specific NAS export policies. Export policies define the access control rules for NFS clients that access the datastore volumes. If you don't specify an export policy, the service uses the default export policy for the SVM. It's recommended you create a dedicated export policy that limits volume access to _only_ the source and destination vCenter ESXi hosts that will host the protected VMs. This ensure external entities can't gain access to the NFS export. 
 
 
 === Add test failover mappings 
