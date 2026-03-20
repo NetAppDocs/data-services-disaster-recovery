@@ -3,7 +3,7 @@
 
 When you create a replication plan in Disaster, you can now exclude specific datastores from replication. For situations where a VM is configure to use multiple datastore, this allows you to limit which ones are replicated. 
 
-For details, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.adoc[Create a replication plan^].
+For details, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
 
 === Removed password validation from vCenter password
 
