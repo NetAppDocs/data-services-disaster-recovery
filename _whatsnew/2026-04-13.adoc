@@ -1,0 +1,10 @@
+=== Google Cloud VMware Engine (GCVE) support is now generally available (GA)
+
+NetApp Disaster Recovery support for GCVE is now generally available (GA). With GA support, Disaster Recovery for GCVE now supports:
+
+* *Platform-managed snapshots:* Manage backups and retention policies seamlessly through ONTAP or Google Cloud Platform (GCP).
+* *Multiple datastores per replication plan:* Simplify your Disaster Recovery plans by consolidating multiple datastores into a single replication strategy.
+* *Force failover for unavailable source sites:* Switch to a disaster recovery site if the source is unavailable. 
+* *Defer SnapMirror resync and restore replication on demand:* Defer SnapMirror resyncs to avoid an impact on production workloads during peak operating periods using the "skip protect" option and later restore replication on demand with the re-protect option 
+
+For more information about support for GCVE, learn about  link:https://docs.netapp.com/us-en/data-services-disaster-recovery/release-notes/dr-limitations.html[supported configurations for Disaster Recovery^].
