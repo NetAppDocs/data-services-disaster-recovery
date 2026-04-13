@@ -112,7 +112,7 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 
 . Select the replication plan.
 
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Fail over*.
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Fail over*.
 +
 image:dr-plan-failover3.png[Fail over page]
 
