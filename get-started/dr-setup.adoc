@@ -10,7 +10,7 @@ summary: To use NetApp Disaster Recovery, perform a few steps to set it up.
 :imagesdir: ../media/get-started/
 
 [.lead]
-To use NetApp Disaster Recovery, perform a few steps to set it up both in the NetApp Console and the supported cloud environment. 
+To use NetApp Disaster Recovery, perform a few steps to set it up both in the NetApp Console and the supported disaster recovery environment environment. 
 
 TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure that your system is ready.
 
@@ -18,9 +18,9 @@ TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure t
 
 You can use NetApp Disaster Recovery in the following infrastructures:
 
-* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service and Amazon FSx for NetApp ONTAP.
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service (EVS) and Amazon FSx for NetApp ONTAP.
 * Private cloud DR that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
-* Cloud DR that replicates an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service to another AWS based DR infrastructure using FSx for NetApp ONTAP.
+* Cloud DR that replicates an AWS DR infrastructure based on VMware Cloud on AWS or EVS to another AWS-based DR infrastructure using FSx for NetApp ONTAP.
 * Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to a Google DR infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes.
 
 == Hybrid cloud with VMware Cloud and Amazon FSx for NetApp ONTAP 
