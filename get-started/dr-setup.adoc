@@ -4,28 +4,30 @@ permalink: get-started/dr-setup.html
 keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap
 summary: To use NetApp Disaster Recovery, perform a few steps to set it up.    
 ---
-
 = Set up your infrastructure for NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/get-started/
 
 [.lead]
-To use NetApp Disaster Recovery, perform a few steps to set it up both in Amazon Web Services (AWS) and in the NetApp Console.  
+To use NetApp Disaster Recovery, perform a few steps to set it up both in the NetApp Console and the supported cloud environment. 
 
 TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure that your system is ready.
 
+== Supported infrastructures
+
 You can use NetApp Disaster Recovery in the following infrastructures:
 
-* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS and Amazon FSx for NetApp ONTAP. 
-
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service and Amazon FSx for NetApp ONTAP.
 * Private cloud DR that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
+* Cloud DR that replicates an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service to another AWS based DR infrastructure using FSx for NetApp ONTAP.
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to a Google DR infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes.
 
 == Hybrid cloud with VMware Cloud and Amazon FSx for NetApp ONTAP 
 
 This method consists of an on-premises production vCenter infrastructure using datastores hosted on ONTAP FlexVol volumes using an NFS protocol. The DR site consists of one or more VMware Cloud SDDC instances using datastores hosted on FlexVol volumes provided by one or more FSx for ONTAP instances using an NFS protocol. 
 
-The production and DR sites are connected by an AWS-compatible secure connection. Common connection typs are a secure VPN (private or AWS provided), AWS Direct Connect, or other approved interconnect methods. 
+The production and DR sites are connected by an AWS-compatible secure connection. Common connection types are a secure VPN (private or AWS provided), AWS Direct Connect, or other approved interconnect methods. 
 
 For Disaster Recovery involving AWS cloud infrastructure, you must use the Console agent for AWS. The agent should be installed in the same VPC as the FSx for ONTAP instance. If additional FSx for ONTAP instances were deployed in other VPCs, the VPC hosting the agent must have access to the other VPCs. 
 
@@ -42,11 +44,11 @@ AWS supports deploying solutions in one or more availability zones (AZ) within a
 === On-premises to AWS 
 AWS provides the following methods to connect private datacenters to the AWS cloud. Each solution has its benefits and cost considerations. 
 
-* *AWS Direct Connect*: This is an AWS cloud interconnect located in the same geographic area as your private datacenter and provided by an AWS partner. This solution provides a secure, private connection between your local datacenter and the AWS cloud without the need for a public internet connection. This is the most direct and efficient connection method offeredy by AWS. 
+* *AWS Direct Connect*: This is an AWS cloud interconnect located in the same geographic area as your private datacenter and provided by an AWS partner. This solution provides a secure, private connection between your local datacenter and the AWS cloud without the need for a public internet connection. This is the most direct and efficient connection method offered by AWS. 
 
 * *AWS Internet Gateway*: This provides public connectivity between AWS cloud resources and external compute resources. This type of connection is typically used to provide service offerings to external customers, such as HTTP/HTTPS service where security is not a requirement. There is no quality-of-service control, security, or guarantee of connectivity. For this reason, this connection method is not recommended for connecting a production datacenter to the cloud.
 
-* *AWS Site-Site VPN*: This virtual private network connection can be used to provide secure access connections along with a public internet service provider. The VPN encrypts and decrypts all data traveling to and from the AWS cloud. VPNs can be either software- or hardware-based. For enterprise applications, the public internet service provider (ISP) should offer quality-of-service guarantees to ensure that adequate bandwidth and latency are provide for DR replication. 
+* *AWS Site-Site VPN*: This virtual private network connection can be used to provide secure access connections along with a public internet service provider. The VPN encrypts and decrypts all data traveling to and from the AWS cloud. VPNs can be either software- or hardware-based. For enterprise applications, the public internet service provider (ISP) should offer quality-of-service guarantees to ensure that adequate bandwidth and latency are provided for DR replication. 
 
 *BEST PRACTICE*: For AWS DR site configuration, NetApp recommends using AWS Direct Connect. This solution provides the highest performance and security for enterprise applications. If it is not available, a high-performance public ISP connection along with a VPN should be used. Ensure that the ISP offers commercial QoS service levels to ensure adequate network performance. 
 
@@ -83,8 +85,6 @@ To set up NetApp Disaster Recovery for on-premises-to-cloud protection using AWS
 
 
 Refer to https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html[how to set up an FSx for ONTAP system^] for detailed steps.
-
-
 
 ==== Set up VMware Cloud on AWS SDDC
 
