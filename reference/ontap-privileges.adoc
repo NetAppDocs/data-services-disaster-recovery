@@ -1,0 +1,87 @@
+---
+sidebar: sidebar
+permalink: reference/ontap-permissions.html
+keywords: disaster recovery, ontap, requirements, configure permissions, roles
+summary: The vCenter account must have a minimum set of vCenter privileges for NetApp Disaster Recovery to function successfully.
+---
+= Configure ONTAP permissions for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+
+
+
+== Minimum ONTAP permissions
+
+[cols="3,1", options="header"]
+|===
+| API | Access level
+| /api | Read-only
+| /api/application/applications | Read/write
+| /api/application/consistency-groups | Read/write
+| /api/cluster | Read-only
+| /api/cluster/jobs | Read-only
+| /api/cluster/peers | Read/create/modify
+| /api/cluster/schedules | Read/create
+| /api/network/ip/interfaces | Read-only
+| /api/network/ipspaces | Read-only
+| /api/protocols/cifs/services | Read/write
+| /api/protocols/nfs/export-policies | Read/write
+| /api/protocols/nfs/services | Read-only
+| /api/protocols/san/igroups | Read/write
+| /api/protocols/san/iscsi/sessions | Read-only
+| /api/protocols/san/lun-maps | Read/write
+| /api/security/certificates | Read-only
+| /api/snapmirror/policies | Read/create/modify
+| /api/snapmirror/relationships | Read/write
+| /api/storage/aggregates | Read-only
+| /api/storage/file/clone | Read/create
+| /api/storage/flexcache/flexcaches | Read/create
+| /api/storage/luns | Read/write
+| /api/storage/qtrees | Read/modify
+| /api/storage/snapshot-policies | Read-only
+| /api/storage/volumes | Read/write
+| /api/svm/peers | Read/create/modify
+| /api/svm/svms | Read-only
+|===
+
+== Add permissions in ONTAP
+
+You can add permissions in ONTAP using System Manager or the ONTAP CLI. 
+
+[role="tabbed-block"]
+====
+.System Manager
+--
+You must perform this process for the source and destination clusters. 
+
+.Create the IAM role
+. Log into the ONTAP cluster with the administrator credentials. 
+. Navigate to *Cluster* > *Settings*. 
+. Under *Security*, select *Users and roles*
+. Select *+ Add* to create a new role.
+. Enter the *Role name*. Assign the *REST API path*, *Secondary path*, and *Access level* per the link:#minimum-ontap-permissions[table].
+. After adding all the required permissions, select *Add*. 
+
+.Assign the role to a user
+. Log into the ONTAP cluster with the administrator credentials. 
+. Navigate to *Cluster* > *Settings*. 
+. Under *Security*, select *Users and roles*
+. In *Users*, select *Add*. 
+. Enter a *User name* then select the *Role* you previously created. 
+. Under User Login Methods, click Add until all required login methods are configured.
+. Create a *Password* for the user then confirm the password.
+. Select *Save*. 
+
+
+--
+.CLI
+--
+Steps for CLI here.
+--
+====
+
+
+==
