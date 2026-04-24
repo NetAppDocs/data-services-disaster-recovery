@@ -23,7 +23,7 @@ Organization admin, Folder or project admin, or Disaster recovery admin.
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
-*About this task*
+== Add vCenters to a site 
 
 If you added vCenters in previous releases and want to customize the discovery schedule, you must edit the vCenter server site and set the schedule. 
 
@@ -76,8 +76,11 @@ image:vcenter-add.png[Add vCenter server screenshot ]
 
 * Select a site, then the NetApp Console agent, and provide vCenter credentials. 
 
+* For Google Cloud VMware Engine, choose the *Project*, *Zone*, *Private cloud, and *Subnet* from the dropdown menus. 
+* For AWS, provide the VMC's *API token* and *Long organizational ID*. 
+// see tooltip
 
-* **For on-premises sites only:** To accept self-signed certificates for the source vCenter, check the box. 
+* To accept self-signed certificates for the source vCenter, check the box. 
 +
 NOTE: Self-signed certificates are not as secure as other certificates. If your vCenter is *NOT* configured with certificate authority (CA) certificates, you should check this box; otherwise, the connection to the vCenter will not work.  
 
@@ -103,6 +106,7 @@ image:sites-list2.png[Sites page screenshot]
 
 . To see the progress of the operation, from the menu, select *Job monitoring*. 
 
+====
 
 == Add subnet mapping for a vCenter site
 
@@ -200,6 +204,7 @@ image:sites-edit-schedule.png[Edit discovery schedule screenshot]
 . Select *Save*.
 
 == Refresh discovery manually
+
 You can refresh the discovery manually at any time. This is useful if you have added or removed VMs and want to update the information in NetApp Disaster Recovery.
 
 
