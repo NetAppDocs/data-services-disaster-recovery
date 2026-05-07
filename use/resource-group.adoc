@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: use/resource-group.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
-summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you’ve added vCenter sites, you’re ready to create a disaster recovery or replication plan. 
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you've added vCenter sites, you're ready to create a disaster recovery or replication plan. 
 ---
 = Create a resource group to organize VMs together in NetApp Disaster Recovery
 :hardbreaks:

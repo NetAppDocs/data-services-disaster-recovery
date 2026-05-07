@@ -13,14 +13,16 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 [.lead]
 Using NetApp Disaster Recovery, you can accomplish the following goals: 
 
-* link:../use/dashboard-view.html[View the health of your disaster recovery plans].
-* link:../use/sites-add.html[Add vCenter sites].
-* link:../use/resource-group.html[Create resource groups to organize VMs together]
-* link:../use/drplan-create.html[Create a disaster recovery plan].
-* link:../use/replicate.html[Replicate VMware apps] on your primary site to a disaster recovery remote site in the cloud using SnapMirror replication.
-* link:../use/migrate.html[Migrate VMware apps] on your primary site to another site.
+* link:../use/dashboard-view.html[View the health of your disaster recovery plans]
+* link:../use/sites-add.html[Add sites]
+* link:../use/resource-group.html[Create resource groups to organize VMs or Kubernetes clusters together]
+* link:../use/drplan-create.html[Create a disaster recovery plan]
+* link:../use/replicate.html[Replicate VMware apps] on your primary site to a disaster recovery remote site in the cloud using SnapMirror replication
+// k8s update
+* link:../use/migrate.html[Migrate VMware apps] on your primary site to another site
+// k8s update
 * link:../use/failover.html[Test the fail over] without disrupting the original virtual machines. 
-* In case of disaster, link:../use/failover.html[fail over your primary site] to VMware Cloud on AWS with FSx for NetApp ONTAP. 
-* After the disaster has been resolved, link:../use/failback.html[fail back] from the disaster recovery site to the primary site.
-* link:../use/monitor-jobs.html[Monitor disaster recovery operations] on the Job Monitoring page.
+* In case of disaster, link:../use/failover.html[fail over your primary site]
+* After the disaster has been resolved, link:../use/failback.html[fail back] from the disaster recovery site to the primary site
+* link:../use/monitor-jobs.html[Monitor disaster recovery operations] on the Job Monitoring page
 

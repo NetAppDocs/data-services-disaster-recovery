@@ -70,31 +70,14 @@ The NetApp Console user must have the following roles:
 
 == ONTAP storage prerequisites
 
-These prerequisites apply to either ONTAP or Amazon FSX for NetApp ONTAP instances.
+These prerequisites apply to ONTAP and Amazon FSX for NetApp ONTAP instances.
 
 * Source and destination clusters must have a peer relationship. 
 * The SVM that hosts the disaster recovery volumes must exist on the destination cluster.
 * The source SVM and destination SVM must have a peer relationship. 
+* link:task-kubernetes-prerequisites.html[Review the additional requirements for Kubernetes clusters].
 * If deploying with Amazon FSx for NetApp ONTAP, the following prerequisite applies: 
 ** An Amazon FSx for NetApp ONTAP instance to host VMware DR datastores must exist in your VPC. To get started, see link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html[the Amazon FSx for ONTAP documentation^]. 
-
-== VMware vCenter clusters prerequisites
-
-These prerequisites apply to both on-premises vCenter clusters and to VMware Cloud for AWS software-defined data center (SDDC).
-
-
-* Review link:../reference/vcenter-privileges.html[vCenter privileges] required for NetApp Disaster Recovery. 
-* All VMware clusters that you want NetApp Disaster Recovery to manage use ONTAP volumes to host any VMs that you want to protect.
-* All VMware datastores to be managed by NetApp Disaster Recovery must use one of the following protocols: 
-** NFS 
-** VMFS using the iSCSI or FC protocol 
-
-* VMware vSphere version 7.0 Update 3 (7.0v3) or later
-* If you are using VMware Cloud SDDC, these prerequisites apply. 
-** In the VMware Cloud Console, use the service roles of Administrator and NSX Cloud Administrator. Also use the organization owner for the Organization role. Refer to https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html[Using VMware Cloud Foundations with AWS FSx for NetApp ONTAP documentation^]. 
-
-** Link the VMware Cloud SDDC with Amazon FSx for NetApp ONTAP instance. Refer to https://vmc.techzone.vmware.com/fsx-guide#overview[VMware Cloud on AWS integration with Amazon FSx for NetApp ONTAP deployment information^].
-
 
 
 == NetApp Console prerequisites
@@ -142,6 +125,9 @@ To ensure that application-consistency processes are successful, apply these pre
 * Ensure that VMware tools (or Open VM tools) are running on the VMs that will be protected. 
 * For Windows VMs running Microsoft SQL Server, Oracle Database, or both, the databases must have their VSS Writers enabled. 
 * Oracle databases that are running on a Linux operating system must have the operating system user authentication enabled for the Oracle database SYSDBA role.  
+
+[IMPORTANT]
+Depending on your deployment type, review the link:reference-vmware-prerequisites.html[VMware cluster prerequisites] and link:task-kubernetes-prerequisites.html[Kubernetes cluster prerequisites].
 
 ## More information
 
