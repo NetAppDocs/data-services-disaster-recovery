@@ -31,7 +31,7 @@ TIP: Each resource group can include one or more VMs or datastores. The VMs will
 
 .About resource groups
 
-Resource groups let you combine VMs or datastores into a single unit. 
+Resource groups let you combine VMs, datastores, or Kubernetes applications into a single unit. 
 
 For example, a point-of-sale application might use several VMs for databases, business logic, and storefronts. You can manage all these VMs with one resource group. Set up resource groups to apply replication plan rules for VM startup order, network connection, and recovery of all VMs needed for the application.
 
@@ -73,11 +73,16 @@ When you create resource groups, consider the following issues:
 
 *BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Ensure that the VMs on any given datastore are not protected by different replication plans.
 
+[role="tabbed-block"]
+====
+.vCenters
+--
 .Steps
 
-. Log in to the https://console.netapp.com/[NetApp Console^].
-
-. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
+. In Disaster Recovery, select **Resource groups** in the sidebar. 
+. In the dropdown menu, filter by *vCenter* resource groups.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
 . From the NetApp Disaster Recovery menu, select *Resource groups*.
 
 . Select *Add*. 
@@ -97,5 +102,23 @@ image:dr-resource-groups-datastores-add.png[Screenshot showing the Add resource 
 
 
 . Select *Add*.
+--
 
+.Kubernetes
+--
+.Steps
+. In Disaster Recovery, select **Resource groups** in the sidebar. 
+. In the dropdown menu, filter by *Kubernetes* sites.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Select *Add*. 
+. Enter a **Name** for the resource group and select the Kubernetes **Cluster** from the dropdown menu.
+. Select the *Namespaces* to add to the resource group then 
+. Optionally, include any *Label selectors*. 
++
+image:kubernetes-resource-group.png[Add a Kubernetes resource group]
+. Optionally, select *+ Cluster-scoped resources* to add resources that aren't scoped to a namespace. If you choose this option, select the *Group*, *Version*, *Kind*, and optionally add any label selectors. Select **Add resource**.
+. Select **Add**. 
+--
+====
 

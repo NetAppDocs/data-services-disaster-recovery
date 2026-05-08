@@ -16,6 +16,8 @@ Before configuring NetApp Disaster Recovery for Kubernetes clusters, you must pr
 
 Before configuring Kubernetes cluster requirements, ensure you've configured your Kubernetes cluster and ONTAP clusters. 
 
+Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html[any version of Kubernetes currently supported by Trident Protect^].
+
 === Kubernetes clusters 
 
 For each Kubernetes cluster, ensure:
