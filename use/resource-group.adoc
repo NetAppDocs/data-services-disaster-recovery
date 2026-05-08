@@ -10,7 +10,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added vCenter sites, you can create resource groups to groups of VMs or datastores as a single unit. Resource groups enable you to organize a set of dependent VMs into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
+After you've added resources sites, you can create resource groups to groups of VMs, datastores, or Kubernetes clusters as a single unit. Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
@@ -25,9 +25,9 @@ You can group VMs themselves or VMs in datastores.
 You can create resource groups using the following methods: 
 
 * From the Resource groups option  
-* While you’re creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:drplan-create.html[Create a replication plan].
+* While you’'e creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:drplan-create.html[Create a replication plan].
 
-TIP: Each resource group can include one or more VMs or datastores. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
+TIP: Each resource group can include one or more VMs, datastore, or Kubernetes cluster. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
 
 .About resource groups
 
@@ -55,7 +55,7 @@ If VMs in the resource group are hosted on different data stores, NetApp Disaste
 
 
 | Multiple data stores - FlexVol volumes in *multiple SVMs* 
-| * ONTAP API: `cg_start`. Quieces all volumes so snapshots can be taken and initiates volume-scoped snapshots of all resource group volumes.
+| * ONTAP API: `cg_start`. Quiesces all volumes so snapshots can be taken and initiates volume-scoped snapshots of all resource group volumes.
 * ONTAP API: `cg_end`. Resumes I/O on all volumes and enables volume-scoped SnapMirror replication after snapshots are taken.
 
 |===
@@ -71,7 +71,7 @@ When you create resource groups, consider the following issues:
 
 * To have a VM protected, it must be included in a resource group.
 
-*BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Ensure that the VMs on any given datastore are not protected by different replication plans.
+*BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize datastore sprawl. Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Ensure that the VMs on any given datastore are not protected by different replication plans.
 
 [role="tabbed-block"]
 ====
@@ -113,7 +113,7 @@ image:dr-resource-groups-datastores-add.png[Screenshot showing the Add resource 
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select *Add*. 
 . Enter a **Name** for the resource group and select the Kubernetes **Cluster** from the dropdown menu.
-. Select the *Namespaces* to add to the resource group then 
+. Select the *Namespaces* to add to the resource group. 
 . Optionally, include any *Label selectors*. 
 +
 image:kubernetes-resource-group.png[Add a Kubernetes resource group]

@@ -42,7 +42,7 @@ If you're using datastore-based protection, VMs that have been added to the data
 --
 .Steps
 . From the NetApp Disaster Recovery menu, select *Replication plans*. 
-. In the dropdown menu, filter to *Kubernetes* replication plans.
+. In the dropdown menu, set the filter to *vCenter* replication plans.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Identify the replication plan you want to failback. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Failback*.

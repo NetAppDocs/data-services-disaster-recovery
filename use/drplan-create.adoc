@@ -52,7 +52,7 @@ The service performs snapshot symmetry checks every 24 hours.
 * With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 [TIP]
-Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resources groups before creating the replication plan, see link:resource-groups.html[Create a resource group].
+Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resources groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
 == Create the plan
 A wizard takes you through these steps: 
@@ -98,7 +98,7 @@ TIP: Each resource group can include one or more VMs or datastores.
 When you create resource groups, consider the following issues: 
 
 * Before you add resources to resource groups, start a manual discovery or a scheduled discovery first. This ensures that resources are discovered and listed in the resource group. 
-* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't discovered.
+* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't be discovered.
 * A single datastore should not host VMs protected by more than one replication plan.
 * Do not host protected and unprotected resources on the same datastore. If protected and unprotected resource are hosted on the same datastore, you can encounter these issues:  
 ** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected resources would be included in this calculation.
@@ -133,13 +133,13 @@ image:dr-plan-create-apps-datastores.png[Screenshot showing the Add replication 
 When creating a replication plan for Kubernetes clusters, Kubernetes namespaces in a resource group must belong to the same ONTAP cluster. 
 
 .Steps
-. If you have existing resource groups, chooes the groups from the list then.
+. If you have existing resource groups, choose the groups from the list then.
 +
 If you don't have existing resource groups or need to add resources to one, select *+ Create new resource group*. Follow the instructions to link:resource-group.html[add namespaces to a resource group].
 +
 When naming a resource group, the only supported characters are lowercase letters and numbers.
 +
-. In the alternate column, review the selected resources groups.  
+. In the alternate column, review the selected resource groups.  
 . Select **Next**. 
 --
 ====
@@ -201,9 +201,7 @@ After selecting Add, you can monitor the different jobs in **Job monitoring**.
 ====
 
 [NOTE]
-For Kubernetes, this is the final step for creating a replication. 
-+
-For vCenters, continue to the <<Compute resources section>>.
+For Kubernetes, this is the final step for creating a replication. For vCenters, continue to the <<Compute resources section>>.
 
 ==== Compute resources section 
 
@@ -265,7 +263,7 @@ You can increase or decrease the number of virtual CPUs assigned to each failed 
 Toggle the advance settings to add *Scripts* and *Application consistency* settings. 
 
 *Network settings* 
-Disaster Recovery supports an extensive set of configuation options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
+Disaster Recovery supports an extensive set of configuration options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
 
 At the most basic (and default) level, the settings simply use the same TCP/IP network settings for each VM on the destination site as used on the source site. This requires that you configure the same TCP/IP settings on the source and destination virtual networks. 
 
@@ -284,7 +282,7 @@ image:dr-plan-vm-subnet-option2.png[Screenshot showing Add replication plan > Re
 +
 * *Scripts*: You can include custom guest-OS hosted scripts in .sh, .bat, or .ps1 format as post processes. With custom scripts, Disaster Recovery can run your script after a failover, failback, and migrate processes. For example, you can use a custom script to resume all database transactions after the failover is complete. The service can run scripts within VMs running Microsoft Windows or any supported Linux variant with command-line parameters supported. You can assign a script to individual VMs or to all VMs in the replication plan.
 +
-To enable script execution with the VM guest OS, the following conditons must be met: 
+To enable script execution with the VM guest OS, the following conditions must be met: 
 +
 ** VMware Tools must be installed on the VM. 
 ** Appropriate user credentials must be provided with adequate guest OS privileges to run the script. 
@@ -303,7 +301,7 @@ Uncheck this box to disregard the original folder hierarchy.
 +
 You can use the alternative method of setting the Target VM folder in the Compute resources section. 
 
-* *CPU* and *Memory (GB)*: Under the virtual machines details, you can optionally resize the VM CPU and . 
+* *CPU* and *Memory (GB)*: Under the virtual machines details, you can optionally resize the VM CPU and memory. 
 +
 NOTE: You can configure DRAM either in gigabytes (GiB) or megabytes (MiB). While each VM requires at least one MiB of RAM, the actual amount must ensure that the VM guest OS and any running applications can operate efficiently. 
 +

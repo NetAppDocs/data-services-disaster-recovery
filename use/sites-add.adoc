@@ -10,7 +10,7 @@ summary: Before you can create a disaster recovery plan, you need to add a prima
 :imagesdir: ../media/use/
 
 [.lead]
-Before you can create a disaster recovery plan, you need to add sites to Disaster Recovery. A site is a group of Kubernetes or a collection of vCenter servers (on-premises or in the cloud). You should add the primacy or production site and the disaster recovery site.
+Before you can create a disaster recovery plan, you need to add sites to Disaster Recovery. A site is a collection of vCenter servers or Kubernetes clusters (on-premises or in the cloud). You should add the primary or production site and the disaster recovery site.
 
 TIP: Ensure that both the source and destination use the same NetApp Console agent. 
 
@@ -74,33 +74,24 @@ You need the following information to add a vCenter cluster to a site:
 * A security certificate to access your vCenter. 
 +
 NOTE: The service supports self-signed security certificates or certificates from a central certificate authority (CA). 
+
 .Steps
-
-If this is your first time using NetApp Disaster recovery, you need to add vCenter information. If you've already added vCenter information, you see the dashboard.
+. In Disaster Recovery, select **Sites** in the sidebar. 
+. In the dropdown menu, set the filter to *Kubernetes*.
 +
-NOTE: Different fields appear depending on the type of site you are adding. 
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Choose the site you want to add a Kubernetes cluster to. Select the action menu for the site then **Add cluster**.
+
+. In the Sites page, select the action menu for a site then *Add vCenter*.
+. Ensure the *Site* is correct. Choose the *Console agent* from the dropdown menu. 
+. Add the *vCenter IP address*, *Port* number, *vCenter username*, and *vCenter password*. 
 +
-. If some vCenter sites already exist and you want to add more, from the menu, select *Sites* and then select *Add*.
-. In the Sites page, select the site, and select *Add vCenter*.
-
-. *Source*: Select *Discover vCenter servers* to enter information about the source vCenter site.  
-+
-TIP: To add more vCenter sites, select *Sites* then *Add*.  
-+
-image:vcenter-add.png[Add vCenter server screenshot ]
-
-
-* Select a site, then the NetApp Console agent, and provide vCenter credentials. 
-
 * For Google Cloud VMware Engine, choose the *Project*, *Zone*, *Private cloud, and *Subnet* from the dropdown menus. 
 * For AWS, provide the VMC's *API token* and *Long organizational ID*. 
-// see tooltip
-
-* To accept self-signed certificates for the source vCenter, check the box. 
++
+. To accept self-signed certificates for the source vCenter, check the box. 
 +
 NOTE: Self-signed certificates are not as secure as other certificates. If your vCenter is *NOT* configured with certificate authority (CA) certificates, you should check this box; otherwise, the connection to the vCenter will not work.  
-
-
 
 . Select *Add*. 
 +
@@ -124,15 +115,15 @@ image:sites-list2.png[Sites page screenshot]
 .Kubernetes
 --
 . In Disaster Recovery, select **Sites** in the sidebar. 
-. In the dropdown menu, filter by *Kubernetes* sites.
+. In the dropdown menu, set the filter to *Kubernetes*.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
-. Choose the site you want to add a Kubernetes cluster too. Select the action menu for the site then **Add cluster**.
+. Choose the site you want to add a Kubernetes cluster to. Select the action menu for the site then **Add cluster**.
 . Verify that the **Site** option is correct. Choose the appropriate **Console agent** from the dropdown menu, then assign a **Cluster name**.
 +
 When naming the cluster, you can only use lowercase letters (a-z), numbers (0-9), and hyphens (-). The name must begin with a letter. 
 +
-image:add-kubernets-cluster.png[Screenshot of Add Kubernetes cluster options.]
+image:add-kubernetes-cluster.png[Screenshot of Add Kubernetes cluster options.]
 . If you've installed Trident Protect on the cluster or the cluster is managed by Backup and Recovery, select **Add**.
 +
 If not, xref:../get-started/task-kubernetes-requirements.html[install Trident Protect]

@@ -75,7 +75,7 @@ These prerequisites apply to ONTAP and Amazon FSX for NetApp ONTAP instances.
 * Source and destination clusters must have a peer relationship. 
 * The SVM that hosts the disaster recovery volumes must exist on the destination cluster.
 * The source SVM and destination SVM must have a peer relationship. 
-* link:task-kubernetes-prerequisites.html[Review the additional requirements for Kubernetes clusters].
+* link:task-kubernetes-requirements.html[Review the additional requirements for Kubernetes clusters].
 * If deploying with Amazon FSx for NetApp ONTAP, the following prerequisite applies: 
 ** An Amazon FSx for NetApp ONTAP instance to host VMware DR datastores must exist in your VPC. To get started, see link:https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/getting-started-step1.html[the Amazon FSx for ONTAP documentation^]. 
 
@@ -127,7 +127,7 @@ To ensure that application-consistency processes are successful, apply these pre
 * Oracle databases that are running on a Linux operating system must have the operating system user authentication enabled for the Oracle database SYSDBA role.  
 
 [IMPORTANT]
-Depending on your deployment type, review the link:reference-vmware-prerequisites.html[VMware cluster prerequisites] and link:task-kubernetes-prerequisites.html[Kubernetes cluster prerequisites].
+Depending on your deployment type, review the link:reference-vmware-prerequisites.html[VMware cluster prerequisites] and link:task-kubernetes-requirements.html[Kubernetes cluster prerequisites].
 
 ## More information
 

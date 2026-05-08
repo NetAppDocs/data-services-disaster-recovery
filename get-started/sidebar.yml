@@ -10,7 +10,7 @@ entries:
       - title: VMware prerequisites
         url: /get-started/reference-vmware-prerequisites.html
       - title: Kubernetes prerequisites 
-        url: /get-started/task-kubernetes-prerequisites.html
+        url: /get-started/task-kubernetes-requirements.html
   - title: Quick start
     url: /get-started/dr-quick-start.html
   - title: Set up your infrastructure for NetApp Disaster Recovery 
