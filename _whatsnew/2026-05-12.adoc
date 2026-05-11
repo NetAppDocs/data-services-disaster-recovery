@@ -1,0 +1,11 @@
+=== Kubernetes-based workload support (preview)
+
+NetApp Disaster Recovery now includes support for Kubernetes-based workloads. With Kubernetes support, you can protect applications running on Kubernetes clusters, including OpenShift Virtualization environments. Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html[any version of Kubernetes currently supported by Trident Protect^], ensuring seamless integration and robust disaster recovery capabilities for containerized applications.
+
+Key features of Kubernetes-based workload support:
+
+* **Broad compatibility**: Disaster Recovery supports all Kubernetes versions compatible with Trident Protect, including Red Hat OpenShift Virtualization.
+* **Application-centric protection**: You can now protect Kubernetes workloads at the application level, ensuring the recovery of critical services during failover events.
+* **Simplified orchestration**: Disaster Recovery offers intuitive workflows to automate the backup and replication of Kubernetes workloads, leveraging the same efficient SnapMirror technology used for VMware environments.
+
+Support for Kubernetes-based workloads is currently in preview. To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/task-kubernetes-requirements.html[Kubernetes requirements for NetApp Disaster Recovery^].

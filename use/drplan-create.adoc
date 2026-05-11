@@ -4,14 +4,13 @@ permalink: use/drplan-create.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you've added vCenter sites, you're ready to create a disaster recovery or replication plan. 
 ---
-
 = Create a replication plan in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added vCenter sites, you're ready to create a disaster recovery or _replication plan_. Replication plans manage the data protection of the VMware infrastructure. Select the source and destination vCenters, pick the resource groups, and group how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. Such plans are sometimes called _blueprints_. 
+After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resources groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
@@ -25,13 +24,11 @@ You can create a replication plan and also edit schedules for compliance and tes
 
 You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP Consistency Groups for all ONTAP volumes hosting protected VM datastores. 
 
-VMs can be protected only if the replication plan is in one of the following states: 
+You can only enable protection if the replication plan is in one of the following states: 
 
 * Ready
 * Failback committed
 * Test failover committed
-
-
 
 *Replication plan snapshots*
 
@@ -55,23 +52,22 @@ The service performs snapshot symmetry checks every 24 hours.
 * With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 [TIP]
-Organize your VMs before deploying NetApp Disaster Recovery to minimize “datastore sprawl.” Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Use datastore-based protection to ensure that the VMs on any given datastore are protected.
-
+Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resources groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
 == Create the plan
 A wizard takes you through these steps: 
 
 * Select vCenter servers.
-* Select the VMs or datastores that you want to replicate and assign resource groups.
+* Select the resources (VMs, datastore, namespaces) that you want to replicate and assign resource groups.
 * Map how resources from the source environment map to the destination. 
 * Set how often the plan runs, run a guest-hosted script, set the boot order, and select the recovery point objective.
 * Review the plan.
 
 When you create the plan, follow these guidelines: 
 
-* Use the same credentials for all VMs in the plan.
-* Use the same script for all VMs in the plan.
-* Use the same subnet, DNS, and gateway for all VMs in the plan.
+* Use the same credentials for all VMs or Kubernetes clusters in the plan.
+* Use the same script for all VMs or Kubernetes clusters in the plan.
+* Use the same subnet, DNS, and gateway for all VMs or Kubernetes clusters in the plan.
  
 === Select vCenter servers
 
@@ -81,9 +77,14 @@ First, you select the source vCenter and then select the destination vCenter.
 
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
-. From the NetApp Disaster Recovery menu, select *Replication plans* and select *Add*. If this is your first time creating a replication plan, from the Dashboard, select *Add replication plan*. 
+. From the NetApp Disaster Recovery menu, select *Replication plans*.
+. In the dropdown menu, choose the type of resource you want to create replication plan for: *Kubernetes* or *vCenter*.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Select *Add*. 
 . Enter a name for the replication plan. 
-. Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target vCenter*, select the vCenter to replicate the data to from the dropdown menu. 
+. For *Source*, select the vCenter or Kubernetes cluster to desginate as the source. 
+. Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target*, select the vCenter or Kubernetes cluster to use as the disaster recovery destination. 
 +
 image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
 . Select *Next*.
@@ -96,18 +97,21 @@ TIP: Each resource group can include one or more VMs or datastores.
 
 When you create resource groups, consider the following issues: 
 
-* Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not trigger a manual discovery, the VMs might not be listed in the resource group.
-* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't discovered.
+* Before you add resources to resource groups, start a manual discovery or a scheduled discovery first. This ensures that resources are discovered and listed in the resource group. 
+* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't be discovered.
 * A single datastore should not host VMs protected by more than one replication plan.
-* Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, you can encounter these issues:  
-** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.
-** If the resource group and its associated datastores need to be failed over to the disaster recovery site, any unprotected VMs (VMs not part of the resource group, but hosted on the ONTAP volume) will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
-
-* To have a VM protected, it must be included in a resource group.
+* Do not host protected and unprotected resources on the same datastore. If protected and unprotected resource are hosted on the same datastore, you can encounter these issues:  
+** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected resources would be included in this calculation.
+** If the resource group and its associated resources need to be failed over to the disaster recovery site, any unprotected resources will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
 
 [TIP]
-Create a separate dedicated set of mappings for your failover tests to prevent VMS from being connected to production networks using the same IP addresses. 
+Create a separate dedicated set of mappings for your failover tests to prevent resources from being connected to production networks using the same IP addresses. 
 
+
+[role="tabbed-block"]
+====
+.vCenter
+--
 .Steps
 
 . If you have existing resource groups, select **Resource groups**, choose the resource group then **Next**.
@@ -122,6 +126,23 @@ image:dr-plan-create-apps-vms6.png[Screenshot showing the Add replication plan >
 +
 image:dr-plan-create-apps-datastores.png[Screenshot showing the Add replication plan > Applications to replicate page]
 . Select *Next*. 
+--
+
+.Kubernetes
+--
+When creating a replication plan for Kubernetes clusters, Kubernetes namespaces in a resource group must belong to the same ONTAP cluster. 
+
+.Steps
+. If you have existing resource groups, choose the groups from the list then.
++
+If you don't have existing resource groups or need to add resources to one, select *+ Create new resource group*. Follow the instructions to link:resource-group.html[add namespaces to a resource group].
++
+When naming a resource group, the only supported characters are lowercase letters and numbers.
++
+. In the alternate column, review the selected resource groups.  
+. Select **Next**. 
+--
+====
 
 
 === Map source resources to the target 
@@ -134,12 +155,14 @@ If you plan to perform test failovers as part of your DR plan, you should provid
 
 If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of NetApp Disaster Recovery. 
 
-.Steps 
-
+[role="tabbed-block"]
+====
+.vCenter
+--
+.Steps
 . In the Resource mapping page, check the box to use the same mappings for both failover and test operations. 
 +
 image:dr-plan-resource-mapping2.png[Replication plan, Resource mapping tab]
-
 
 . In the Failover mappings tab, select the down arrow to the right of each resource and map the resources in each section: 
 
@@ -147,6 +170,38 @@ image:dr-plan-resource-mapping2.png[Replication plan, Resource mapping tab]
 * Virtual networks
 * Virtual machines
 * Datastores   
+--
+
+.Kubernetes
+--
+.Steps
+. Choose the namespace mappings for each namespace in each resource group. By default, Disaster Recovery selects the target to be the same as source. You can choose a different namespace in the destination cluster. 
+. Designate the storage class mapping for each resource group. The storage class must be linked to an ONTAP storage VM peered with the source environment. The default storage class on the cluster is used if you don't designate one.
+// one storage class per resource group
+// application cannot be connected to one more than ontap cluster 
++
+[TIP]
+Run the CLI command `kubectl get pvc -n <namespace>` on the namespace to see the storage class. 
+. Set the snapshot schedule:
++ 
+Choose the *Snapshots and retention start time* (calendar date and time), the *Snapshot and retention frequency* (how often snapshots are initiated), and the *Snapshot retention count* (how many snapshots are saved). 
++
+When setting snapshot frequency, the minimum allowed is five minutes. 
+. Select *Add AppVault* to create the AppVault where protection data will be saved. 
+.. Enter a *Name* and select the *Console agent* the AppVault should be connected to. 
+.. Select the cloud *Provider* for hosting the *AppVault*. 
+.. Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions. Choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
+.. Select **Add**. 
+. Select **Next**.
+. Review the failover mappings then select **Add** to create the replication plan.
++
+After selecting Add, you can monitor the different jobs in **Job monitoring**. 
+
+--
+====
+
+[NOTE]
+For Kubernetes, this is the final step for creating a replication. For vCenters, continue to the <<Compute resources section>>.
 
 ==== Compute resources section 
 
@@ -169,6 +224,9 @@ TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manag
 ==== Virtual networks
 
 VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, the service requires a destination virtual network assignment. 
+
+[NOTE]
+This section is only required for vCenters. You don't need to complete it for Kubernetes. 
 
 NOTE: You can assign multiple source virtual networks to the same target virtual network. This might however create IP network configuration conflicts. You can map multiple source networks to a single target network to ensure that all source networks have the same configuration. 
 
@@ -205,7 +263,7 @@ You can increase or decrease the number of virtual CPUs assigned to each failed 
 Toggle the advance settings to add *Scripts* and *Application consistency* settings. 
 
 *Network settings* 
-Disaster Recovery supports an extensive set of configuation options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
+Disaster Recovery supports an extensive set of configuration options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
 
 At the most basic (and default) level, the settings simply use the same TCP/IP network settings for each VM on the destination site as used on the source site. This requires that you configure the same TCP/IP settings on the source and destination virtual networks. 
 
@@ -224,7 +282,7 @@ image:dr-plan-vm-subnet-option2.png[Screenshot showing Add replication plan > Re
 +
 * *Scripts*: You can include custom guest-OS hosted scripts in .sh, .bat, or .ps1 format as post processes. With custom scripts, Disaster Recovery can run your script after a failover, failback, and migrate processes. For example, you can use a custom script to resume all database transactions after the failover is complete. The service can run scripts within VMs running Microsoft Windows or any supported Linux variant with command-line parameters supported. You can assign a script to individual VMs or to all VMs in the replication plan.
 +
-To enable script execution with the VM guest OS, the following conditons must be met: 
+To enable script execution with the VM guest OS, the following conditions must be met: 
 +
 ** VMware Tools must be installed on the VM. 
 ** Appropriate user credentials must be provided with adequate guest OS privileges to run the script. 
@@ -243,7 +301,7 @@ Uncheck this box to disregard the original folder hierarchy.
 +
 You can use the alternative method of setting the Target VM folder in the Compute resources section. 
 
-* *CPU* and *Memory (GB)*: Under the virtual machines details, you can optionally resize the VM CPU and . 
+* *CPU* and *Memory (GB)*: Under the virtual machines details, you can optionally resize the VM CPU and memory. 
 +
 NOTE: You can configure DRAM either in gigabytes (GiB) or megabytes (MiB). While each VM requires at least one MiB of RAM, the actual amount must ensure that the VM guest OS and any running applications can operate efficiently. 
 +

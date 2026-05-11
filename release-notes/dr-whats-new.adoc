@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: release-notes/dr-whats-new.html
 keywords: disaster recovery, bluexp, disaster recovery, vmware, vcenter, draas, disaster
-summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in public clouds as a disaster recovery site using NetApp cloud storage.
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in public clouds as a disaster recovery site using NetApp cloud storage.
 ---
 
 = What's new in NetApp Disaster Recovery
@@ -12,6 +12,11 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 
 [.lead]
 Learn what's new in NetApp Disaster Recovery.
+
+== 15 May 2026
+Version 4.3.3
+
+include::../_whatsnew/2026-05-12.adoc[]
 
 == 13 April 2026
 Version 4.3.2

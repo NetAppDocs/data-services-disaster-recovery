@@ -68,9 +68,9 @@ image:draas-landing6-free-trial.png[Landing page screenshot for NetApp Disaster 
 To add a Console agent, refer to https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html[Learn about Console agents^].
 . After you set up the agent, in the NetApp Disaster Recovery landing page, the button to add the agent changes to a button for starting a free trial. Select *Start free trial*. 
 
-. Begin by adding vCenters. 
+. Begin by adding primary and disaster recovery sites. 
 +
-For details, see link:../use/sites-add.html[Add vCenter sites].
+For details, see link:../use/sites-add.html[Add sites].
 
 
 == After the trial ends, subscribe through one of the Marketplaces
@@ -130,7 +130,7 @@ image:draas-trial-end3.png[End free trial page]
 
 . If you want to delete all data, check *Delete data immediately after ending my free trial*. 
 +
-This deletes all schedules, replication plans, resource groups, vCenters, and sites. Audit data, operation logs, and jobs history are retained until the end of the life of the product. 
+This deletes all schedules, replication plans, resource groups, vCenters, Kubernetes clusters, and sites. Audit data, operation logs, and jobs history are retained until the end of the life of the product. 
 +
 NOTE: If you end the free trial, did not request to delete data, and don't purchase a license or subscription, then NetApp Disaster Recovery deletes all of your data 60 days after the free trial ends. 
 
