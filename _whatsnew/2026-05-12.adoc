@@ -8,4 +8,4 @@ Key features of Kubernetes-based workload support:
 * **Application-centric protection**: You can now protect Kubernetes workloads at the application level, ensuring the recovery of critical services during failover events.
 * **Simplified orchestration**: Disaster Recovery offers intuitive workflows to automate the backup and replication of Kubernetes workloads, leveraging the same efficient SnapMirror technology used for VMware environments.
 
-Support for Kubernetes-based workloads is currently in preview. To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/task-kubernetes-requirements.html[Kubernetes requirements for NetApp Disaster Recovery^].
+Support for Kubernetes-based workloads is currently in preview. To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/task-kubernetes-requirements.html[Kubernetes requirements for NetApp Disaster Recovery^].
