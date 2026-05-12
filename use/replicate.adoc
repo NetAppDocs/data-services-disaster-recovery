@@ -32,8 +32,6 @@ Before you initiate the replication, you should have created a replication plan 
 
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 . From the menu, select *Replication plans*. 
-// new step for infrastructure
-
 . Select the replication plan.
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Replicate*. 
 

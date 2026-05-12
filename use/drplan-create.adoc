@@ -10,7 +10,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resources groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
+After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
@@ -52,7 +52,7 @@ The service performs snapshot symmetry checks every 24 hours.
 * With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 [TIP]
-Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resources groups before creating the replication plan, see link:resource-group.html[Create a resource group].
+Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
 == Create the plan
 A wizard takes you through these steps: 
@@ -83,7 +83,7 @@ First, you select the source vCenter and then select the destination vCenter.
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select *Add*. 
 . Enter a name for the replication plan. 
-. For *Source*, select the vCenter or Kubernetes cluster to desginate as the source. 
+. For *Source*, select the vCenter or Kubernetes cluster to designate as the source. 
 . Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target*, select the vCenter or Kubernetes cluster to use as the disaster recovery destination. 
 +
 image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
@@ -91,9 +91,7 @@ image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
 
 === Select applications to replicate and assign resource groups
 
-The next step is to group the required VMs or datastores into functional resource groups. Resource groups enable you to protect a set of VMs or datastores with a common snapshot. 
-
-TIP: Each resource group can include one or more VMs or datastores. 
+The next step is to group the required VMs, datastores, or Kubernetes clusters into functional resource groups. Resource groups enable you to protect a set of resources such as a Kubernetes cluster or VM with a common snapshot.  
 
 When you create resource groups, consider the following issues: 
 
@@ -102,7 +100,7 @@ When you create resource groups, consider the following issues:
 * A single datastore should not host VMs protected by more than one replication plan.
 * Do not host protected and unprotected resources on the same datastore. If protected and unprotected resource are hosted on the same datastore, you can encounter these issues:  
 ** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected resources would be included in this calculation.
-** If the resource group and its associated resources need to be failed over to the disaster recovery site, any unprotected resources will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
+** If the resource group and its associated resources need to be failed over to the disaster recovery site, any unprotected resources will no longer exist on the source site from the failover process, resulting in failure of unprotected resources at the source site. Also, NetApp Disaster Recovery will not start those unprotected resource at the failover site. 
 
 [TIP]
 Create a separate dedicated set of mappings for your failover tests to prevent resources from being connected to production networks using the same IP addresses. 
@@ -133,7 +131,7 @@ image:dr-plan-create-apps-datastores.png[Screenshot showing the Add replication 
 When creating a replication plan for Kubernetes clusters, Kubernetes namespaces in a resource group must belong to the same ONTAP cluster. 
 
 .Steps
-. If you have existing resource groups, choose the groups from the list then.
+. If you have existing resource groups, choose the groups from the list.
 +
 If you don't have existing resource groups or need to add resources to one, select *+ Create new resource group*. Follow the instructions to link:resource-group.html[add namespaces to a resource group].
 +
@@ -192,6 +190,8 @@ When setting snapshot frequency, the minimum allowed is five minutes.
 .. Select the cloud *Provider* for hosting the *AppVault*. 
 .. Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions. Choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
 .. Select **Add**. 
++
+image:kubernetes-mapping.png[Screenshot of Storage class mapping for Kubernetes]
 . Select **Next**.
 . Review the failover mappings then select **Add** to create the replication plan.
 +

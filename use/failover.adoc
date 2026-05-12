@@ -152,7 +152,7 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Fail over*.
 . Choose the snapshot copy you want to use for failover. You can *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster or *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
-// . Optionally, select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
+. Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
 
 . Enter "Failover" to confirm the action then select *Failover*. 
 

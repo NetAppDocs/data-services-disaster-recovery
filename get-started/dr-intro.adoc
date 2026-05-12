@@ -12,23 +12,15 @@ summary: Disaster recovery to the cloud is a resilient and cost-effective way of
 :imagesdir: ../media/get-started/
 
 [.lead]
-Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events. With NetApp Disaster Recovery, you can replicate your on-premises VMware VM or datastore workloads running ONTAP storage to a VMware software-defined data center in a public cloud using NetApp cloud storage or to another on-premises VMware environment with ONTAP storage as a disaster recovery site. You can use Disaster Recovery also to migrate VM workloads from one site to another. 
-// change for kubernetes
-
-NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can protect your on-premises Kubernetes clusters, NFS-based workloads, and VMware vSphere virtual machine file system (VMFS) datastores for iSCSI and FC running NetApp storage to one of the following: 
-
+Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events. NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can protect your on-premises Kubernetes clusters, NFS-based workloads, and VMware vSphere virtual machine file system (VMFS) datastores for iSCSI and FC running NetApp storage to one of the following: 
 
 * Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP  For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction of NetApp Disaster Recovery using Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
 * VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP 
 * Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
 * Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
 * Another on-premises NFS and or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
-// sync with supported infrastructure in dr-setup
 
 NetApp Disaster Recovery uses ONTAP SnapMirror technology with integrated native VMware orchestration to protect VMware VMs and their associated on-disk OS images, while retaining all storage efficiency benefits of ONTAP. Disaster Recovery uses these technologies as the replication transport to the disaster recovery site. This enables industry-best storage efficiency (compression and deduplication) on primary and secondary sites. 
-
-
-//image:draas-onprem-to-cloud-onprem.png[Diagram showing components of the NetApp Disaster Recovery]
 
 image:../use/evs-console-architecture.png[Diagram showing components of the NetApp Disaster Recovery]
 
@@ -119,7 +111,7 @@ When there is a disaster, this service helps you recover virtual machines in the
 
 *Components of Disaster Recovery*
 
-Disaster Recovery uses the following components to provide disaster Recovery workloads:
+Disaster Recovery uses the following components:
 
 * *NetApp Console*: The user interface for managing your disaster recovery plans. You can use the NetApp Console to create and manage replication plans, resource groups, and failover operations across your on-premises and cloud environments.
 
