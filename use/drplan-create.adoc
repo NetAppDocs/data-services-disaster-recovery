@@ -10,7 +10,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resources groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
+After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
 
 *Required NetApp Console role*
 Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
@@ -52,7 +52,7 @@ The service performs snapshot symmetry checks every 24 hours.
 * With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 [TIP]
-Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resources groups before creating the replication plan, see link:resource-group.html[Create a resource group].
+Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
 == Create the plan
 A wizard takes you through these steps: 
@@ -83,7 +83,7 @@ First, you select the source vCenter and then select the destination vCenter.
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select *Add*. 
 . Enter a name for the replication plan. 
-. For *Source*, select the vCenter or Kubernetes cluster to desginate as the source. 
+. For *Source*, select the vCenter or Kubernetes cluster to designate as the source. 
 . Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target*, select the vCenter or Kubernetes cluster to use as the disaster recovery destination. 
 +
 image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
@@ -133,7 +133,7 @@ image:dr-plan-create-apps-datastores.png[Screenshot showing the Add replication 
 When creating a replication plan for Kubernetes clusters, Kubernetes namespaces in a resource group must belong to the same ONTAP cluster. 
 
 .Steps
-. If you have existing resource groups, choose the groups from the list then.
+. If you have existing resource groups, choose the groups from the list.
 +
 If you don't have existing resource groups or need to add resources to one, select *+ Create new resource group*. Follow the instructions to link:resource-group.html[add namespaces to a resource group].
 +
