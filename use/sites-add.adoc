@@ -14,8 +14,6 @@ Before you can create a disaster recovery plan, you need to add sites to Disaste
 
 TIP: Ensure that both the source and destination use the same NetApp Console agent. 
 
-After vCenters are added, NetApp Disaster Recovery performs a deep discovery of the vCenter environments, including vCenter clusters, ESXi hosts, datastores, storage foot print, virtual machine details, SnapMirror replicas, and virtual machine networks.
-
 *Required NetApp Console role*
 Organization admin, Folder or project admin, or Disaster recovery admin.
 
@@ -28,7 +26,7 @@ When adding a site to Disaster Recovery, you must distinguish based on the type 
 
 .Steps
 . In Disaster Recovery, select **Sites** in the sidebar. 
-. In the dropdown menu, select the site type: **vCenter** or **Kubernetes**.
+. In the dropdown menu, select the site type: **VMware** or **Kubernetes**.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select **Add**.
@@ -108,6 +106,9 @@ Next add a target vCenter.
 The source and target vCenters appear on the list of sites. 
 +
 image:sites-list2.png[Sites page screenshot]
+
+After vCenters are added, NetApp Disaster Recovery performs a deep discovery of the vCenter environments, including vCenter clusters, ESXi hosts, datastores, storage foot print, virtual machine details, SnapMirror replicas, and virtual machine networks.
+
 --
 
 .Kubernetes
@@ -129,7 +130,6 @@ If not, xref:../get-started/task-kubernetes-requirements.html[install Trident Pr
 ====
 
 After adding resources, select *Job Monitoring* to track the progress. 
-
 
 == Add subnet mapping for a vCenter site
 
