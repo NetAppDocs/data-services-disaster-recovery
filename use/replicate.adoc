@@ -4,7 +4,6 @@ permalink: use/replicate.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter
 summary: Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.
 ---
-
 = Replicate applications to another site with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font

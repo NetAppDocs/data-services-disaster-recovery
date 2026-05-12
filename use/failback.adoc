@@ -36,16 +36,38 @@ If you're using datastore-based protection, VMs that have been added to the data
 
 == Steps 
 
-. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
-
+[role="tabbed-block"]
+====
+.vCenter
+--
+.Steps
 . From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. In the dropdown menu, set the filter to *VMware*.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Identify the replication plan you want to failback. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Failback*.
+ 
+. Choose the snapshot for the datastore from which to recover. Select *Take snapshot now* to initiate a new snapshot or *Select* to choose from available snapshots. 
++
+image:failback.png[Screenshot of the failback dialog]
 
-. Select the replication plan.
+. Enter "Failback" to confirm the operation then select *Failback*.
 
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  and select *Fail back*.
+To monitor the job's progress, select *Job monitoring* in the Disaster Recovery menu.
+--
 
-. Enter the replication plan's name to start the failback. 
-  
-. Choose the snapshot for the datastore from which to recover. The default is the latest. 
+.Kubernetes
+--
+. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. In the dropdown menu, filter to *Kubernetes* replication plans.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Identify the replication plan you want to failback. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Failback*.
+ 
+. Choose the snapshot for the cluster from which to recover. Select *Take snapshot now* to initiate a new snapshot or *Use latest snapshot* to use the most recent, successful snapshot. 
+. Enter "Failback" to confirm the operation then select *Failback*.
 
-. To monitor the job's progress, select *Job monitoring* in the Disaster Recovery menu.
+To monitor the job's progress, select *Job monitoring* in the Disaster Recovery menu.
+
+--
+====
