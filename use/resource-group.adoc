@@ -113,11 +113,14 @@ image:dr-resource-groups-datastores-add.png[Screenshot showing the Add resource 
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select *Add*. 
 . Enter a **Name** for the resource group and select the Kubernetes **Cluster** from the dropdown menu.
-. Select the *Namespaces* to add to the resource group. 
+. Select the *Namespaces* to add to the resource group.
+. Classify the *Resource types*. By default, the selection is "Includes all," which denotes multiple resource types
 . Optionally, include any *Label selectors*. 
 +
-image:kubernetes-resource-group.png[Add a Kubernetes resource group]
+image:kubernetes-resource-group.png[Screenshot of add a Kubernetes resource group]
 . Optionally, select *+ Cluster-scoped resources* to add resources that aren't scoped to a namespace. If you choose this option, select the *Group*, *Version*, *Kind*, and optionally add any label selectors. Select **Add resource**.
++
+image:kubernetes-cluster-scoped.png[Screenshot of add Cluster-scoped Kubernetes resources]
 . Select **Add**. 
 --
 ====

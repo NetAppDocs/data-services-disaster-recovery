@@ -192,6 +192,8 @@ When setting snapshot frequency, the minimum allowed is five minutes.
 .. Select the cloud *Provider* for hosting the *AppVault*. 
 .. Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions. Choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
 .. Select **Add**. 
++
+image:kubernetes-mapping.png[Screenshot of Storage class mapping for Kubernetes]
 . Select **Next**.
 . Review the failover mappings then select **Add** to create the replication plan.
 +
