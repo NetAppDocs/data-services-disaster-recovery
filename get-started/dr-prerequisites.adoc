@@ -95,6 +95,9 @@ If you haven't already done so, https://docs.netapp.com/us-en/console-setup-admi
 For a list of vCenter privileges needed, refer to link:../reference/vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
 For instructions on how to add a site, refer to link:../use/sites-add.html[Add a site].
 
+[TIP]
+To use Disaster Recovery with Amazon Elastic VMware Service (EVS), see the link:../reference/evs-deploy-guide-config-prereqs.html[additional prerequisites and configuration guidance^]. 
+
 === Create the NetApp Console agent
 
 The Console agent is a software component that enables the Console to communicate with your ONTAP storage and VMware vCenter clusters. It is required for Disaster Recovery to function properly. The agent resides in your private network (either an on-premises data center or a cloud VPC) and communicates with your ONTAP storage instances and any additional server and application components. For Disaster Recovery, this is access to your managed vCenter clusters. 
