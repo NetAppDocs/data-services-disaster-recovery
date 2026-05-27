@@ -13,11 +13,8 @@ summary: With NetApp Disaster Recovery, you can use different licensing plans in
 [.lead]
 With NetApp Disaster Recovery, you can use different licensing plans including a free trial, a pay-as-you-go subscription, or bring your own license.
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role. 
 
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about access roles for all services^].
+include::../_include/iam-super-admin.adoc[]
 
 *Licensing options*
 You can use the following licensing options:
