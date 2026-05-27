@@ -13,7 +13,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
 https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].

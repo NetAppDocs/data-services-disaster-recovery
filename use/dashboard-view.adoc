@@ -13,10 +13,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can quickly ascertain which sites and plans are healthy, disconnected, or degraded. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery application admin, or Disaster recovery viewer role. 
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+The Super admin, Disaster recovery admin, Disaster recovery application admin, or Disaster recovery viewer role is required to perform this task. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 .Steps 
 
