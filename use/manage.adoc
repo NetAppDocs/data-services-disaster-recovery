@@ -43,7 +43,7 @@ Organization admin, Folder or project admin, or Disaster recovery admin role.
 You can create resource groups by VMs or datastores. They can be added when you create the replication plan or after. 
 
 *Required NetApp Console role*
-Super admin, Disaster recovery admin, or Disaster recovery application admin role is required to perform this role.
+The Super admin, Disaster recovery admin, or Disaster recovery application admin role is required to perform this task.
 
 You can create a resource group by datastores in the following ways:
 
@@ -142,7 +142,7 @@ Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disas
 Changing the retention count enables you to increase or decrease the number of datastore saved. 
 
 *Required NetApp Console role*
-Super admin,, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+The Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role is required to perform this task. 
 
 .Steps
 . From the menu, select *Replication plans*. 

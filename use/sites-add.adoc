@@ -15,10 +15,7 @@ Before you can create a disaster recovery plan, you need to add sites to Disaste
 TIP: Ensure that both the source and destination use the same NetApp Console agent. 
 
 *Required NetApp Console role*
-Super admin or Disaster recovery admin is required to perform this task
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+The Super admin or Disaster recovery admin is required to perform this task. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery]. https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 == Add a site
 
