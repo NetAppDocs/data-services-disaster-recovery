@@ -43,7 +43,7 @@ Organization admin, Folder or project admin, or Disaster recovery admin role.
 You can create resource groups by VMs or datastores. They can be added when you create the replication plan or after. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role.
+Super admin, Disaster recovery admin, or Disaster recovery application admin role is required to perform this role.
 
 You can create a resource group by datastores in the following ways:
 
@@ -70,7 +70,7 @@ For details about creating a resource group, refer to link:resource-group.html[C
 You can disable, enable and delete replication plans. You can change schedules. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
 
 
 * If you want to pause a replication plan temporarily, you can disable it and later enable it. 
@@ -107,7 +107,7 @@ image:../use/dr-plan-list.png[Replication plan list]
 Disaster Recovery automatically deletes snapshots on the source every 24 hours. If you discover that snapshots are out of sync between the source and destination, you need to resolve the discrepancy between the snapshots to ensure consistency across sites. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
 
 .Steps 
 
@@ -126,7 +126,7 @@ image:../use/dr-plan-list.png[Replication plan list]
 If you delete a replication plan, you can also delete the primary and secondary snapshots created by the plan. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
 
 .Steps 
 
@@ -142,7 +142,7 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 Changing the retention count enables you to increase or decrease the number of datastore saved. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+Super admin,, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
 
 .Steps
 . From the menu, select *Replication plans*. 
@@ -159,7 +159,7 @@ image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
 You can view information about how many datastores exist on the source and on the target. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
+Super admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
 
 
 .Steps
@@ -173,7 +173,7 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity. 
 
 *Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
+Super admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
 
 
 .Steps
