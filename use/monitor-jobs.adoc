@@ -31,7 +31,7 @@ include::../_include/iam-app-admin-viewer.adoc[]
 
 == Cancel a job
 
-If a job is in progress or in a queued state and you don't want it to continue, you can cancel it. You might want to cancel a job if it is stuck in the same state and you want to free up the next operation in the queue. You might want cancel a job before it times out.
+You can cancel a job that's in progress or in a queued state if it's stuck or to prioritize a pending operation.
 
 include::../_include/iam-failover-app-admin.adoc[]
 

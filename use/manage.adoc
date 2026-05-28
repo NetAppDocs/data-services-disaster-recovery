@@ -132,7 +132,7 @@ include::../_include/iam-failover-app-admin.adoc[]
 
 === Change retention count for failover schedules
 
-Changing the retention count enables you to increase or decrease the number of datastore saved. 
+Changing the retention count enables you to increase or decrease the number of snapsohts saved. 
 
 include::../_include/iam-failover-app-admin.adoc[]
 
