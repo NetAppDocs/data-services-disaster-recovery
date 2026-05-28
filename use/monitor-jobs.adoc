@@ -15,11 +15,7 @@ You can monitor all NetApp Disaster Recovery jobs and determine their progress.
 
 == View jobs 
 
-*Required NetApp Console role*
-Super admin, Disaster recovery admin, Disaster recovery application admin, or Disaster recovery viewer role. 
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+include::../_include/iam-app-admin-viewer.adoc[]
 
 .Steps 
 
@@ -37,11 +33,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 If a job is in progress or in a queued state and you don't want it to continue, you can cancel it. You might want to cancel a job if it is stuck in the same state and you want to free up the next operation in the queue. You might want cancel a job before it times out.
 
-*Required NetApp Console role*
-Super admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
-
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
-https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps 
 
