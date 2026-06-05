@@ -1,0 +1,34 @@
+=== Kubernetes updates
+
+Disaster Recovery has introduced the following changes for Kubernetes-based workloads
+
+==== Test failover support for Kubernetes workloads
+
+Disaster Recovery now supports testing the failover process for Kubernetes workloads. Testing failover allows you to validate disaster recovery plans. When you complete the test, you can clean up the test failover so the system automatically cleans up test resources to reduce overhead and ensure the consistency of your environment. 
+
+For more information, see link:../use/failover.html#test-the-failover-process[Test the failover process].
+// link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html#test-the-failover-process[Test the failover process^].
+
+==== Scheduled test failovers 
+
+Automate your DR testing strategy with Scheduled Test Failover. Define recurring test failover schedules to continuously validate recovery plans without manual intervention, helping your team maintain confidence in recovery objectives and meet compliance requirements.
+
+==== Scheduled discovery of Kubernetes workloads 
+
+Take control of how frequently NetApp Disaster Recovery scans for new Kubernetes workloads with schedule discovery. You can configure discovery intervals to align with your operational cadence, reducing unnecessary system overhead while ensuring new workloads are detected and protected in a timely manner.
+
+=== VMware updates 
+
+==== Empty Datastore Protection
+You can now configure protection for datastores that do not contain any virtual machines. NetApp Disaster Recovery will automatically detect any VMs subsequently added to the datastore and prompt you if additional mapping information is required.
+
+Note: To perform a failover, the empty datastore must first be removed from the protection plan. Alternatively, a Force Failover option is available, which will proceed with the failover while automatically skipping any empty datastores.
+
+==== Re-inclusion of Previously Excluded Datastores
+Datastores that were previously excluded from protection can now be re-included in any protection plan. This enhancement provides greater flexibility when managing and updating your DR configurations over time.
+
+==== Faster failover for VMFS-based datastores
+
+Disaster Recovery has improved the failover performance for VMFS-based datastores. Host Bus Adapter (HBA) rescan and datastore mount operations are now executed in parallel, reducing overall failover times and minimizing downtime during recovery events.
+
+For more information about failovers, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over with Disaster Recovery^].
