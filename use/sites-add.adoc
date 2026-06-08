@@ -198,13 +198,11 @@ NOTE: If there are two VMs (for example, one is Linux and the other is Windows),
 
 
 
-== Edit the vCenter server site and customize the discovery schedule
+== Edit the site and customize the discovery schedule
 
-You can edit the vCenter server site to customize the discovery schedule. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
+You can edit a site to customize the discovery schedule. For example, if you have a large number of VMs or Kubernetes clusters, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
 
-If you have vCenters from earlier versions and want to change when discovery runs, edit the vCenter server site and set the schedule. 
-
-If you don't want to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
+You can modify the discovery schedule or disable it. 
 
 .Steps
 . From the NetApp Disaster Recovery menu, select *Sites*.
@@ -212,12 +210,10 @@ If you don't want to schedule discovery, you can disable the scheduled discovery
 . Select the site you want to edit.
 . Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Edit*.
 +
-. In the Edit vCenter server page, edit the fields as needed.
+. In the Edit settings, edit the fields as needed.
 
-. To customize the discovery schedule, check the *Enable scheduled discovery* box and select the date and time interval you want.
-
+. To customize the discovery schedule, check the *Enable scheduled discovery* box. Select the date for discovery to begin and the interval of discovery in hours and minutes. 
 +
-
 image:sites-edit-schedule.png[Edit discovery schedule screenshot]
 
 . Select *Save*.
