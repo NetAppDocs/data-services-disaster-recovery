@@ -110,7 +110,7 @@ After vCenters are added, NetApp Disaster Recovery performs a deep discovery of 
 .Kubernetes
 --
 . In Disaster Recovery, select **Sites** in the sidebar. 
-. In the dropdown menu, set the filter to *Kubernetes*.
+. In the workload dropdown menu, set the filter to *Kubernetes*.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . Choose the site you want to add a Kubernetes cluster to. Select the action menu for the site then **Add cluster**.
