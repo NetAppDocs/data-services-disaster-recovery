@@ -209,7 +209,6 @@ You can modify the discovery schedule or disable it.
 
 . Select the site you want to edit.
 . Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Edit*.
-+
 . In the Edit settings, edit the fields as needed.
 
 . To customize the discovery schedule, check the *Enable scheduled discovery* box. Select the date for discovery to begin and the interval of discovery in hours and minutes. 
