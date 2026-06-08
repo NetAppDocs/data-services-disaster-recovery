@@ -212,6 +212,10 @@ If you don't want to schedule discovery, you can disable the scheduled discovery
 . Select the site you want to edit.
 . Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Edit*.
 +
+. In the Settings window, edit the fields as needed.
+
+. To customize the discovery schedule, check the *Enable scheduled discovery* box. Select the date for discovery to begin and the interval of discovery in hours and minutes. 
++
 . In the Edit vCenter server page, edit the fields as needed.
 
 . To customize the discovery schedule, check the *Enable scheduled discovery* box and select the date and time interval you want.
