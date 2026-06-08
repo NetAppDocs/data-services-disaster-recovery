@@ -4,6 +4,7 @@ permalink: use/failover.html
 keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter
 summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
+
 = Fail over applications to a remote site with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
@@ -28,13 +29,14 @@ This procedure breaks the replication relationship, places the vCenter source VM
 
 == Test the failover process
 
-Before conducting a live failover, you can perform a test to ensure the readiness of your workloads. Workloads remain online during the test process. 
+Before you start the failover, you can test the process. The test does not place the VMs offline. 
 
-// During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
+During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
 
 This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
-.About this task
+When you finish the test, you should reset the VMs with the *Clean up test* option. While this is recommended, it is not required. 
+
 A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
 
 For a test failover, Disaster Recovery performs the following operations:
@@ -56,16 +58,14 @@ For a test failover, Disaster Recovery performs the following operations:
 
 . Select the replication plan.
 
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over **Test plan** then select *Test failover*.
-. In the Test failover page, choose the snapshot for the test failover: select **Take snapshot now** or **Select** to choose an existing snapshot. If you choose **Select**, choose the existing snapshot. 
-+
-Enter "Test failover" and select *Test fail over*.  
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Test failover*.
+
+. In the Test failover page, enter “Test failover” and select *Test fail over*.  
+
 . After the test is complete, clean up the test environment.
 
-[NOTE]
-When you finish the test, it's recommended you reset the VMs with the *Clean up test* option. 
 
-=== Clean up after a failover test
+== Clean up the test environment after a failover test
 
 After the failover test finishes, you should clean up the test environment. This process removes the temporary VMs from the test location, the FlexClones, and the temporary datastores. 
 
@@ -75,9 +75,9 @@ After the failover test finishes, you should clean up the test environment. This
 
 . Select the replication plan.
 
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over **Test failover** then *Clean up failover test*.
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] then *Clean up failover test*.
 
-. In the Test failover page, enter "Clean up test failover" in the text box then select *Clean up test failover test*.  
+. In the Test failover page, enter "Clean up failover" then select *Clean up failover test*.  
 
 == Fail over the source site to a disaster recovery site
 
@@ -108,9 +108,6 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 --
 
 For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover will fail with a notification in the jobs. You must provide the mapping details to complete the failover successfully.  
-
-[IMPORTANT]
-If the replication plan includes an empty datastore, you must first remove the empty datastore from the plan or use the **Force failover** option, which skips the empty datastores. 
 
 .Steps 
 
