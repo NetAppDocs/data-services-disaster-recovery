@@ -29,7 +29,7 @@ This procedure breaks the replication relationship, places the vCenter source VM
 
 == Test the failover process
 
-Before you start the failover, you can test the process. The test does not place the VMs offline. 
+Before conducting a live failover, you can perform a test to check your readiness. Workloads remain online during the test process. 
 
 During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
 
@@ -59,9 +59,9 @@ For a test failover, Disaster Recovery performs the following operations:
 . Select the replication plan.
 
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Test failover*.
-
-. In the Test failover page, enter “Test failover” and select *Test fail over*.  
-
+. In the Test failover page, choose the snapshot for the test failover: select **Take snapshot now** or **Select** to choose an existing snapshot. If you choose **Select**, choose the existing snapshot. 
++
+Then enter “Test failover” and select *Test fail over*.  
 . After the test is complete, clean up the test environment.
 
 
@@ -108,6 +108,9 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 --
 
 For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover will fail with a notification in the jobs. You must provide the mapping details to complete the failover successfully.  
+
+[IMPORTANT]
+If the replication plan includes an empty datastore, you must first remove the the empty datastore from the plan or use the **Force failover** option, which skips the empty datastores. 
 
 .Steps 
 
