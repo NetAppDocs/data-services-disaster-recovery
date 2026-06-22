@@ -172,6 +172,10 @@ After verifying the status of all resources, deploy or link:https://docs.netapp.
   --version 100.2605.0-console --namespace trident-protect --set clusterName=<clusterName> --set trident-protect.cbs.accountID=<accountID> --set trident-protect.cbs.agentID=<agentID> --set trident-protect.cbs.proxySecretName=occmauthcreds --set trident-protect.cbs.proxyHostIP=<IPaddress>`
 ====
 
+== NetApp Console roles
+
+After performing your Trident Protect and Kubernetes configurations, link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[ensure you have the correct Console roles for Disaster Recovery to perform discovery, failover, and other tasks.^]
+
 == More information 
 
 * link:https://docs.netapp.com/us-en/trident/trident-protect/learn-about-trident-protect.html[Learn about Trident Protect^]
