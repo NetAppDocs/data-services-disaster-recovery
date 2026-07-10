@@ -146,7 +146,29 @@ image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
 // verify
 . With the replication plan selected, select the Actions menu, then select *Clean up old snapshots* to remove old snapshots on the target to match the new retention count.
 
-== View datastores information 
+== Manage Trident Protect
+
+From the Disaster Recovery UI, you can upgrade or remove Trident Protect. 
+
+.Upgrade Trident Protect
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the site you want to modify, select **Upgrade cluster**. 
+
+.Remove Trident Protect
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the site you want to modify, select **Remove cluster**. 
+. Review the dialog then run the uninstall command on the cluster you want to remove Trident Protect from: `helm uninstall trident-protect -n trident-protect`.
+. To complete the removal of Trident Protect, switch back to the Disaster Recovery UI and select **Remove site**. 
+
+.Remove a cluster from a site
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the site you want to modify, select **Remove cluster**.
+. Review the dialog menu then select **Remove from site**. Ensure you pick the correct option to continue Trident Protect operation.  
+
+== View datastore information 
 
 You can view information about how many datastores exist on the source and on the target. 
 
