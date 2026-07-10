@@ -153,7 +153,9 @@ From the Disaster Recovery UI, you can upgrade or remove Trident Protect.
 .Upgrade Trident Protect
 . In Disaster Recovery, select **Sites** from the sidebar.
 . Select **Kubernetes** in the dropdown menu. 
-. In the action menu for the site you want to modify, select **Upgrade cluster**. 
+. In the action menu for the cluster you want to modify, select **Upgrade cluster**. 
+. In the **Select target version** dropdown, choose the version of Trident Protect you want to upgrade to. You should review the link:https://docs.netapp.com/us-en/trident/trident-rn.html[Trident release notes^] before upgrading to understand the nuances of the different versions and their impact on your cluster. 
+. Select **Upgrade** to initiate the upgrade. 
 
 .Remove Trident Protect
 . In Disaster Recovery, select **Sites** from the sidebar.
