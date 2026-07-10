@@ -30,4 +30,4 @@ The ability to view the Upgrade System tab has been removed from the Disaster Re
 
 === System performance enhancements
 
-Disaster Recovery has introduced changes to reducedsystem resource consumption and improve performance across operations.  
+Disaster Recovery has introduced changes to reduce system resource consumption and improve performance across operations.  
