@@ -10,13 +10,13 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added resources and sites, you're ready to create a _replication plan_. Replication plans manage the data protection. Creating the replication involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers. 
+After you've added resources and sites, create a _replication plan_ to manage data protection. Creating the replication plan involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers.
+
+When you create a replication plan, you can also edit schedules for compliance and testing, performing test failovers without impacting your production data. 
 
 include::../_include/iam-failover-app-admin.adoc[]
 
-*About this task* 
-
-You can create a replication plan and also edit schedules for compliance and testing. Run test failovers of VMs without affecting production workloads.
+== About replication plans
 
 You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP Consistency Groups for all ONTAP volumes hosting protected VM datastores. 
 
@@ -26,7 +26,7 @@ You can only enable protection if the replication plan is in one of the followin
 * Failback committed
 * Test failover committed
 
-*Replication plan snapshots*
+=== Replication plan snapshots
 
 Disaster Recovery maintains the same number of snapshots on the source and destination clusters. By default, the service performs a snapshot reconciliation process every 24 hours to ensure that the number of snapshots on the source and destination clusters is the same.
 
@@ -40,17 +40,19 @@ The following situations can cause the number of snapshots to differ between the
 
 In these cases, Disaster Recovery removes older snapshots from the source and destination clusters upon the next consistency check. Or, the administrator can perform an immediate snapshot cleanup by selecting the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] icon on the replication plan and selecting *Clean up snapshots*.
 
-The service performs snapshot symmetry checks every 24 hours. 
+Disaster Recovery performs snapshot symmetry checks every 24 hours. 
 
-*Before you begin*
+== Before you begin
 
 * Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
+* If you configure network mappings at the vCenter level, Disaster Recovery recognizes those mappings when you create the replication plan. If you modify or add the network mapping at the vCenter level after creating the replication plan, Disaster Recovery recognizes those mappings when you manually edit the replication plan. 
 * With Google Cloud, you can only add one volume or datastore to a replication plan. 
 
 [TIP]
 Organize your VMs or Kubernetes clusters before deploying NetApp Disaster Recovery to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
-== Create the plan
+== Create the replication plan 
+
 A wizard takes you through these steps: 
 
 * Select vCenter servers.
