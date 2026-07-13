@@ -109,9 +109,6 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 
 For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover will fail with a notification in the jobs. You must provide the mapping details to complete the failover successfully.  
 
-[IMPORTANT]
-If the replication plan includes an empty datastore, you must first remove the the empty datastore from the plan or use the **Force failover** option, which skips the empty datastores. 
-
 .Steps 
 
 . From the NetApp Disaster Recovery menu, select *Replication plans*. 
