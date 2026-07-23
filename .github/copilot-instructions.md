@@ -4,33 +4,35 @@
 
 **Product:** NetApp Disaster Recovery
 
-NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows for VMware workloads. It uses ONTAP SnapMirror technology to replicate on-premises VMware VM or datastore workloads to cloud platforms (Amazon EVS with FSx for ONTAP, VMware Cloud on AWS, Azure VMware Solution, Google Cloud VMware Engine) or to another on-premises VMware environment. The service is accessed through the NetApp Console and supports both disaster recovery and migration scenarios.
+
+NetApp Disaster Recovery is a cloud-based service in the NetApp Console that protects on-premises and cloud-hosted VMware and Kubernetes workloads. It automates replication, test failover, failover, failback, and migration workflows using ONTAP SnapMirror technology. The service is accessed through the NetApp Console and supports both disaster recovery and migration scenarios.
 
 ## Repository structure
 
-* Root directory - Contains YML files that provide structure to the landing page and home page; the required legal notices page
-* `media` - Images and diagrams that are elements of articles in the root directory. This includes .png and source files. 
+* `_include` - Reusable text blocks that capture pieces of information reused across the site (such as Console permission requirements); use these to create a single source of truth
 * `_whatsnew` - .adoc files for the release notes
-* `release-notes` - Aggregated release notes in the dr-whats-new.adoc file in addition to known limitations
-* `redirect` - Retired content pages and the required redirects for each file
 * `get-started` - Getting started documentation including product introduction, prerequisites, setup instructions, quick start guide, licensing information, login instructions, and FAQ
-* `reference` - Reference documentation including Amazon EVS deployment guides (solution overview, configuration, creating replication plans, operations), vCenter privileges requirements, and Console agent switching instructions
+* `media` - Images and diagrams that are elements of articles in the root directory. This includes .png and source files. 
+* `redirect` - Retired content pages and the required redirects for each file
+* `release-notes` - Aggregated release notes in dr-whats-new.adoc, along with known limitations
+* `reference` - Reference documentation including Amazon EVS deployment guides (solution overview, configuration, creating replication plans, operations), vCenter permissions requirements, and Console agent switching 
 * `support` - Support documentation including support registration and getting help
 * `use` - Task-based documentation for using the service including dashboard view, site management, resource group creation, replication plan creation, replication, migration, failover, failback, job monitoring, and reporting
 
 ## Product-specific context
 
-* **Target platforms**: Amazon Elastic VMware Service (EVS) with FSx for ONTAP, VMware Cloud on AWS, Azure VMware Solution (AVS) with Cloud Volumes ONTAP, Google Cloud VMware Engine (GCVE) with Cloud NetApp Volumes, on-premises VMware with ONTAP
-* **Key technologies**: VMware vSphere, ONTAP SnapMirror, NetApp Console (formerly BlueXP), NFS and VMFS datastores (iSCSI/FC)
-* **Key concepts**: vCenter sites, resource groups, replication plans, failover, failback, migration, Console agents (formerly connectors)
-* **Storage efficiency**: Leverages ONTAP compression and deduplication on primary and secondary sites
+- *Resource group* is the logical unit of protection (VMs, datastores, or Kubernetes resources) and is the object assigned to a replication plan.
+- *Replication plan* defines source/target mappings, schedule, retention, recovery mappings, and operations such as replicate, failover, and failback.
+- *SnapMirror* is the replication transport; protection is volume/LUN based even when users select VMs or datastores in the UI.
+- *Test failover* creates temporary recovery artifacts (including FlexClone-backed datastores) to validate recovery without disrupting production workloads.
+- *Subnet mapping* preserves host bits and remaps network portions during failover IP reassignment.
 
 
 ## Typical user workflows
 
-* **Set up & configuration** - Users perform initial setup by reviewing prerequisites, setting up infrastructure, configuring licensing, and logging in to NetApp Console. Users configure the service by adding vCenter sites, adding on-premises arrays to Console, and creating resource groups to organize VMs.
+* **Set up & configuration** - Users perform initial setup by reviewing prerequisites, configuring licensing & infrastructure, and logging in to NetApp Console. Users configure the service by adding vCenter or Kubernetes sites, adding on-premises arrays to Console, and creating resource groups to organize VMs.
 * **Protection** - Users establish protection by creating replication plans that select vCenters and VMs, map resources, verify settings, and start replication.
 * **Testing** - Users test disaster recovery readiness by performing test failovers without disrupting production VMs.
-* **Disaster recovery** - Users execute disaster recovery workflows by failing over to remote sites, monitoring failover operations, and failing back to primary sites after resolution.
+* **Disaster recovery** - Users execute disaster recovery workflows by failing over to remote sites, monitoring failover operations, and then failing back to primary sites after resolution.
 * **Migration** - Users migrate VM workloads from one site to another using the service's migration capabilities.
-* **Upkeep** - Users perform ongoing management activities including monitoring jobs, viewing dashboards, generating reports, and managing sites, resource groups, and replication plans.
+* **Maintenance** - Users perform ongoing management activities including monitoring jobs, viewing dashboards, generating reports, and managing sites, resource groups, and replication plans.
