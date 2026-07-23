@@ -1,7 +1,7 @@
 indexpage:
   title: NetApp Disaster Recovery documentation
-  lead: Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events (for example, ransomware). With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud or to another on-premises site as a disaster recovery site. 
-  summary: "With NetApp Disaster Recovery for VMware, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud as a disaster recovery site using NetApp cloud storage."
+  lead: Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events (for example, ransomware). With NetApp Disaster Recovery, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud or to another on-premises site as a disaster recovery site. 
+  summary: "With NetApp Disaster Recovery, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud as a disaster recovery site using NetApp cloud storage."
   keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage
   tiles:
   - title: Get started

@@ -1,0 +1,3 @@
+*Required NetApp Console role*
+The Super admin, Disaster recovery admin, or Disaster recovery failover admin role is required to perform this task. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery^]. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
+

@@ -24,7 +24,8 @@ Disaster Recovery now provides email notifications for the following events:
 
 === Swagger improvements 
 
-You can now access the Swagger documentation from within Disaster Recovery. In Disaster Recovery, select **Settings** then **API documentation** to link to the Swagger, or visit this URL in your browser's incognito/private mode: link:https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas^].
+You can now access the Swagger documentation from within Disaster Recovery. In Disaster Recovery, select **Settings** then **API documentation**. You should be in private or incognito mode to access link:https://api.bluexp.netapp.com/v1/services/draas/api/api-doc/draas[the link^].
+
 
 === Improved user interfaces 
 
