@@ -12,7 +12,7 @@ NetApp Disaster Recovery is a cloud-based service in the NetApp Console that pro
 * `_include` - Reusable text blocks that capture pieces of information reused across the site (such as Console permission requirements); use these to create a single source of truth
 * `_whatsnew` - .adoc files for the release notes
 * `get-started` - Getting started documentation including product introduction, prerequisites, setup instructions, quick start guide, licensing information, login instructions, and FAQ
-* `media` - Images and diagrams that are elements of articles in the root directory. This includes .png and source files. 
+* `media` - Images and diagrams that are elements of articles in the root directory. This includes .png and source files.
 * `redirect` - Retired content pages and the required redirects for each file
 * `release-notes` - Aggregated release notes in dr-whats-new.adoc, along with known limitations
 * `reference` - Reference documentation including Amazon EVS deployment guides (solution overview, configuration, creating replication plans, operations), vCenter permissions requirements, and Console agent switching 
