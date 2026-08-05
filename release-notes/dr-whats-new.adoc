@@ -13,6 +13,11 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 [.lead]
 Learn what's new in NetApp Disaster Recovery.
 
+== 05 July 2026
+Version 4.3.6
+
+include::../_whatsnew/2026-08-10.adoc[]
+
 == 13 July 2026
 Version 4.3.5
 

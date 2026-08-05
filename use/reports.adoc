@@ -11,25 +11,22 @@ summary: Reviewing disaster recovery reports can help you analyze your disaster 
 :imagesdir: ../media/use/
 
 [.lead]
-Reviewing NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Predesigned reports include a summary of test failovers, replication plan details, and job details on all sites within an account for the past seven days. 
+NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan. They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count. 
 
 You can download reports in PDF, HTML, or JSON format. 
 
-
-The Download link is valid for six hours. 
+The report download link is valid for six hours after you generate it.  
 
 .Steps 
 
 . Log in to the https://console.netapp.com/[NetApp Console^].
-
-. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
- . From the NetApp Console left navigation bar, select *Replication plans*. 
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*.
+. From the NetApp Console left navigation bar, select *Replication plans*. 
 . Select *Create report*.
-. Select the type of file format and the time period within the last 7 days. 
-. Select *Create*. 
+. Choose the **File type** (PDF, HTML, or JSON) and **Time period** (between the past one and seven days) that the report should cover. Select *Create* to generate the report. 
 +
-NOTE: The report might take a few minutes to display. 
-. To download a report, select *Download report* and select it in the administrator's Download folder.  
+NOTE: The report can take a few minutes to generate. 
+. On the Replication plans dashboard, select *Download report*. 
 
 
 
