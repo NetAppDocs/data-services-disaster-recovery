@@ -1,11 +1,10 @@
 ---
 sidebar: sidebar
 permalink: use/reports.html
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports, kubernetes
 summary: Reviewing disaster recovery reports can help you analyze your disaster recovery preparedness. Predesigned reports include a summary of failovers and failbacks, replication details on all sites, and job details for the past year. 
 ---
-
-= Create NetApp Disaster Recovery reports
+= Create reports in NetApp Disaster Recovery 
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
