@@ -25,7 +25,7 @@ The report download link is valid for six hours after you generate it.
 . Choose which *Workload* to scope the report to: Kubernetes, VMware, or all. 
 . Choose the *File type* (PDF, HTML, or JSON) and *Time period* (between the past one and seven days) that the report should cover.
 +
-image:../use/reports.png[Screenshot of create report]
+image::reports.png[Screenshot of create report]
 . Select *Create* to generate the report. 
 +
 NOTE: The report can take a few minutes to generate. 
