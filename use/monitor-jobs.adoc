@@ -28,7 +28,7 @@ include::../_include/iam-app-admin-viewer.adoc[]
 . To view details of a particular job, select that row. You can download job details for offline review by selecting the action menu then **Download job details**. 
 +
 [TIP]
-When reviewing job details, Disaster Recovery reports the user who initiated the job. If the field displays "system," this means Disaster Recovery initiated the job. 
+When reviewing job details, Disaster Recovery reports the user who initiated the job. If the responsible party is listed as "system", this means Disaster Recovery initiated the job.  
 . To refresh information, select *Refresh*. 
 
 

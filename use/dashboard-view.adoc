@@ -30,7 +30,7 @@ image:dr-dashboard.png[NetApp Disaster Recovery Dashboard]
 
 ** *Running*: The site is connected, healthy, and running. 
 ** *Down*: The site is not reachable or having connectivity issues. 
-** *Issue*: The site is not reachable or having connectivity issues. 
+** *Issue*: The site is having connectivity issues. 
 + 
 To see details, select **View all sites**. 
 

@@ -18,7 +18,7 @@ For more information, see link:https://docs.netapp.com/us-en/data-services-disas
 
 === User job logging
 
-Disaster Recovery has improved the accountability and auditability of jobs with user-level job logging. Every job executed now records the user who initiated it, providing a clear audit trail for compliance and troubleshooting purposes. Jobs triggered automatically by Disaster Recovery are identified as "system," making it easy to distinguish between user-initiated and service-initiated activity.
+Disaster Recovery has improved the accountability and auditability of jobs with user-level job logging. Every job executed now records the user who initiated it, providing a clear audit trail for compliance and troubleshooting purposes. Jobs triggered automatically by Disaster Recovery are identified as "system", making it easy to distinguish between user-initiated and service-initiated activity.
 
 For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html[Monitor NetApp Disaster Recovery jobs^].
 

@@ -18,12 +18,12 @@ The report download link is valid for six hours after you generate it.
 
 .Steps 
 
-. Log in to the https://console.netapp.com/[NetApp Console^].
+. Log in to the link:https://console.netapp.com/[NetApp Console^].
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*.
 . From the NetApp Console left navigation bar, select *Replication plans*. 
 . Select *Create report*.
 . Choose which *Workload* to scope the report to: Kubernetes, VMware, or all. 
-. Choose the **File type** (PDF, HTML, or JSON) and **Time period** (between the past one and seven days) that the report should cover.
+. Choose the *File type* (PDF, HTML, or JSON) and *Time period* (between the past one and seven days) that the report should cover.
 +
 image:../use/[Screenshot of create report]
 . Select *Create* to generate the report. 
