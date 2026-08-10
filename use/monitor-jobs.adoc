@@ -25,7 +25,10 @@ include::../_include/iam-app-admin-viewer.adoc[]
 . From the menu, select *Job monitoring*. 
 
 . Explore all jobs related to operations and review their timestamps and status.
-. To view details of a particular job, select that row. 
+. To view details of a particular job, select that row. You can download job details for offline review by selecting the action menu then **Download job details**. 
++
+[TIP]
+When reviewing job details, Disaster Recovery reports the user who initiated the job. If the responsible party is listed as "system", this means Disaster Recovery initiated the job.  
 . To refresh information, select *Refresh*. 
 
 
@@ -44,7 +47,7 @@ include::../_include/iam-failover-app-admin.adoc[]
 . In the Job monitor page, note the ID of the job you want to cancel. 
 +
 The job must be in an "In progress" or "Queued" state. 
-. In the Actions column, select *Cancel job*. 
+. Select the action menu then **Cancel job**. 
 
 //. Access the NetApp Disaster Recovery Swagger URL: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_[Swagger^].
 //+
