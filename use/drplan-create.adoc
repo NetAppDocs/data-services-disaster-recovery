@@ -44,9 +44,9 @@ Disaster Recovery performs snapshot symmetry checks every 24 hours.
 
 === Considerations for platform-managed backups
 
-If you plan to use platform-managed backups (that is, existing ONTAP snapshots) while creating SnapMirror relationships, it's recommended you use the *MirrorAll* replication policy. 
+If you plan to use platform-managed backups (that is, ONTAP-managed snapshots), it's recommended you use the *MirrorAll* replication policy. Review the table to understand the impact of different SnapMirror replication policies and why MirrorAll is the recommended option. 
 
-[options="headers", cols=[10,10,80]]
+[options="headers", cols="10,10,80"]
 |===
 | Policy | Recommendation | Notes
 | *MirrorAll* | Recommended | Do not use SnapMirror transfer snapshots for failover or failback operations.
@@ -391,7 +391,7 @@ image:dr-plan-datastore-platform.png[Screenshot showing Add replication plan > R
 [TIP]
 Review the <<Considerations for platform-managed backups>> before making these selections. 
 
-* *Use platform managed backups and retention schedules*: If you are using an external snapshot management solution, check this box. NetApp Disaster Recovery supports the use of external snapshot management solutions such as the native ONTAP SnapMirror policy scheduler or third-party integrations. If every datastore (volume) in the replication plan already has a SnapMirror relationship that is being managed elsewhere, you can use those snapshots as recovery points in NetApp Disaster Recovery. 
+* *Use platform managed backups and retention schedules*: If you are using an external snapshot management solution, check this box. Disaster Recovery supports the use of external snapshot management solutions such as the native ONTAP SnapMirror policy scheduler or third-party integrations. If every datastore (volume) in the replication plan already has a SnapMirror relationship that is being managed elsewhere, you can use those snapshots as recovery points in NetApp Disaster Recovery. 
 +
 When this option selected, NetApp Disaster Recovery does not configure a backup schedule. However, you still need to configure a retention schedule because snapshots might still be taken for testing, failover, and failback operations. 
 +
