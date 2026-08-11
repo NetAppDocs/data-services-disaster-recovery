@@ -5,7 +5,7 @@ keywords: disaster recovery faq, disaster recovery frequently asked questions
 summary: This FAQ can help if you're just looking for a quick answer to a question.
 ---
 
-= Frequently asked questions for NetApp Disaster Recovery
+= FAQ for NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/

@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, failover, failback, repli
 summary: Before using NetApp Disaster Recovery, you must add on-premises and cloud-hosted storage instances to the NetApp Console system. 
 
 ---
-= Add on-premises arrays to the NetApp Console system for Amazon EVS with NetApp Disaster Recovery
+= Add on-premises arrays to the NetApp Console for Amazon EVS with NetApp Disaster Recovery
 
 :hardbreaks:
 :icons: font
