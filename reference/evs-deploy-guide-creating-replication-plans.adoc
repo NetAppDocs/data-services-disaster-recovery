@@ -27,9 +27,7 @@ image:evs-create-rp-2.png[Replication plans screen]
 
 This opens the Create replication plan wizard.
 
-Continue with link:evs-deploy-guide-create-rp-wiz-01.html[Create replication plan wizard Step 1].
-
-==  Select vCenters
+== Select vCenters
 
 .Steps
 . Enter a unique name for the replication plan.
@@ -75,9 +73,9 @@ After selecting the VMs for protection, you must perform the network mapping. Th
 Each VM requires the first three types of information. Datastore mapping is required for each datastore that hosts VMs to be protected.
 
 * The sections with the caution icon (image:evs-caution-icon.png[20,20]) require that you provide mapping information. 
-* The section marked with the check icon (image:evs-check-icon.png[20,20]) have been mapped or have default mappings. Review them to make sure that the current configuration meets your requirements.
+* The sections marked with the check icon (image:evs-check-icon.png[20,20]) have been mapped or have default mappings. Review them to make sure that the current configuration meets your requirements.
 
-.Access resouce mapping
+.Access resource mapping
 . From the *Replication plan* page, continue to the *Resource mapping* section.
 . Review the information on the *Resource mapping* page that opens.
 +
@@ -152,7 +150,7 @@ image:evs-create-rp-wiz-c-vm-resources-cpu-mem-1-2.png[Create replication plan, 
  
 === Boot order
 
-Disaster Recovery supports an ordered restart of VMs based on a boot order field. The oot order field indicates how the VMs in each resource group start. Those VMs with the same value in the boot order field boot in parallel.
+Disaster Recovery supports an ordered restart of VMs based on a boot order field. The boot order field indicates how the VMs in each resource group start. Those VMs with the same value in the boot order field boot in parallel.
 
 [NOTE]
 Setting the boot order is optional 
@@ -174,7 +172,7 @@ Disaster Recovery supports performing some guest OS operations for each VM:
 
 .Modify each VM's custom guest OS operations
 
-. Optoinally, check the *Create application consistent replicas* checkbox if the VM is hosting an Oracle or SQL Server database.
+. Optionally, check the *Create application consistent replicas* checkbox if the VM is hosting an Oracle or SQL Server database.
 . Optionally, to take custom actions within the guest OS as part of the startup process, upload a script for any VMs. To run a single script in all VMs, use the checkbox highlighted and complete the fields.
 . Certain configuration changes require user credentials with adequate permissions to perform the operations. Provide credentials in the following cases:
 +
