@@ -42,6 +42,28 @@ In these cases, Disaster Recovery removes older snapshots from the source and de
 
 Disaster Recovery performs snapshot symmetry checks every 24 hours. 
 
+=== Considerations for platform-managed backups
+
+If you plan to use platform-managed backups (that is, existing ONTAP snapshots) while creating SnapMirror relationships, it's recommended you use the *MirrorAll* replication policy. 
+
+[options="headers", cols=[10,10,80]]
+|===
+| Policy | Recommendation | Notes
+| *MirrorAll* | Recommended | Do not use SnapMirror transfer snapshots for failover or failback operations.
+| *MirrorVault*
+.2+| Alternative recommendation
+.2+| Ensure that the snapshots selected during failover or failback are present on both the source and destination volumes. Failure to do so will result in the error: "Transition to 'snapmirrored' state failed. Reason: No common snapshot found."
+| *Asynchronous* 
+| *MirrorLatest* | _NOT_ recommended | This policy results in the destination having effectively only one common snapshot for failover, which is suboptimal for disaster recovery scenarios.
+|===
+
+=== Considerations for Disaster Recovery-managed backups
+
+When using Disaster Recovery managed backups, the following guidelines apply to SnapMirror relationships created outside of NetApp Disaster Recovery:
+
+- SnapMirror relationships can support the MirrorAll, MirrorVault, MirrorLatest, and Asynchronous replication policies.
+- Do *not* schedule updates for these relationships as they will be managed by the Disaster Recovery service.
+
 == Before you begin
 
 * Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
@@ -365,6 +387,9 @@ Select the down arrow next to *Datastores*.  Based on the selection of VMs, data
 This section might be enabled or disabled depending on your selection.
 
 image:dr-plan-datastore-platform.png[Screenshot showing Add replication plan > Resource mapping > datastores]
+
+[TIP]
+Review the <<Considerations for platform-managed backups>> before making these selections. 
 
 * *Use platform managed backups and retention schedules*: If you are using an external snapshot management solution, check this box. NetApp Disaster Recovery supports the use of external snapshot management solutions such as the native ONTAP SnapMirror policy scheduler or third-party integrations. If every datastore (volume) in the replication plan already has a SnapMirror relationship that is being managed elsewhere, you can use those snapshots as recovery points in NetApp Disaster Recovery. 
 +
