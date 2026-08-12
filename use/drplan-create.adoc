@@ -53,6 +53,8 @@ If you plan to use platform-managed backups (that is, ONTAP-managed snapshots), 
 | *MirrorVault*
 .2+| Alternative recommendation
 .2+| Ensure that the snapshots selected during failover or failback are present on both the source and destination volumes. Failure to do so will result in the error: "Transition to 'snapmirrored' state failed. Reason: No common snapshot found."
+
+Do not use SnapMirror transfer snapshots for failover or failback operations.
 | *Asynchronous* 
 | *MirrorLatest* | _NOT_ recommended | This policy results in the destination having effectively only one common snapshot for failover, which is suboptimal for disaster recovery scenarios.
 |===
