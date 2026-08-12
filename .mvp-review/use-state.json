@@ -1,0 +1,1970 @@
+[
+  {
+    "fileName": "dashboard-view.adoc",
+    "titleReview": {
+      "originalTitle": "View the health of your disaster recovery plans in NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "View disaster recovery plan health",
+      "titleReasoning": "The current title is long and uses a conversational construction. A shorter task title that starts with a strong verb and omits the product name fits NetApp title conventions better because the product context is already supplied by site navigation.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": "Dashboard",
+        "pageType": "Task",
+        "userGoal": "View the health and status of disaster recovery sites and replication plans"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "No",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can easily assess which sites and plans are healthy, disconnected, or degraded. You can also review recent warnings and failed jobs, see which workloads are protected and are not, and see an overview of capacity.",
+      "suggestedRevision": "Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans. You can see whether sites and plans are healthy, disconnected, or degraded, review recent warnings and failed jobs, identify protected and unprotected workloads, and view capacity at a glance.",
+      "leadReasoning": "The revision removes filler phrasing, improves parallel structure, and makes the user value clearer and more concise.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use direct, concise lead wording",
+          "lineNumber": 13,
+          "originalText": "Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans.",
+          "suggestedRevision": "Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans.",
+          "reasoning": "NetApp style prefers direct task-oriented wording over introductory participial phrases."
+        },
+        {
+          "criterion": "Avoid awkward paired construction",
+          "lineNumber": 13,
+          "originalText": "see which workloads are protected and are not",
+          "suggestedRevision": "see which workloads are protected and which are not",
+          "reasoning": "The original phrasing is awkward and interrupts readability."
+        },
+        {
+          "criterion": "Prefer parallel, concise status descriptions",
+          "lineNumber": 32,
+          "originalText": "The site is not reachable or having connectivity issues.",
+          "suggestedRevision": "The site is unreachable or has connectivity issues.",
+          "reasoning": "The revision fixes the uneven verb construction and reads more smoothly."
+        },
+        {
+          "criterion": "Maintain parallel structure in list items",
+          "lineNumber": 46,
+          "originalText": "Review the *Discovery and protection status* to see the number of discovered workloads and a numeric breakdown of protected versus unprotected workloads separated by type. You can also review the total discovered capacity of all workloads and workloads by type.",
+          "suggestedRevision": "Review *Discovery and protection status* to see the number of discovered workloads, a breakdown of protected and unprotected workloads by type, and total discovered capacity overall and by workload type.",
+          "reasoning": "The original sentence is wordy and repetitive."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= View the health of your disaster recovery plans in NetApp Disaster Recovery",
+        "suggestedRevision": "= View disaster recovery plan health",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can easily assess which sites and plans are healthy, disconnected, or degraded. You can also review recent warnings and failed jobs, see which workloads are protected and are not, and see an overview of capacity.",
+        "suggestedRevision": "Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans. You can see whether sites and plans are healthy, disconnected, or degraded, review recent warnings and failed jobs, identify protected and unprotected workloads, and view capacity at a glance.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans.",
+        "suggestedRevision": "Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "see which workloads are protected and are not",
+        "suggestedRevision": "see which workloads are protected and which are not",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 32,
+        "originalText": "The site is not reachable or having connectivity issues.",
+        "suggestedRevision": "The site is unreachable or has connectivity issues.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 46,
+        "originalText": "Review the *Discovery and protection status* to see the number of discovered workloads and a numeric breakdown of protected versus unprotected workloads separated by type. You can also review the total discovered capacity of all workloads and workloads by type.",
+        "suggestedRevision": "Review *Discovery and protection status* to see the number of discovered workloads, a breakdown of protected and unprotected workloads by type, and total discovered capacity overall and by workload type.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "drplan-create.adoc",
+    "titleReview": {
+      "originalTitle": "Create a replication plan in NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "Create a replication plan",
+      "titleReasoning": "The title follows a task pattern, but it unnecessarily includes the product name and can be shortened. A concise imperative title better matches NetApp standards.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": "Replication plans",
+        "pageType": "Task",
+        "userGoal": "Create a replication plan to protect resources and define failover mappings"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "After you've added resources and sites, create a _replication plan_ to manage data protection. Creating the replication plan involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers.\n\nWhen you create a replication plan, you can also edit schedules for compliance and testing, performing test failovers without impacting your production data.",
+      "suggestedRevision": "After you add resources and sites, create a _replication plan_ to protect your data. The plan defines the source and destination sites, resource groups, recovery mappings, and power-on behavior for your applications. You can also configure compliance and test schedules and perform test failovers without affecting production data.",
+      "leadReasoning": "The revision reduces repetition, removes the example that slows the opening, and focuses the lead on what the page helps the user accomplish.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use concise task-focused lead wording",
+          "lineNumber": 13,
+          "originalText": "After you've added resources and sites, create a _replication plan_ to manage data protection.",
+          "suggestedRevision": "After you add resources and sites, create a _replication plan_ to protect your data.",
+          "reasoning": "The revision is shorter and more direct."
+        },
+        {
+          "criterion": "Fix spelling",
+          "lineNumber": 37,
+          "originalText": "reconcilation",
+          "suggestedRevision": "reconciliation",
+          "reasoning": "Misspelling."
+        },
+        {
+          "criterion": "Prefer active, direct wording",
+          "lineNumber": 80,
+          "originalText": "A wizard takes you through these steps:",
+          "suggestedRevision": "The wizard guides you through these steps:",
+          "reasoning": "The revised wording is more direct and natural."
+        },
+        {
+          "criterion": "Fix number agreement",
+          "lineNumber": 123,
+          "originalText": "If protected and unprotected resource are hosted on the same datastore",
+          "suggestedRevision": "If protected and unprotected resources are hosted on the same datastore",
+          "reasoning": "Plural noun requires plural agreement."
+        },
+        {
+          "criterion": "Fix number agreement",
+          "lineNumber": 125,
+          "originalText": "NetApp Disaster Recovery will not start those unprotected resource at the failover site.",
+          "suggestedRevision": "NetApp Disaster Recovery will not start those unprotected resources at the failover site.",
+          "reasoning": "Plural noun required."
+        },
+        {
+          "criterion": "Clarify ambiguous wording",
+          "lineNumber": 144,
+          "originalText": "hover over the name of the data source then select *X*.",
+          "suggestedRevision": "hover over the name of the resource, and then select *X*.",
+          "reasoning": "The page discusses VMs and datastores, not generic data sources."
+        },
+        {
+          "criterion": "Fix typo and punctuation",
+          "lineNumber": 145,
+          "originalText": "Select the pencil icon* to edit the name of the resource group.",
+          "suggestedRevision": "Select the pencil icon to edit the name of the resource group.",
+          "reasoning": "Stray asterisk appears to be a typo."
+        },
+        {
+          "criterion": "Prefer precise terminology",
+          "lineNumber": 230,
+          "originalText": "The Compute resources section defines where VMs will be restored after a failover.",
+          "suggestedRevision": "The Compute resources section defines where VMs are restored after failover.",
+          "reasoning": "More concise and consistent with task documentation style."
+        },
+        {
+          "criterion": "Fix product spelling/capitalization",
+          "lineNumber": 232,
+          "originalText": "If VMWare DRS is enabled",
+          "suggestedRevision": "If VMware DRS is enabled",
+          "reasoning": "VMware is misspelled."
+        },
+        {
+          "criterion": "Fix incorrect preposition",
+          "lineNumber": 234,
+          "originalText": "into a unique folder with the vCenter",
+          "suggestedRevision": "into a unique folder within the vCenter inventory",
+          "reasoning": "The original wording is awkward and imprecise."
+        },
+        {
+          "criterion": "Correct UI label/reference",
+          "lineNumber": 255,
+          "originalText": "Select the source virtual LAN and target virtual LAN.",
+          "suggestedRevision": "Select the source virtual network and target virtual network.",
+          "reasoning": "The section consistently discusses virtual networks; VLAN may be inaccurate UI terminology here."
+        },
+        {
+          "criterion": "Correct adjective form",
+          "lineNumber": 285,
+          "originalText": "Toggle the advance settings to add *Scripts* and *Application consistency* settings.",
+          "suggestedRevision": "Turn on *Advanced settings* to configure *Scripts* and *Application consistency*.",
+          "reasoning": "Use the correct term 'Advanced' and clearer action wording."
+        },
+        {
+          "criterion": "Improve grammar",
+          "lineNumber": 296,
+          "originalText": "Reconfigure the VMs configuration",
+          "suggestedRevision": "Reconfigure the VM configuration",
+          "reasoning": "The original phrasing is ungrammatical."
+        },
+        {
+          "criterion": "Improve sentence clarity",
+          "lineNumber": 313,
+          "originalText": "the value of the argument and a semi-colon separates each `argument$value` pair",
+          "suggestedRevision": "the value of the argument, and a semicolon separates each `argument$value` pair",
+          "reasoning": "Needs punctuation and standard spelling for semicolon."
+        },
+        {
+          "criterion": "Fix grammar",
+          "lineNumber": 334,
+          "originalText": "Assign each VM a unique number to boot the in the assigned order",
+          "suggestedRevision": "Assign each VM a unique number to boot them in the assigned order",
+          "reasoning": "The original sentence contains an extra word and is ungrammatical."
+        },
+        {
+          "criterion": "Fix article omission",
+          "lineNumber": 375,
+          "originalText": "to coordinate with either database server",
+          "suggestedRevision": "to coordinate with either database server type",
+          "reasoning": "The original wording is incomplete and unclear."
+        },
+        {
+          "criterion": "Fix grammar",
+          "lineNumber": 398,
+          "originalText": "When this option selected",
+          "suggestedRevision": "When this option is selected",
+          "reasoning": "Missing verb."
+        },
+        {
+          "criterion": "Fix grammar",
+          "lineNumber": 410,
+          "originalText": "If a volume that does not have a SnapMirror relationship, you can create one now",
+          "suggestedRevision": "If a volume does not have a SnapMirror relationship, you can create one now",
+          "reasoning": "The original clause is ungrammatical."
+        },
+        {
+          "criterion": "Fix typo",
+          "lineNumber": 417,
+          "originalText": "the service creates on on-demand backup",
+          "suggestedRevision": "the service creates an on-demand backup",
+          "reasoning": "Typo and incorrect article."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [
+        {
+          "lineNumber": 20,
+          "originalText": "You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP Consistency Groups for all ONTAP volumes hosting protected VM datastores.",
+          "suggestedRevision": "You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP consistency groups for all ONTAP volumes that host protected VM datastores."
+        },
+        {
+          "lineNumber": 353,
+          "originalText": "The data managed by the database server might be hosted on the same datastore as the VM hosting the database server, or it might be hosted on a different datastore. The following table shows the supported configurations for application-consistent snapshots in Disaster Recovery:",
+          "suggestedRevision": "The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in NetApp Disaster Recovery:"
+        }
+      ],
+      "summary": {
+        "azIssuesFound": 2
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= Create a replication plan in NetApp Disaster Recovery",
+        "suggestedRevision": "= Create a replication plan",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "After you've added resources and sites, create a _replication plan_ to manage data protection. Creating the replication plan involves designating the source and destination sites, selecting the resource groups, and choosing how applications should be restored and powered on. For example, you might group virtual machines (VMs) associated with one application or you might group applications that have similar tiers.\n\nWhen you create a replication plan, you can also edit schedules for compliance and testing, performing test failovers without impacting your production data.",
+        "suggestedRevision": "After you add resources and sites, create a _replication plan_ to protect your data. The plan defines the source and destination sites, resource groups, recovery mappings, and power-on behavior for your applications. You can also configure compliance and test schedules and perform test failovers without affecting production data.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "After you've added resources and sites, create a _replication plan_ to manage data protection.",
+        "suggestedRevision": "After you add resources and sites, create a _replication plan_ to protect your data.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 37,
+        "originalText": "reconcilation",
+        "suggestedRevision": "reconciliation",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 80,
+        "originalText": "A wizard takes you through these steps:",
+        "suggestedRevision": "The wizard guides you through these steps:",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 123,
+        "originalText": "If protected and unprotected resource are hosted on the same datastore",
+        "suggestedRevision": "If protected and unprotected resources are hosted on the same datastore",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 125,
+        "originalText": "NetApp Disaster Recovery will not start those unprotected resource at the failover site.",
+        "suggestedRevision": "NetApp Disaster Recovery will not start those unprotected resources at the failover site.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 144,
+        "originalText": "hover over the name of the data source then select *X*.",
+        "suggestedRevision": "hover over the name of the resource, and then select *X*.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 145,
+        "originalText": "Select the pencil icon* to edit the name of the resource group.",
+        "suggestedRevision": "Select the pencil icon to edit the name of the resource group.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 230,
+        "originalText": "The Compute resources section defines where VMs will be restored after a failover.",
+        "suggestedRevision": "The Compute resources section defines where VMs are restored after failover.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 232,
+        "originalText": "If VMWare DRS is enabled",
+        "suggestedRevision": "If VMware DRS is enabled",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 234,
+        "originalText": "into a unique folder with the vCenter",
+        "suggestedRevision": "into a unique folder within the vCenter inventory",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 255,
+        "originalText": "Select the source virtual LAN and target virtual LAN.",
+        "suggestedRevision": "Select the source virtual network and target virtual network.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 285,
+        "originalText": "Toggle the advance settings to add *Scripts* and *Application consistency* settings.",
+        "suggestedRevision": "Turn on *Advanced settings* to configure *Scripts* and *Application consistency*.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 296,
+        "originalText": "Reconfigure the VMs configuration",
+        "suggestedRevision": "Reconfigure the VM configuration",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 313,
+        "originalText": "the value of the argument and a semi-colon separates each `argument$value` pair",
+        "suggestedRevision": "the value of the argument, and a semicolon separates each `argument$value` pair",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 334,
+        "originalText": "Assign each VM a unique number to boot the in the assigned order",
+        "suggestedRevision": "Assign each VM a unique number to boot them in the assigned order",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 375,
+        "originalText": "to coordinate with either database server",
+        "suggestedRevision": "to coordinate with either database server type",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 398,
+        "originalText": "When this option selected",
+        "suggestedRevision": "When this option is selected",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 410,
+        "originalText": "If a volume that does not have a SnapMirror relationship, you can create one now",
+        "suggestedRevision": "If a volume does not have a SnapMirror relationship, you can create one now",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 417,
+        "originalText": "the service creates on on-demand backup",
+        "suggestedRevision": "the service creates an on-demand backup",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 20,
+        "originalText": "You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP Consistency Groups for all ONTAP volumes hosting protected VM datastores.",
+        "suggestedRevision": "You can protect multiple VMs on multiple datastores. NetApp Disaster Recovery creates ONTAP consistency groups for all ONTAP volumes that host protected VM datastores.",
+        "source": "az"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 353,
+        "originalText": "The data managed by the database server might be hosted on the same datastore as the VM hosting the database server, or it might be hosted on a different datastore. The following table shows the supported configurations for application-consistent snapshots in Disaster Recovery:",
+        "suggestedRevision": "The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in NetApp Disaster Recovery:",
+        "source": "az"
+      }
+    ]
+  },
+  {
+    "fileName": "failback.adoc",
+    "titleReview": {
+      "originalTitle": "Fail back applications to the original source with NetApp Disaster Recovery",
+      "titleLineNumber": 8,
+      "suggestedTitle": "Fail back applications to the original source",
+      "titleReasoning": "The title uses a valid task pattern, but it is longer than necessary and includes the product name unnecessarily. Removing the product name improves scanability.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": "Failback",
+        "pageType": "Task",
+        "userGoal": "Fail back workloads from the recovery site to the original source site"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "After a disaster has been resolved, fail back from the disaster recovery site to the source site to return to normal operations. You can select the snapshot from which to recover.",
+      "suggestedRevision": "After the disaster is resolved, fail back from the disaster recovery site to the source site to resume normal operations. You can choose the snapshot to use for recovery.",
+      "leadReasoning": "The revision tightens the language, removes unnecessary passive phrasing, and improves readability.",
+      "leadLineNumber": 14,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use concise wording",
+          "lineNumber": 14,
+          "originalText": "After a disaster has been resolved",
+          "suggestedRevision": "After the disaster is resolved",
+          "reasoning": "Shorter and more direct."
+        },
+        {
+          "criterion": "Avoid unnecessary wordiness",
+          "lineNumber": 20,
+          "originalText": "This process starts from a relationship that has completed failing over to a target",
+          "suggestedRevision": "This process starts after a relationship has failed over to the target",
+          "reasoning": "The revised version is clearer and more concise."
+        },
+        {
+          "criterion": "Avoid repetition",
+          "lineNumber": 31,
+          "originalText": "VMs that have been added to the datastore might be added to the datastore in the failover process.",
+          "suggestedRevision": "VMs might be added to the datastore during failover.",
+          "reasoning": "The original sentence is repetitive and awkward."
+        },
+        {
+          "criterion": "Use consistent UI capitalization",
+          "lineNumber": 44,
+          "originalText": "Identify the replication plan you want to failback.",
+          "suggestedRevision": "Identify the replication plan that you want to fail back.",
+          "reasoning": "Use the verb phrase 'fail back' in body text for readability unless the UI label is being referenced."
+        },
+        {
+          "criterion": "Use consistent UI capitalization",
+          "lineNumber": 61,
+          "originalText": "Identify the replication plan you want to failback.",
+          "suggestedRevision": "Identify the replication plan that you want to fail back.",
+          "reasoning": "Same issue as in the vCenter section."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 8,
+        "originalText": "= Fail back applications to the original source with NetApp Disaster Recovery",
+        "suggestedRevision": "= Fail back applications to the original source",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "After a disaster has been resolved, fail back from the disaster recovery site to the source site to return to normal operations. You can select the snapshot from which to recover.",
+        "suggestedRevision": "After the disaster is resolved, fail back from the disaster recovery site to the source site to resume normal operations. You can choose the snapshot to use for recovery.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "After a disaster has been resolved",
+        "suggestedRevision": "After the disaster is resolved",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 20,
+        "originalText": "This process starts from a relationship that has completed failing over to a target",
+        "suggestedRevision": "This process starts after a relationship has failed over to the target",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 31,
+        "originalText": "VMs that have been added to the datastore might be added to the datastore in the failover process.",
+        "suggestedRevision": "VMs might be added to the datastore during failover.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 44,
+        "originalText": "Identify the replication plan you want to failback.",
+        "suggestedRevision": "Identify the replication plan that you want to fail back.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 61,
+        "originalText": "Identify the replication plan you want to failback.",
+        "suggestedRevision": "Identify the replication plan that you want to fail back.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "failover.adoc",
+    "titleReview": {
+      "originalTitle": "Fail over applications to a remote site with NetApp Disaster Recovery",
+      "titleLineNumber": 8,
+      "suggestedTitle": "Fail over applications to a remote site",
+      "titleReasoning": "The title is task-oriented and clear, but the product name is unnecessary in the title. Removing it makes the title shorter and more consistent with NetApp standards.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": "Failover",
+        "pageType": "Task",
+        "userGoal": "Fail over workloads to a disaster recovery site and optionally test failover"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "In case of a disaster, fail over your primary on-premises VMware site to another on-premises VMware site or VMware Cloud on AWS. You can test the failover process to ensure success when you need it.",
+      "suggestedRevision": "If a disaster occurs, fail over your primary on-premises VMware site to another on-premises VMware site or to VMware Cloud on AWS. You can also test the failover process in advance to confirm that recovery works as expected.",
+      "leadReasoning": "The revision is more direct, improves flow, and better states the user benefit of testing.",
+      "leadLineNumber": 14,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Prefer direct conditional wording",
+          "lineNumber": 14,
+          "originalText": "In case of a disaster",
+          "suggestedRevision": "If a disaster occurs",
+          "reasoning": "More natural and direct."
+        },
+        {
+          "criterion": "Use product name consistently",
+          "lineNumber": 20,
+          "originalText": "During a failover, Disaster Recovery by default uses the most recent SnapMirror snapshot copy",
+          "suggestedRevision": "During failover, NetApp Disaster Recovery uses the most recent SnapMirror snapshot copy by default",
+          "reasoning": "Use the full product name on first reference in body text and avoid interrupted phrasing."
+        },
+        {
+          "criterion": "Avoid unnecessary wording",
+          "lineNumber": 32,
+          "originalText": "you can perform a test to check your readiness",
+          "suggestedRevision": "you can perform a test to verify readiness",
+          "reasoning": "More concise."
+        },
+        {
+          "criterion": "Use parallel list structure",
+          "lineNumber": 47,
+          "originalText": "Register the target VMs within vCenter as new datastores.",
+          "suggestedRevision": "Register the target VMs in vCenter.",
+          "reasoning": "VMs are not registered as datastores; the current wording is inaccurate."
+        },
+        {
+          "criterion": "Fix UI label consistency",
+          "lineNumber": 64,
+          "originalText": "select *Test fail over*.",
+          "suggestedRevision": "select *Test failover*.",
+          "reasoning": "Inconsistent spelling in the action label/reference."
+        },
+        {
+          "criterion": "Fix grammar",
+          "lineNumber": 86,
+          "originalText": "The failover process involves in the following operations:",
+          "suggestedRevision": "The failover process involves the following operations:",
+          "reasoning": "Remove the incorrect preposition."
+        },
+        {
+          "criterion": "Fix sentence structure",
+          "lineNumber": 93,
+          "originalText": "If any datastores are VMFS, create and map an iGroup to each LUN.",
+          "suggestedRevision": "If any datastores use VMFS, Disaster Recovery creates and maps an igroup for each LUN.",
+          "reasoning": "Keeps the list in the same actor/verb structure and uses standard terminology."
+        },
+        {
+          "criterion": "Fix missing article",
+          "lineNumber": 98,
+          "originalText": "If source vCenter and ONTAP clusters are still active",
+          "suggestedRevision": "If the source vCenter and ONTAP clusters are still active",
+          "reasoning": "Missing definite article."
+        },
+        {
+          "criterion": "Correct terminology",
+          "lineNumber": 98,
+          "originalText": "The SnapMirror relationship is reversed from target to source virtual machine.",
+          "suggestedRevision": "The SnapMirror relationship is reversed from target to source.",
+          "reasoning": "SnapMirror reverses between storage endpoints, not source virtual machines."
+        },
+        {
+          "criterion": "Improve clarity",
+          "lineNumber": 110,
+          "originalText": "The failover will fail with a notification in the jobs.",
+          "suggestedRevision": "The failover job fails, and the service posts a notification in Job monitoring.",
+          "reasoning": "The revision is clearer and uses the product UI term."
+        },
+        {
+          "criterion": "Fix spelling consistency",
+          "lineNumber": 126,
+          "originalText": "before the fail over occurs.",
+          "suggestedRevision": "before failover occurs.",
+          "reasoning": "Use consistent spelling."
+        },
+        {
+          "criterion": "Avoid wordiness",
+          "lineNumber": 128,
+          "originalText": "if you want the failover to occur even if an error is detected that would normally prevent the failover from occurring.",
+          "suggestedRevision": "if you want failover to continue even when the service detects an error that would normally block it.",
+          "reasoning": "Reduces repetition."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [
+        {
+          "lineNumber": 18,
+          "originalText": "*About this task*",
+          "suggestedRevision": "== About this task"
+        },
+        {
+          "lineNumber": 34,
+          "originalText": "During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.",
+          "suggestedRevision": "During a failover test, NetApp Disaster Recovery temporarily creates VMs. The service maps a temporary datastore backed by a FlexClone volume to the ESXi hosts."
+        },
+        {
+          "lineNumber": 42,
+          "originalText": "For a test failover, Disaster Recovery performs the following operations:",
+          "suggestedRevision": "For a test failover, NetApp Disaster Recovery performs the following operations:"
+        },
+        {
+          "lineNumber": 88,
+          "originalText": "* Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.",
+          "suggestedRevision": "* NetApp Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship."
+        }
+      ],
+      "summary": {
+        "azIssuesFound": 4
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 8,
+        "originalText": "= Fail over applications to a remote site with NetApp Disaster Recovery",
+        "suggestedRevision": "= Fail over applications to a remote site",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "In case of a disaster, fail over your primary on-premises VMware site to another on-premises VMware site or VMware Cloud on AWS. You can test the failover process to ensure success when you need it.",
+        "suggestedRevision": "If a disaster occurs, fail over your primary on-premises VMware site to another on-premises VMware site or to VMware Cloud on AWS. You can also test the failover process in advance to confirm that recovery works as expected.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "In case of a disaster",
+        "suggestedRevision": "If a disaster occurs",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 20,
+        "originalText": "During a failover, Disaster Recovery by default uses the most recent SnapMirror snapshot copy",
+        "suggestedRevision": "During failover, NetApp Disaster Recovery uses the most recent SnapMirror snapshot copy by default",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 32,
+        "originalText": "you can perform a test to check your readiness",
+        "suggestedRevision": "you can perform a test to verify readiness",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 47,
+        "originalText": "Register the target VMs within vCenter as new datastores.",
+        "suggestedRevision": "Register the target VMs in vCenter.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 64,
+        "originalText": "select *Test fail over*.",
+        "suggestedRevision": "select *Test failover*.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 86,
+        "originalText": "The failover process involves in the following operations:",
+        "suggestedRevision": "The failover process involves the following operations:",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 93,
+        "originalText": "If any datastores are VMFS, create and map an iGroup to each LUN.",
+        "suggestedRevision": "If any datastores use VMFS, Disaster Recovery creates and maps an igroup for each LUN.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 98,
+        "originalText": "If source vCenter and ONTAP clusters are still active",
+        "suggestedRevision": "If the source vCenter and ONTAP clusters are still active",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 98,
+        "originalText": "The SnapMirror relationship is reversed from target to source virtual machine.",
+        "suggestedRevision": "The SnapMirror relationship is reversed from target to source.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 110,
+        "originalText": "The failover will fail with a notification in the jobs.",
+        "suggestedRevision": "The failover job fails, and the service posts a notification in Job monitoring.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 126,
+        "originalText": "before the fail over occurs.",
+        "suggestedRevision": "before failover occurs.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 128,
+        "originalText": "if you want the failover to occur even if an error is detected that would normally prevent the failover from occurring.",
+        "suggestedRevision": "if you want failover to continue even when the service detects an error that would normally block it.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 18,
+        "originalText": "*About this task*",
+        "suggestedRevision": "== About this task",
+        "source": "az"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 34,
+        "originalText": "During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.",
+        "suggestedRevision": "During a failover test, NetApp Disaster Recovery temporarily creates VMs. The service maps a temporary datastore backed by a FlexClone volume to the ESXi hosts.",
+        "source": "az"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 42,
+        "originalText": "For a test failover, Disaster Recovery performs the following operations:",
+        "suggestedRevision": "For a test failover, NetApp Disaster Recovery performs the following operations:",
+        "source": "az"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 88,
+        "originalText": "* Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.",
+        "suggestedRevision": "* NetApp Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.",
+        "source": "az"
+      }
+    ]
+  },
+  {
+    "fileName": "manage.adoc",
+    "titleReview": {
+      "originalTitle": "Manage sites, resource groups, and replication plans with NetApp Disaster Recovery",
+      "titleLineNumber": 8,
+      "suggestedTitle": "Manage sites, resource groups, and replication plans",
+      "titleReasoning": "The title is clear and task-based, but the product name is unnecessary and makes the title longer than needed. Removing it improves scanability.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": "Sites, resource groups, and replication plans",
+        "pageType": "Task",
+        "userGoal": "Manage sites, resource groups, replication plans, and related resources"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources:",
+      "suggestedRevision": "Use NetApp Disaster Recovery to view and manage these resources:",
+      "leadReasoning": "The original lead is vague and low-value. The revision is clearer, more direct, and better introduces the list that follows.",
+      "leadLineNumber": 14,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use direct, user-focused lead wording",
+          "lineNumber": 14,
+          "originalText": "NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources:",
+          "suggestedRevision": "Use NetApp Disaster Recovery to view and manage these resources:",
+          "reasoning": "The original lead is abstract and does not clearly state user value."
+        },
+        {
+          "criterion": "Avoid redundant wording",
+          "lineNumber": 29,
+          "originalText": "You can edit the vCenter site name and the site type",
+          "suggestedRevision": "You can edit the vCenter site name and type",
+          "reasoning": "Removes redundancy."
+        },
+        {
+          "criterion": "Prefer concise wording",
+          "lineNumber": 41,
+          "originalText": "They can be added when you create the replication plan or after.",
+          "suggestedRevision": "You can add them when you create the replication plan or later.",
+          "reasoning": "The revision is more direct."
+        },
+        {
+          "criterion": "Use standard coordination punctuation",
+          "lineNumber": 67,
+          "originalText": "You can disable, enable and delete replication plans.",
+          "suggestedRevision": "You can disable, enable, and delete replication plans.",
+          "reasoning": "Use the serial comma for consistency with NetApp style."
+        },
+        {
+          "criterion": "Fix typo",
+          "lineNumber": 135,
+          "originalText": "snapsohts",
+          "suggestedRevision": "snapshots",
+          "reasoning": "Misspelling."
+        },
+        {
+          "criterion": "Fix spacing and sentence break",
+          "lineNumber": 141,
+          "originalText": "Select the replication plan then the *Failover mapping* tab.Select the *Edit* pencil icon.",
+          "suggestedRevision": "Select the replication plan, and then select the *Failover mapping* tab. Select the *Edit* pencil icon.",
+          "reasoning": "Missing space and punctuation reduce readability."
+        },
+        {
+          "criterion": "Use consistent product naming",
+          "lineNumber": 151,
+          "originalText": "From the Disaster Recovery UI, you can upgrade or remove Trident Protect.",
+          "suggestedRevision": "From the NetApp Disaster Recovery UI, you can upgrade or remove Trident Protect.",
+          "reasoning": "Use the full product name for clarity."
+        },
+        {
+          "criterion": "Fix punctuation",
+          "lineNumber": 171,
+          "originalText": "Review the dialog menu then select **Remove from site**.",
+          "suggestedRevision": "Review the dialog, and then select **Remove from site**.",
+          "reasoning": "Improves readability."
+        },
+        {
+          "criterion": "Improve phrasing",
+          "lineNumber": 175,
+          "originalText": "You can view information about how many datastores exist on the source and on the target.",
+          "suggestedRevision": "You can view how many datastores exist on the source and target sites.",
+          "reasoning": "More concise and natural."
+        },
+        {
+          "criterion": "Improve phrasing",
+          "lineNumber": 187,
+          "originalText": "You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity.",
+          "suggestedRevision": "You can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity.",
+          "reasoning": "More concise and readable."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 8,
+        "originalText": "= Manage sites, resource groups, and replication plans with NetApp Disaster Recovery",
+        "suggestedRevision": "= Manage sites, resource groups, and replication plans",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources:",
+        "suggestedRevision": "Use NetApp Disaster Recovery to view and manage these resources:",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": true,
+        "skipReason": "Duplicate equivalent edit",
+        "lineNumber": 14,
+        "originalText": "NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources:",
+        "suggestedRevision": "Use NetApp Disaster Recovery to view and manage these resources:",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 29,
+        "originalText": "You can edit the vCenter site name and the site type",
+        "suggestedRevision": "You can edit the vCenter site name and type",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 41,
+        "originalText": "They can be added when you create the replication plan or after.",
+        "suggestedRevision": "You can add them when you create the replication plan or later.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 67,
+        "originalText": "You can disable, enable and delete replication plans.",
+        "suggestedRevision": "You can disable, enable, and delete replication plans.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 135,
+        "originalText": "snapsohts",
+        "suggestedRevision": "snapshots",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 141,
+        "originalText": "Select the replication plan then the *Failover mapping* tab.Select the *Edit* pencil icon.",
+        "suggestedRevision": "Select the replication plan, and then select the *Failover mapping* tab. Select the *Edit* pencil icon.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 151,
+        "originalText": "From the Disaster Recovery UI, you can upgrade or remove Trident Protect.",
+        "suggestedRevision": "From the NetApp Disaster Recovery UI, you can upgrade or remove Trident Protect.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 171,
+        "originalText": "Review the dialog menu then select **Remove from site**.",
+        "suggestedRevision": "Review the dialog, and then select **Remove from site**.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 175,
+        "originalText": "You can view information about how many datastores exist on the source and on the target.",
+        "suggestedRevision": "You can view how many datastores exist on the source and target sites.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 187,
+        "originalText": "You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity.",
+        "suggestedRevision": "You can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "migrate.adoc",
+    "titleReview": {
+      "originalTitle": "Migrate applications to another site with NetApp Disaster Recovery",
+      "titleLineNumber": 8,
+      "suggestedTitle": "Migrate applications to another site",
+      "titleReasoning": "The title is task-oriented and in imperative voice, but it unnecessarily includes the product name. NetApp standards generally avoid repeating the product name in task titles when the page already sits within the product docs context.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Migrate protected applications to another site"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.",
+      "suggestedRevision": "Migrate VMware applications from a source site to another site by using NetApp Disaster Recovery.",
+      "leadReasoning": "The original lead is understandable but low-value and repetitive with the title. The revision uses 'applications' instead of 'apps', tightens the phrasing, and states the user outcome more directly.",
+      "leadLineNumber": 14,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use standard terminology instead of informal shorthand",
+          "lineNumber": 14,
+          "originalText": "Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.",
+          "suggestedRevision": "Using NetApp Disaster Recovery, you can migrate VMware applications from your source site to another site.",
+          "reasoning": "Use 'applications' instead of 'apps' in formal product documentation."
+        },
+        {
+          "criterion": "Improve clarity and reduce awkward phrasing",
+          "lineNumber": 16,
+          "originalText": "TIP: After you create the replication plan, identify the recurrence in the wizard, and initiate the migration, every 30 minutes NetApp Disaster Recovery verifies that the migration is actually occurring according to the plan.",
+          "suggestedRevision": "TIP: After you create the replication plan, set the recurrence in the wizard, and initiate migration, NetApp Disaster Recovery verifies every 30 minutes that the migration is progressing according to the plan.",
+          "reasoning": "The original sentence is wordy and uses awkward phrasing such as 'identify the recurrence' and 'actually occurring'."
+        },
+        {
+          "criterion": "Use concise, direct task prerequisites",
+          "lineNumber": 22,
+          "originalText": "Before you initiate the migration, you should have created a replication plan and selected to migrate the apps.",
+          "suggestedRevision": "Before you initiate migration, create a replication plan and configure it for migration.",
+          "reasoning": "The original uses indirect wording and informal terminology."
+        },
+        {
+          "criterion": "Fix grammar and parallel structure in a step",
+          "lineNumber": 31,
+          "originalText": "On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then and select *Migrate*.",
+          "suggestedRevision": "On the right, select the *Actions* menu image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], point to *Recover*, and then select *Migrate*.",
+          "reasoning": "The original contains a grammatical error ('then and') and awkward sequencing."
+        },
+        {
+          "criterion": "Use standard UI terminology",
+          "lineNumber": 33,
+          "originalText": "Enter \"Migrate\" in the textbox to confirm the operation then select *Migrate*.",
+          "suggestedRevision": "Enter \"Migrate\" in the text box to confirm the operation, and then select *Migrate*.",
+          "reasoning": "Use 'text box' as two words and add punctuation for readability."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 8,
+        "originalText": "= Migrate applications to another site with NetApp Disaster Recovery",
+        "suggestedRevision": "= Migrate applications to another site",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.",
+        "suggestedRevision": "Using NetApp Disaster Recovery, you can migrate VMware applications from your source site to another site.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": true,
+        "skipReason": "Superseded by merged edit on same line and text",
+        "lineNumber": 14,
+        "originalText": "Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.",
+        "suggestedRevision": "Using NetApp Disaster Recovery, you can migrate VMware applications from your source site to another site.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 16,
+        "originalText": "TIP: After you create the replication plan, identify the recurrence in the wizard, and initiate the migration, every 30 minutes NetApp Disaster Recovery verifies that the migration is actually occurring according to the plan.",
+        "suggestedRevision": "TIP: After you create the replication plan, set the recurrence in the wizard, and initiate migration, NetApp Disaster Recovery verifies every 30 minutes that the migration is progressing according to the plan.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 22,
+        "originalText": "Before you initiate the migration, you should have created a replication plan and selected to migrate the apps.",
+        "suggestedRevision": "Before you initiate migration, create a replication plan and configure it for migration.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 31,
+        "originalText": "On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then and select *Migrate*.",
+        "suggestedRevision": "On the right, select the *Actions* menu image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], point to *Recover*, and then select *Migrate*.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 33,
+        "originalText": "Enter \"Migrate\" in the textbox to confirm the operation then select *Migrate*.",
+        "suggestedRevision": "Enter \"Migrate\" in the text box to confirm the operation, and then select *Migrate*.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "monitor-jobs.adoc",
+    "titleReview": {
+      "originalTitle": "Monitor NetApp Disaster Recovery jobs",
+      "titleLineNumber": 8,
+      "suggestedTitle": "Monitor jobs",
+      "titleReasoning": "The title is a clear task title, but it unnecessarily includes the product name. In product documentation context, the shorter task-based title is stronger and more scannable.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Monitor and manage disaster recovery jobs"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "You can monitor all NetApp Disaster Recovery jobs and determine their progress.",
+      "suggestedRevision": "Monitor NetApp Disaster Recovery jobs to track their status and progress.",
+      "leadReasoning": "The revision is more direct, active, and outcome-focused while avoiding the weaker 'You can' construction.",
+      "leadLineNumber": 14,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Prefer direct, active lead phrasing",
+          "lineNumber": 14,
+          "originalText": "You can monitor all NetApp Disaster Recovery jobs and determine their progress.",
+          "suggestedRevision": "Monitor NetApp Disaster Recovery jobs to track their status and progress.",
+          "reasoning": "Direct task-oriented phrasing is clearer and more useful in a lead."
+        },
+        {
+          "criterion": "Avoid redundant wording",
+          "lineNumber": 27,
+          "originalText": "Explore all jobs related to operations and review their timestamps and status.",
+          "suggestedRevision": "Review jobs, including their timestamps and status.",
+          "reasoning": "'Jobs related to operations' is vague and redundant because jobs already represent operations."
+        },
+        {
+          "criterion": "Improve sentence flow and parallelism",
+          "lineNumber": 28,
+          "originalText": "To view details of a particular job, select that row. You can download job details for offline review by selecting the action menu then **Download job details**.",
+          "suggestedRevision": "To view details for a job, select its row. To download job details for offline review, select the action menu and then select **Download job details**.",
+          "reasoning": "The revision improves parallel structure and readability."
+        },
+        {
+          "criterion": "Use precise product naming consistently",
+          "lineNumber": 31,
+          "originalText": "When reviewing job details, Disaster Recovery reports the user who initiated the job. If the responsible party is listed as \"system\", this means Disaster Recovery initiated the job.",
+          "suggestedRevision": "When you review job details, NetApp Disaster Recovery shows the user who initiated the job. If the responsible party is listed as \"system,\" NetApp Disaster Recovery initiated the job.",
+          "reasoning": "Use the full product name for clarity and tighten the phrasing."
+        },
+        {
+          "criterion": "Use standard UI/page terminology",
+          "lineNumber": 47,
+          "originalText": "In the Job monitor page, note the ID of the job you want to cancel.",
+          "suggestedRevision": "On the Job monitoring page, note the ID of the job that you want to cancel.",
+          "reasoning": "Use the actual page name consistently and improve grammar."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 8,
+        "originalText": "= Monitor NetApp Disaster Recovery jobs",
+        "suggestedRevision": "= Monitor jobs",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 14,
+        "originalText": "You can monitor all NetApp Disaster Recovery jobs and determine their progress.",
+        "suggestedRevision": "Monitor NetApp Disaster Recovery jobs to track their status and progress.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": true,
+        "skipReason": "Duplicate equivalent edit",
+        "lineNumber": 14,
+        "originalText": "You can monitor all NetApp Disaster Recovery jobs and determine their progress.",
+        "suggestedRevision": "Monitor NetApp Disaster Recovery jobs to track their status and progress.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 27,
+        "originalText": "Explore all jobs related to operations and review their timestamps and status.",
+        "suggestedRevision": "Review jobs, including their timestamps and status.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 28,
+        "originalText": "To view details of a particular job, select that row. You can download job details for offline review by selecting the action menu then **Download job details**.",
+        "suggestedRevision": "To view details for a job, select its row. To download job details for offline review, select the action menu and then select **Download job details**.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 31,
+        "originalText": "When reviewing job details, Disaster Recovery reports the user who initiated the job. If the responsible party is listed as \"system\", this means Disaster Recovery initiated the job.",
+        "suggestedRevision": "When you review job details, NetApp Disaster Recovery shows the user who initiated the job. If the responsible party is listed as \"system,\" NetApp Disaster Recovery initiated the job.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 47,
+        "originalText": "In the Job monitor page, note the ID of the job you want to cancel.",
+        "suggestedRevision": "On the Job monitoring page, note the ID of the job that you want to cancel.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "replicate.adoc",
+    "titleReview": {
+      "originalTitle": "Replicate applications to another site with NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "Replicate applications to another site",
+      "titleReasoning": "The title clearly states the task, but it includes the product name unnecessarily. NetApp title standards typically favor concise, task-based titles without repeating the product name on every page.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Replicate protected applications to another site"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.",
+      "suggestedRevision": "Use NetApp Disaster Recovery to replicate VMware applications from your source site to a remote disaster recovery site in the cloud by using SnapMirror replication.",
+      "leadReasoning": "The revision improves readability, replaces informal wording, and clarifies the source-to-target relationship.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use formal terminology",
+          "lineNumber": 13,
+          "originalText": "Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.",
+          "suggestedRevision": "Using NetApp Disaster Recovery, you can replicate VMware applications from your source site to a remote disaster recovery site in the cloud by using SnapMirror replication.",
+          "reasoning": "Use 'applications' instead of 'apps' and improve the prepositions for clarity."
+        },
+        {
+          "criterion": "Improve clarity and concision",
+          "lineNumber": 15,
+          "originalText": "TIP: After you create the disaster recovery plan, identify the recurrence in the wizard, and initiate a replication to a disaster recovery site, every 30 minutes NetApp Disaster Recovery verifies that the replication is actually occurring according to the plan.",
+          "suggestedRevision": "TIP: After you create the replication plan, set the recurrence in the wizard, and initiate replication, NetApp Disaster Recovery verifies every 30 minutes that replication is progressing according to the plan.",
+          "reasoning": "The original is wordy, uses inconsistent terminology ('disaster recovery plan' instead of 'replication plan'), and includes awkward phrasing."
+        },
+        {
+          "criterion": "Use consistent terminology",
+          "lineNumber": 15,
+          "originalText": "After you create the disaster recovery plan",
+          "suggestedRevision": "After you create the replication plan",
+          "reasoning": "Elsewhere in the documentation, the object is called a replication plan."
+        },
+        {
+          "criterion": "Use concise prerequisite language",
+          "lineNumber": 20,
+          "originalText": "Before you initiate the replication, you should have created a replication plan and selected to replicate the apps.",
+          "suggestedRevision": "Before you initiate replication, create a replication plan and configure it for replication.",
+          "reasoning": "The original is indirect and uses informal terminology."
+        },
+        {
+          "criterion": "Avoid awkward UI phrasing",
+          "lineNumber": 30,
+          "originalText": "On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Replicate*.",
+          "suggestedRevision": "On the right, select the *Actions* menu image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], and then select *Replicate*.",
+          "reasoning": "'Actions option' is awkward; 'Actions menu' is clearer and more standard."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= Replicate applications to another site with NetApp Disaster Recovery",
+        "suggestedRevision": "= Replicate applications to another site",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.",
+        "suggestedRevision": "Using NetApp Disaster Recovery, you can replicate VMware applications from your source site to a remote disaster recovery site in the cloud by using SnapMirror replication.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": true,
+        "skipReason": "Superseded by merged edit on same line and text",
+        "lineNumber": 13,
+        "originalText": "Using NetApp Disaster Recovery, you can replicate VMware apps on your source site to a disaster recovery remote site in the cloud using SnapMirror replication.",
+        "suggestedRevision": "Using NetApp Disaster Recovery, you can replicate VMware applications from your source site to a remote disaster recovery site in the cloud by using SnapMirror replication.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 15,
+        "originalText": "TIP: After you create the disaster recovery plan, identify the recurrence in the wizard, and initiate a replication to a disaster recovery site, every 30 minutes NetApp Disaster Recovery verifies that the replication is actually occurring according to the plan.",
+        "suggestedRevision": "TIP: After you create the replication plan, set the recurrence in the wizard, and initiate replication, NetApp Disaster Recovery verifies every 30 minutes that replication is progressing according to the plan.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 15,
+        "originalText": "After you create the disaster recovery plan",
+        "suggestedRevision": "After you create the replication plan",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 20,
+        "originalText": "Before you initiate the replication, you should have created a replication plan and selected to replicate the apps.",
+        "suggestedRevision": "Before you initiate replication, create a replication plan and configure it for replication.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 30,
+        "originalText": "On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Replicate*.",
+        "suggestedRevision": "On the right, select the *Actions* menu image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], and then select *Replicate*.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "reports.adoc",
+    "titleReview": {
+      "originalTitle": "Create reports in NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "Create reports",
+      "titleReasoning": "The title is task-oriented and clear, but it repeats the product name unnecessarily. A shorter title better matches NetApp page-title conventions.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Generate and download disaster recovery reports"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan. They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count.",
+      "suggestedRevision": "Use NetApp Disaster Recovery reports to assess disaster recovery preparedness. Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers. Reports also show compliance status, job summaries, and backup settings such as recovery point objective (RPO) and retention count.",
+      "leadReasoning": "The lead has good substance but is wordy and slightly awkward in places. The revision improves flow, strengthens the opening, and clarifies what the reports contain.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use more direct lead phrasing",
+          "lineNumber": 13,
+          "originalText": "NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness.",
+          "suggestedRevision": "Use NetApp Disaster Recovery reports to assess disaster recovery preparedness.",
+          "reasoning": "The revision is more direct and action-oriented."
+        },
+        {
+          "criterion": "Improve list readability and grammar",
+          "lineNumber": 13,
+          "originalText": "Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan.",
+          "suggestedRevision": "Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers.",
+          "reasoning": "The revision improves grammar and makes the list easier to read."
+        },
+        {
+          "criterion": "Avoid ambiguous pronoun reference",
+          "lineNumber": 13,
+          "originalText": "They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count.",
+          "suggestedRevision": "Reports also display compliance status, job summaries, and backup settings, including recovery point objective (RPO) and retention count.",
+          "reasoning": "Replacing 'They' with 'Reports' improves clarity."
+        },
+        {
+          "criterion": "Use consistent article/capitalization conventions",
+          "lineNumber": 25,
+          "originalText": "Choose which *Workload* to scope the report to: Kubernetes, VMware, or all.",
+          "suggestedRevision": "Choose which *Workload* to scope the report to: Kubernetes, VMware, or All.",
+          "reasoning": "If 'All' is a UI option, match the interface text exactly."
+        },
+        {
+          "criterion": "Clarify time-period wording",
+          "lineNumber": 26,
+          "originalText": "Choose the *File type* (PDF, HTML, or JSON) and *Time period* (between the past one and seven days) that the report should cover.",
+          "suggestedRevision": "Choose the *File type* (PDF, HTML, or JSON) and the *Time period* (from the past one to seven days) for the report.",
+          "reasoning": "The original phrasing is awkward; the revision is clearer and more concise."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 0
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= Create reports in NetApp Disaster Recovery",
+        "suggestedRevision": "= Create reports",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan. They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count.",
+        "suggestedRevision": "Use NetApp Disaster Recovery reports to assess disaster recovery preparedness. Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers. Reports also show compliance status, job summaries, and backup settings such as recovery point objective (RPO) and retention count.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness.",
+        "suggestedRevision": "Use NetApp Disaster Recovery reports to assess disaster recovery preparedness.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan.",
+        "suggestedRevision": "Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count.",
+        "suggestedRevision": "Reports also display compliance status, job summaries, and backup settings, including recovery point objective (RPO) and retention count.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 25,
+        "originalText": "Choose which *Workload* to scope the report to: Kubernetes, VMware, or all.",
+        "suggestedRevision": "Choose which *Workload* to scope the report to: Kubernetes, VMware, or All.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 26,
+        "originalText": "Choose the *File type* (PDF, HTML, or JSON) and *Time period* (between the past one and seven days) that the report should cover.",
+        "suggestedRevision": "Choose the *File type* (PDF, HTML, or JSON) and the *Time period* (from the past one to seven days) for the report.",
+        "source": "style"
+      }
+    ]
+  },
+  {
+    "fileName": "resource-group.adoc",
+    "titleReview": {
+      "originalTitle": "Create a resource group to organize VMs together in NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "Create a resource group",
+      "titleReasoning": "The current title is task-based but too long and overly specific. It also includes the product name unnecessarily and focuses only on VMs even though the page covers datastores and Kubernetes clusters. A shorter title better matches the page scope and NetApp standards.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Create a resource group for protected resources"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "No",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "After you've added resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.",
+      "suggestedRevision": "After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups let you organize dependent resources into logical groups that meet your requirements. For example, you can group VMs for one application or group applications that share similar tiers. Resource groups can also include delayed boot orders that run during recovery.",
+      "leadReasoning": "The lead has useful content but is too long and repetitive. The revision keeps the user value while tightening the language and improving flow.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": [
+        {
+          "criterion": "Use direct and concise lead phrasing",
+          "lineNumber": 13,
+          "originalText": "After you've added resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit.",
+          "suggestedRevision": "After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit.",
+          "reasoning": "The revision removes unnecessary helper words and is more direct."
+        },
+        {
+          "criterion": "Avoid repetition and improve flow",
+          "lineNumber": 13,
+          "originalText": "Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements.",
+          "suggestedRevision": "Resource groups let you organize dependent resources into logical groups that meet your requirements.",
+          "reasoning": "The revision is shorter and avoids repetitive wording."
+        },
+        {
+          "criterion": "Clarify awkward phrasing",
+          "lineNumber": 13,
+          "originalText": "As another example, groups could contain delayed boot orders that can be run upon recovery.",
+          "suggestedRevision": "Resource groups can also include delayed boot orders that run during recovery.",
+          "reasoning": "The original wording is awkward and indirect."
+        },
+        {
+          "criterion": "Fix noun number agreement",
+          "lineNumber": 26,
+          "originalText": "TIP: Each resource group can include one or more VMs, datastore, or Kubernetes cluster.",
+          "suggestedRevision": "TIP: Each resource group can include one or more VMs, datastores, or Kubernetes clusters.",
+          "reasoning": "The list should use plural nouns to match 'one or more'."
+        },
+        {
+          "criterion": "Use consistent spelling",
+          "lineNumber": 37,
+          "originalText": "the system queries vCenter for the name of each data store hosting VMs in a resource group",
+          "suggestedRevision": "the system queries vCenter for the name of each datastore hosting VMs in a resource group",
+          "reasoning": "Elsewhere on the page, the standard term is 'datastore' as one word."
+        },
+        {
+          "criterion": "Use consistent spelling",
+          "lineNumber": 39,
+          "originalText": "If VMs in the resource group are hosted on different data stores",
+          "suggestedRevision": "If VMs in the resource group are hosted on different datastores",
+          "reasoning": "Use 'datastores' consistently."
+        },
+        {
+          "criterion": "Improve instructional clarity",
+          "lineNumber": 90,
+          "originalText": "Select the *Add resource groups* tab.",
+          "suggestedRevision": "Select the *Add resource groups* tab.",
+          "reasoning": "The UI wording might be correct, but if this tab actually adds resources rather than resource groups, verify the UI label because it may confuse readers."
+        },
+        {
+          "criterion": "Complete the sentence grammatically",
+          "lineNumber": 113,
+          "originalText": "Classify the *Resource types*. By default, the selection is \"Includes all,\" which denotes multiple resource types",
+          "suggestedRevision": "Classify the *Resource types*. By default, the selection is \"Includes all,\" which denotes multiple resource types.",
+          "reasoning": "Add ending punctuation."
+        }
+      ],
+      "error": null
+    },
+    "azReview": {
+      "issues": [
+        {
+          "lineNumber": 37,
+          "originalText": "the system queries vCenter for the name of each data store hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store.",
+          "suggestedRevision": "the system queries vCenter for the name of each datastore hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that datastore."
+        },
+        {
+          "lineNumber": 39,
+          "originalText": "If VMs in the resource group are hosted on different data stores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.",
+          "suggestedRevision": "If VMs in the resource group are hosted on different datastores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs."
+        }
+      ],
+      "summary": {
+        "azIssuesFound": 2
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= Create a resource group to organize VMs together in NetApp Disaster Recovery",
+        "suggestedRevision": "= Create a resource group",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "After you've added resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.",
+        "suggestedRevision": "After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups let you organize dependent resources into logical groups that meet your requirements. For example, you can group VMs for one application or group applications that share similar tiers. Resource groups can also include delayed boot orders that run during recovery.",
+        "source": "lead",
+        "leadOffset": 1
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "After you've added resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit.",
+        "suggestedRevision": "After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements.",
+        "suggestedRevision": "Resource groups let you organize dependent resources into logical groups that meet your requirements.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "As another example, groups could contain delayed boot orders that can be run upon recovery.",
+        "suggestedRevision": "Resource groups can also include delayed boot orders that run during recovery.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 26,
+        "originalText": "TIP: Each resource group can include one or more VMs, datastore, or Kubernetes cluster.",
+        "suggestedRevision": "TIP: Each resource group can include one or more VMs, datastores, or Kubernetes clusters.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 37,
+        "originalText": "the system queries vCenter for the name of each data store hosting VMs in a resource group",
+        "suggestedRevision": "the system queries vCenter for the name of each datastore hosting VMs in a resource group",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 39,
+        "originalText": "If VMs in the resource group are hosted on different data stores",
+        "suggestedRevision": "If VMs in the resource group are hosted on different datastores",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 90,
+        "originalText": "Select the *Add resource groups* tab.",
+        "suggestedRevision": "Select the *Add resource groups* tab.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 113,
+        "originalText": "Classify the *Resource types*. By default, the selection is \"Includes all,\" which denotes multiple resource types",
+        "suggestedRevision": "Classify the *Resource types*. By default, the selection is \"Includes all,\" which denotes multiple resource types.",
+        "source": "style"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 37,
+        "originalText": "the system queries vCenter for the name of each data store hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store.",
+        "suggestedRevision": "the system queries vCenter for the name of each datastore hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that datastore.",
+        "source": "az"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 39,
+        "originalText": "If VMs in the resource group are hosted on different data stores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.",
+        "suggestedRevision": "If VMs in the resource group are hosted on different datastores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.",
+        "source": "az"
+      }
+    ]
+  },
+  {
+    "fileName": "sites-add.adoc",
+    "titleReview": {
+      "originalTitle": "Add sites in NetApp Disaster Recovery",
+      "titleLineNumber": 7,
+      "suggestedTitle": "Add sites",
+      "titleReasoning": "The title matches the task page pattern and clearly states the user goal. However, NetApp standards typically omit the product name from the H1 when the product context is already established by the documentation set. A shorter task-focused title is clearer and more concise.",
+      "fileInfo": {
+        "productName": "NetApp Disaster Recovery",
+        "componentName": null,
+        "pageType": "Task",
+        "userGoal": "Add sites for Disaster Recovery"
+      },
+      "abcdefCheck": {
+        "userGoalAlignment": "Yes",
+        "pageTypePattern": "Yes",
+        "productInclusion": "No",
+        "titleLength": "Yes",
+        "noForbiddenPatterns": "Yes",
+        "capGrammarVoice": "Yes"
+      },
+      "error": null
+    },
+    "leadReview": {
+      "originalText": "Before you can create a disaster recovery plan, you need to add sites to Disaster Recovery. A site is a collection of vCenter servers or Kubernetes clusters (on-premises or in the cloud). You should add the primary or production site and the disaster recovery site.",
+      "suggestedRevision": "Before you create a disaster recovery plan, add the sites you want to protect in NetApp Disaster Recovery. A site is a collection of vCenter servers or Kubernetes clusters, either on premises or in the cloud. Add both the production site and the disaster recovery site.",
+      "leadReasoning": "The lead is useful, but it repeats 'site' and uses weaker phrasing such as 'you need to' and 'you should.' The revision improves clarity, concision, and action orientation while preserving the user value.",
+      "leadLineNumber": 13,
+      "leadOffset": 1,
+      "error": null
+    },
+    "styleReview": {
+      "issues": []
+    },
+    "azReview": {
+      "issues": [],
+      "summary": {
+        "azIssuesFound": 11
+      },
+      "error": null
+    },
+    "combinedEdits": [
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 7,
+        "originalText": "= Add sites in NetApp Disaster Recovery",
+        "suggestedRevision": "= Add sites",
+        "source": "title"
+      },
+      {
+        "skipped": false,
+        "skipReason": "",
+        "lineNumber": 13,
+        "originalText": "Before you can create a disaster recovery plan, you need to add sites to Disaster Recovery. A site is a collection of vCenter servers or Kubernetes clusters (on-premises or in the cloud). You should add the primary or production site and the disaster recovery site.",
+        "suggestedRevision": "Before you create a disaster recovery plan, add the sites you want to protect in NetApp Disaster Recovery. A site is a collection of vCenter servers or Kubernetes clusters, either on premises or in the cloud. Add both the production site and the disaster recovery site.",
+        "source": "lead",
+        "leadOffset": 1
+      }
+    ]
+  }
+]

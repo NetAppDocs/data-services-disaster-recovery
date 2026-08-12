@@ -4,13 +4,13 @@ permalink: use/reports.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp, protection, reports, kubernetes
 summary: Reviewing disaster recovery reports can help you analyze your disaster recovery preparedness. Predesigned reports include a summary of failovers and failbacks, replication details on all sites, and job details for the past year. 
 ---
-= Create reports in NetApp Disaster Recovery 
+= Create reports 
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-NetApp Disaster Recovery reports can help you analyze your disaster recovery preparedness. Reports provide insights into the replication plans including the number of resource groups, VMs or Kubernetes clusters, and datastores covered by the plan. They also display compliance status, a summary of jobs, and backup settings including recovery point objective (RPO) and retention count. 
+Use NetApp Disaster Recovery reports to assess disaster recovery preparedness. Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers. Reports also show compliance status, job summaries, and backup settings such as recovery point objective (RPO) and retention count. 
 
 You can download reports in PDF, HTML, or JSON format. 
 
@@ -22,8 +22,8 @@ The report download link is valid for six hours after you generate it.
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*.
 . From the NetApp Console left navigation bar, select *Replication plans*. 
 . Select *Create report*.
-. Choose which *Workload* to scope the report to: Kubernetes, VMware, or all. 
-. Choose the *File type* (PDF, HTML, or JSON) and *Time period* (between the past one and seven days) that the report should cover.
+. Choose which *Workload* to scope the report to: Kubernetes, VMware, or All. 
+. Choose the *File type* (PDF, HTML, or JSON) and the *Time period* (from the past one to seven days) for the report.
 +
 image::report.png[Screenshot of create report]
 . Select *Create* to generate the report. 

@@ -4,13 +4,13 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
-= View the health of your disaster recovery plans in NetApp Disaster Recovery
+= View disaster recovery plan health
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can easily assess which sites and plans are healthy, disconnected, or degraded. You can also review recent warnings and failed jobs, see which workloads are protected and are not, and see an overview of capacity. 
+Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans. You can see whether sites and plans are healthy, disconnected, or degraded, review recent warnings and failed jobs, identify protected and unprotected workloads, and view capacity at a glance. 
 
 include::../_include/iam-app-admin-viewer.adoc[]
 
@@ -29,7 +29,7 @@ image:dr-dashboard.png[NetApp Disaster Recovery Dashboard]
 * *Sites*: View the health of your sites. A site can have one of the following statuses: 
 
 ** *Running*: The site is connected, healthy, and running. 
-** *Down*: The site is not reachable or having connectivity issues. 
+** *Down*: The site is unreachable or has connectivity issues. 
 ** *Issue*: The site is having connectivity issues. 
 + 
 To see details, select **View all sites**. 
@@ -43,4 +43,4 @@ To see details, select **View all sites**.
 To review replication plan details, select *View all replication plans*. 
 
 . Review *Recent warnings and jobs* to see the most recently executed jobs and warnings and their associated statuses. Select *View all jobs* to see all jobs. 
-. Review the *Discovery and protection status* to see the number of discovered workloads and a numeric breakdown of protected versus unprotected workloads separated by type. You can also review the total discovered capacity of all workloads and workloads by type. 
+. Review *Discovery and protection status* to see the number of discovered workloads, a breakdown of protected and unprotected workloads by type, and total discovered capacity overall and by workload type. 

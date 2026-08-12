@@ -5,19 +5,19 @@ keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail
 summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
 
-= Fail over applications to a remote site with NetApp Disaster Recovery
+= Fail over applications to a remote site
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-In case of a disaster, fail over your primary on-premises VMware site to another on-premises VMware site or VMware Cloud on AWS. You can test the failover process to ensure success when you need it.
+If a disaster occurs, fail over your primary on-premises VMware site to another on-premises VMware site or to VMware Cloud on AWS. You can also test the failover process in advance to confirm that recovery works as expected.
 
 include::../_include/iam-failover.adoc[]
 
-*About this task*
+== About this task
 
-During a failover, Disaster Recovery by default uses the most recent SnapMirror snapshot copy, though you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). Use the point-in-time option if the most recent replicas are compromised, such as during a ransomware attack.
+During failover, NetApp Disaster Recovery uses the most recent SnapMirror snapshot copy by default, though you can select a specific snapshot from a point-in-time snapshot (per the retention policy of SnapMirror). Use the point-in-time option if the most recent replicas are compromised, such as during a ransomware attack.
 
 This process differs depending on whether the production site is healthy and you are performing a failover to the disaster recovery site for reasons other than a critical infrastructure failure:
 
@@ -29,9 +29,9 @@ This procedure breaks the replication relationship, places the vCenter source VM
 
 == Test the failover process
 
-Before conducting a live failover, you can perform a test to check your readiness. Workloads remain online during the test process. 
+Before conducting a live failover, you can perform a test to verify readiness. Workloads remain online during the test process. 
 
-During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
+During a failover test, NetApp Disaster Recovery temporarily creates VMs. The service maps a temporary datastore backed by a FlexClone volume to the ESXi hosts.
 
 This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
@@ -39,12 +39,12 @@ When you finish the test, you should reset the VMs with the *Clean up test* opti
 
 A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
 
-For a test failover, Disaster Recovery performs the following operations:
+For a test failover, NetApp Disaster Recovery performs the following operations:
 
 * Perform prechecks on the destination cluster and the SnapMirror relationship.
 * Create a new FlexClone volume from the selected snapshot for each protected ONTAP volume on the target site ONTAP cluster. 
-* If any datastores are VMFS, create and map an iGroup to each LUN.
-* Register the target VMs within vCenter as new datastores.
+* If any datastores use VMFS, Disaster Recovery creates and maps an igroup for each LUN.
+* Register the target VMs in vCenter.
 * Power on the target VMs based on the boot order captured in the Resource groups page.
 * Unquiesce any supported database applications in VMs indicated as "application consistent."
 * If the source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. 
@@ -61,7 +61,7 @@ For a test failover, Disaster Recovery performs the following operations:
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *Test failover*.
 . In the Test failover page, choose the snapshot for the test failover: select **Take snapshot now** or **Select** to choose an existing snapshot. If you choose **Select**, choose the existing snapshot. 
 +
-Then enter “Test failover” and select *Test fail over*.  
+Then enter “Test failover” and select *Test failover*.  
 . After the test is complete, clean up the test environment.
 
 
@@ -81,11 +81,11 @@ After the failover test finishes, you should clean up the test environment. This
 
 == Fail over the source site to a disaster recovery site
 
-In case of a disaster, fail over your primary on-premises VMware site on demand to another on-premises VMware site or VMware Cloud on AWS with FSx for NetApp ONTAP. 
+If a disaster occurs, fail over your primary on-premises VMware site on demand to another on-premises VMware site or VMware Cloud on AWS with FSx for NetApp ONTAP. 
 
-The failover process involves in the following operations: 
+The failover process involves the following operations: 
 
-* Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship. 
+* NetApp Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship. 
 * If you selected the latest snapshot, the SnapMirror update is performed to replicate the latest changes. 
 * The source VMs are powered down. 
 * The SnapMirror relationship is broken and the target volume is made read/write. 
@@ -95,7 +95,7 @@ The failover process involves in the following operations:
 * The target VMs are powered on based on the boot order captured in the Resource groups page.  
 * If the source vCenter is still active, power off all source side VMs that are being failed over. 
 * Unquiesce any supported database applications in VMs indicated as "application consistent." 
-* If source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source virtual machine. 
+* If the source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source. 
 
 
 
@@ -107,7 +107,7 @@ TIP: After the failover starts, you can see the recovered VMs in the vCenter of 
 .vCenter
 --
 
-For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover will fail with a notification in the jobs. You must provide the mapping details to complete the failover successfully.  
+For datastore-based replication plans, if you've added and discovered any VMs but not provided mapping details, those VMs are included in the failover. The failover job fails, and the service posts a notification in Job monitoring. You must provide the mapping details to complete the failover successfully.  
 
 .Steps 
 
@@ -123,9 +123,9 @@ image:dr-plan-failover3.png[Fail over page]
 
 . In the Fail over page, either create a new snapshot now or choose an existing snapshot for the datastore to use as the basis for recovery. The default is the latest. 
 +
-A snapshot of the current source will be taken and replicated to the current destination before the fail over occurs. 
+A snapshot of the current source will be taken and replicated to the current destination before failover occurs. 
 
-. Select *Force failover* if you want the failover to occur even if an error is detected that would normally prevent the failover from occurring. 
+. Select *Force failover* if you want failover to continue even when the service detects an error that would normally block it. 
 
 . Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
 +
