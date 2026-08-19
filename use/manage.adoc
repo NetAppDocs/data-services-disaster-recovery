@@ -26,7 +26,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 == Manage vCenter sites
-You can edit the vCenter site name and the site type (on-premises or AWS).
+You can edit the vCenter site name and type (on-premises or AWS).
 
 include::../_include/iam-org-admin.adoc[]
 
@@ -38,7 +38,7 @@ include::../_include/iam-org-admin.adoc[]
 
 == Manage resource groups 
 
-You can create resource groups by VMs or datastores. They can be added when you create the replication plan or after. 
+You can create resource groups by VMs or datastores. You can add them when you create the replication plan or later. 
 
 include::../_include/iam-super-admin.adoc[]
 
@@ -64,7 +64,7 @@ For details about creating a resource group, refer to link:resource-group.html[C
 
 == Manage replication plans 
 
-You can disable, enable and delete replication plans. You can change schedules. 
+You can disable, enable, and delete replication plans. You can change schedules. 
 
 include::../_include/iam-failover-app-admin.adoc[]
 
@@ -132,13 +132,13 @@ include::../_include/iam-failover-app-admin.adoc[]
 
 === Change retention count for failover schedules
 
-Changing the retention count enables you to increase or decrease the number of snapsohts saved. 
+Changing the retention count enables you to increase or decrease the number of snapshots saved. 
 
 include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps
 . From the menu, select *Replication plans*. 
-. Select the replication plan then the *Failover mapping* tab.Select the *Edit* pencil icon. 
+. Select the replication plan, and then select the *Failover mapping* tab. Select the *Edit* pencil icon. 
 . Select the down arrow in the *Datastores* row to expand it. 
 +
 image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
@@ -168,11 +168,11 @@ From the Disaster Recovery UI, you can upgrade or remove Trident Protect.
 . In Disaster Recovery, select **Sites** from the sidebar.
 . Select **Kubernetes** in the dropdown menu. 
 . In the action menu for the site you want to modify, select **Remove cluster**.
-. Review the dialog menu then select **Remove from site**. Ensure you pick the correct option to continue Trident Protect operation.  
+. Review the dialog, and then select **Remove from site**. Ensure you pick the correct option to continue Trident Protect operation.  
 
 == View datastore information 
 
-You can view information about how many datastores exist on the source and on the target. 
+You can view how many datastores exist on the source and target sites. 
 
 include::../_include/iam-viewer.adoc[]
 
@@ -184,7 +184,7 @@ include::../_include/iam-viewer.adoc[]
 
 == View virtual machines information 
 
-You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity. 
+You can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity. 
 
 include::../_include/iam-viewer.adoc[]
 
