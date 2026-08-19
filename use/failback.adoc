@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, failover, failback, repli
 summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
 
-= Fail back applications to the original source
+= Fail back applications to the original source with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
