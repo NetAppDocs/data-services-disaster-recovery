@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, failover, failback, repli
 summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. You can monitor all disaster recovery jobs and determine their progress.
 ---
 
-= Monitor jobs
+= Monitor NetApp Disaster Recovery jobs
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
@@ -28,7 +28,7 @@ include::../_include/iam-app-admin-viewer.adoc[]
 . To view details for a job, select its row. To download job details for offline review, select the action menu and then select **Download job details**. 
 +
 [TIP]
-When you review job details, NetApp Disaster Recovery shows the user who initiated the job. If the responsible party is listed as "system," NetApp Disaster Recovery initiated the job.  
+When you review job details, Disaster Recovery shows the user who initiated the job. If the responsible party is listed as "system," Disaster Recovery initiated the job.  
 . To refresh information, select *Refresh*. 
 
 

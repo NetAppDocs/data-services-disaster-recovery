@@ -4,7 +4,7 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
-= View disaster recovery plan health
+= View disaster recovery plan health in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
@@ -43,4 +43,4 @@ To see details, select **View all sites**.
 To review replication plan details, select *View all replication plans*. 
 
 . Review *Recent warnings and jobs* to see the most recently executed jobs and warnings and their associated statuses. Select *View all jobs* to see all jobs. 
-. Review *Discovery and protection status* to see the number of discovered workloads, a breakdown of protected and unprotected workloads by type, and total discovered capacity overall and by workload type. 
+. Review the *Discovery and protection status* to see the number of discovered workloads and a numeric breakdown of protected versus unprotected workloads separated by type. You can also review the total discovered capacity of all workloads and workloads by type. 

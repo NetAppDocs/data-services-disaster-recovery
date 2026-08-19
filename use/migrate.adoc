@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, migrate, vmware, vcenter
 summary: Using NetApp Disaster Recovery, you can migrate VMware applications from your source site to another site.
 ---
 
-= Migrate applications to another site
+= Migrate applications to another site with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
@@ -13,7 +13,7 @@ summary: Using NetApp Disaster Recovery, you can migrate VMware applications fro
 [.lead]
 Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.
 
-TIP: After you create the replication plan, set the recurrence in the wizard, and initiate migration, NetApp Disaster Recovery verifies every 30 minutes that the migration is progressing according to the plan. You can monitor the progress in the Job Monitor page. 
+TIP: After you create the replication plan, set the recurrence in the wizard, and initiate migration, Disaster Recovery performs a verification every 30 minutes that the migration is progressing according to the plan. You can monitor the progress in the Job Monitor page. 
 
 [NOTE]
 Migration isn't currently supported for Kubernetes-based workloads. 
@@ -28,6 +28,6 @@ Before you initiate migration, create a replication plan and configure it for mi
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 . From the menu, select *Replication plans*. 
 . Select the replication plan.
-. On the right, select the *Actions* menu image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], point to *Recover*, and then select *Migrate*. 
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then and select *Migrate*. 
 . In the dialog, choose to *Take a snapshot now* to create a new snapshot for the migration or *Select* to choose an existing snapshot for the migration. 
-. Enter "Migrate" in the text box to confirm the operation, and then select *Migrate*. 
+. Enter "Migrate" in the text box to confirm the operation then select *Migrate*. 
