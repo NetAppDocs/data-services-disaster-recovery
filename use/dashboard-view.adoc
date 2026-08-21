@@ -4,13 +4,13 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
-= View the health of your disaster recovery plans in NetApp Disaster Recovery
+= View disaster recovery plan health in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-Using the NetApp Disaster Recovery Dashboard, you can determine the health of your disaster recovery sites and replication plans. You can easily assess which sites and plans are healthy, disconnected, or degraded. You can also review recent warnings and failed jobs, see which workloads are protected and are not, and see an overview of capacity. 
+Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans. You can see whether sites and plans are healthy, disconnected, or degraded, review recent warnings and failed jobs, identify protected and unprotected workloads, and view capacity at a glance. 
 
 include::../_include/iam-app-admin-viewer.adoc[]
 
@@ -29,7 +29,7 @@ image:dr-dashboard.png[NetApp Disaster Recovery Dashboard]
 * *Sites*: View the health of your sites. A site can have one of the following statuses: 
 
 ** *Running*: The site is connected, healthy, and running. 
-** *Down*: The site is not reachable or having connectivity issues. 
+** *Down*: The site is unreachable or has connectivity issues. 
 ** *Issue*: The site is having connectivity issues. 
 + 
 To see details, select **View all sites**. 
