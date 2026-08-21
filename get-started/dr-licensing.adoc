@@ -77,7 +77,7 @@ After the free trial ends, you can either purchase a license from NetApp or subs
 .Steps
 . In the NetApp Disaster Recovery, you see a message that the free trial is expiring. In the message, select *Subscribe or purchase a license*.
 +
-Or, from the NetApp Disaster Recovery menu, select *View payment methods*. 
+Or, from the Disaster Recovery menu, select *View payment methods*. 
 +
 image:dr-licensing-payment-methods.png[The NetApp Disaster Recovery Payment methods page]
 
