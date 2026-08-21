@@ -12,7 +12,7 @@ For example:
 VM1 has a vNIC (10.1.1.50) that is connected to NetworkA. 
 NetworkA is mapped to NetworkB in the replication plan settings. 
 
-Upon failover, NetApp Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, NetApp Disaster Recovery looks at the CIDR settings for NetworkB and uses that the NetworkB network portion 192.168.1 while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
+Upon failover, NetApp Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, NetApp Disaster Recovery looks at the CIDR settings for NetworkB and uses the NetworkB network portion, 192.168.1, while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
 
 In summary, the host address stays the same, while the network address is replaced with whatever is configured in the site subnet mapping. This enables you to manage IP address reassignment upon failover more easily, especially if you have hundreds of networks and thousands of VMs to manage. 
 
@@ -32,7 +32,7 @@ After the original source site is back online, you can establish reverse protect
 
 //For details about skipping protection, see  link:../use/failover.html[Fail over applications to a remote site].
 
-For details skipping protection, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications to a remote site].
+For details about skipping protection, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over applications to a remote site].
 
 === SnapMirror schedule updates in the replication plan
 
