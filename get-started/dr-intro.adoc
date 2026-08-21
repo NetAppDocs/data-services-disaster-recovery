@@ -14,11 +14,11 @@ summary: Disaster recovery to the cloud is a resilient and cost-effective way of
 [.lead]
 Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events. NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can protect your on-premises Kubernetes clusters, NFS-based workloads, and VMware vSphere virtual machine file system (VMFS) datastores for iSCSI and FC running NetApp storage to one of the following: 
 
-* Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP  For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction of NetApp Disaster Recovery using Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
+* Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP. For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction to NetApp Disaster Recovery with Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
 * VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP 
-* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Azure VMware Solution with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
 * Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
-* Another on-premises NFS and or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
+* Another on-premises NFS- and/or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
 
 NetApp Disaster Recovery uses ONTAP SnapMirror technology with integrated native VMware orchestration to protect VMware VMs and their associated on-disk OS images, while retaining all storage efficiency benefits of ONTAP. Disaster Recovery uses these technologies as the replication transport to the disaster recovery site. This enables industry-best storage efficiency (compression and deduplication) on primary and secondary sites. 
 
@@ -152,9 +152,9 @@ NetApp Disaster Recovery supports the following datastore types:
 *Protection targets supported* 
 
 * VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP
-* Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMSF 
+* Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMFS environment
 * Amazon Elastic VMware Service  
-* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Azure VMware Solution with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
 * Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
 
 == Terms that might help you with NetApp Disaster Recovery
