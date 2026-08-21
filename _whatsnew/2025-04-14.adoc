@@ -2,7 +2,7 @@
 
 NetApp Disaster Recovery performs discovery once every 24 hours. With this release, you can now customize the discovery schedule to meet your needs and reduce impact on performance when you need it. For example, if you have a large number of VMs, you can set the discovery schedule to run every 48 hours. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours.
 
-If you don't wan to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
+If you don't want to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
 
 //For details, see link:../use/sites-add.html[Add vCenter server sites].
 For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html[Add vCenter server sites].
