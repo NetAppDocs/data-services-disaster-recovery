@@ -13,11 +13,9 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-Use this page to perform replication plan operations in NetApp Disaster Recovery, including failover, test failover, migration, snapshot management, and schedule updates for Amazon EVS environments.
+After configuring the replication plan in NetApp Disaster Recovery, you can perform failovers, test failover, refresh resources, migrate, and manage snapshots and replications plans. The primary action to perform, beyond maintenance, is failover in the event of a failure.
 
 == Fail over
-
-The primary operation is failover after a catastrophic failure at the production on-premises site.
 
 Failover is a manually initiated process. 
 
@@ -94,7 +92,7 @@ image:evs-rp-menu-compliance-check.png[Run compliance check menu option]
  
 == Refresh resources
 
-Any time you make changes to your virtual infrastructure -- such as adding or deleting VMs, adding or deleting datastores, or moving VMs between datastores -- you need to perform a refresh of the impacted vCenter clusters in the NetApp Disaster Recovery service. The service does this automatically once every 24 hours by default, but a manual refresh ensures that the latest virtual infrastructure information is available and taken into account for disaster recovery protection. 
+Any time you make changes to your virtual infrastructure—such as adding or deleting VMs, adding or deleting datastores, or moving VMs between datastores—you need to perform a refresh of the impacted vCenter clusters in the Disaster Recovery service. The service does this automatically once every 24 hours by default, but a manual refresh ensures that the latest virtual infrastructure information is available and taken into account for disaster recovery protection. 
 
 There are two instances where a refresh is necessary:
 

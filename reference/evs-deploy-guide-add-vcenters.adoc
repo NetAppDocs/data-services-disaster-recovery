@@ -33,7 +33,7 @@ image:evs-add-vcenter-1.png[Add vCenter option]
 
 // .. The vCenter password for the provided username.
 
-.. If your company uses an external certificate authority (CA) or the vCenter Endpoint Certificate Store, clear *Use self-signed certificates*. Otherwise, leave the box checked.
+.. If your organization uses an external certificate authority (CA) or the vCenter Endpoint Certificate Store, uncheck *Use self-signed certificates*. Otherwise, leave the box checked.
 
 . Select *Add*.
 +

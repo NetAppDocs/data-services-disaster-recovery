@@ -13,7 +13,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-After you add a replication plan in NetApp Disaster Recovery, verify on the Replication plans page that the plan is in the *Healthy* state before you continue.
+After you add a replication plan in NetApp Disaster Recovery, verify that the plan is in the *Healthy* state before you continue.
 
 Figure: Replication plans page image:evs-replication-plan-post-create.png[Replication plans page]
  

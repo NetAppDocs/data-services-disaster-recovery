@@ -13,12 +13,12 @@ summary: Before you can protect your VM infrastructure, the NetApp Disaster Reco
 :imagesdir: ../media/use/
 
 [.lead]
-Before you protect your virtual machine infrastructure, add sites to represent the source and destination datacenters that host your VMware vCenter clusters. In NetApp Disaster Recovery, a site represents a failure domain or recovery domain. 
+Before you can protect your VM infrastructure, identify which VMware vCenter clusters are hosting the VMs to be protected and where those vCenters are located. The first step is to create a site to represent the source and destination datacenters. A site is a failure domain or a recovery domain. 
 
 You need to create the following: 
 
 * A site to represent each production datacenter where your production vCenter clusters reside
-* A site for your Amazon EVS and Amazon FSx for NetApp ONTAP cloud datacenter
+* A site for your Amazon EVS/Amazon FSx for NetApp ONTAP cloud datacenter
 
 == Create on-premises sites
 
@@ -28,11 +28,11 @@ Create a production vCenter site.
 
 . From the NetApp Console left navigation bar, select *Protection* > *Disaster Recovery*.
 
-. From any page in NetApp Disaster Recovery, select *Sites*.
+. From any page in NetApp Disaster Recovery, select the *Sites* option.
 +
 image:evs-create-site-op-1.png[Sites option]
 
-. On the *Sites* page, select *Add*. 
+. From the Sites option, select *Add*. 
 +
 image:evs-create-site-op-2.png[Add option on the Sites option]
 
@@ -48,13 +48,13 @@ If you have other production vCenter sites, you can add them using the same step
 
 == Create Amazon cloud sites
 
-Create a disaster recovery site for Amazon EVS using Amazon FSx for NetApp ONTAP storage.
+Create a DR site for Amazon EVS using Amazon FSx for NetApp ONTAP storage.
 
-. From any page in NetApp Disaster Recovery, select *Sites*.
+. From any page in NetApp Disaster Recovery, select the *Sites* option.
 +
 image:evs-create-site-op-1.png[Sites option]
     
-. On the *Sites* page, select *Add*.
+. From the Sites option, select *Add*.
 +
 image:evs-create-site-aws-2.png[Add option on the Sites page]
  
@@ -67,4 +67,4 @@ image:evs-create-site-aws-2.png[Add option on the Sites page]
 image:evs-create-site-aws-3-5.png[Add dialog box]
 
 .Result 
-You now have a production (source) site and a disaster recovery (destination) site created. 
+You now have a production (source) site and a DR (destination) site created. 

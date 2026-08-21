@@ -14,7 +14,7 @@ Configure the required ONTAP permissions so NetApp Disaster Recovery can functio
 
 == Minimum ONTAP permissions
 
-NetApp Disaster Recovery requires the following ONTAP permissions:
+Disaster Recovery requires the following ONTAP permissions:
 
 [cols="3,1", options="header"]
 |===
@@ -50,7 +50,7 @@ NetApp Disaster Recovery requires the following ONTAP permissions:
 
 == Add permissions in ONTAP
 
-To add permissions in ONTAP, create a role with the required privileges and assign it to a user. You can complete this task in ONTAP by using System Manager or the ONTAP CLI. 
+To add permissions in ONTAP, create a role with the required privileges and assign it to a user. You can complete this task in ONTAP with System Manager or the ONTAP CLI. 
 
 [role="tabbed-block"]
 ====
@@ -67,7 +67,7 @@ You must perform this process separately for the source and destination clusters
 . After adding all the required permissions, select *Add*. 
 
 .Assign the role to a user
-. Return to the *Users and roles* section. 
+. Return to the *Users and roles* section of the section menu. 
 . In *Users*, select *Add*. 
 . Enter a *User name* then select the *Role* you previously created. 
 . Under User Login Methods, click Add until all required login methods are configured.
@@ -77,10 +77,10 @@ You must perform this process separately for the source and destination clusters
 
 .CLI
 --
-To create a role and user in ONTAP, sign in to the appropriate ONTAP cluster CLI with administrator credentials. You must perform this process separately for the source and destination clusters. 
+To create a role and user in ONTAP, you must be authenticated in the CLI for the appropriate ONTAP cluster using administrator credentials. You must perform this process separately for the source and destination clusters. 
 
 .Create the role with required privileges
-. Run the `security login rest-role create -role <rolename> -api <api> -access <access>` command to create a role with the required privileges. You can copy the following commands into a script to create the `dr_privileges` role.
+. Run the command `security login rest-role create -role <rolename> -api <api> -access <access>` to create a role with the required permissions. You can copy the full set of commands to use in a script that will create the role `dr_privileges`.
 +
 ----
 security login rest-role create -role dr_privileges -api /api -access readonly
@@ -141,4 +141,4 @@ security login create -vserver <SVM> -user-or-group-name <user-name> -applicatio
 
 == Configure Disaster Recovery 
 
-After creating the ONTAP roles, you need to link:https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html#step-3-discover-a-cluster[discover the ONTAP cluster in the Console^]. When you discover the cluster, provide the ONTAP cluster IP address and the credentials for the user you created. For Disaster Recovery, you must perform discovery on both the source and destination cluster. 
+After creating the ONTAP roles, you need to link:https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html#step-3-discover-a-cluster[discover the ONTAP cluster in the Console^]. When discovering the cluster, you need the IP address of the ONTAP cluster, the name of the user you created, and the password for this step. For Disaster Recovery, you must perform discovery on both the source and destination cluster. 
