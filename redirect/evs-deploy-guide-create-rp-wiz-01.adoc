@@ -1,0 +1,4 @@
+---
+permalink: reference/evs-deploy-guide-create-rp-wiz-01.html
+redirect: data-services-disaster-recovery/reference/evs-deploy-guide-creating-replication-plans.html
+---

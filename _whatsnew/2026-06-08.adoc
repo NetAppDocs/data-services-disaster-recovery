@@ -1,0 +1,41 @@
+=== Kubernetes updates
+
+Disaster Recovery has introduced the following changes for Kubernetes-based workloads:
+
+==== Test failover support for Kubernetes workloads
+
+Disaster Recovery now supports testing the failover process for Kubernetes workloads. Testing failover allows you to validate disaster recovery plans. When you complete the test, you can clean up the test failover so the system automatically cleans up test resources to reduce overhead and ensure the consistency of your environment. 
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html#test-the-failover-process[Test the failover process^].
+
+==== Scheduled test failovers 
+
+You can now automate disaster recovery testing by scheduling test failovers. You can set schedules for recurring test failovers to continuously validate recovery plans without manual intervention, helping to maintain confidence in recovery objectives and meet compliance requirements.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html#manage-replication-plans[Manage replication plans^].
+
+==== Scheduled discovery of Kubernetes workloads 
+
+With scheduled discovery, you can control how frequently Disaster Recovery scans for new Kubernetes workloads. You can configure discovery intervals to align with your operational cadence, reducing unnecessary system overhead while ensuring new workloads are detected and protected in a timely manner.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html#edit-the-site-and-customize-the-discovery-schedule[Customize discovery schedule^].
+
+=== VMware updates 
+
+==== Protection for empty datastores 
+
+Disaster Recovery now permits configuring protection for datastores that don't contain any virtual machines (VMs). Any VMs subsequently added to the datastore are automatically detected by Disaster Recovery, at which point you have to provide link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/sites-add.html#add-subnet-mapping-for-a-vcenter-site[mapping information^].
+
+When you add an empty datastore to a protection plan, you must either remove the datastore from the protection plan before performing a failover or perform a force failover. For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Failover to a remote site^].
+
+==== Restore previously excluded datastores to a protection plan
+
+Datastores that were previously excluded from protection can now be re-included. This enhancement provides greater flexibility when managing and updating your disaster recovery configurations over time.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html[Manage sites, resource groups, and replication plans^].
+
+==== Faster failover for VMFS-based datastores
+
+Disaster Recovery has improved the failover performance for VMFS-based datastores. Host Bus Adapter (HBA) rescan and datastore mount operations are now executed in parallel, reducing overall failover times and minimizing downtime during recovery events.
+
+For more information about failovers, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over with Disaster Recovery^].

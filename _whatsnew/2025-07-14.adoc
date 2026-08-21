@@ -32,7 +32,8 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 ** When a datastore or network is deleted in the vCenter, NetApp Disaster Recovery now deletes it from the replication plan and resource group. 
 ** When a cluster, host, or datacenter is deleted in the vCenter, NetApp Disaster Recovery now deletes it from the replication plan and resource group.
 
-* You can now access Swagger documentation in your browser's incognito mode. You can access it from within NetApp Disaster Recovery from the Settings option > API Documentation or directly at the following URL in your browser's incognito mode: https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[Swagger documentation^].
+// * You can now access Swagger documentation in your browser's incognito mode. You can access it from within NetApp Disaster Recovery from the Settings option > API Documentation or directly at the following URL in your browser's incognito mode: https://snapcenter.cloudmanager.cloud.netapp.com/api/api-doc/draas[Swagger documentation^].
+
 * In some situations after a failback operation, the iGroup was left behind after the operation completed. This update removes the iGroup if it is stale.
 
 

@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp
 summary: Known limitations identify platforms, devices, or functions that are not supported by this release of the service, or that do not interoperate correctly with it.
 ---
 
-= Limitations in NetApp Disaster Recovery
+= Known limitations in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/

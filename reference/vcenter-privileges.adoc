@@ -33,6 +33,21 @@ The following table lists all privileges required for Disaster Recovery to inter
 | Rename datastore
 | Permits renaming a datastore.
 
+.2+| Host
+
+| Host.Config.AdvancedConfig
+| Advanced settings
+| Allows setting advanced host configuration options.
+
+| Host.Config.Storage
+| Storage partition configuration
+| Allows scanning of new storage devices and management of iSCSI.
+
+| Resource 
+| Resource.AssignVMToPool
+| Resource pools
+| Allows VM assignment to a resource pool 
+
 .3+| Folder
 | Folder.Create
 | Create folder
@@ -55,11 +70,24 @@ The following table lists all privileges required for Disaster Recovery to inter
 | Configure
 | Permits configuring a network.
 
-.9+| Virtual machine configuration
+.12+| Virtual machine configuration
 
 | VirtualMachine.Config.AdvancedConfig
 | Advanced configuration
 | Permits adding or modifying advanced parameters in the VM's configuration file.
+
+
+| VirtualMachine.Config.AddExistingDisk
+| Add existing disk
+| Allows adding an existing virtual disk to a VM.
+
+| VirtualMachine.Config.AddNewDisk
+| Add new disk
+| Allows creating a new virtual disk to add to a VM.
+
+| VirtualMachine.Config.RemoveDisk
+| Remove disk
+| Allows removal of a virtual disk device.
 
 | VirtualMachine.Config.Settings
 | Change settings

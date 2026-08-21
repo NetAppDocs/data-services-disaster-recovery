@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, failover, failback, repli
 summary: You can get a quick glance of all your NetApp Disaster Recovery resources and manage vCenter sites, resource groups, and replication plans.
 ---
 
-= Manage sites, resource groups, replication plans, datastores and virtual machines information with NetApp Disaster Recovery
+= Manage sites, resource groups, and replication plans with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
@@ -26,11 +26,9 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 == Manage vCenter sites
-You can edit the vCenter site name and the site type (on-premises or AWS).
+You can edit the vCenter site name and type (on-premises or AWS).
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, or Disaster recovery admin role.
-
+include::../_include/iam-org-admin.adoc[]
 
 .Steps 
 
@@ -40,10 +38,9 @@ Organization admin, Folder or project admin, or Disaster recovery admin role.
 
 == Manage resource groups 
 
-You can create resource groups by VMs or datastores. They can be added when you create the replication plan or after. 
+You can create resource groups by VMs or datastores. You can add them when you create the replication plan or later. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, or Disaster recovery application admin role.
+include::../_include/iam-super-admin.adoc[]
 
 You can create a resource group by datastores in the following ways:
 
@@ -67,11 +64,9 @@ For details about creating a resource group, refer to link:resource-group.html[C
 
 == Manage replication plans 
 
-You can disable, enable and delete replication plans. You can change schedules. 
+You can disable, enable, and delete replication plans. You can change schedules. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
-
+include::../_include/iam-failover-app-admin.adoc[]
 
 * If you want to pause a replication plan temporarily, you can disable it and later enable it. 
 * If you no longer need the plan, you can delete it.
@@ -106,8 +101,7 @@ image:../use/dr-plan-list.png[Replication plan list]
 
 Disaster Recovery automatically deletes snapshots on the source every 24 hours. If you discover that snapshots are out of sync between the source and destination, you need to resolve the discrepancy between the snapshots to ensure consistency across sites. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps 
 
@@ -125,8 +119,7 @@ image:../use/dr-plan-list.png[Replication plan list]
 
 If you delete a replication plan, you can also delete the primary and secondary snapshots created by the plan. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role. 
+include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps 
 
@@ -139,14 +132,13 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 
 === Change retention count for failover schedules
 
-Changing the retention count enables you to increase or decrease the number of datastore saved. 
+Changing the retention count enables you to increase or decrease the number of snapshots saved. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, or Disaster recovery application admin role.
+include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps
 . From the menu, select *Replication plans*. 
-. Select the replication plan then the *Failover mapping* tab.Select the *Edit* pencil icon. 
+. Select the replication plan, and then select the *Failover mapping* tab. Select the *Edit* pencil icon. 
 . Select the down arrow in the *Datastores* row to expand it. 
 +
 image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
@@ -154,13 +146,35 @@ image:../use/dr-plan-failover-edit.png[Edit failover mappings page]
 // verify
 . With the replication plan selected, select the Actions menu, then select *Clean up old snapshots* to remove old snapshots on the target to match the new retention count.
 
-== View datastores information 
+== Manage Trident Protect
 
-You can view information about how many datastores exist on the source and on the target. 
+From the Disaster Recovery UI, you can upgrade or remove Trident Protect. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
+.Upgrade Trident Protect
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the cluster you want to modify, select **Upgrade cluster**. 
+. In the **Select target version** dropdown, choose the version of Trident Protect you want to upgrade to. You should review the link:https://docs.netapp.com/us-en/trident/trident-rn.html[Trident release notes^] before upgrading to understand the nuances of the different versions and their impact on your cluster. 
+. Select **Upgrade** to initiate the upgrade. 
 
+.Remove Trident Protect
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the site you want to modify, select **Remove cluster**. 
+. Review the dialog then run the uninstall command on the cluster you want to remove Trident Protect from: `helm uninstall trident-protect -n trident-protect`.
+. To complete the removal of Trident Protect, switch back to the Disaster Recovery UI and select **Remove site**. 
+
+.Remove a cluster from a site
+. In Disaster Recovery, select **Sites** from the sidebar.
+. Select **Kubernetes** in the dropdown menu. 
+. In the action menu for the site you want to modify, select **Remove cluster**.
+. Review the dialog, and then select **Remove from site**. Ensure you pick the correct option to continue Trident Protect operation.  
+
+== View datastore information 
+
+You can view how many datastores exist on the source and target sites. 
+
+include::../_include/iam-viewer.adoc[]
 
 .Steps
 . From the menu, select *Dashboard*. 
@@ -170,11 +184,9 @@ Organization admin, Folder or project admin, Disaster recovery admin, Disaster r
 
 == View virtual machines information 
 
-You can view information about how many virtual machines exist on the source and on the target along with CPU, memory, and available capacity. 
+You can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity. 
 
-*Required NetApp Console role*
-Organization admin, Folder or project admin, Disaster recovery admin, Disaster recovery failover admin, Disaster recovery application admin, or Disaster recovery viewer role.
-
+include::../_include/iam-viewer.adoc[]
 
 .Steps
 . From the menu, select *Dashboard*. 
