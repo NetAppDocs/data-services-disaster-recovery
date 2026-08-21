@@ -13,11 +13,11 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-Use NetApp Disaster Recovery with Amazon EVS and Amazon FSx for NetApp ONTAP to perform the following operations: failover, test failover, refresh resources, migrate, take a snapshot now, disable/enable replication plan, clean up old snapshots, reconcile snapshots, delete replication plan, and edit schedules.
+Use this page to perform replication plan operations in NetApp Disaster Recovery, including failover, test failover, migration, snapshot management, and schedule updates for Amazon EVS environments.
 
 == Fail over
 
-The primary operation that you might need to perform is the one you hope never happens: failing over to the DR (destination) datacenter in the event of a catastrophic failure at the production on-premises site.
+The primary operation is failover after a catastrophic failure at the production on-premises site.
 
 Failover is a manually initiated process. 
 
@@ -68,7 +68,7 @@ The steps for executing a test failover are identical to those used to execute a
 +
 image:evs-rp-menu-test-failover.png[Test failover menu option]
 
-. Decide if you want get the latest state of the production environment (Take snapshot now) or use a previously created replication plan backup (Select)
+. Decide whether to capture the latest state of the production environment (Take snapshot now) or use a previously created replication plan backup (Select)
 
 . If you chose a previously created backup, then select the backup to be used for the recovery.
 
@@ -94,7 +94,7 @@ image:evs-rp-menu-compliance-check.png[Run compliance check menu option]
  
 == Refresh resources
 
-Any time you make changes to your virtual infrastructure -- such as adding or deleting VMs, adding or deleting datastores, or moving VMs between datastores -- you need to perform a refresh of the impacted vCenter clusters in NetApp Disaster Recovery service. The service does this automatically once every 24 hours by default, but a manual refresh ensures that the latest virtual infrastructure information is available and taken into account for DR protection. 
+Any time you make changes to your virtual infrastructure -- such as adding or deleting VMs, adding or deleting datastores, or moving VMs between datastores -- you need to perform a refresh of the impacted vCenter clusters in the NetApp Disaster Recovery service. The service does this automatically once every 24 hours by default, but a manual refresh ensures that the latest virtual infrastructure information is available and taken into account for disaster recovery protection. 
 
 There are two instances where a refresh is necessary:
 
@@ -106,7 +106,7 @@ image::evs-rp-menu-refresh-resources.png[Refresh resources menu option]
 
 == Migrate
 
-While NetApp Disaster Recovery is primarily used for disaster recovery use cases, it can also enable one-time moves of a set of VMs from the source site to the destination site. This could be for a concerted migration to cloud project or it could be used for disaster avoidance -- such as bad weather, political strife, or other potential temporary catastrophic events. 
+Although NetApp Disaster Recovery is primarily for disaster recovery, it can also support one-time VM migrations from the source site to the destination site. This could be for a concerted migration to cloud project or it could be used for disaster avoidance -- such as bad weather, political strife, or other potential temporary catastrophic events. 
 
 . Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
 
@@ -154,7 +154,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Clean up old snapshots menu option]
  
 == Reconcile snapshots
 
-Because the service orchestrates ONTAP volume snapshots, it is possible for an ONTAP storage administrator to directly delete snapshots using either ONTAP System Manager, the ONTAP CLI, or the ONTAP REST APIs without the service's knowledge. The service automatically deletes any snapshots on the source that are not on the destination cluster automatically every 24 hours. However, you can perform this on demand. This feature enables you to ensure that the snapshots are consistent across all sites. 
+Because the service orchestrates ONTAP volume snapshots, an ONTAP storage administrator can directly delete snapshots using either ONTAP System Manager, the ONTAP CLI, or the ONTAP REST APIs without the service's knowledge. The service automatically deletes any snapshots on the source that are not on the destination cluster automatically every 24 hours. However, you can perform this on demand. This feature enables you to ensure that the snapshots are consistent across all sites. 
 
 . Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
 
@@ -214,7 +214,7 @@ Test failovers are manually executed by default. You can schedule automatic test
 
 . Choose the time of day to run the test failover
 
-. Chose the start date.
+. Choose the start date.
 
 . Decide if you want the service to automatically clean up the test environment and how long you would like the test environment to run before the clean up process starts.
 

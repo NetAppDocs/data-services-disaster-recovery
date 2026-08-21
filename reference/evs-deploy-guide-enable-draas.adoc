@@ -12,7 +12,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-NetApp Disaster Recovery is a licensed product offering that must be purchased before it can be used. There are several types of licenses and several ways that you can purchase licenses. A license entitles you to protect a specific amount data for a specific span of time. 
+Use this page to understand NetApp Disaster Recovery license options and estimate the licensed capacity that you need for Amazon EVS deployments. 
 
 For more information about NetApp Disaster Recovery licenses, see link:../get-started/dr-licensing.html[Set up licensing for NetApp Disaster Recovery]. 
 
@@ -28,9 +28,9 @@ There are two primary license types:
 
 == Size your disaster recovery capacity needs
 
-Before you purchase your license, you should understand how much ONTAP storage capacity you need to protect. One of the advantages of using NetApp ONTAP storage is the high efficiency with which NetApp stores your data. All data stored in an ONTAP volume -- such as VMware datastore hosting VMs -- is that the data is stored in a highly efficient manner. ONTAP defaults to three types of storage efficiency when writing data to physical storage: compaction, deduplication, and compression. The net result is storage efficiencies of between 1.5:1 and 4:1 depending on the types of data being stored. In fact, NetApp offers a https://www.netapp.com/media/79014-ng-937-Efficiency-Guarantee-Customer-Flyer.pdf[storage efficiency guarantee^] for certain workloads.
+Before you purchase your license, you should understand how much ONTAP storage capacity you need to protect. One of the advantages of using NetApp ONTAP storage is the high efficiency with which NetApp stores your data. Data stored in an ONTAP volume, such as a VMware datastore that hosts VMs, is stored efficiently. ONTAP defaults to three types of storage efficiency when writing data to physical storage: compaction, deduplication, and compression. The net result is storage efficiencies of between 1.5:1 and 4:1 depending on the types of data being stored. In fact, NetApp offers a https://www.netapp.com/media/79014-ng-937-Efficiency-Guarantee-Customer-Flyer.pdf[storage efficiency guarantee^] for certain workloads.
 
-This can benefit you because NetApp Disaster Recovery computes capacity for the purposes of licensing after all ONTAP storage efficiencies are applied. For example, let’s say you have provisioned a 100 terabyte (TiB) NFS datastore within vCenter to host 100 VMs that you want to protect using the service. Additionally, let’s assume when the data is written to the ONTAP volume, automatically applied storage efficiency techniques result in those VMs consuming only 33TiB (3:1 storage efficiency). NetApp Disaster Recovery needs to be licensed only for 33TiB, not 100TiB. This can be a very large benefit to the total cost of ownership for your DR solution when compared to other DR solutions.
+This can benefit you because NetApp Disaster Recovery computes capacity for the purposes of licensing after all ONTAP storage efficiencies are applied. For example, let's say you have provisioned a 100 terabyte (TiB) NFS datastore within vCenter to host 100 VMs that you want to protect using the service. Additionally, let's assume when the data is written to the ONTAP volume, automatically applied storage efficiency techniques result in those VMs consuming only 33TiB (3:1 storage efficiency). NetApp Disaster Recovery needs to be licensed only for 33TiB, not 100TiB. This can significantly reduce the total cost of ownership compared with other disaster recovery solutions.
 
 .Steps 
 . To determine how much data is being consumed on each volume hosting a VMware datastore to be protected, determine the on-disk capacity consumption by running the ONTAP CLI command for each volume: `volume show-space -volume < _volume name_ > -vserver < _SVM name_ >` . 

@@ -12,16 +12,16 @@ summary: Before using NetApp Disaster Recovery, you must add on-premises and clo
 :imagesdir: ../media/use/
 
 [.lead]
-Before using NetApp Disaster Recovery, you must add on-premises and cloud-hosted storage instances to the NetApp Console system. 
+Before you use NetApp Disaster Recovery, add your on-premises arrays and cloud-hosted storage instances to NetApp Console. 
 
 You need to do the following: 
 
-* Add on-premises arrays to your NetApp Console system.
-* Add Amazon FSx for NetApp ONTAP (FSx for ONTAP) instances to your NetApp Console system.
+* Add on-premises arrays to your NetApp Console.
+* Add Amazon FSx for NetApp ONTAP (FSx for ONTAP) instances to your NetApp Console.
 
-== Add on-premises storage arrays to NetApp Console system
+== Add on-premises storage arrays to NetApp Console
 
-Add on-premises ONTAP storage resources to your NetApp Console system.
+Add on-premises ONTAP storage resources to NetApp Console.
 
 [start 1]
 
@@ -48,11 +48,11 @@ image:evs-canvas-add-working-env-3.png[Add system image]
 +
 image:evs-canvas-add-working-env-4-5.png[Add system image]
  
-. Repeat steps 1-5 for each ONTAP array that will host vCenter datastores.
+. Repeat these steps for each ONTAP array that will host vCenter datastores.
 
-== Add Amazon FSx for NetApp ONTAP storage instances to NetApp Console system
+== Add Amazon FSx for NetApp ONTAP storage instances to NetApp Console
 
-Next, add an Amazon FSx for NetApp ONTAP storage resources to your NetApp Console system.
+Next, add Amazon FSx for NetApp ONTAP storage resources to NetApp Console.
 
 . From the NetApp Console Systems page, select *Add System*.
 
@@ -76,4 +76,4 @@ image:evs-canvas-add-working-evs-3.png[Add system image]
 +
 image:evs-needs-updates-canvas-add-working-evs-4-5.png[Add system image]
 
-. Repeat steps 1-6 for each FSx for ONTAP instance that will host vCenter datastores.
+. Repeat these steps for each FSx for ONTAP instance that will host vCenter datastores.

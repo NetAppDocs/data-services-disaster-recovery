@@ -13,7 +13,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-With sites created, you now add your vCenter clusters to each site in NetApp Disaster Recovery. When we created each site, we indicated each type of site. This tells NetApp Disaster Recovery what type of access is required for the vCenters hosted in each site type. One of the advantages of Amazon EVS is that there is no real differentiation between an Amazon EVS vCenter and an on-premises vCenter. Both require the same connection and authentication information.
+After you create sites, add the vCenter clusters for each site in NetApp Disaster Recovery. The site type determines the access NetApp Disaster Recovery requires for the vCenters in that site. Amazon EVS vCenters and on-premises vCenters use the same connection and authentication information.
 
 .Steps to add a vCenter to each site
 
@@ -27,13 +27,13 @@ image:evs-add-vcenter-1.png[Add vCenter option]
 
 .. The IP address or FQDN for the vCenter to be added.
 
-.. If different, change the port value to the TCP port used by your vCenter cluster manager.
+.. If needed, change the port to the TCP port used by your vCenter server.
 
 .. The vCenter username for the account created earlier that will be used by NetApp Disaster Recovery to manage the vCenter.
 
 // .. The vCenter password for the provided username.
 
-.. If your company uses an external Certificate Authority (CA) or the vCenter Endpoint Certificate Store to gain access to your vCenters, uncheck the *Use self-signed certificates* checkbox. Otherwise, leave the box checked.
+.. If your company uses an external certificate authority (CA) or the vCenter Endpoint Certificate Store, clear *Use self-signed certificates*. Otherwise, leave the box checked.
 
 . Select *Add*.
 +

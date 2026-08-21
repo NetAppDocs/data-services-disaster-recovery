@@ -12,24 +12,24 @@ summary: You should ensure that several prerequisites are met before you continu
 :imagesdir: ../media/use/
 
 [.lead]
-Ensure you review and meet the requirements to configure Amazon EVS with NetApp Disaster Recovery. 
+Before you configure Amazon EVS with NetApp Disaster Recovery, review and meet these requirements. 
 
 
 .Prerequisites 
 * Review the link:../get-started/dr-prerequisites.html[general prerequisites for Disaster Recovery].
-* Create a vCenter user account with the specific VMware privileges required for NetApp Disaster Recovery to perform the necessary operations. 
+* Create a vCenter user account with the VMware privileges NetApp Disaster Recovery requires. 
 +
-NOTE: It's recommended you do **not** use the default "\administrator@vsphere.com" administrator account. Instead, you should create a NetApp Disaster Recovery specific user account on all vCenter clusters that will participate in the disaster recovery process. For a list of specific privileges required, see link:vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
+NOTE: Do **not** use the default "\administrator@vsphere.com" administrator account. Instead, you should create a NetApp Disaster Recovery-specific user account on all vCenter clusters that will participate in the disaster recovery process. For a list of specific privileges required, see link:vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
 
-* Ensure that all vCenter datastores that will host VMs protected by Disaster Recovery are located on NetApp ONTAP storage resources. 
+* Ensure that all vCenter datastores hosting VMs protected by Disaster Recovery are on NetApp ONTAP storage. 
 +
-Disaster Recovery supports NFS and VMFS on iSCSI (and not FC) when using Amazon FSx on NetApp ONTAP. Although Disaster Recovery supports FC, Amazon FSx for NetApp ONTAP does not.
+When you use Amazon FSx for NetApp ONTAP, Disaster Recovery supports NFS and VMFS on iSCSI, but not FC. Although Disaster Recovery supports FC, Amazon FSx for NetApp ONTAP does not.
 
 * Ensure your Amazon EVS vCenter is connected to an Amazon FSx for NetApp ONTAP storage cluster.
 
 * Ensure VMware tools are installed on all protected VMs.
 
-* Ensure your on-premises network is connected to your AWS VPC network using an Amazon-approved connection method. It's recommended you use AWS Direct Connect, AWS Private Link, or an AWS Site-to-Site VPN.
+* Ensure that your on-premises network connects to your AWS VPC by using an Amazon-approved connection method. It's recommended you use AWS Direct Connect, AWS Private Link, or an AWS Site-to-Site VPN.
 
 * Review and ensure compliance with the connection and port requirements for EVS with Disaster Recovery: 
 +
