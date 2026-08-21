@@ -1,7 +1,7 @@
 
 === Exclude a datastore from replication plans
 
-When you create a replication plan in Disaster, you can now exclude specific datastores from replication. For situations where a VM is configure to use multiple datastore, this allows you to limit which ones are replicated. 
+When you create a replication plan in Disaster Recovery, you can now exclude specific datastores from replication. For situations where a VM is configured to use multiple datastores, this allows you to limit which ones are replicated. 
 
 For details, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
 
@@ -13,7 +13,7 @@ For more information, see link:https://docs.netapp.com/us-en/data-services-disas
 
 === New replication plan submenu 
 
-Disaster Recover now includes new menu options to trigger vCenter refreshes from the replication plan dashboard. You can access the submenu from the replication plan dashboard's action menu: select **Plan Health** then **Refresh Source vCenter / Refresh Target vCenter**.
+Disaster Recovery now includes new menu options to trigger vCenter refreshes from the replication plan dashboard. You can access the submenu from the replication plan dashboard's action menu: select **Plan Health** then **Refresh Source vCenter / Refresh Target vCenter**.
 
 For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html#modify-a-replication-plan[Modify a replication plan^].
 
