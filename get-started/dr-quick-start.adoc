@@ -11,7 +11,7 @@ summary: Get started with the NetApp Disaster Recovery service in a few steps.
 :imagesdir: ../media/get-started/
 
 [.lead]
-Here's an overview of the steps needed to get started with NetApp Disaster Recovery. The links within each step take you to a page that provides more details.
+Use these steps to get started with NetApp Disaster Recovery. The links in each step go to pages with more details.
 
 
 
@@ -36,7 +36,7 @@ link:../get-started/dr-prerequisites.html[Ensure your system meets these require
 
 
 [role="quick-margin-para"]
-After you set up the service, here's what you might do next. 
+After you set up the service, you can complete these next steps. 
 
 [role="quick-margin-list"]
 * link:../use/sites-add.html[Add your vCenter sites to NetApp Disaster Recovery].
