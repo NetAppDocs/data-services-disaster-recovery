@@ -47,7 +47,7 @@ For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recov
 
 
 === VM name aliasing
-When you create a replication plan, you can now add a prefix and suffix to the VM names on the disaster recovery sit. This enables you to use a more descriptive name for the VMs in the plan.
+When you create a replication plan, you can now add a prefix and suffix to the VM names on the disaster recovery site. This enables you to use a more descriptive name for the VMs in the plan.
 
 //For details, see link:../use/drplan-create.html[Create a replication plan].
 For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
