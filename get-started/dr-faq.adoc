@@ -227,4 +227,4 @@ You can generate reports scoped to VMware, Kubernetes, or all workloads, coverin
 
 .What is an AppVault?
 
-An AppVault is the cloud storage target where Trident Protect saves Kubernetes protection data. You create an AppVault while configuring a Kubernetes replication plan..
+An AppVault is the cloud storage target where Trident Protect saves Kubernetes protection data. You create an AppVault while configuring a Kubernetes replication plan.
