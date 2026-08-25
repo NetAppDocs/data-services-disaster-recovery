@@ -20,7 +20,7 @@ NetApp Disaster Recovery is a cloud-based service in the NetApp Console that pro
 
 ## Product-specific context
 
-- *NetApp Disaster Recovery* is the official product name. Titles and the first reference in every file should use the full name. Subsequent references should use the name Disaster Recovery. 
+- *NetApp Disaster Recovery* is the official product name. Titles and the first reference in every file should use the full name: "NetApp Disaster Recovery." After the first use of the full product name in the body of a topic, all subsequent references to the product should only use "Disaster Recovery".
 - *Resource group* is the logical unit of protection (VMs, datastores, or Kubernetes resources) and is the object assigned to a replication plan.
 - *Replication plan* defines source/target mappings, schedule, retention, recovery mappings, and operations such as replicate, failover, and failback.
 - *SnapMirror* is the replication transport; protection is volume/LUN based even when users select VMs or datastores in the UI.

@@ -73,8 +73,7 @@ IMPORTANT: Some releases include a technology preview. NetApp doesn't charge you
 You can use the following license types:
 
 * Sign up for a 30-day free trial.
-//* Purchase a pay-as-you-go (PAYGO) subscription to *NetApp Intelligent Services* with the Amazon Web Services (AWS) Marketplace and Microsoft Azure Marketplace. 
-* Purchase a pay-as-you-go (PAYGO) subscription with the Amazon Web Services (AWS) Marketplace or Microsoft Azure Marketplace. This license enables you to purchase a fixed protected capacity license without any long-term commitment.
+* Purchase a pay-as-you-go (PAYGO) subscription with the Amazon Web Services (AWS) Marketplace, Azure Marketplace, or Google Cloud Marketplace. This license enables you to purchase a fixed protected capacity license without any long-term commitment.
 * Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console.
 
 Licenses for all NetApp data services are managed through subscriptions in the NetApp Console. After you set up your BYOL, you can see an active license for the service in the Console.
@@ -83,7 +82,7 @@ Disaster Recovery is licensed based on the amount of data hosted on protected ON
 
 Protected volumes can host many VMs. Some might not be part of a NetApp Disaster Recovery resource group. Regardless, the storage consumed by all VMs on that volume or LUN is used against the license maximum capacity.
 
-NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
+NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM or Kubernetes that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
 
 For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up NetApp Disaster Recovery licensing].
 
