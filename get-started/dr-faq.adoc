@@ -166,7 +166,7 @@ Yes. If a SnapMirror relationship already exists between the source and destinat
 
 == Migration
 
-.Does NetApp Disaster Recovery support migration in addition to disaster recovery?
+.Does Disaster Recovery support migration in addition to disaster recovery?
 
 Yes. You can migrate VMware applications from a source site to another site using a replication plan configured for migration. After you initiate migration, the service verifies every 30 minutes that migration is progressing according to plan; you can monitor progress in Job monitoring. Migration isn't currently supported for Kubernetes-based workloads. See link:../use/migrate.html[Migrate applications to another site].
 
