@@ -1,28 +1,230 @@
 ---
 sidebar: sidebar
 permalink: get-started/dr-faq.html
-keywords: disaster recovery faq, disaster recovery frequently asked questions
-summary: This FAQ can help if you're just looking for a quick answer to a question.
+keywords: disaster recovery faq, disaster recovery frequently asked questions, faq, frequently asked questions about disaster recovery, vmware, vcenter, kubernetes, trident protect, snapmirror, failover, failback, migration, replication, ontap, fsxn, fsx for ontap, console agent, resource groups, replication plans, rpo, rto
+summary: "Frequently asked questions about NetApp Disaster Recovery for VMware and Kubernetes workloads."
 ---
 
 = FAQ for NetApp Disaster Recovery
+:toc: macro
 :hardbreaks:
+:toclevels: 1
+:nofooter:
 :icons: font
+:linkattrs:
 :imagesdir: ../media/
 
 [.lead]
-This FAQ can help if you're just looking for a quick answer to a question.
+This FAQ answers common questions about NetApp Disaster Recovery for VMware and Kubernetes workloads. It focuses on concepts, terminology, system behavior, and constraints that are useful when implementing disaster recovery configurations and managing replication, migration, failover, and failback operations.
 
-*What's the NetApp Disaster Recovery URL?*
-For the URL, in a browser, enter: https://console.netapp.com/[https://console.netapp.com/^] to access the NetApp console. 
+toc::[]
 
-*Do you need a license to use NetApp Disaster Recovery?*
-A NetApp Disaster Recovery license is required for complete access. However, you can try it out with the free trial. 
+== Getting started
 
-For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up NetApp Disaster Recovery licensing].
+.What is NetApp Disaster Recovery?
 
-*How do you access NetApp Disaster Recovery?*
-NetApp Disaster Recovery does not require any enablement. Disaster Recovery automatically appears on the NetApp Console left navigation.  
+NetApp Disaster Recovery is a cloud-based disaster recovery service, accessed through the NetApp Console, that automates disaster recovery workflows for VMware and Kubernetes environments. It replicates on-premises VMware workloads running ONTAP storage, or Kubernetes workloads running Trident-managed ONTAP storage, to another site as a disaster recovery target. The service uses ONTAP SnapMirror technology, with native VMware orchestration or Trident Protect orchestration, to protect workloads while preserving ONTAP storage efficiencies such as compression and deduplication.
 
-//*Does this service support a cloud-to-cloud scenario?*  
-//This preview will support a cloud-to-cloud scenario for cross-region replication using VMware Cloud on AWS with Amazon FSx for NetApp ONTAP in separate AWS regions.  
+.How do you access Disaster Recovery?
+
+Disaster Recovery doesn't require any separate enablement. It automatically appears in the NetApp Console left navigation under *Protection* > *Disaster recovery*. To access the NetApp Console, in a browser, enter: https://console.netapp.com/[https://console.netapp.com/^].
+
+.Do you need a license to use Disaster Recovery?
+
+A Disaster Recovery license is required for full, ongoing access. You can try the service with a 30-day free trial before purchasing a license or subscription. For details, refer to link:dr-licensing.html[Set up Disaster Recovery licensing].
+
+.What are the supported protection targets for Disaster Recovery?
+
+Disaster Recovery supports the following protection targets:
+
+* Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP
+* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
+* Kubernetes clusters running Trident-managed ONTAP storage (protected using Trident Protect)
+* On-premises, NFS-based VMware environment with ONTAP storage, or an on-premises FC/iSCSI VMFS environment
+* VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP
+
+
+.What datastore types are supported by Disaster Recovery?
+
+For VMware workloads, Disaster Recovery supports the following datastore types:
+
+* NFS datastores hosted on ONTAP FlexVol volumes residing on ONTAP clusters
+* VMware vSphere virtual machine file system (VMFS) datastores using the iSCSI or FC protocol
+
+For Kubernetes workloads, Disaster Recovery protects persistent volumes provisioned through NetApp Trident on ONTAP storage.
+
+== Licensing and cost
+
+.What licensing options are available for Disaster Recovery?
+
+Disaster Recovery offers the following licensing options:
+
+* A 30-day free trial (no capacity limits are enforced during the trial)
+* A pay-as-you-go (PAYGO) subscription with Amazon Web Services (AWS) Marketplace, Azure Marketplace, or Google Cloud Marketplace
+* Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp sales representative and activate using the license serial number in the NetApp Console
+
+Disaster Recovery charges are based on the used capacity of datastores on the source site when there is at least one VM or Kubernetes resource that has a replication plan.
+
+.What happens if capacity is exceeded?
+
+For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.
+
+.What happens after the 30-day free trial ends?
+
+After the free trial ends, you can still view and delete resources such as workloads and replication plans, and run all scheduled operations that were created during the trial period. To continue using the service with full functionality, you need to obtain either a PAYGO subscription from your cloud provider or purchase a BYOL license from NetApp.
+
+You can purchase a license or subscribe at any time and won't be charged until the 30-day trial ends.
+
+== Supported environments and infrastructure
+
+.What infrastructure topologies does Disaster Recovery support?
+
+Disaster Recovery supports the following topologies:
+
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS or Amazon Elastic VMware Service (EVS) and Amazon FSx for NetApp ONTAP
+* Private cloud DR that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter
+* Cloud DR that replicates an AWS DR infrastructure based on VMware Cloud on AWS or EVS to another AWS-based DR infrastructure using FSx for NetApp ONTAP
+* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to a Google Cloud DR infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes
+* Kubernetes-to-Kubernetes DR between clusters using Trident-managed ONTAP storage
+
+== Prerequisites and setup
+
+.What prerequisites must be met before using Disaster Recovery?
+
+* Source and destination clusters must have a peer relationship.
+* The SVM that hosts the disaster recovery volumes must exist on the destination cluster.
+* The source SVM and destination SVM must have a peer relationship.
+* All VMware clusters that you want Disaster Recovery to manage must use ONTAP volumes to host any VMs that you want to protect.
+* VMware Tools (or Open VM Tools) must be running on the VMs that will be protected.
+* For Windows VMs running Microsoft SQL Server or Oracle Database, the databases must have their VSS Writers enabled.
+* For Oracle databases running on Linux, operating system user authentication must be enabled for the Oracle database SYSDBA role.
+* For Kubernetes, review the additional requirements in link:task-kubernetes-requirements.html[Kubernetes cluster requirements for Disaster Recovery].
+
+For the full list, see link:dr-prerequisites.html[Disaster Recovery prerequisites].
+
+.What is a Console agent and why is it required?
+
+A Console agent is a software component that enables the NetApp Console to communicate with your ONTAP storage and VMware vCenter clusters. It's required for Disaster Recovery to function properly. The agent resides in your private network (either an on-premises data center or a cloud VPC) and communicates with your ONTAP storage instances and vCenter clusters.
+
+For on-premises to on-premises disaster recovery, install the on-premises Console agent in the disaster recovery site. For on-premises to AWS, install the Console agent for AWS in your AWS VPC. Both the source and destination vCenter clusters should use the same Console agent. Disaster Recovery works only with the standard mode agent deployment.
+
+.What does a Kubernetes cluster need before it can be protected?
+
+Each Kubernetes cluster must have NetApp Trident installed, an ONTAP backend and storage class configured, and the volume snapshot CRDs and controller installed. Applications must use persistent volumes provisioned through the Trident storage class. When you add a Kubernetes cluster as a site, Disaster Recovery guides you through installing and registering Trident Protect on that cluster. See link:task-kubernetes-requirements.html[Kubernetes cluster requirements for Disaster Recovery] for step-by-step commands and verification checks.
+
+== Core concepts
+
+.What is a site in Disaster Recovery?
+
+A site is a logical container, typically associated with a physical data center or cloud location, that hosts one or more vCenter clusters or Kubernetes clusters. You add both a source (production) site and a destination (disaster recovery) site before creating a replication plan.
+
+.What is a resource group and how is it used?
+
+A resource group is a logical container that lets you manage multiple VMs, datastores, or Kubernetes namespaces and resources as a single unit, so they can be protected with a common snapshot. A VM can belong to only one resource group at a time. You can create a resource group for each application or workload that you want to protect, and VMs power on based on the boot order you configure within the group.
+
+.What is a replication plan in Disaster Recovery?
+
+A replication plan is a set of rules about how often backups occur and how to handle failover events. It selects the source and destination sites, assigns resource groups, defines recovery mappings, and configures power-on behavior. Plans define the recovery point objective (RPO) through the frequency of data replication.
+
+.What is the difference between RPO and RTO?
+
+Recovery point objective (RPO) is the maximum amount of data loss that's acceptable in the event of a disaster; it's defined by the replication plan's replication frequency or schedule. Recovery time objective (RTO) is the maximum amount of time that's acceptable to recover from a disaster; it's determined by how long it takes to fail over to the DR site and restart all VMs or applications.
+
+== Sites, discovery, and resource groups
+
+.What information is needed to add a vCenter to a site?
+
+* The vCenter management IP address or FQDN
+* Credentials for a vCenter account with the required privileges (see link:../reference/vcenter-privileges.html[required vCenter privileges])
+* For cloud-hosted VMware sites, the required cloud access keys
+* A security certificate to access your vCenter (self-signed or CA-issued certificates are both supported)
+
+For steps, see link:../use/sites-add.html[Add sites in Disaster Recovery].
+
+.How often does Disaster Recovery discover vCenter or Kubernetes environments?
+// check this
+
+Discovery runs every 24 hours by default; you can customize the schedule to fit your environment. The minimum interval is 30 minutes and the maximum is 24 hours. NetApp recommends performing a few manual discoveries first to get up-to-date information, then setting the schedule to run automatically. Newly added or deleted resources are recognized at the next scheduled or manual discovery.
+
+.Can protected and unprotected resources be hosted on the same datastore?
+// simplify 
+
+No. Hosting protected and unprotected VMs on the same datastore can cause problems. Namely, if the datastore is failed over, any unprotected VMs on it no longer exist at the source after failover, and Disaster Recovery won't start them at the failover site.
+
+You should organize resources before deploying Disaster Recovery so that protected and unprotected workloads use separate subsets of datastores, and ensure a single datastore isn't protected by more than one replication plan.
+
+== Replication and protection
+
+.Which SnapMirror replication policy should I use?
+
+If you plan to use platform-managed (ONTAP-managed) backups, use the *MirrorAll* policy. *MirrorVault* and *Asynchronous* are acceptable alternatives, but you must ensure the snapshot selected during failover or failback exists on both source and destination volumes, or the operation fails with a "no common snapshot found" error. *MirrorLatest* isn't recommended because it leaves only one common snapshot for failover. For SnapMirror relationships that Disaster Recovery manages, don't schedule updates for them outside the service, since Disaster Recovery manages replication timing.
+
+.Can I use an existing SnapMirror relationship with Disaster Recovery?
+
+Yes. If a SnapMirror relationship already exists between the source and destination volumes for a protected datastore, Disaster Recovery uses that relationship for all replication operations instead of creating a new one.
+
+== Migration
+
+.Does Disaster Recovery support migration in addition to disaster recovery?
+
+Yes. You can migrate VMware applications from a source site to another site using a replication plan configured for migration. After you initiate migration, the service verifies every 30 minutes that migration is progressing according to plan; you can monitor progress in Job monitoring. Migration isn't currently supported for Kubernetes-based workloads. See link:../use/migrate.html[Migrate applications to another site].
+
+== Failover and testing
+
+.Can I test my disaster recovery plan without impacting production workloads?
+
+Yes. During a test failover, Disaster Recovery creates temporary VMs from a new FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the ESXi hosts. This doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
+
+.What happens during a failover operation?
+
+1. Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.
+2. If the latest snapshot was selected, it performs a SnapMirror update to replicate the latest changes.
+3. The source VMs are powered down.
+4. The SnapMirror relationship is broken and the target volume is made read/write.
+5. Based on the snapshot selection, the active file system is restored to the specified snapshot.
+6. Datastores are created and mounted to the VMware or VMC cluster or host (VMFS datastores also get an iGroup mapped to each LUN).
+7. The target VMs are registered within vCenter as new datastores.
+8. The target VMs power on based on the boot order in the resource group.
+9. If the source vCenter is still active, source-side VMs being failed over are powered off.
+10. Any application-consistent VMs are unquiesced.
+11. If the source vCenter and ONTAP clusters are still active, a reverse SnapMirror relationship is created to replicate changes back to the original source site (unless *Skip protection* was selected).
+
+.Can I customize the boot order of VMs during failover?
+
+Yes. By default, all VMs boot together in parallel, but you can assign each VM a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple VMs to boot them simultaneously. You can also set a boot delay (0–10 minutes) per VM to stagger startup, which is useful for ensuring priority VMs are running before later-priority VMs start.
+
+== Failback
+
+.What is the failback process and when should it be used?
+
+Failback returns operations to the original source site after a disaster has been resolved. Starting from a relationship that has failed over to the target, Disaster Recovery resyncs any changes back to the original source VM or Kubernetes cluster before reversing the replication direction. The process:
+
+1. Performs a compliance check on the recovered site.
+2. Refreshes vCenter information for each vCenter cluster in the recovered site.
+3. On the target site, powers off and unregisters the VMs, and unmounts volumes.
+4. Breaks the SnapMirror relationship on the original source to make it read/write.
+5. Resynchronizes the SnapMirror relationship to reverse replication direction.
+6. Powers on and registers the source VMs, and mounts the volumes on the source.
+
+See link:../use/failback.html[Fail back applications to the original source].
+
+== Monitoring, reporting, and management
+
+.How can I check the health of my sites and replication plans?
+
+Use the Disaster Recovery *Dashboard* to see whether sites and plans are healthy, disconnected, or degraded; review recent warnings and failed jobs; identify protected and unprotected workloads; and view capacity at a glance. See link:../use/dashboard-view.html[View disaster recovery plan health].
+
+.How do I monitor or cancel a job?
+
+Use *Job monitoring* to review job timestamps, status, and initiator (or "system" if Disaster Recovery initiated it). You can cancel a job that's "In progress" or "Queued" from its Actions menu, which is useful if a job is stuck or you need to prioritize another operation. See link:../use/monitor-jobs.html[Monitor Disaster Recovery jobs].
+
+.What reports are available and in what formats?
+
+You can generate reports scoped to VMware, Kubernetes, or all workloads, covering replication plan details, compliance status and job summaries. Reports can be downloaded as PDF, HTML, or JSON files. They cover a time period of one to seven days. For more information, see link:../use/reports.html[Create reports in Disaster Recovery].
+
+== Kubernetes-specific questions
+
+.What is an AppVault?
+
+An AppVault is the cloud storage target where Trident Protect saves Kubernetes protection data. You create an AppVault while configuring a Kubernetes replication plan.
