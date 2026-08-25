@@ -61,7 +61,7 @@ For Kubernetes workloads, Disaster Recovery protects persistent volumes provisio
 Disaster Recovery offers the following licensing options:
 
 * A 30-day free trial (no capacity limits are enforced during the trial)
-* A pay-as-you-go (PAYGO) subscription with Amazon Web Services (AWS) Marketplace, Google Cloud Marketplace, or Azure Marketplace
+* A pay-as-you-go (PAYGO) subscription with Amazon Web Services (AWS) Marketplace, Azure Marketplace, or Google Cloud Marketplace
 * Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp sales representative and activate using the license serial number in the NetApp Console
 
 Disaster Recovery charges are based on the used capacity of datastores on the source site when there is at least one VM or Kubernetes resource that has a replication plan.
