@@ -121,10 +121,13 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 +
 image:dr-plan-failover3.png[Fail over page]
 
-. In the Fail over page, either create a new snapshot now or choose an existing snapshot for the datastore to use as the basis for recovery. The default is the latest. 
+. Choose the snapshot copy you want to use for failover:
 +
-A snapshot of the current source will be taken and replicated to the current destination before failover occurs. 
-
+* Choose *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster before failover. 
+* Choose *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
+* Choose *Select* to review a list of snapshots sorted by recency. 
++
+include::../_include/latest-snapshot.adoc[]
 . Select *Force failover* if you want failover to continue even when the service detects an error that would normally block it. 
 
 . Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
@@ -147,7 +150,13 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select the replication plan.
 
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Fail over*.
-. Choose the snapshot copy you want to use for failover. You can *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster or *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
+. Choose the snapshot copy you want to use for failover:
++
+* Choose *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster
+* Choose *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
+* Choose *Select* to review a list of snapshots sorted by recency. 
++
+include::../_include/latest-snapshot.adoc[]
 . Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
 
 . Enter "Failover" to confirm the action then select *Failover*. 
