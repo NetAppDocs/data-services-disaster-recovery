@@ -1,2 +1,2 @@
 [NOTE]
-When selecting a specific snapshot baseline, SnapMirror transfer snapshots are hidden by default. This is because they can be deleted mid-failover, leading to an inability to reprotect the workload after failover due to "no common snapshot found" error
+When selecting a specific snapshot baseline, SnapMirror transfer snapshots are hidden by default because they can be deleted mid-failover. This deletion leads to an inability to reprotect the workload after failover due to a "no common snapshot found" error. You can still use SnapMirror transfer snapshots, but will have to complete an additional confirmation prompt to acknowledge the risk. 
