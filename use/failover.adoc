@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: use/failover.html
 keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter
-summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
 
 = Fail over applications to a remote site with NetApp Disaster Recovery
@@ -83,7 +83,7 @@ After the failover test finishes, you should clean up the test environment. This
 
 If a disaster occurs, fail over your primary on-premises VMware site on demand to another on-premises VMware site or VMware Cloud on AWS with FSx for NetApp ONTAP. 
 
-The failover process involves in the following operations: 
+The failover process involves the following operations: 
 
 * Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship. 
 * If you selected the latest snapshot, the SnapMirror update is performed to replicate the latest changes. 
@@ -93,9 +93,9 @@ The failover process involves in the following operations:
 * Datastores are created and mounted to the VMware or VMC cluster or host based on the information captured in the replication plan. If any datastores are VMFS, create and map an iGroup to each LUN. 
 * The target VMs are registered within vCenter as new datastores.  
 * The target VMs are powered on based on the boot order captured in the Resource groups page.  
-* If the source vCenter is still active, power off all source side VMs that are being failed over. 
+* If the source vCenter is still active, power off all source-side VMs that are being failed over. 
 * Unquiesce any supported database applications in VMs indicated as "application consistent." 
-* If source vCenter and ONTAP clusters are still active, create a reverse direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source virtual machine. 
+* If source vCenter and ONTAP clusters are still active, create a reverse-direction SnapMirror relationship to replicate any changes while in failover state back to the original source site. The SnapMirror relationship is reversed from target to source virtual machine. 
 
 
 
@@ -121,10 +121,13 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 +
 image:dr-plan-failover3.png[Fail over page]
 
-. In the Fail over page, either create a new snapshot now or choose an existing snapshot for the datastore to use as the basis for recovery. The default is the latest. 
+. Choose the snapshot copy you want to use for failover:
 +
-A snapshot of the current source will be taken and replicated to the current destination before failover occurs. 
-
+* Choose *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster before failover. 
+* Choose *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
+* Choose *Select* to review a list of snapshots sorted by recency. 
++
+include::../_include/latest-snapshot.adoc[]
 . Select *Force failover* if you want failover to continue even when the service detects an error that would normally block it. 
 
 . Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
@@ -147,8 +150,14 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select the replication plan.
 
 . On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Fail over*.
-. Choose the snapshot copy you want to use for failover. You can *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster or *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
-. Select *Skip protection* if you want the service to not automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
+. Choose the snapshot copy you want to use for failover:
++
+* Choose *Take snapshot now* to create a brand new snapshot that will be copied to the destination cluster.
+* Choose *Use latest snapshot* to use the most recent snapshot available on the destination cluster. 
+* Choose *Select* to review a list of snapshots sorted by recency. 
++
+include::../_include/latest-snapshot.adoc[]
+. Select *Skip protection* if you want Disaster Recovery not to automatically create a reverse SnapMirror protection relationship after a replication plan failover. This is useful if you want to perform additional operations on the restored site before you bring it back online within NetApp Disaster Recovery. 
 
 . Enter "Failover" to confirm the action then select *Failover*. 
 

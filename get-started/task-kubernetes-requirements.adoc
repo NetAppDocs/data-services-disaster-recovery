@@ -10,11 +10,11 @@ summary: Before using NetApp Disaster Recovery, ensure your Kubernetes clusters 
 :imagesdir: ../media/get-started/
 
 [.lead]
-Before configuring NetApp Disaster Recovery for Kubernetes clusters, you must prepare each Kubernetes cluster. Typically, protection applies to a source and separate destination cluster, meaning these procedures need to be applied to each cluster in the pair. 
+Before configuring NetApp Disaster Recovery for Kubernetes, prepare each Kubernetes cluster. Protection typically applies to a source cluster and a separate destination cluster, so complete these procedures on each cluster in the pair. 
 
 == Prerequisites
 
-Before configuring Kubernetes cluster requirements, ensure you've configured your Kubernetes cluster and ONTAP clusters. 
+Before you begin, ensure that your Kubernetes cluster and ONTAP clusters are configured. 
 
 Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html[any version of Kubernetes currently supported by Trident Protect^].
 
@@ -22,17 +22,17 @@ Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-pr
 
 For each Kubernetes cluster, ensure:
 
-- You have administrator `kubectl` access to each Kubernetes cluster.
-- Helm 3 is available where you run install commands
+* You have administrator `kubectl` access to each Kubernetes cluster.
+* Helm 3 is available where you run install commands.
 
 === ONTAP requirements
 
 For each ONTAP cluster, ensure you've configured the following resources:
 
-* **Management LIF** - this is used by Trident for management API access
-* **Data (NFS) LIF** - this is used for NFS traffic for volumes
-* **SVM name** - the storage VM hosting volumes
-* **Credentials** - The account Trident will use (generally, `admin` or an SVM-scoped account)
+* **Management LIF**: Used by Trident for management API access.
+* **Data (NFS) LIF**: Used for NFS traffic for volumes.
+* **SVM name**: The storage VM that hosts the volumes.
+* **Credentials**: The account that Trident uses, generally `admin` or an SVM-scoped account.
 
 * Worker nodes must be able to reach ONTAP management and data LIFs.
 * If you use `autoExportPolicy` with CIDR restrictions, include your node subnets.
@@ -61,7 +61,7 @@ For more information, see link:https://docs.netapp.com/us-en/trident/trident-use
 
 === Create the TridentBackendConfig
 
-link:https://docs.netapp.com/us-en/trident/trident-use/backend-kubectl.html#step-2-create-the-tridentbackendconfig-cr[Apply a `TridentBackendConfig` that points to your SVM.^] You can 
+Apply a link:https://docs.netapp.com/us-en/trident/trident-use/backend-kubectl.html#step-2-create-the-tridentbackendconfig-cr[`TridentBackendConfig` that points to your SVM^]. For example: 
 
 [source,yaml]
 ----
@@ -119,7 +119,7 @@ For Trident Protect to replicate your application data, the applications must us
 
 == Configure volume group snapshot custom resource definitions (CRD)
 
-link:https://docs.netapp.com/us-en/trident/trident-use/vol-group-snapshots.html#deploy-a-volume-snapshot-controller[Install the snapshot CRD and snapshot controller.^]. These installations are required for volume snapshots in Trident Protect.
+Install the link:https://docs.netapp.com/us-en/trident/trident-use/vol-group-snapshots.html#deploy-a-volume-snapshot-controller[snapshot CRD and snapshot controller^]. These installations are required for volume snapshots in Trident Protect.
 
 Verify the custom resource definitions with the command:
 
@@ -166,7 +166,7 @@ After verifying the status of all resources, deploy or link:https://docs.netapp.
 `kubectl create namespace trident-protect`
 . Create a Kubernetes secret using the client ID and client secret to create the OCCM authentication credentials. 
 +
-`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clientID> --from-literal=<clientSecret>`
+`kubectl create secret generic occmauthcreds --namespace=trident-protect --from-literal=client_id=<clientID> --from-literal=client_secret=<clientSecret>`
 . Add or update the helm repo:
 +
 `helm repo add --force-update netapp-trident-protect https://netapp.github.io/trident-protect-helm-chart`

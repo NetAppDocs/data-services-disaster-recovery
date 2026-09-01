@@ -17,7 +17,7 @@ Before using NetApp Disaster Recovery, ensure your environment meets the VMware 
 These prerequisites apply to both on-premises vCenter clusters and to VMware Cloud for AWS software-defined data center (SDDC).
 
 * Review link:../reference/vcenter-privileges.html[vCenter privileges] required for NetApp Disaster Recovery. 
-* All VMware clusters that you want NetApp Disaster Recovery to manage use ONTAP volumes to host any VMs that you want to protect.
+* All VMware clusters that NetApp Disaster Recovery manages must use ONTAP volumes to host the VMs that you want to protect.
 * All VMware datastores to be managed by NetApp Disaster Recovery must use one of the following protocols: 
 ** NFS 
 ** VMFS using the iSCSI or FC protocol 
@@ -28,4 +28,4 @@ These prerequisites apply to both on-premises vCenter clusters and to VMware Clo
 If you are using VMware Cloud SDDC, these additional prerequisites apply:
 
 * In the VMware Cloud Console, use the service roles of Administrator and NSX Cloud Administrator. Also use the organization owner for the Organization role. Refer to https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/vmware-cloud-ontap.html[Using VMware Cloud Foundations with AWS FSx for NetApp ONTAP documentation^]. 
-* Link the VMware Cloud SDDC with Amazon FSx for NetApp ONTAP instance. Refer to https://vmc.techzone.vmware.com/fsx-guide#overview[VMware Cloud on AWS integration with Amazon FSx for NetApp ONTAP deployment information^].
+* Link the VMware Cloud SDDC with an Amazon FSx for NetApp ONTAP instance. Refer to https://vmc.techzone.vmware.com/fsx-guide#overview[VMware Cloud on AWS integration with Amazon FSx for NetApp ONTAP deployment information^].

@@ -1,0 +1,12 @@
+=== Improved SnapMirror snapshot management
+
+You can now trigger failover using the latest snapshot, which is the preferred method when you're not taking a new snapshot.
+
+When selecting a specific snapshot baseline, SnapMirror transfer snapshots are hidden by default. This is because they can be deleted mid-failover, leading to an inability to reprotect the workload after failover due to a "no common snapshot found" error. You can still use these snapshots, but will have to complete an additional confirmation prompt to acknowledge the risk. 
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over to a remote site^].
+
+=== Other improvements
+
+* Minor improvements have been made to increase the resiliency of the test failover workflow.
+* A validation error when adding a script has been corrected.
