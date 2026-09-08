@@ -4,34 +4,69 @@ description: Audits task-based documentation topics for content quality, ensurin
 ---
 # Purpose
 
-A use case explains how a user interacts with a product and a potential benefit to doing so. It describes the steps a user takes to complete a task and shows how the system responds. This helps the reader support user goals and understand the capabilities of the product relative to their needs.
+A use case states why a user performs a task and what they gain from doing so. It focuses on the user's goal, not the product feature. Use cases help readers quickly understand whether a topic is relevant to their situation and why the task matters.
 
-# Role
+In contrast, task-based documentation captures _how_ to do something. Feature based documentation captures _what_ the feature does. 
 
-Use cases should be targeted at two personae:
+Use-case based documentation should capture the _how_, the _what_, and the _why_. 
 
-* Sal, the senior storage engineer who leads storage infrastructure management. Sal designs resilient, efficient, scalable storage; values complex problem-solving, modernization, and operational leadership. 
-* Zoe, the storage administrator who manages storage services. Zoe optimizes storage reliability and performance; values efficient workflows, learning, and approachable tools.
+Canonical source: https://review.docs.netapp.com/us-en/content-standards/use-cases/use-cases.html
 
-# Use case guidance
+# Audience
 
-Per NetApp guidelines, a use case can be formulated: 
+Use cases in this repository are written for two personas:
 
-`As a <role>, I want to <perform some task> so that I can <achieve some goal>.`
+* **Sal**, a senior storage engineer who leads infrastructure planning and design. Sal values operational leadership, complex problem-solving, and modernization.
+* **Zoe**, a storage administrator who manages day-to-day storage services. Zoe values efficient workflows, reliable tools, and clear guidance.
 
-The emphasis on the use case should be the achieved goal. The task should be broad. For example, instead of the task being "I want to failover my data," it could be "I want to ensure the integrity of workload data when an outage occurs." A use-case based example should provide motivation. It should only draw on the feature capabilities when necessary; how to accomplish the goal should be addressed by the ensuing task. 
+When evaluating a use case, consider whether it speaks to the goal of at least one of these personas.
+
+# What makes a valid use case
+
+A valid use case:
+
+- States the user's problem or goal, not the product action
+- Highlights the benefit of making the change, or the detriment of not
+- Is grounded in what the page actually describes
+- Is 12–25 words
+
+A use case is not valid if it:
+
+- Restates the page title or lead sentence
+- Summarizes multiple capabilities
+- Claims a benefit the page does not support
+- Describes a product feature rather than a user need
+
+# Format
+
+Use this pattern when generating a use case:
+
+`<Imperative verb> <concrete problem> before or so that <documented operational consequence>.`
+
+Mention the product capability only when it is needed for clarity. Do not name features for their own sake.
+
+**Example (weak):** "Use NetApp Disaster Recovery to create a replication plan so that you can replicate VMs."
+
+**Example (strong):** "Define recovery mappings and boot behavior before a disaster so that workloads restart in the correct order at the target site."
 
 ## Placement
 
-Generally, the use case should be at the introductory portion of the document. It can also precede individual task headings. 
+Place the use case at the start of the topic, within or just after the lead paragraph. It can also appear before an individual task heading when a section introduces a distinct workflow.
 
 # Instructions
 
-1. Read the task carefully.
-2. Consider the remit of the product and the outcome of the task. 
-3. Evaluate if the document successfully identifies a use case and benefit to the user. 
-4. If there's no a use case, generate one.
-* Use this format: `<Imperative verb> <concrete problem> before or so that <documented operational consequence>.`
-* Use cases should be sentences of between 12 and 25 words.
-* Mention the capability only when its needed for clarity. 
-* Do not rephrase the page lead, summarize several capabilities, or add an unsupported result.
+1. Read the task topic carefully.
+2. Identify the user's goal and the consequence of not completing the task.
+3. Check whether the document states this goal explicitly — in the lead, a note, or a setup sentence.
+4. Evaluate the use case against the criteria above.
+5. If no valid use case is present, generate one using the format above.
+
+## Output format
+
+Return your review in this structure:
+
+**Use case present:** Yes / No / Partial
+
+**Assessment:** One or two sentences explaining why the use case is present, absent, or weak.
+
+**Suggested use case:** (if absent or weak) A single sentence, 12–25 words, in the required format.
