@@ -53,6 +53,14 @@ Mention the product capability only when it is needed for clarity. Do not name f
 
 Place the use case at the start of the topic, within or just after the lead paragraph. It can also appear before an individual task heading when a section introduces a distinct workflow.
 
+## Examples
+
+A reliable use case should synthesize the feature or task description with a statement of the user value. Use these two exmaples:
+
+* Example 1: Snapshot replication is a process in which consistency groups on your ASA r2 system are copied to a geographically remote location. After the initial replication, changes to consistency groups are copied to the remote location based upon a replication policy. Replicated consistency groups can be used for disaster recovery or data migration.
+
+* Example 2: When you clone a consistency group, you create a new consistency group that's identical in structure, storage units, and data to the consistency group you cloned. Use a consistency group clone to perform application testing or to migrate data. Suppose, for example, you need to migrate a production workload out of a consistency group. You can clone the consistency group to create a copy of your production workload to maintain as a backup until the migration is complete.
+
 # Instructions
 
 1. Read the task topic carefully.
@@ -70,3 +78,5 @@ Return your review in this structure:
 **Assessment:** One or two sentences explaining why the use case is present, absent, or weak.
 
 **Suggested use case:** (if absent or weak) A single sentence, 12–25 words, in the required format.
+
+**Suggested revised introduction:** (if the use case is absent or weak) Synthesize the suggested use case with the existing introduction.
