@@ -11,7 +11,7 @@ summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service
 :imagesdir: ../media/use/
 
 [.lead]
-Monitor NetApp Disaster Recovery jobs to track their status and progress. 
+Monitor NetApp Disaster Recovery jobs to view their history, status, and details. Track job status and progress enables you to catch failed or stalled operations before they affect recovery readiness.
 
 == View jobs 
 
