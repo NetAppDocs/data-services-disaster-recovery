@@ -51,9 +51,13 @@ Mention the product capability only when it is needed for clarity. Do not name f
 
 ## Placement
 
-Place the use case at the start of the topic, within or just after the lead paragraph. It can also appear before an individual task heading when a section introduces a distinct workflow.
+In most cases, the use case should be at the introduction of the topic, within or just after the lead paragraph. In some cases, use cases should preceded individual task-based workflows on a page.
 
-## Examples
+<!-- If the topic includes multiple workflows, assess whether they are related. If they are distinct, the use case can  -->
+
+## Passing use case examples
+
+A valid use case should connect the user goal to the operational consequence. Use the examples below to judge whether the topic is specific, relevant, and grounded in the task it describes.
 
 A reliable use case should synthesize the feature or task description with a statement of the user value. Use these two exmaples:
 
@@ -67,16 +71,55 @@ A reliable use case should synthesize the feature or task description with a sta
 2. Identify the user's goal and the consequence of not completing the task.
 3. Check whether the document states this goal explicitly — in the lead, a note, or a setup sentence.
 4. Evaluate the use case against the criteria above.
-5. If no valid use case is present, generate one using the format above.
+5. If the use case evaluation is a pass, output: "Use case present; no rewrite needed." If the use case evaluation is mixed or fail, generate one based on the stated format. Also generate an introduction based on the examples. 
 
 ## Output format
 
 Return your review in this structure:
 
-**Use case present:** Yes / No / Partial
+**Use case evaluation:** Pass / Fail / Mixed
+
+**No-change note:** If the status is Pass, write: “No change needed.”
 
 **Assessment:** One or two sentences explaining why the use case is present, absent, or weak.
 
 **Suggested use case:** (if absent or weak) A single sentence, 12–25 words, in the required format.
 
 **Suggested revised introduction:** (if the use case is absent or weak) Synthesize the suggested use case with the existing introduction.
+
+### Example outputs 
+
+#### Pass
+
+Topic excerpt: “Before a failover, define recovery mappings and boot behavior so workloads restart in the correct order at the target site.”
+
+Decision: Pass
+
+Assessment: The statement identifies a real user concern and explains the operational consequence of acting before a disruption. It is specific, task-oriented, and does not describe a product feature for its own sake.
+
+Suggested use case: None required.
+
+#### Mixed
+
+Topic excerpt: "Use NetApp Disaster Recovery to create a replication plan and protect VMs."
+
+Decision: Mixed
+
+Assessment: The statement names the product and the task, but it does not clearly explain the user’s problem, the urgency, or the operational benefit. It reads more like feature description than a use case.
+
+Suggested use case: Define recovery mappings and retention settings before a disaster so workloads can resume quickly and in the correct order at the target site.
+
+Fail example
+Topic excerpt: “This feature supports replication, failover, and migration for VMware workloads.”
+
+#### Fail
+
+Topic excerpt: "This feature supports replication, failover, and migration for VMware workloads."
+
+Decision: Fail
+
+Assessment: The statement is feature-focused and does not explain why the user needs the capability or what happens if they do not complete the task. It does not identify an operational need or benefit.
+
+Suggested use case: Prepare workloads for recovery before a disruption so critical services can resume quickly at the target site.
+
+<!-- capture case where the use case has to be at a task level // call a second skill to rewrite introductions to sections or topics -->
