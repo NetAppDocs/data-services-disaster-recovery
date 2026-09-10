@@ -1,0 +1,27 @@
+=== Improved dashboard
+The Disaster Recovery dashboard has been refreshed with an enhanced experience that provides a comprehensive, at-a-glance view of your entire Disaster Recovery estate. The new dashboard includes:
+
+* *Unified workload visibility* — Monitor both VMware and Kubernetes workloads alongside underlying infrastructure health from a single pane of glass.
+* *Proactive issue surfacing* — The dashboard now automatically highlights environmental issues, enabling faster diagnostics and reduced time to resolution.
+* *Capacity utilization* — Capacity metrics are now presented directly within the dashboard, enabling easier understanding of resource consumption.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboard-view.html[View the health of your NetApp Disaster Recovery plans on the Dashboard^].
+
+=== Improved reports
+
+Reporting capabilities have been expanded to provide deeper insight into Disaster Recovery activity across your environment:
+
+* Generate reports scoped to VMware workloads, Kubernetes workloads, or both, giving you the flexibility to tailor reports to your audience.
+* Each report delivers a complete activity summary for a specified time period, ensuring full visibility into events in your Disaster Recovery environment.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/reports.html[Create NetApp Disaster Recovery reports^].
+
+=== User job logging
+
+Disaster Recovery has improved the accountability and auditability of jobs with user-level job logging. Every job executed now records the user who initiated it, providing a clear audit trail for compliance and troubleshooting purposes. Jobs triggered automatically by Disaster Recovery are identified as "system", making it easy to distinguish between user-initiated and service-initiated activity.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html[Monitor NetApp Disaster Recovery jobs^].
+
+=== Performance and resource optimization
+
+Various under-the-hood improvements have been made to reduce overall system resource consumption and increase performance across Disaster Recovery operations.

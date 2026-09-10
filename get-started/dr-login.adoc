@@ -11,9 +11,9 @@ summary: Get started with NetApp Disaster Recovery by accessing the service in t
 :imagesdir: ../media/get-started/
 
 [.lead]
-You use the NetApp Console to log in to the NetApp Disaster Recovery service. 
+Log in to NetApp Disaster Recovery through the NetApp Console. 
 
-To log in, you can use your NetApp Support Site credentials or you can sign up for a NetApp cloud login using your email and a password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Learn more about logging in^].
+To log in, use your NetApp Support Site credentials or sign up for a NetApp cloud login with your email address and password. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html[Learn more about logging in^].
 
 Specific tasks require specific user roles. 
 link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
@@ -36,9 +36,9 @@ image:draas-landing6-free-trial.png[Landing page screenshot for NetApp Disaster 
 + 
 Otherwise, the NetApp Disaster Recovery Dashboard appears. 
 +
-* If you haven't yet added a NetApp Console agent, you'll need to add one. To add the agent, refer to https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html[Learn about Console agents^].
+* If you haven't yet added a NetApp Console agent, add one. For details, refer to https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html[Learn about Console agents^].
 
-* If you are a NetApp Console user with an existing agent, when you select "Disaster recovery," a message appears about signing up. 
+* If you are a NetApp Console user with an existing agent, when you select *Disaster recovery*, a message appears about signing up. 
 * If you are already using the service, when you select "Disaster recovery," the Dashboard appears. 
 
 +

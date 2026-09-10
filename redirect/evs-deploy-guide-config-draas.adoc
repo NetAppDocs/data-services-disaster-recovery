@@ -1,0 +1,4 @@
+---
+permalink: reference/evs-deploy-guide-config-draas.html
+redirect: data-services-disaster-recovery/reference/evs-deploy-guide-config-prereqs.html
+---

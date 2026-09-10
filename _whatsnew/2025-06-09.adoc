@@ -1,7 +1,7 @@
 
 === Windows Local Administrator Password Solution (LAPS) support
 
-Windows Local Administrator Password Solution (Windows LAPS) is a Windows feature that automatically manages and backs up the password of a local administrator account on Active directory.
+Windows Local Administrator Password Solution (Windows LAPS) is a Windows feature that automatically manages and backs up the password of a local administrator account on Active Directory.
  
 You can now select subnet mapping options and check the LAPS option by providing the domain controller details. Using this option, you don't need to provide a password for each of your virtual machines.
 

@@ -2,15 +2,15 @@
 sidebar: sidebar
 permalink: use/resource-group.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
-summary: Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements.
+summary: Resource groups let you organize dependent resources into logical groups that meet your requirements.
 ---
-= Create a resource group to organize VMs together in NetApp Disaster Recovery
+= Create a resource group in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-After you've added resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups enable you to organize a set of dependent resources into logical groups that meet your requirements. For example, you might group VMs associated with one application or you might group applications that have similar tiers. As another example, groups could contain delayed boot orders that can be run upon recovery.
+After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups let you organize dependent resources into logical groups that meet your requirements. For example, you can group VMs for one application or group applications that share similar tiers. Resource groups can also include delayed boot orders that run during recovery.
 
 include::../_include/iam-super-admin.adoc[]
 
@@ -23,7 +23,7 @@ You can create resource groups using the following methods:
 * From the Resource groups option  
 * While you're creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:drplan-create.html[Create a replication plan].
 
-TIP: Each resource group can include one or more VMs, datastore, or Kubernetes cluster. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
+TIP: Each resource group can include one or more VMs, datastores, or Kubernetes clusters. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
 
 .About resource groups
 
@@ -34,9 +34,9 @@ For example, a point-of-sale application might use several VMs for databases, bu
 
 .How does it work?
 
-NetApp Disaster Recovery protects VMs by replicating the underlying ONTAP volumes and LUNs hosting the VMs in the resource group. To do this, the system queries vCenter for the name of each data store hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store. All protection is performed at the ONTAP volume level using SnapMirror replication.
+NetApp Disaster Recovery protects VMs by replicating the underlying ONTAP volumes and LUNs hosting the VMs in the resource group. To do this, the system queries vCenter for the name of each datastore hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store. All protection is performed at the ONTAP volume level using SnapMirror replication.
 
-If VMs in the resource group are hosted on different data stores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.
+If VMs in the resource group are hosted on different datastores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.
 
 [cols=2*,options="header",cols="30,65a",width="100%"]
 |===
@@ -110,7 +110,7 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 . Select *Add*. 
 . Enter a **Name** for the resource group and select the Kubernetes **Cluster** from the dropdown menu.
 . Select the *Namespaces* to add to the resource group.
-. Classify the *Resource types*. By default, the selection is "Includes all," which denotes multiple resource types
+. Classify the *Resource types*. By default, the selection is "Includes all," which denotes multiple resource types.
 . Optionally, include any *Label selectors*. 
 +
 image:kubernetes-resource-group.png[Screenshot of add a Kubernetes resource group]

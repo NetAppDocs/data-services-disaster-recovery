@@ -1,0 +1,33 @@
+=== Kubernetes updates
+
+Disaster Recovery has introduced the following changes for Kubernetes-based workloads:
+
+==== Manage Trident Protect from the Sites menu
+
+Disaster Recovery now supports managing Trident Protect directly from the Sites menu in the Disaster Recovery UI. You can upgrade Trident Protect or remove it from Disaster Recovery, streamlining management of your Kubernetes resources. 
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/manage.html[Manage sites^].
+
+=== VMware updates
+
+Disaster Recovery has introduced the following changes for VMware-based workloads:
+
+==== Fail over empty datastores
+
+Replication plans that include empty datastores can now be failed over successfully without excluding them from the plan or forcing failover. During failover, Disaster Recovery automatically mounts the empty datastore at the disaster recovery site, allowing VMs to be added and protected for failback operations.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Failover to a remote site^].
+
+==== vCenter network automapping
+
+You can now configure network mapping relationships at the vCenter level (that is, outside of the replication plan dialog). Once configured, Disaster Recovery automatically applies these network mappings when you add or edit a replication plan, streamlining replication plan management.
+
+Disaster Recovery continues to support per-plan overrides. Existing network mappings defined within a replication plan can still be edited on a per-network basis; these mappings take precedence over the vCenter-level definitions.
+
+=== Disaster Recovery viewer role tightening
+
+The ability to view the Upgrade System tab has been removed from the Disaster Recovery viewer role. This change aligns the role with the more appropriate experience for read-only users. link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery^]. 
+
+=== System performance enhancements
+
+Disaster Recovery has introduced changes to reduce system resource consumption and improve performance across operations.  

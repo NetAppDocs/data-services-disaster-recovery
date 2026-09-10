@@ -14,11 +14,11 @@ summary: Disaster recovery to the cloud is a resilient and cost-effective way of
 [.lead]
 Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events. NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. With NetApp Disaster Recovery, you can protect your on-premises Kubernetes clusters, NFS-based workloads, and VMware vSphere virtual machine file system (VMFS) datastores for iSCSI and FC running NetApp storage to one of the following: 
 
-* Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP  For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction of NetApp Disaster Recovery using Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
+* Amazon Elastic VMware Service (EVS) with Amazon FSx for NetApp ONTAP. For details, refer to link:../reference/evs-deploy-guide-introduction.html[Introduction to NetApp Disaster Recovery with Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP].
 * VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP 
-* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Azure VMware Solution with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
 * Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
-* Another on-premises NFS and or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
+* Another on-premises NFS- and/or VMFS-based (iSCSI/FC) VMware environment with ONTAP storage
 
 NetApp Disaster Recovery uses ONTAP SnapMirror technology with integrated native VMware orchestration to protect VMware VMs and their associated on-disk OS images, while retaining all storage efficiency benefits of ONTAP. Disaster Recovery uses these technologies as the replication transport to the disaster recovery site. This enables industry-best storage efficiency (compression and deduplication) on primary and secondary sites. 
 
@@ -73,8 +73,7 @@ IMPORTANT: Some releases include a technology preview. NetApp doesn't charge you
 You can use the following license types:
 
 * Sign up for a 30-day free trial.
-//* Purchase a pay-as-you-go (PAYGO) subscription to *NetApp Intelligent Services* with the Amazon Web Services (AWS) Marketplace and Microsoft Azure Marketplace. 
-* Purchase a pay-as-you-go (PAYGO) subscription with the Amazon Web Services (AWS) Marketplace or Microsoft Azure Marketplace. This license enables you to purchase a fixed protected capacity license without any long-term commitment.
+* Purchase a pay-as-you-go (PAYGO) subscription with the Amazon Web Services (AWS) Marketplace, Azure Marketplace, or Google Cloud Marketplace. This license enables you to purchase a fixed protected capacity license without any long-term commitment.
 * Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console.
 
 Licenses for all NetApp data services are managed through subscriptions in the NetApp Console. After you set up your BYOL, you can see an active license for the service in the Console.
@@ -83,7 +82,7 @@ Disaster Recovery is licensed based on the amount of data hosted on protected ON
 
 Protected volumes can host many VMs. Some might not be part of a NetApp Disaster Recovery resource group. Regardless, the storage consumed by all VMs on that volume or LUN is used against the license maximum capacity.
 
-NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
+NOTE: NetApp Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM or Kubernetes resource that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
 
 For details about setting up licensing for NetApp Disaster Recovery, refer to link:../get-started/dr-licensing.html[Set up NetApp Disaster Recovery licensing].
 
@@ -152,9 +151,9 @@ NetApp Disaster Recovery supports the following datastore types:
 *Protection targets supported* 
 
 * VMware Cloud (VMC) on AWS with Amazon FSx for NetApp ONTAP
-* Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMSF 
+* Another on-premises, NFS-based VMware environment with ONTAP storage or an on-premises FC/iSCSI VMFS environment
 * Amazon Elastic VMware Service  
-* Azure VMware Solution (AVS) with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
+* Azure VMware Solution with NetApp Cloud Volumes ONTAP (iSCSI) (Private preview)
 * Google Cloud VMware Engine (GCVE) with Google Cloud NetApp Volumes
 
 == Terms that might help you with NetApp Disaster Recovery

@@ -15,7 +15,7 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 
 == Software versions
 
-[cols=2*,options="header",cols="35,55a",width="100%"]
+[options="header",cols="35,55a",width="100%"]
 |===
 | Component
 | Minimum version
@@ -30,9 +30,9 @@ Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP s
 
 == Google Cloud prerequisites and considerations
 
-With Disaster Recovery on Google Cloud VMware Engine using Google Cloud NetApp Volumes, ensure you configure the correct permissions and adhere to the noted considerations. 
+When you use NetApp Disaster Recovery with Google Cloud VMware Engine and Google Cloud NetApp Volumes, ensure that you configure the correct permissions and review the following considerations. 
 
-* Contact the Google SRE team to allow-list the:
+* Contact the Google SRE team to allow-list the following:
 ** sync API to transfer snapshots from on-premises storage to Google Cloud NetApp Volumes. 
 ** the Google project with the VMware engine for creating, mounting, and unmounting datastores.
 * You must link:https://docs.google.com/forms/d/1zuaHu437MNpUf8i5oByK-OTLWXcNIg0es9t036riYRc/viewform?edit_requested=true[File a request to allow-list your volumes hybrid replication^].
@@ -70,7 +70,7 @@ The NetApp Console user must have the following roles:
 
 == ONTAP storage prerequisites
 
-These prerequisites apply to ONTAP and Amazon FSX for NetApp ONTAP instances.
+These prerequisites apply to ONTAP and Amazon FSx for NetApp ONTAP instances.
 
 * Source and destination clusters must have a peer relationship. 
 * The SVM that hosts the disaster recovery volumes must exist on the destination cluster.
@@ -84,7 +84,7 @@ These prerequisites apply to ONTAP and Amazon FSX for NetApp ONTAP instances.
 
 === Get started with the NetApp Console
 
-If you haven't already done so, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html[sign up to the NetApp Console and create an organization^].
+If you haven't already done so, https://docs.netapp.com/us-en/console-setup-admin/task-sign-up-saas.html[sign up for the NetApp Console and create an organization^].
 
 === Gather credentials for ONTAP and VMware
 
@@ -132,7 +132,7 @@ To ensure that application-consistency processes are successful, apply these pre
 [IMPORTANT]
 Depending on your deployment type, review the link:reference-vmware-prerequisites.html[VMware cluster prerequisites] and link:task-kubernetes-requirements.html[Kubernetes cluster prerequisites].
 
-## More information
+== More information
 
 * xref:../reference/vcenter-privileges.html[Required vCenter privileges]
 * xref:../reference/evs-deploy-guide-config-prereqs.html[Prerequisites for Amazon EVS with NetApp Disaster Recovery]
