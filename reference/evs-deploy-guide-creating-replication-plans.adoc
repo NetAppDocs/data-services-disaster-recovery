@@ -48,7 +48,7 @@ There are multiple ways to select VMs for protection. The following steps show h
 
 * *Select individual VMs*: Selecting the *Virtual machines* button enables you to select individual VMs to protect. As you select each VM, the service adds it to a default resource group located on the right-hand side of the screen. 
 * *Select previously created resource groups*: You can create custom resource groups beforehand using the Resource group option from the Disaster Recovery menu. This is optional because you can use the other two methods to create a resource group during replication plan creation. For details, see link:../use/drplan-create.html[Create a replication plan].
-* *Select entire vCenter datastores*: If you have many VMs to protect with this replication plan, it may not be as efficient to select individual VMs. Because Disaster Recovery uses volume-based SnapMirror replication to protect the VMs, all VMs residing on a datastore will be replicated as part of the volume. In most cases, you should have Disaster Recovery protect and restart any VMs located on the datastore. Use this option to tell the service to add any VMs hosted on a selected datastore to the list of protected VMs.
+* *Select entire vCenter datastores*: With this option, all VMs residing on a datastore will be replicated as part of the volume. Use this option if you have multiple VMs to protect with the replication plan to avoid selecting the individual VMs. In most cases, you should have Disaster Recovery protect and restart any VMs located on the datastore. Use this option to tell the service to add any VMs hosted on a selected datastore to the list of protected VMs.
 
 .Steps to access this page
 
@@ -73,7 +73,7 @@ After selecting the VMs for protection, you must perform the network mapping. Th
 Each VM requires the first three types of information. Datastore mapping is required for each datastore that hosts VMs to be protected.
 
 * The sections with the caution icon (image:evs-caution-icon.png[20,20]) require that you provide mapping information. 
-* The sections marked with the check icon (image:evs-check-icon.png[20,20]) already have mappings or use default mappings. Review them to make sure that the current configuration meets your requirements.
+* The sections marked with the check icon (image:evs-check-icon.png[20,20]) either use default mappings or have already been mapped. Review the mappings to ensure the current configuration meets your requirements.
 
 .Access resource mapping
 . From the *Replication plan* page, continue to the *Resource mapping* section.
