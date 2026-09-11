@@ -13,7 +13,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-After you have vCenters to protect on the on-premises site and you have an Amazon EVS site configured to use Amazon FSx for NetApp ONTAP that you can use as a DR destination, you can create a replication plan (RP) to protect any set of VMs hosted on the vCenter cluster within your on-premises site. 
+After you identify the on-premises vCenters to protect and configure an Amazon EVS site that uses Amazon FSx for NetApp ONTAP as the disaster recovery destination, create a replication plan to protect the VMs on your on-premises vCenter cluster. 
 
 == Initiate the replication plan wizard
 
@@ -44,11 +44,11 @@ image:evs-create-rp-wiz-a-1-4.png[Create replication plan, select vCenters]
 
 == Select VM resources for protection 
 
-There are multiple ways to select VMs for protection. The ensuing steps show how to protect the entire vCenter datastores, but you should choose the method that best suits your needs. 
+There are multiple ways to select VMs for protection. The following steps show how to protect the entire vCenter datastores, but you should choose the method that best suits your needs. 
 
 * *Select individual VMs*: Selecting the *Virtual machines* button enables you to select individual VMs to protect. As you select each VM, the service adds it to a default resource group located on the right-hand side of the screen. 
-* *Select previously created resource groups*: You can create custom resource groups beforehand using the Resource group option from the Disaster Recovery menu. This is not a requirement as you can use the other two methods to create a resource group as part of the replication plan process. For details, see link:../use/drplan-create.html[Create a replication plan].
-* *Select entire vCenter datastores*: If you have a lot of VMs to protect with this replication plan, it may not be as efficient to select individual VMs. Because Disaster Recovery uses volume-based SnapMirror replication to protect the VMs, all VMs residing on a datastore will be replicated as part of the volume. In most cases, you should have Disaster Recovery protect and restart any VMs located on the datastore. Use this option to tell the service to add any VMs hosted on a selected datastore to the list of protected VMs.
+* *Select previously created resource groups*: You can create custom resource groups beforehand using the Resource group option from the Disaster Recovery menu. This is optional because you can use the other two methods to create a resource group during replication plan creation. For details, see link:../use/drplan-create.html[Create a replication plan].
+* *Select entire vCenter datastores*: With this option, all VMs residing on a datastore will be replicated as part of the volume. Use this option if you have multiple VMs to protect with the replication plan to avoid selecting the individual VMs. In most cases, you should have Disaster Recovery protect and restart any VMs located on the datastore. Use this option to tell the service to add any VMs hosted on a selected datastore to the list of protected VMs.
 
 .Steps to access this page
 
@@ -73,7 +73,7 @@ After selecting the VMs for protection, you must perform the network mapping. Th
 Each VM requires the first three types of information. Datastore mapping is required for each datastore that hosts VMs to be protected.
 
 * The sections with the caution icon (image:evs-caution-icon.png[20,20]) require that you provide mapping information. 
-* The sections marked with the check icon (image:evs-check-icon.png[20,20]) have been mapped or have default mappings. Review them to make sure that the current configuration meets your requirements.
+* The sections marked with the check icon (image:evs-check-icon.png[20,20]) either use default mappings or have already been mapped. Review the mappings to ensure the current configuration meets your requirements.
 
 .Access resource mapping
 . From the *Replication plan* page, continue to the *Resource mapping* section.
@@ -84,14 +84,14 @@ image:evs-create-rp-wiz-c0.png[Create replication plan, resource mapping page]
 
 === Compute resources mapping
 
-Because a site could host multiple virtual datacenters and multiple vCenter clusters, you need to identify which vCenter cluster to recover VMs on in the event of a failover. 
+Because a site could host multiple virtual datacenters and multiple vCenter clusters, you need to identify which vCenter cluster to recover VMs to in the event of a failover. 
 
 .Steps
 . Select the virtual datacenter from the list of datacenters located at the DR site.
 . Select the cluster to host the datastores and VMs from the list of clusters within the selected virtual datacenter.
 . Optionally, select a target host in the target cluster. 
 +
-This step is not required because Disaster Recovery selects the first host added to the cluster in vCenter. At that point, the VMs either continue to run on that ESXi host or VMware DRS moves the VM to a different ESXi host as needed based on DRS rules configured.
+This step is not required because Disaster Recovery selects the first host added to the cluster in vCenter. The VMs either continue to run on that ESXi host or VMware DRS moves them to another ESXi host based on the configured DRS rules.
 . Optionally, provide the name of a top-level vCenter folder to place the VM registrations into. This step can satisfy organizational needs, but isn't required. 
 +
 image:evs-create-rp-wiz-c-compute-resources-1-4.png[Create replication plan, compute resources]
@@ -99,7 +99,7 @@ image:evs-create-rp-wiz-c-compute-resources-1-4.png[Create replication plan, com
 
 === Map virtual network resources
 
-Each VM can have one or more virtual NICs connected to virtual networks within the vCenter network infrastructure. To ensure that each VM is properly connected to the desired networks upon restarting in the DR site, identify which DR site virtual networks to connect these VMs. Do this by mapping each virtual network in the on-premises site to an associated network on the DR site. 
+Each VM can have one or more virtual NICs connected to virtual networks within the vCenter network infrastructure. To ensure that each VM is properly connected to the desired networks when they restart at the disaster recovery site, identify which disaster recovery site virtual networks to connect these VMs. Do this by mapping each virtual network in the on-premises site to an associated network on the disaster recovery site. 
 
 . Select the Target segment from the drop-down list.
 . Repeat the previous step for each source virtual network listed. 
@@ -122,9 +122,9 @@ Supported IP address types are static and DHCP. For static IP addresses, you hav
 
 * *Subnet mapping*: This option reconfigures each VM's IP address based on the destination virtual network's CIDR configuration. To use this feature, ensure that each vCenter's virtual networks have a defined CIDR setting within the service, as changed in the vCenter information in the Sites page. 
 
-After you configure subnets, Subnet mapping uses the same unit component of the IP address for both source and destination VM configuration, but replaces the subnet component of the IP address based on the provided CIDR information. This feature also requires that both the source and destination virtual networks have the same IP address class (the `/xx` component of the CIDR). This ensures that there are enough IP addresses available at the destination site to host all of the protected VMs.
+After you configure subnets, Subnet mapping uses the same host portion of the IP address for both source and destination VM configuration, but replaces the subnet component of the IP address based on the provided CIDR information. This feature also requires that both the source and destination virtual networks have the same IP address class (the `/xx` component of the CIDR). This ensures that there are enough IP addresses available at the destination site to host all of the protected VMs.
 
-For this EVS setup, we assume that the source and destination IP configurations are the same and do not require any additional reconfiguration. 
+For this Amazon EVS setup, we assume that the source and destination IP configurations are the same and do not require any additional reconfiguration. 
 
 .Change network settings reconfiguration
 . Select the type of IP addressing to use for failed over VMs.
@@ -168,7 +168,7 @@ Disaster Recovery supports performing some guest OS operations for each VM:
 
 * Disaster Recovery can take application-consistent backups of VMs for VMs running Oracle databases and Microsoft SQL Server databases. 
 
-* Disaster Recovery can execute custom defined scripts suitable for the guest OS for each VM. Executing such scripts requires user credentials acceptable to the guest OS with ample privileges to execute the operations listed in the script.
+* Disaster Recovery can run custom scripts for the guest OS for each VM. Executing such scripts requires user credentials acceptable to the guest OS with ample privileges to execute the operations listed in the script.
 
 .Modify each VM's custom guest OS operations
 
@@ -183,7 +183,7 @@ image:evs-create-rp-wiz-c-vm-resources-ac-scripts-creds-1-2.png[Create replicati
  
 === Map datastores
 
-The final step in creating a replication plan is identifying how ONTAP should protect the datastores. These settings define the replication plans recovery point objective (RPO), how many backups should be maintained, and where to replicate each vCenter datastore's hosting ONTAP volumes. 
+The final step in creating a replication plan is identifying how ONTAP should protect the datastores. These settings define the replication plan's recovery point objective (RPO), how many backups should be maintained, and where to replicate each vCenter datastore's hosting ONTAP volumes. 
 
 By default, Disaster Recovery manages its own snapshot replication schedule; however, optionally, you can specify that you would like to use the existing SnapMirror replication policy schedule for datastore protection.
 
