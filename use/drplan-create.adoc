@@ -204,11 +204,17 @@ Run the CLI command `kubectl get pvc -n <namespace>` on the namespace to see the
 + 
 Choose the *Snapshots and retention start time* (calendar date and time), the *Snapshot and retention frequency* (how often snapshots are initiated), and the *Snapshot retention count* (how many snapshots are saved). 
 +
-When setting snapshot frequency, the minimum allowed is five minutes. 
+When setting snapshot frequency, you must choose a frequency of at least every five minutes. 
+
 . Select *Add AppVault* to create the AppVault where protection data will be saved. 
 .. Enter a *Name* and select the *Console agent* the AppVault should be connected to. 
 .. Select the cloud *Provider* for hosting the *AppVault*. 
-.. Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions. Choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
+.. Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions.
++
+For Azure, choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
++
+For AWS, ONTAP S3, and StorageGRID, choose the *Acount* or *Credentials* and *Bucket*.
+.. If you selected ONTAP S3 or StorageGRID, you can optionally add credentials. Select *Add credentials* to expand the options, then add the *Credential name*, *Gateway node FQDN*, the *Port* number, *Access key*, and *Secret key*. 
 .. Select **Add**. 
 +
 image:kubernetes-mapping.png[Screenshot of Storage class mapping for Kubernetes]
@@ -220,8 +226,28 @@ After selecting Add, you can monitor the different jobs in **Job monitoring**.
 --
 ====
 
-[NOTE]
-For Kubernetes, this is the final step for creating a replication. For vCenters, continue to the <<Compute resources section>>.
+==== Resource transformations and script executions
+
+For Kubernetes replication plans, you can apply resource transfromations and script executions. These steps are optional. 
+
+.Add a resource transformation
+
+Adding a resource transfomration enables you to allowing you to modify any aspect of a workload during failover. Resource transformations provide flexibility to adapt workloads to different environments and configurations during a disaster recovery event. link:task-resource-transformation.html[Learn how to create and resource transformations.^]
+
+Resource transformations are applied in the order you list them.
+
+. From the dropdown, select the resource transformation that you want to add. 
+. Choose which resources you want to apply the transformation to then add the required values
+. Review the order of the transformations to ensure the operations will execute in the appropriate order. 
+
+.Add a script execution
+
+Disaster Recovery can execute a script before or after taking a snapshot to manage an application's quiescence and resumption. Performing this action ensures that applications are properly prepared before a snapshot is replicated and restored and can resume operations seamlessly after failover.
+
+. Select *+ Add script*. 
+. Select *Upload* to choose the script file. 
+. Choose the *Execution stage: *Pre-snapshot* to execute before creating the snapshot or *Post-snapshot* to execute after.
+. Select *Save*. 
 
 ==== Compute resources section 
 

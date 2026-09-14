@@ -8,30 +8,25 @@ To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com
 
 Disaster Recovery now supports resource transformations, allowing you to modify any aspect of a workload during failover. This feature provides flexibility to adapt workloads to different environments and configurations during a disaster recovery event.
 
-Resource transformations templates can be centrally managed from the new Settings page, where you can create, edit, and delete transformation rules as needed.
+Resource transformations are applied when you create a replication plan. You can create create, edit, and delete resources transformations in the new Settings page. For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-resource-transformation.html[Manage resource transformations^].
 
 === Script execution
 
 You can now inject custom scripting into the failover workflow to coordinate the quiescence and resumption of applications. This ensures that applications are properly prepared before a snapshot is replicated and restored and can resume operations seamlessly after failover.
 
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over to a remote site^].
-
+To learn how to inject a custom script, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
 
 === Workloads page
 
 Disaster Recovery has added a Workloads page to the UI, providing a comprehensive view of all discovered workloads and their protection status. The Workloads page enables you to monitor and manage your workloads more effectively.
 
-// new page
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboard-view.html[Review health and protection status in Disaster Recovery^].
 
 === Settings update
 
-The new Settings page in the Disaster Recovery UI allows you to centrally manage resource transformation templates and AppVaults. This page provides a single interface to configure and manage these critical components of your disaster recovery plans.
+Disaster Recovery now provides a settings page in the UI that allows you to centrally manage resource transformation templates and AppVaults. This page provides a single interface to configure and manage these critical components of your disaster recovery plans. To learn more about options in the Settings page, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-resource-transformation.html[Manage resource transformations^] and link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-appvault.html[Manage AppVaults^].
 
-// wrong link
-
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboard-view.html[View the health of your NetApp Disaster Recovery plans^].
-
-=== General improvement
+=== General improvements
 
 Disaster Recovery has:
 
