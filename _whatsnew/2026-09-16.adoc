@@ -1,0 +1,35 @@
+=== Kubernetes support in NetApp Disaster Recovery is now generally available (GA)
+
+NetApp Disaster Recovery now includes full support for Kubernetes-based workloads. This feature allows you to protect applications running on Kubernetes clusters, including OpenShift Virtualization environments. Disaster Recovery supports any version of Kubernetes currently supported by Trident Protect, ensuring seamless integration and robust disaster recovery capabilities for containerized applications.
+
+To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/task-kubernetes-requirements.html[Kubernetes requirements for NetApp Disaster Recovery^].
+
+=== Resource transformation
+
+Disaster Recovery now supports resource transformations, allowing you to modify any aspect of a workload during failover. This feature provides flexibility to adapt workloads to different environments and configurations during a disaster recovery event.
+
+Resource transformations templates can be centrally managed from the new Settings page, where you can create, edit, and delete transformation rules as needed.
+
+=== Script execution
+
+You can now inject custom scripting into the failover workflow to coordinate the quiescence and resumption of applications. This ensures that applications are properly prepared before a snapshot is replicated and restored and can resume operations seamlessly after failover.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[Fail over to a remote site^].
+
+
+=== Workloads page
+
+Disaster Recovery has added a Workloads page to the UI, providing a comprehensive view of all discovered workloads and their protection status. The Workloads page enables you to monitor and manage your workloads more effectively.
+
+=== Settings update
+
+The new Settings page in the Disaster Recovery UI allows you to centrally manage resource transformation templates and AppVaults. This page provides a single interface to configure and manage these critical components of your disaster recovery plans.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/dashboard-view.html[View the health of your NetApp Disaster Recovery plans^].
+
+=== General improvement
+
+Disaster Recovery has:
+
+* introduced enhanced validations in the Replication plan creation page to ensure a smoother, error-free user experience.
+* increased the resiliency of the service to tolerate intermittent request timeouts, enhancing the UI's overall performance and reliability.
