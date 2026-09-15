@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: use/task-appvault.html
 keywords: disaster recovery, appvault, update credentials, trident protect, kubernetes, edit endpoints
-summary: Managing AppVaults in Disaster Recovery enables you to review the connectivity status of your AppVaults as well as the credentials and endpoints for the AppVaults to ensure the continuity of your 
+summary: Managing AppVaults in Disaster Recovery enables you to review the connectivity status of your AppVaults as well as the credentials and endpoints for the AppVaults to ensure the continuity of your disaster recovery plans.
 ---
 
 = Manage AppVaults in NetApp Disaster Recovery
@@ -24,9 +24,9 @@ You can add an AppVault when you create a replication plan for Kubernetes or cre
 . Select the cloud *Provider* for hosting the *AppVault*. 
 . Based on the provider selection, Disaster Recovery populates existing configured cloud subscriptions.
 +
-For Azure, choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
+For Azure, choose the *Subscription*, *Resource group*, and *Storage account*.
 +
-For AWS, ONTAP S3, and StorageGRID, choose the *Acount* or *Credentials* and *Bucket*.
+For AWS, ONTAP S3, and StorageGRID, choose the *Account* or *Credentials* and *Bucket*.
 . If you selected ONTAP S3 or StorageGRID, you can optionally add credentials. Select *Add credentials* to expand the options, then add the *Credential name*, *Gateway node FQDN*, the *Port* number, *Access key*, and *Secret key*. 
 . Select **Add**. 
 
@@ -37,19 +37,19 @@ If the credentials for your AppVault have changed, update them in the Settings p
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
 . Select *Manage AppVaults*. 
-. Select the action menu at the end of the row for the AppVault you want to update then *Update*.
+. Find the AppVault you want to update. From the action menu, select *Update*.
 . Review the number of AppVaults and replication plans affected by the change. 
 . Enter the new *Secret key* and *Access key*.
 . Select *Update credentials* to apply the changes. 
 
 == Edit AppVault credentials
 
-If the connection settings to you AppVault have changed, update them to ensure the continuity of your replication plans for Kubernetes workloads. 
+If the connection settings to your AppVault have changed, update them to ensure the continuity of your replication plans for Kubernetes workloads. 
 
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
 . Select *Manage AppVaults*. 
-. Select the action menu at the end of the row for the AppVault you want to edit then *Edit*.
+. Find the AppVault you want to edit. From the action menu, select *Edit*.
 . Enter the new endpoint for your AppVault.
 . Select *Save* to apply the new endpoint. 
 
@@ -61,5 +61,5 @@ If you no longer need an AppVault, you can delete it.
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
 . Select *Manage AppVaults*. 
-. Select the action menu at the end of the row for the AppVault you want to delete then *Delete*.
+. Find the AppVault you want to delete. From the action menu, select *Delete*.
 . In the dialog window, select *Delete* to confirm the action. 

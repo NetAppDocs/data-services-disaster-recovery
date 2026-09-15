@@ -27,14 +27,14 @@ Disaster Recovery provides default resource transformations for common scenarios
 . Enter the *JSON path* and *Variable name*. Optionally, add the *Default value*. 
 +
 image::resource-transformation-template.png[Screenshot of resource transformation template]
-. To add more operations to the template, select *+ Add operation*. Repeat the previous two steps then sort the operations by the order in which they should be executed. 
+. To add more operations to the template, select *+ Add operation*. Repeat the previous two steps, then sort the operations by the order in which they should be executed. 
 . Select *Add* to create the template. 
 
 == Edit a resource transformation
 
 . In Disaster Recovery, select *Settings* from the sidebar.
 . In the Resource transformations card, select *Manage resource transformations*. 
-. Find the resource transformation you want to edit. Select the action menu at the end of the row then *Edit*.
+. Find the resource transformation you want to edit. From the action menu at the end of the row, select *Edit*.
 . You can edit any of the fields for the template. Edit the *Name*, the *Operation* (add, copy, move, remove, replace, or test), and its attendant values: the *JSON path* and *Variable name*, or the *Default value*. You can also add operations or edit the order operations execute.
 . Select *Save*. 
 
@@ -45,10 +45,10 @@ You can clone a resource transformation to use as the basis for a new resource t
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
 . In the Resource transformations card, select *Manage resource transformations*. 
-. Find the resource transformation you want to clone. Select the action menu at the end of the row then *Clone*.
+. Find the resource transformation you want to clone. From the action menu at the end of that row, select *Clone*.
 . When the operation is successful, Disaster Recovery presents a confirmation dialog in the UI. 
 +
-You can view cloned template in the list of resoruce transformation list. 
+You can view cloned template in the resource transformations list. 
 
 == Delete a resource transformation
 
@@ -59,7 +59,7 @@ If you no longer need a resource transformation, you can delete it.
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
 . In the Resource transformations card, select *Manage resource transformations*. 
-. Find the resource transformation you want to delete. Select the action menu at the end of the row then *Delete*.
+. Find the resource transformation you want to delete. From the action menu at the end of the row, select *Delete*.
 . In the dialog, select *Delete* to confirm the operation. 
 
 == Next steps

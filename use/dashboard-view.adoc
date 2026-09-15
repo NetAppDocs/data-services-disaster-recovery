@@ -12,9 +12,9 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 [.lead]
 NetApp Disaster Recovery provides multiple ways to gain insights into workloads discovered by Disaster Recovery and the health of your sites and replication plans. 
 
-The *Dashboard* provides into the health status of sites and plans, displaying a status of healthy, disconnected, or degraded. It also present recent warnings and failed jobs. It provides an overview of capacity and protection status as well. Use the Dashboard to review health status and see an overview of your workloads. 
+The *Dashboard* provides information about the health status of sites and plans, displaying a status of healthy, disconnected, or degraded. It also presents recent warnings and failed jobs. It provides an overview of capacity and protection status as well. Use the Dashboard to review health status and see an overview of your workloads. 
 
-The *Workloads* page provides granular listings of each discovered VMware and Kubernetes workload discovered by Disaster Recovery. It provides information associated with the workload and its protection status. Use the Workloads pages to review granular information about workloads and review protection status. 
+The *Workloads* page provides granular listings of each  VMware and Kubernetes workload discovered by Disaster Recovery. It provides information associated with the workload and its protection status. Use the Workloads page to review granular information about workloads and review protection status. 
 
 include::../_include/iam-app-admin-viewer.adoc[]
 
@@ -58,7 +58,7 @@ a|
 * Cluster
 * Name
 * Protected namespaces
-* Replicaiton plan (if assigned)
+* Replication plan (if assigned)
 * Site
 * Protection status
 
@@ -68,7 +68,7 @@ a|
 * Datastore name
 * Memory
 * Protection status
-* Replicaiton plan (if assigned)
+* Replication plan (if assigned)
 * Resource group (if it exists)
 * vCenter IP address
 * Workload name
@@ -82,5 +82,3 @@ a|
 image::site-type-toggle.png[Screenshot of the site type toggle]
 . You can optionally search for a specific workload or filter workloads by protection status: either protected or unprotected. 
 . Review the information about the workloads and protection status. Protected workloads are noted with a green checkmark. Unprotected workloads have a grey dash. 
-
-
