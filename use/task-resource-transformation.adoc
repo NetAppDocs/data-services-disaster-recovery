@@ -14,14 +14,13 @@ For Kubernetes workloads in NetApp Disaster Recovery, you can create resource tr
 
 Resource transformations are added when you create a replication plan for Kubernetes. 
 
-Disaster Recovery provides default resource transformations for common scenarios:
-// list
+include::../_include/iam-super-admin.adoc[]
 
 == Create a resource transformation template
 
 .Steps
 . In Disaster Recovery, select *Settings* from the sidebar.
-. In the AppVault card, select *+ Add template*. 
+. In the Resource Transformation card, select *+ Add template*. 
 . Enter a *Name* for the resource transformation. 
 . Select the *Operation*: add, copy, move, remove, replace, or test.
 . Enter the *JSON path* and *Variable name*. Optionally, add the *Default value*. 
@@ -48,7 +47,7 @@ You can clone a resource transformation to use as the basis for a new resource t
 . Find the resource transformation you want to clone. From the action menu at the end of that row, select *Clone*.
 . When the operation is successful, Disaster Recovery presents a confirmation dialog in the UI. 
 +
-You can view cloned template in the resource transformations list. 
+You can view the cloned template in the resource transformations list. 
 
 == Delete a resource transformation
 

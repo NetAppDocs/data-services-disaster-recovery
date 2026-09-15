@@ -228,11 +228,11 @@ After selecting Add, you can monitor the different jobs in **Job monitoring**.
 
 ==== Resource transformations and script executions
 
-For Kubernetes replication plans, you can apply resource transfromations and script executions. These steps are optional. 
+For Kubernetes replication plans, you can apply resource transformations and script executions. These steps are optional. 
 
 .Add a resource transformation
 
-Adding a resource transfomration enables you to allowing you to modify any aspect of a workload during failover. Resource transformations provide flexibility to adapt workloads to different environments and configurations during a disaster recovery event. link:task-resource-transformation.html[Learn how to create and resource transformations.^]
+Adding a resource transfomration enables you to modify any aspect of a workload during failover. Resource transformations provide flexibility to adapt workloads to different environments and configurations during a disaster recovery event. link:task-resource-transformation.html[Learn how to create and resource transformations.^]
 
 Resource transformations are applied in the order you list them.
 
@@ -246,7 +246,7 @@ Disaster Recovery can execute a script before or after taking a snapshot to mana
 
 . Select *+ Add script*. 
 . Select *Upload* to choose the script file. 
-. Choose the *Execution stage: *Pre-snapshot* to execute before creating the snapshot or *Post-snapshot* to execute after.
+. Choose the *Execution stage*: *Pre-snapshot* to execute before creating the snapshot or *Post-snapshot* to execute after.
 . Select *Save*. 
 
 ==== Compute resources section 

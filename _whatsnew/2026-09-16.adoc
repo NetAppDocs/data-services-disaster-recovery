@@ -8,7 +8,7 @@ To begin protecting Kubernetes-based workloads, see link:https://docs.netapp.com
 
 Disaster Recovery now supports resource transformations, allowing you to modify any aspect of a workload during failover. This feature provides flexibility to adapt workloads to different environments and configurations during a disaster recovery event.
 
-Resource transformations are applied when you create a replication plan. You can create, edit, and delete resources transformations in the new Settings page. For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-resource-transformation.html[Manage resource transformations^].
+Resource transformations are applied when you create a replication plan. You can create, edit, and delete resource transformations in the new Settings page. For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-resource-transformation.html[Manage resource transformations^].
 
 === Script execution
 

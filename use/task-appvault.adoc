@@ -13,6 +13,8 @@ summary: Managing AppVaults in Disaster Recovery enables you to review the conne
 [.lead]
 NetApp Disaster Recovery workloads with Kubernetes use AppVault, a cloud storage target where Trident Protect saves Kubernetes protection data. Managing AppVaults enables you to review the connectivity status of your AppVaults as well as the credentials and endpoints for the AppVaults to ensure the health of your replication plans. 
 
+include::../_include/iam-super-admin.adoc[]
+
 == Add an AppVault
 
 You can add an AppVault when you create a replication plan for Kubernetes or create one from the Settings page. 
@@ -42,7 +44,7 @@ If the credentials for your AppVault have changed, update them in the Settings p
 . Enter the new *Secret key* and *Access key*.
 . Select *Update credentials* to apply the changes. 
 
-== Edit AppVault credentials
+== Edit an AppVault endpoint
 
 If the connection settings to your AppVault have changed, update them to ensure the continuity of your replication plans for Kubernetes workloads. 
 

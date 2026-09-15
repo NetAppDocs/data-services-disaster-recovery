@@ -14,7 +14,7 @@ NetApp Disaster Recovery provides multiple ways to gain insights into workloads 
 
 The *Dashboard* provides information about the health status of sites and plans, displaying a status of healthy, disconnected, or degraded. It also presents recent warnings and failed jobs. It provides an overview of capacity and protection status as well. Use the Dashboard to review health status and see an overview of your workloads. 
 
-The *Workloads* page provides granular listings of each  VMware and Kubernetes workload discovered by Disaster Recovery. It provides information associated with the workload and its protection status. Use the Workloads page to review granular information about workloads and review protection status. 
+The *Workloads* page provides granular listings of each VMware and Kubernetes workload discovered by Disaster Recovery. It provides information associated with the workload and its protection status. Use the Workloads page to review granular information about workloads and review protection status. 
 
 include::../_include/iam-app-admin-viewer.adoc[]
 
