@@ -4,7 +4,6 @@ permalink: use/task-appvault.html
 keywords: disaster recovery, appvault, update credentials, trident protect, kubernetes, edit endpoints
 summary: Managing AppVaults in Disaster Recovery enables you to review the connectivity status of your AppVaults as well as the credentials and endpoints for the AppVaults to ensure the continuity of your disaster recovery plans.
 ---
-
 = Manage AppVaults in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font

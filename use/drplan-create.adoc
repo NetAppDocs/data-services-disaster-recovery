@@ -213,7 +213,7 @@ When setting snapshot frequency, you must choose a frequency of at least every f
 +
 For Azure, choose the *Subscription*, *Resource group*, and *Storage account* for the cloud provider.
 +
-For AWS, ONTAP S3, and StorageGRID, choose the *Acount* or *Credentials* and *Bucket*.
+For AWS, ONTAP S3, and StorageGRID, choose the *Acount*, *Credentials*, and *Bucket*.
 .. If you selected ONTAP S3 or StorageGRID, you can optionally add credentials. Select *Add credentials* to expand the options, then add the *Credential name*, *Gateway node FQDN*, the *Port* number, *Access key*, and *Secret key*. 
 .. Select **Add**. 
 +
