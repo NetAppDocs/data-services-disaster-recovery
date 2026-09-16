@@ -13,13 +13,13 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-After you add the replication plan in NetApp Disaster Recovery, you return to the Replication plans page where you can view your replication plans and their status. You should verify that the replication plan is in the *Healthy* state. If it is not, you should check the status of the replication plan and correct any issues before proceeding.
+After you add a replication plan in NetApp Disaster Recovery, verify that the plan is in the *Healthy* state before you continue.
 
 Figure: Replication plans page image:evs-replication-plan-post-create.png[Replication plans page]
  
-NetApp Disaster Recovery performs a series of tests to verify that all the components (ONTAP cluster, vCenter clusters, and VMs) are accessible and in the proper state for the service to protect the VMs. This is called a compliance check, and it is run on a regular basis.
+NetApp Disaster Recovery runs a series of tests to verify that all components, including the ONTAP cluster, vCenter clusters, and VMs, are accessible and ready for protection. This is called a compliance check, and it is run on a regular basis.
 
-From the Replication plans page, you can see the following information:
+The Replication plans page shows the following information:
 
 * Status of the last compliance check
 

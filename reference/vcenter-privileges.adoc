@@ -10,9 +10,9 @@ summary: The vCenter account must have a minimum set of vCenter privileges for N
 :imagesdir: ../media/use/
 
 [.lead]
-For NetApp Disaster Recovery to perform its services, the vCenter account must have a minimum set of vCenter privileges. These privileges include registering and deregistering datastores, starting and stopping virtual machines (VMs), and reconfiguring VMs.
+The vCenter account for NetApp Disaster Recovery must have a minimum set of privileges to register and deregister datastores, start and stop virtual machines (VMs), and reconfigure VMs.
 
-The following table lists all privileges required for Disaster Recovery to interface with a vCenter cluster.
+The following table lists the privileges that Disaster Recovery requires to work with a vCenter cluster.
 
 
 [cols="1,2,2,3", options="header"]

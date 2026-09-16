@@ -4,21 +4,23 @@ permalink: use/dashboard-view.html
 keywords: disaster recovery remediate, disaster recovery, failover, failback, replication, bluexp, netapp
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
-= View disaster recovery plan health in NetApp Disaster Recovery
+= View plan health and workload protection status in NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
 
 [.lead]
-Use the NetApp Disaster Recovery Dashboard to check the health of your disaster recovery sites and replication plans. You can see whether sites and plans are healthy, disconnected, or degraded, review recent warnings and failed jobs, identify protected and unprotected workloads, and view capacity at a glance. 
+NetApp Disaster Recovery provides multiple ways to gain insights into workloads discovered by Disaster Recovery and the health of your sites and replication plans. 
+
+The *Dashboard* provides information about the health status of sites and plans, displaying a status of healthy, disconnected, or degraded. It also presents recent warnings and failed jobs. It provides an overview of capacity and protection status as well. Use the Dashboard to review health status and see an overview of your workloads. 
+
+The *Workloads* page provides granular listings of each VMware and Kubernetes workload discovered by Disaster Recovery. It provides information associated with the workload and its protection status. Use the Workloads page to review granular information about workloads and review protection status. 
 
 include::../_include/iam-app-admin-viewer.adoc[]
 
+== View health and protection status in the dashboard
+
 .Steps 
-
-. Log in to the https://console.netapp.com/[NetApp Console^].
-
-. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 
 . From the NetApp Disaster Recovery menu, select *Dashboard*. 
 +
@@ -44,3 +46,39 @@ To review replication plan details, select *View all replication plans*.
 
 . Review *Recent warnings and jobs* to see the most recently executed jobs and warnings and their associated statuses. Select *View all jobs* to see all jobs. 
 . Review the *Discovery and protection status* to see the number of discovered workloads and a numeric breakdown of protected versus unprotected workloads separated by type. You can also review the total discovered capacity of all workloads and workloads by type. 
+
+== Review workloads' protection status
+
+Use the Workloads page to review the protection status of individual, discovered workloads by Disaster Recovery. In addition to the protection status, Disaster Recovery shows the following information about each workload type:
+
+[options="header",width="40"]
+|===
+| Kubernetes workloads | vCenter workloads
+a|
+* Cluster
+* Name
+* Protected namespaces
+* Replication plan (if assigned)
+* Site
+* Protection status
+
+a|
+* CPUs
+* Datacenter name
+* Datastore name
+* Memory
+* Protection status
+* Replication plan (if assigned)
+* Resource group (if it exists)
+* vCenter IP address
+* Workload name
+
+|===
+
+.Steps
+. From the NetApp Disaster Recovery menu, select *Workloads*. 
+. In the dropdown menu, select the filter to view either *vCenter* or *Kubernetes* workloads.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. You can optionally search for a specific workload or filter workloads by protection status: either protected or unprotected. 
+. Review the information about the workloads and protection status. Protected workloads are noted with a green checkmark. Unprotected workloads have a grey dash. 
