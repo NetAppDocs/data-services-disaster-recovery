@@ -14,9 +14,9 @@ Before configuring NetApp Disaster Recovery for Kubernetes, prepare each Kuberne
 
 == Prerequisites
 
-Before you begin, ensure that your Kubernetes cluster and ONTAP clusters are configured. 
-
-Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html[any version of Kubernetes currently supported by Trident Protect^].
+* Before configuring Kubernetes cluster requirements, ensure you've configured your Kubernetes cluster and ONTAP clusters. 
+* Ensure your using a supported version of Kubernetes. Disaster Recovery supports link:https://docs.netapp.com/us-en/trident/trident-protect/trident-protect-requirements.html[any version of Kubernetes currently supported by Trident Protect^].
+* Configure the appropriate link:../reference/trident-permissions.html[permissions for Trident Protect].
 
 === Kubernetes clusters 
 
@@ -44,10 +44,7 @@ link:https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-hel
 If you've already installed Trident, verify the installation with the command 
 `kubectl get pods -n trident`. If the installation is successful, you see the Trident controller, node pods (DaemonSet), and the operator's state is `Running` state after a few minutes.
 
-== Configure ONTAP backend and Trident StorageClass
-
-
-=== Create a Kubernetes secret 
+== Create a Kubernetes secret 
 Create a Kubernetes secret in the namespace:
 +
 [source,bash]
@@ -86,7 +83,7 @@ spec:
 
 You can verify the configuration with the command `kubectl get TridentBackendConfig -n trident`. If the configuration was successful, the `phase` output should display as **Bound** and the `status` should display as **Success**. If the status is **Failed**, review the steps to link:https://docs.netapp.com/us-en/trident/trident-use/backend-kubectl.html#optional-step-4-get-more-details[Get more details^] then resolve any issues such as incorrect credentials or network reachability.
 
-=== Configure the storage class
+== Configure the storage class
 
 link:https://docs.netapp.com/us-en/trident/trident-use/create-stor-class.html[Create the storage class object^]. Use the provisioner `csi.trident.netapp.io`. For example:
 
@@ -174,6 +171,10 @@ After verifying the status of all resources, deploy or link:https://docs.netapp.
 `helm upgrade --install trident-protect netapp-trident-protect/trident-protect-console \
   --version 100.2605.0-console --namespace trident-protect --set clusterName=<clusterName> --set trident-protect.cbs.accountID=<accountID> --set trident-protect.cbs.agentID=<agentID> --set trident-protect.cbs.proxySecretName=occmauthcreds --set trident-protect.cbs.proxyHostIP=<IPaddress>`
 ====
+
+== NetApp Console roles
+
+After performing your Trident Protect and Kubernetes configurations, link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[ensure you have the correct Console roles for Disaster Recovery to perform discovery, failover, and other tasks.^]
 
 == More information 
 

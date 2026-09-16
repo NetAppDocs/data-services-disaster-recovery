@@ -1,0 +1,51 @@
+---
+sidebar: sidebar
+permalink: reference/trident-permissions.html
+keywords: disaster recovery, IAM, permissions, Trident Protect, S3, StorageGrid, AppVault, cluster registration, cluster discover
+summary: When using NetApp Disaster Recovery, ensure you have the correct Trident Protect configurations configured to discover and register your Kubernetes clusters. 
+---
+= Configure Trident Protect permissions for NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+When using NetApp Disaster Recovery, ensure you have the correct Trident Protect configurations configured to discover and register your Kubernetes clusters. 
+
+== Trident Protect cluster permissions
+
+The following cluster permissions are required with Disaster Recovery:
+
+[cols="3,1", options="header"]
+|===
+| Permission | Function
+| dr:trident_cluster-view | View registered Kubernetes clusters and cluster inventory used by Disaster Recovery
+| dr:trident_cluster-create | Register a Kubernetes cluster and generate setup commands.
+| dr:trident_cluster-update | Modify a registered Kubernetes cluster.
+| dr:trident_cluster-delete | Delete a registered Kubernetes cluster.
+| dr:trident_cluster-refresh | Run Trident cluster discovery.
+|===
+
+== Trident Protect AppVault permissions
+
+The following AppVault permissions are required with Disaster Recovery:
+
+[cols="3,1", options="header"]
+|===
+| Permission | Function
+| dr:trident_appvault-view | View Trident AppVaults and cloud/object-store discovery data required for AppVault setup.
+| dr:trident_appvault-create | Create a Trident AppVault custom resource through Disaster Recovery.
+|===
+
+== Trident Protect credential permissions
+
+The following credential permissions are required with Disaster Recovery:
+
+[cols="3,1", options="header"]
+|===
+| Permission | Function
+| dr:credential-view | View credential metadata and list ONTAP S3/StorageGRID buckets for AppVault setup.
+| dr:credential-create | Register credentials including ONTAP S3 and StorageGRID.
+| dr:credential-update | Update credentials including ONTAP S3 and StorageGRID.
+| dr:credential-delete | Delete credentials including ONTAP S3 and StorageGRID.
+|===
