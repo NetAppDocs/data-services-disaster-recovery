@@ -11,7 +11,7 @@ summary: Using NetApp Disaster Recovery, you can migrate VMware applications fro
 :imagesdir: ../media/use/
 
 [.lead]
-Using NetApp Disaster Recovery, you can migrate VMware apps on your source site to another site.
+NetApp Disaster Recovery supports migrating VMware applications from the source to a secondary site. You can use the migration capability if, for example, you have infrastructure changes so that the target environment can assume production operations. 
 
 TIP: After you create the replication plan, set the recurrence in the wizard, and initiate migration, Disaster Recovery performs a verification every 30 minutes that the migration is progressing according to the plan. You can monitor the progress in the Job Monitor page. 
 
