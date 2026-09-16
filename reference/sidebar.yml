@@ -4,7 +4,9 @@ entries:
   - title: Required ONTAP permissions
     url: /reference/ontap-permissions.html
   - title: Required vCenter privileges
-    url: /reference/vcenter-privileges.html    
+    url: /reference/vcenter-privileges.html 
+  - title: Required Trident permissions 
+    url: /reference/trident-permissions.html
   - title: Switch Console agents
     url: /reference/switch-console-agent.html
   - title: Use NetApp Disaster Recovery with Amazon EVS
