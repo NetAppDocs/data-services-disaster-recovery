@@ -10,11 +10,11 @@ summary: When using NetApp Disaster Recovery, ensure you have the correct permis
 :imagesdir: ../media/use/
 
 [.lead]
-When using NetApp Disaster Recovery, ensure you have the correct permissions configured in ONTAP to ensure proper functioning. 
+Configure the required ONTAP permissions so NetApp Disaster Recovery can function properly. 
 
 == Minimum ONTAP permissions
 
-The following ONTAP permissions are required with Disaster Recovery:
+Disaster Recovery requires the following ONTAP permissions:
 
 [cols="3,1", options="header"]
 |===
@@ -50,7 +50,7 @@ The following ONTAP permissions are required with Disaster Recovery:
 
 == Add permissions in ONTAP
 
-Adding permissions in ONTAP requires creating a role with the required permissions and assigning the role to a user. You can perform this task in ONTAP using System Manager or the ONTAP CLI. 
+To add permissions in ONTAP, create a role with the required privileges and assign it to a user. You can complete this task in ONTAP with System Manager or the ONTAP CLI. 
 
 [role="tabbed-block"]
 ====
