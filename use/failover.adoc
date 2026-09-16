@@ -11,7 +11,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-When a disaster or over other similar event occurs, use NetApp Disaster Recovery to recover critical workloads so applications can resume at the disaster recovery site with planned mappings.
+When a disaster or other similar event occurs, use NetApp Disaster Recovery to recover critical workloads so applications can resume at the disaster recovery site with planned mappings.
 
 Disaster Recovery also supports testing failovers. Performing tests helps familiarize you with the process and confirms that recovery works as you expect. 
 
