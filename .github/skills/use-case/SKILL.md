@@ -67,11 +67,26 @@ A reliable use case should synthesize the feature or task description with a sta
 
 # Instructions
 
-1. Read the task topic carefully.
+1. Read the page title, lead, and opening task or setup content.
+2. Identify the user goal, task, and documented operational consequence.
+3. Determine whether the page contains an explicit or implicit use case.
+4. Evaluate the use case against the five required criteria:
+   - user goal or problem
+   - task or decision
+   - documented benefit or consequence
+   - page relevance
+   - 12–25 words
+5. Classify the result as Pass, Mixed, or Fail.
+6. For Pass, do not propose a rewrite.
+7. For Mixed, refine the existing use case while preserving its supported meaning.
+8. For Fail, write a new use case grounded only in the page content.
+9. If a suggestion is needed, write a revised introduction that incorporates it without repeating the page title or duplicating the lead.
+10. Verify that the suggested use case contains 12–25 words and makes no unsupported claims.1. Read the task topic carefully.
 2. Identify the user's goal and the consequence of not completing the task.
 3. Check whether the document states this goal explicitly — in the lead, a note, or a setup sentence.
 4. Evaluate the use case against the criteria above.
-5. If the use case evaluation is a pass, output: "Use case present; no rewrite needed." If the use case evaluation is mixed or fail, generate one based on the stated format. Also generate an introduction based on the examples. 
+5. If the use case evaluation is a pass, output: "Use case present; no rewrite needed."
+If the use case evaluation is mixed or fail, generate one based on the stated format. Also generate an introduction based on the examples. 
 
 ## Output format
 
