@@ -14,7 +14,7 @@ To log in to NetApp Disaster Recovery, use your NetApp Support Site credentials 
 
 == User roles
 
-In Disaster Recovery, specific tasks require specific user roles. Ensure you've assigned correct roles to users.
+In Disaster Recovery, specific tasks require specific user roles. Ensure you've assigned the correct roles to users.
 
 For more information, see:
 * link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[user roles and permissions in NetApp Disaster Recovery]
