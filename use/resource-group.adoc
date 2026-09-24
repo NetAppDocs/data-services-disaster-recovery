@@ -10,7 +10,7 @@ summary: Resource groups let you organize dependent resources into logical group
 :imagesdir: ../media/use/
 
 [.lead]
-After you add resources to sites, create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups let you organize dependent resources into logical groups that meet your requirements. For example, you can group VMs for one application or group applications that share similar tiers. Resource groups can also include delayed boot orders that run during recovery.
+After you add resources to sites, you can create resource groups to organize VMs, datastores, or Kubernetes clusters as a single unit. Resource groups let you organize dependent resources into logical groups that meet your requirements. For example, you can group VMs for one application or group applications that share similar tiers. Resource groups can also include delayed boot orders that run during recovery to ensure resources start in the correct order.
 
 include::../_include/iam-super-admin.adoc[]
 

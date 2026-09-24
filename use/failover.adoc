@@ -11,7 +11,9 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-If a disaster occurs, fail over your primary on-premises VMware site to another on-premises VMware site or to VMware Cloud on AWS. You can also test the failover process in advance to confirm that recovery works as expected.
+When a disaster or other similar event occurs, use NetApp Disaster Recovery to recover critical workloads so applications can resume at the disaster recovery site with planned mappings.
+
+Disaster Recovery also supports testing failovers. Performing tests helps familiarize you with the process and confirms that recovery works as you expect. 
 
 
 include::../_include/iam-failover.adoc[]

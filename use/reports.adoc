@@ -12,6 +12,13 @@ summary: Reviewing disaster recovery reports can help you analyze your disaster 
 [.lead]
 Use NetApp Disaster Recovery reports to assess disaster recovery preparedness. Reports provide details about replication plans, including the number of resource groups, VMs, Kubernetes clusters, and datastores that each plan covers. Reports also show compliance status, job summaries, and backup settings such as recovery point objective (RPO) and retention count. 
 
+Use reports to assess replication compliance and recovery history before an incident so you can identify protection gaps.
+
+[TIP]
+link:dashboard-view.html[You can review protection statuses at a high level in the Dashboard or by workload in the Workloads page.]
+
+== About Disaster Recovery reports
+
 You can download reports in PDF, HTML, or JSON format. 
 
 The report download link is valid for six hours after you generate it.  
