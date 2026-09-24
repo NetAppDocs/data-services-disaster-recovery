@@ -11,8 +11,7 @@ summary: With NetApp Disaster Recovery, you can use different licensing plans in
 :imagesdir: ../media/get-started/
 
 [.lead]
-NetApp Disaster Recovery offers several licensing options, including a free trial, a pay-as-you-go subscription, and bring your own license (BYOL).
-
+NetApp Disaster Recovery offers several licensing options, including a free trial, a pay-as-you-go subscription, and bring your own license (BYOL). Confirm your licensing model before configuring disaster recovery to ensure the service meets your organizational needs. 
 
 include::../_include/iam-super-admin.adoc[]
 

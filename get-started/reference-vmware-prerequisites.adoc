@@ -10,7 +10,7 @@ summary: Before using NetApp Disaster Recovery, ensure your environment meets th
 :imagesdir: ../media/get-started/
 
 [.lead]
-Before using NetApp Disaster Recovery, ensure your environment meets the VMware vCenter cluster requirements. 
+Before using NetApp Disaster Recovery, ensure your environment meets the VMware vCenter cluster requirements so replication and recovery can run without compatibility issues.
 
 == General prerequisites 
 

@@ -11,7 +11,7 @@ summary: Before using NetApp Disaster Recovery, ensure your environment meets th
 :imagesdir: ../media/get-started/
 
 [.lead]
-Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP storage, VMware vCenter cluster, and NetApp Console requirements. 
+Before using NetApp Disaster Recovery, ensure your environment meets the ONTAP storage, VMware vCenter cluster, and NetApp Console requirements. Validating the prerequisites ensures your environment is ready to replicate and recover workloads without delays.
 
 == Software versions
 

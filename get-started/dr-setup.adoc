@@ -10,7 +10,7 @@ summary: To use NetApp Disaster Recovery, perform a few steps to set it up.
 :imagesdir: ../media/get-started/
 
 [.lead]
-To use NetApp Disaster Recovery, complete a few setup steps in the NetApp Console and in your supported disaster recovery environment. 
+To use NetApp Disaster Recovery, first prepare your recovery environment before a disruption so replication and failover can be configured and tested with minimal delays.
 
 TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure that your system is ready.
 
@@ -18,16 +18,16 @@ TIP: Review link:../get-started/dr-prerequisites.html[prerequisites] to ensure t
 
 You can use NetApp Disaster Recovery in the following infrastructures:
 
-* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to an AWS DR infrastructure based on VMware Cloud on AWS or Elastic VMware Service (EVS) and Amazon FSx for NetApp ONTAP.
-* Private cloud DR that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
-* Cloud DR that replicates an AWS DR infrastructure based on VMware Cloud on AWS or EVS to another AWS-based DR infrastructure using FSx for NetApp ONTAP.
-* Hybrid cloud DR that replicates an on-premises VMware plus ONTAP datacenter to a Google DR infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes.
+* Hybrid cloud disaster recovery that replicates an on-premises VMware plus ONTAP datacenter to an AWS disaster recovery infrastructure based on VMware Cloud on AWS or Elastic VMware Service (EVS) and Amazon FSx for NetApp ONTAP.
+* Private cloud disaster recovery that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
+* Cloud disaster recovery that replicates an AWS disaster recovery infrastructure based on VMware Cloud on AWS or EVS to another AWS-based disaster recovery infrastructure using FSx for NetApp ONTAP.
+* Hybrid cloud disaster recovery that replicates an on-premises VMware plus ONTAP datacenter to a Google disaster recovery infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes.
 
 == Hybrid cloud with VMware Cloud and Amazon FSx for NetApp ONTAP 
 
-This method consists of an on-premises production vCenter infrastructure using datastores hosted on ONTAP FlexVol volumes using an NFS protocol. The DR site consists of one or more VMware Cloud SDDC instances using datastores hosted on FlexVol volumes provided by one or more FSx for ONTAP instances using an NFS protocol. 
+This method consists of an on-premises production vCenter infrastructure using datastores hosted on ONTAP FlexVol volumes using an NFS protocol. The disaster recovery site consists of one or more VMware Cloud SDDC instances using datastores hosted on FlexVol volumes provided by one or more FSx for ONTAP instances using an NFS protocol. 
 
-The production and DR sites are connected by an AWS-compatible secure connection. Common connection types are a secure VPN (private or AWS provided), AWS Direct Connect, or other approved interconnect methods. 
+The production and disaster recovery sites are connected by an AWS-compatible secure connection. Common connection types are a secure VPN (private or AWS provided), AWS Direct Connect, or other approved interconnect methods. 
 
 For Disaster Recovery involving AWS cloud infrastructure, you must use the Console agent for AWS. The agent should be installed in the same VPC as the FSx for ONTAP instance. If additional FSx for ONTAP instances were deployed in other VPCs, the VPC hosting the agent must have access to the other VPCs. 
 
@@ -39,7 +39,7 @@ AWS supports deploying solutions in one or more Availability Zones (AZs) within 
 
 * *AWS FSx for NetApp ONTAP*: When Amazon FSx for NetApp ONTAP is deployed in a multi-AZ configuration, each volume is owned by one FSx for ONTAP file system, and the data is mirrored to the second file system. FSx for ONTAP can be deployed in single-AZ or multi-AZ configurations. NetApp Disaster Recovery supports both deployment models.
 
-*BEST PRACTICE*: For AWS DR site configuration, NetApp recommends using single-AZ deployments for both VMware Cloud and AWS FSx for ONTAP instances. Because AWS is being used for disaster recovery, there is no advantage to introducing multiple Availability Zones. Multi-AZ deployments can increase cost and complexity. 
+*BEST PRACTICE*: For AWS disaster recovery site configuration, NetApp recommends using single-AZ deployments for both VMware Cloud and AWS FSx for ONTAP instances. Because AWS is being used for disaster recovery, there is no advantage to introducing multiple Availability Zones. Multi-AZ deployments can increase cost and complexity. 
 
 === On-premises to AWS 
 AWS provides the following methods to connect private datacenters to the AWS cloud. Each solution has its benefits and cost considerations. 
@@ -48,9 +48,9 @@ AWS provides the following methods to connect private datacenters to the AWS clo
 
 * *AWS Internet Gateway*: This provides public connectivity between AWS cloud resources and external compute resources. This type of connection is typically used to provide service offerings to external customers, such as HTTP/HTTPS service where security is not a requirement. There is no quality-of-service control, security, or guarantee of connectivity. For this reason, this connection method is not recommended for connecting a production datacenter to the cloud.
 
-* *AWS Site-to-Site VPN*: This virtual private network connection can provide secure connectivity over a public internet service provider. The VPN encrypts and decrypts all data traveling to and from the AWS cloud. VPNs can be either software- or hardware-based. For enterprise applications, the public internet service provider (ISP) should offer quality-of-service guarantees to ensure that adequate bandwidth and latency are provided for DR replication. 
+* *AWS Site-to-Site VPN*: This virtual private network connection can provide secure connectivity over a public internet service provider. The VPN encrypts and decrypts all data traveling to and from the AWS cloud. VPNs can be either software- or hardware-based. For enterprise applications, the public internet service provider (ISP) should offer quality-of-service guarantees to ensure that adequate bandwidth and latency are provided for disaster recovery replication. 
 
-*BEST PRACTICE*: For AWS DR site configuration, NetApp recommends using AWS Direct Connect. This solution provides the highest performance and security for enterprise applications. If it is not available, a high-performance public ISP connection along with a VPN should be used. Ensure that the ISP offers commercial QoS service levels to ensure adequate network performance. 
+*BEST PRACTICE*: For AWS disaster recovery site configuration, NetApp recommends using AWS Direct Connect. This solution provides the highest performance and security for enterprise applications. If it is not available, a high-performance public ISP connection along with a VPN should be used. Ensure that the ISP offers commercial QoS service levels to ensure adequate network performance. 
 
 === VPC-to-VPC interconnections 
 AWS offers the following types of VPC-to-VPC interconnections. Each solution has its benefits and cost considerations.
@@ -61,7 +61,7 @@ AWS offers the following types of VPC-to-VPC interconnections. Each solution has
 
 * *AWS Transit Gateway*: This is a centralized router-based connection type that enables each VPC to connect to a single, central gateway, which acts as a central hub for all VPC-to-VPC traffic. This can also be connected to your VPN solution to enable on-premises datacenter resources to access AWS VPC-hosted resources. This type of connection typically requires an additional cost to implement. 
 
-*BEST PRACTICE*: For DR solutions that use VMware Cloud and a single FSx for ONTAP VPC, NetApp recommends using VPC peering. If multiple FSx for ONTAP VPCs are deployed, then we recommend using an AWS Transit Gateway to reduce the management overhead of multiple VPC peer connections.
+*BEST PRACTICE*: For disaster recovery solutions that use VMware Cloud and a single FSx for ONTAP VPC, NetApp recommends using VPC peering. If multiple FSx for ONTAP VPCs are deployed, then we recommend using an AWS Transit Gateway to reduce the management overhead of multiple VPC peer connections.
 
 
 === Get ready for on-premises-to-cloud protection using AWS
@@ -99,7 +99,7 @@ You can use NetApp Disaster Recovery to protect VMware VMs hosted on one or more
 
 For on-premises to on-premises situations, install the Console agent at one of the physical sites. 
 
-Disaster Recovery supports site-to-site replication using Ethernet and TCP/IP. Ensure that adequate bandwidth is available to support data change rates on the production site VMs so that all changes can be replicated to the DR site within the Recovery Point Objective (RPO) time frame.
+Disaster Recovery supports site-to-site replication using Ethernet and TCP/IP. Ensure that adequate bandwidth is available to support data change rates on the production site VMs so that all changes can be replicated to the disaster recovery site within the Recovery Point Objective (RPO) time frame.
 
 
 === Get ready for on-premises-to-on-premises protection
