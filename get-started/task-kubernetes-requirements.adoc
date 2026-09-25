@@ -10,7 +10,7 @@ summary: Before using NetApp Disaster Recovery, ensure your Kubernetes clusters 
 :imagesdir: ../media/get-started/
 
 [.lead]
-Before configuring NetApp Disaster Recovery for Kubernetes, prepare each Kubernetes cluster. Protection typically applies to a source cluster and a separate destination cluster, so complete these procedures on each cluster in the pair. 
+Before configuring NetApp Disaster Recovery for Kubernetes, prepare each Kubernetes cluster to ensure its readiness for replication and failover. Protection typically applies to a source cluster and a separate destination cluster; complete these procedures on each cluster in the pair. 
 
 == Prerequisites
 
