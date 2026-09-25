@@ -51,7 +51,7 @@ Mention the product capability only when it is needed for clarity. Do not name f
 
 ## Placement
 
-In most cases, the use case should be at the introduction of the topic, within or just after the lead paragraph. In some cases, use cases should preceded individual task-based workflows on a page.
+In most cases, the use case should be at the introduction of the topic, within or just after the lead paragraph. In some cases, use cases should precede individual task-based workflows on a page.
 
 <!-- If the topic includes multiple workflows, assess whether they are related. If they are distinct, the use case can  -->
 
