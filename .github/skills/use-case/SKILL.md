@@ -59,7 +59,7 @@ In most cases, the use case should be at the introduction of the topic, within o
 
 A valid use case should connect the user goal to the operational consequence. Use the examples below to judge whether the topic is specific, relevant, and grounded in the task it describes.
 
-A reliable use case should synthesize the feature or task description with a statement of the user value. Use these two exmaples:
+A reliable use case should synthesize the feature or task description with a statement of the user value. These two passages exemplify sound use cases in the context of a lead paragraph:
 
 * Example 1: Snapshot replication is a process in which consistency groups on your ASA r2 system are copied to a geographically remote location. After the initial replication, changes to consistency groups are copied to the remote location based upon a replication policy. Replicated consistency groups can be used for disaster recovery or data migration.
 
