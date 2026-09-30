@@ -21,7 +21,7 @@ entries:
     url: /use/task-appvault.html
   - title: Manage resource transformation templates
     url: /use/task-resource-transformation.html
-  - title: Manage sites, plans, datastores, and virtual machines information 
+  - title: Manage sites, plans, datastores, and VM information 
     url: /use/manage.html
   - title: Monitor disaster recovery jobs
     url: /use/monitor-jobs.html 
