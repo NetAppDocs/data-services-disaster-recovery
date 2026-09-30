@@ -12,15 +12,6 @@ Use-case based documentation should capture the _how_, the _what_, and the _why_
 
 Canonical source: https://review.docs.netapp.com/us-en/content-standards/use-cases/use-cases.html
 
-# Audience
-
-Use cases in this repository are written for two personas:
-
-* **Sal**, a senior storage engineer who leads infrastructure planning and design. Sal values operational leadership, complex problem-solving, and modernization.
-* **Zoe**, a storage administrator who manages day-to-day storage services. Zoe values efficient workflows, reliable tools, and clear guidance.
-
-When evaluating a use case, consider whether it speaks to the goal of at least one of these personas.
-
 # What makes a valid use case
 
 A valid use case:
