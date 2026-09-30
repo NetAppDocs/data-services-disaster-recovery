@@ -4,7 +4,6 @@ permalink: get-started/dr-quick-start.html
 keywords: how to get started with bluexp disaster recovery, disaster recovery quick start, failover, failback
 summary: Get started with the NetApp Disaster Recovery service in a few steps.
 ---
-
 = Quick start for NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
@@ -56,6 +55,6 @@ These tasks require the _Disaster recovery admin_ role.
 [role="quick-margin-para"]
 These tasks require the _Disaster Recovery admin_ or _Disaster Recovery failover admin role_.
 
-[role="quick-margin-para"]
+[role="quick-margin-list"]
 * link:../use/failover.html[Fail over applications to a remote site]
 * link:../use/failback.html[Fail back applications to the original source site]
