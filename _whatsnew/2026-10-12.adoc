@@ -2,14 +2,18 @@
 
 You can now set an optional boot order for resource groups in a Kubernetes replication plan by specifying a priority and delay for each group.
 
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[create a replication plan^].
+
 === SnapLock volume support
 
-Disaster Recovery now supports SnapLock volumes.
+Disaster Recovery now supports SnapLock volumes, enabling you to failover tamperproof snapshots.. When performing failback with SnapLock volumes, you must use the *Take snapshot now* option to ensure failback completes successfully.
+
+For more information, see instructions for link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failover.html[failover^] and link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failback.html[failback^].
 
 === Simplified refresh and compliance runs
 
-Refresh runs for vCenter, replication plans, and compliance have been simplified into a single job.
+Refresh runs for vCenter, replication plans, and compliance have been simplified into a single job to facilitate a faster execution. To see this change, learn how to link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html[monitor jobs^].
 
 === Kubernetes compliance checks
 
-Compliance checks now identify missing working environments in Kubernetes environments.
+Disaster Recovery has added compliance checks to identify missing working environments for Kubernetes workloads. These compliance checks help ensure workload health for the integrity of your replication plans. 
