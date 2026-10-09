@@ -1,0 +1,15 @@
+=== Optional boot order for Kubernetes resource groups
+
+You can now set an optional boot order for resource groups in a Kubernetes replication plan by specifying a priority and delay for each group.
+
+=== SnapLock volume support
+
+Disaster Recovery now supports SnapLock volumes.
+
+=== Simplified refresh and compliance runs
+
+Refresh runs for vCenter, replication plans, and compliance have been simplified into a single job.
+
+=== Kubernetes compliance checks
+
+Compliance checks now identify missing working environments in Kubernetes environments.
