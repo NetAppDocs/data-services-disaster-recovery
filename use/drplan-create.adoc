@@ -226,7 +226,7 @@ After selecting Add, you can monitor the different jobs in **Job monitoring**.
 --
 ====
 
-==== Resource transformations and script executions
+==== Resource transformations, script executions, and boot order
 
 For Kubernetes replication plans, you can apply resource transformations and script executions. These steps are optional. 
 
