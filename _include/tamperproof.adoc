@@ -1,2 +1,2 @@
 [NOTE]
-If you're using tamperproof SnapLock snapshots, you must use the *Take snapshot now* option, otherwise the operation will fail. 
+If you're using tamperproof SnapLock snapshots, you must use the *Take snapshot now* option. Otherwise the operation will fail. 

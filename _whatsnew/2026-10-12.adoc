@@ -1,6 +1,6 @@
 === Optional boot order for Kubernetes resource groups
 
-You can now set an optional boot order for resource groups in a Kubernetes replication plan by specifying a priority and delay for each group.
+NetApp Disaster Recovery now supports setting optional boot order for resource groups in a Kubernetes replication plan by specifying a priority order and optional delay time for resources. This option enables you to boot resources at the same time when necessary and delay booting for resources that are dependend on others, supporting you applications to come back online in a healthy manner. 
 
 For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[create a replication plan^].
 

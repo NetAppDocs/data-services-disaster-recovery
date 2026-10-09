@@ -251,7 +251,7 @@ Disaster Recovery can execute a script before or after taking a snapshot to mana
 
 .Set the boot order
 
-For replication plans that include multiple resource groups, you can set the boot order to ensure that resources that need to come online together do so while any resource groups that rely on others won't come online until their dependents do. 
+For replication plans that include multiple resource groups, you can optionally set a boot order to ensure that resources that need to come online together do so while any resource groups that rely on others won't come online until their dependents do. 
 
 . Select *Boot order and delay* section.
 . Designate a boot *Order* value for each resource in the replication plan beginning with one. Any resources that should boot at the same time should be assigned the same number. 

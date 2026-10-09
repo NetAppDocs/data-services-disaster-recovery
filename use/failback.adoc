@@ -47,8 +47,6 @@ image::site-type-toggle.png[Screenshot of the site type toggle]
 +
 include::../_include/tamperproof.adoc[]
 +
-include::../_include/tamperproof.adoc[]
-+
 image:failback.png[Screenshot of the failback dialog]
 
 . Enter "Failback" to confirm the operation then select *Failback*.
