@@ -10,7 +10,7 @@ summary: NetApp Disaster Recovery is a cloud-based disaster recovery service tha
 :imagesdir: ../media/use/
 
 [.lead]
-After you add resources and sites, create a _replication plan_ to protect your data. The plan defines the source and destination sites, resource groups, recovery mappings, and power-on behavior for your applications. You can also configure compliance and test schedules and perform test failovers without affecting production data. 
+After you add resources and sites, create a _replication plan_ to protect your data with NetApp Disaster Recovery. The plan defines the source and destination sites, resource groups, recovery mappings, and power-on behavior for your applications. You can also configure compliance and test schedules and perform test failovers without affecting production data. 
 
 include::../_include/iam-failover-app-admin.adoc[]
 
@@ -226,7 +226,7 @@ After selecting Add, you can monitor the different jobs in **Job monitoring**.
 --
 ====
 
-==== Resource transformations and script executions
+==== Resource transformations, script executions, and boot order
 
 For Kubernetes replication plans, you can apply resource transformations and script executions. These steps are optional. 
 
@@ -248,6 +248,14 @@ Disaster Recovery can execute a script before or after taking a snapshot to mana
 . Select *Upload* to choose the script file. 
 . Choose the *Execution stage*: *Pre-snapshot* to execute before creating the snapshot or *Post-snapshot* to execute after.
 . Select *Save*. 
+
+.Set the boot order
+
+For replication plans that include multiple resource groups, you can optionally set a boot order to ensure that resources that need to come online together do so while any resource groups that rely on others won't come online until their dependents do. 
+
+. Select *Boot order and delay* section.
+. Designate a boot *Order* value for each resource in the replication plan beginning with one. Any resources that should boot at the same time should be assigned the same number. 
+. Set the *Delay* time in minutes. If any resources should be delayed, set how long long the delay should be in minutes. 
 
 ==== Compute resources section 
 
