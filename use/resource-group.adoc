@@ -21,7 +21,7 @@ You can group VMs themselves or VMs in datastores.
 You can create resource groups using the following methods: 
 
 * From the Resource groups option  
-* While you're creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:drplan-create.html[Create a replication plan].
+* While you're creating a disaster recovery or _replication plan_. If you have a lot of VMs hosted by a source vCenter cluster, it might be easier for you to create the resource groups while you're creating the replication plan. For instructions on creating resource groups while you're creating a replication plan, see link:task-replication-plan-vmware.html[Create a replication plan].
 
 TIP: Each resource group can include one or more VMs, datastores, or Kubernetes clusters. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
 

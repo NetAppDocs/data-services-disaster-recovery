@@ -44,6 +44,6 @@ When the option is selected, NetApp Disaster Recovery does not configure a backu
 
 After this is configured, the service doesn't take any regularly scheduled snapshots, but instead relies on the external entity to take and update those snapshots.
 
-//For details using external snapshot solutions in the replication plan, see  link:../use/drplan-create.html[Create a replication plan].
+//For details using external snapshot solutions in the replication plan, see  link:../use/task-replication-plan-vmware.html[Create a replication plan].
 
-For details about using external snapshot solutions in the replication plan, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+For details about using external snapshot solutions in the replication plan, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].

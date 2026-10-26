@@ -17,8 +17,8 @@ You can create a resource group with a datastore in the following ways:
 * When you're creating a replication plan and creating a resource group within the plan, you can see the VMs in the datastores. 
 
 
-//For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+//For details, see link:../use/task-replication-plan-vmware.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].
 
 === Notifications of free trial or license expiration
 

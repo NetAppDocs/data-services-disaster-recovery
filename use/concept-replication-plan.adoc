@@ -1,0 +1,61 @@
+---
+sidebar: sidebar
+permalink: use/concept-replication-plan.html
+keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, snapmirror, snapshot, backup, best practices
+summary: Before deploying your replication in NetApp Disaster Recovery, understand the best practices to ensure the efficacy of your disaster recovery strategy. 
+---
+= Optimize your replication plan in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+The replication plan is an essential piece of the your disaster recovery strategy, defining snapshot frequency, boot order, network mapping, and other key details of failover and failback. Before creating a replication plan in NetApp Disaster Recovery, ensure you understand how replication plans work and the best practices. 
+
+== About replication plans
+
+You can protect multiple VMs or namespaces multiple datastores with a single replication plan. Disaster Recovery creates ONTAP consistency groups for all ONTAP volumes that host protected data resources. 
+
+== Resource planning
+
+Organize your VMs or namespaces before assigning resources to a replication plan to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
+
+== Replication plan snapshots
+
+Disaster Recovery maintains the same number of snapshots on the source and destination clusters. By default, the service performs a snapshot reconciliation process every 24 hours to ensure that the number of snapshots on the source and destination clusters is the same.
+
+The following situations can cause the number of snapshots to differ between the source and destination clusters:
+
+* Some situations can cause ONTAP operations outside of Disaster Recovery to add or remove snapshots from the volume: 
+** If there are missing snapshots on the source site, the corresponding snapshots on the destination site might be deleted, depending on the default SnapMirror policy for the relationship. 
+** If there are missing snapshots on the destination site, the service might delete the corresponding snapshots on the source site during the next scheduled snapshot reconciliation process, depending on the default SnapMirror policy for the relationship.
+
+* A reduction of the replication plan's snapshot retention count can cause the service to delete the oldest snapshots on both the source and destination sites to meet the newly reduced retention number.
+
+In these cases, Disaster Recovery removes older snapshots from the source and destination clusters upon the next consistency check. Or, the administrator can perform an immediate snapshot cleanup by selecting the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] icon on the replication plan and selecting *Clean up snapshots*.
+
+Disaster Recovery performs snapshot symmetry checks every 24 hours. 
+
+== Considerations for platform-managed backups
+
+If you plan to use platform-managed backups (that is, ONTAP-managed snapshots), it's recommended you use the *MirrorAll* replication policy. Review the table to understand the impact of different SnapMirror replication policies and why MirrorAll is the recommended option. 
+
+[options="headers", cols="10,10,80"]
+|===
+| Policy | Recommendation | Notes
+| *MirrorAll* | Recommended | Do not use SnapMirror transfer snapshots for failover or failback operations.
+| *MirrorVault*
+.2+| Alternative recommendation
+.2+| Ensure that the snapshots selected during failover or failback are present on both the source and destination volumes. Failure to do so will result in the error: "Transition to 'snapmirrored' state failed. Reason: No common snapshot found."
+
+Do not use SnapMirror transfer snapshots for failover or failback operations.
+| *Asynchronous* 
+| *MirrorLatest* | _NOT_ recommended | This policy results in the destination having effectively only one common snapshot for failover, which is suboptimal for disaster recovery scenarios.
+|===
+
+== Considerations for Disaster Recovery-managed backups
+
+When using Disaster Recovery managed backups, the following guidelines apply to SnapMirror relationships created outside of NetApp Disaster Recovery:
+
+- SnapMirror relationships can support the MirrorAll, MirrorVault, MirrorLatest, and Asynchronous replication policies.
+- Do *not* schedule updates for these relationships as they will be managed by the Disaster Recovery service.

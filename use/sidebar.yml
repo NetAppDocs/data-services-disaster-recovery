@@ -7,8 +7,16 @@ entries:
     url: /use/sites-add.html
   - title: Create a resource group 
     url: /use/resource-group.html
-  - title: Create a replication plan
-    url: /use/drplan-create.html
+  - title: Replication plans
+    entries:
+      - title: Optimize your replication plan
+        url: /use/concept-replication-plan.html
+      - title: Create a VMware replication plan
+        url: /use/task-replication-plan-vmware.html
+      - title: Create a Kubernetes replication plan
+        url: /use/task-replication-plan-kubernetes.html
+      - title: Modify a replication plan
+        url: /use/task-replication-plan-modify.html
   - title: Replicate to another site 
     url: /use/replicate.html
   - title: Migrate to another site

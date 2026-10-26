@@ -1,0 +1,4 @@
+---
+permalink: use/task-replication-plan-vmware.html
+redirect: data-services-disaster-recovery/use/task-replication-plan-vmware.html
+---
