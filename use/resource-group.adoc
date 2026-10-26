@@ -25,18 +25,17 @@ You can create resource groups using the following methods:
 
 TIP: Each resource group can include one or more VMs, datastores, or Kubernetes clusters. The VMs will power on based on the sequence in which you include them in the replication plan. You can change the order by dragging the VMs or datastores up or down the resource group list. 
 
-.About resource groups
+== About resource groups
 
 Resource groups let you combine VMs, datastores, or Kubernetes applications into a single unit. 
 
 For example, a point-of-sale application might use several VMs for databases, business logic, and storefronts. You can manage all these VMs with one resource group. Set up resource groups to apply replication plan rules for VM startup order, network connection, and recovery of all VMs needed for the application.
 
+=== How resource groups work
 
-.How does it work?
+Disaster Recovery protects VMs by replicating the underlying ONTAP volumes and LUNs hosting the VMs in the resource group. To do this, the system queries vCenter for the name of each datastore hosting VMs in a resource group. Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store. All protection is performed at the ONTAP volume level using SnapMirror replication.
 
-NetApp Disaster Recovery protects VMs by replicating the underlying ONTAP volumes and LUNs hosting the VMs in the resource group. To do this, the system queries vCenter for the name of each datastore hosting VMs in a resource group. NetApp Disaster Recovery then identifies the source ONTAP volume or LUN hosting that data store. All protection is performed at the ONTAP volume level using SnapMirror replication.
-
-If VMs in the resource group are hosted on different datastores, NetApp Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.
+If VMs in the resource group are hosted on different datastores, Disaster Recovery uses one of the following methods to create a data-consistent snapshot of the ONTAP volumes or LUNs.
 
 [cols=2*,options="header",cols="30,65a",width="100%"]
 |===
@@ -56,18 +55,9 @@ If VMs in the resource group are hosted on different datastores, NetApp Disaster
 
 |===
 
-When you create resource groups, consider the following issues: 
+== Best practices for resource groups
 
-* Before you add datastores to resource groups, start a manual discovery or a scheduled discovery of the VMs first. This ensures that the VMs are discovered and listed in the resource group. If you do not start a manual discovery, the VMs might not be listed in the resource group.
-* Ensure that there is at least one VM in the datastore. If there are no VMs in the datastore, Disaster Recovery does not discover the datastore.
-* A single datastore should not host VMs protected by more than one replication plan.
-* Do not host protected and unprotected VMs on the same datastore. If protected and unprotected VMs are hosted on the same datastore, the following issues could arise:  
-** Because NetApp Disaster Recovery uses SnapMirror and the system replicates entire ONTAP volumes, the used capacity of that volume is used for licensing considerations. In this case, the volume space consumed by both protected and unprotected VMs would be included in this calculation.
-** If the resource group and its associated datastores need to be failed over to the disaster recovery site, any unprotected VMs (VMs not part of the resource group, but hosted on the ONTAP volume) will no longer exist on the source site from the failover process, resulting in failure of unprotected VMs at the source site. Also, NetApp Disaster Recovery will not start those unprotected VMs at the failover vCenter site. 
-
-* To have a VM protected, it must be included in a resource group.
-
-*BEST PRACTICE*: Organize your VMs before deploying NetApp Disaster Recovery to minimize datastore sprawl. Place VMs that need protection on a subset of datastores and place VMs that are not going to be protected on a different subset of datastores. Ensure that the VMs on any given datastore are not protected by different replication plans.
+include::../_include/resource-group-considerations.adoc[]
 
 [role="tabbed-block"]
 ====

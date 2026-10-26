@@ -51,19 +51,7 @@ image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
 
 === Select applications to replicate and assign resource groups
 
-Group the required VMs or datastores into functional resource groups. Resource groups enable you to protect a set of VMs with a common snapshot.  
-
-When you create resource groups, consider the following issues: 
-
-* Before you add resources to resource groups, start a manual discovery or a scheduled discovery first. This ensures that resources are discovered and listed in the resource group. 
-* Ensure there's at least one VM in the datastore. If there are no VMs in the datastore, the datastore won't be discovered.
-* A single datastore should not host VMs protected by more than one replication plan.
-* Do not host protected and unprotected resources on the same datastore. If protected and unprotected resources are hosted on the same datastore, you can encounter these issues:  
-** The used capacity of that volume can contribute to the licensing calculation because Disaster Recovery uses SnapMirror, meaning the system replicates entire ONTAP volumes. In this case, the volume space consumed by both protected and unprotected resources would be included in this calculation.
-** If the resource group and its associated resources need to be failed over to the disaster recovery site, any unprotected resources will no longer exist on the source site from the failover process, resulting in failure of unprotected resources at the source site. Also, NetApp Disaster Recovery will not start those unprotected resources at the failover site. 
-
-[TIP]
-Create a separate dedicated set of mappings for your failover tests to prevent resources from being connected to production networks using the same IP addresses. 
+Group the required VMs or datastores into functional resource groups. Resource groups enable you to protect a set of VMs with a common snapshot. You can assign VMs to resource groups outside of the replication plan workflow. For recommendations about planning, see link:resource-group.html[best practices for resource groups].
 
 .Steps
 
@@ -89,7 +77,7 @@ If you plan to perform test failovers as part of your DR plan, you should provid
 
 .Before you begin
 
-If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of NetApp Disaster Recovery. 
+If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of Disaster Recovery. 
 
 .Steps
 . In the Resource mapping page, check the box to use the same mappings for both failover and test operations. 
@@ -125,7 +113,7 @@ TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manag
 
 ==== Virtual networks
 
-VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, the service requires a destination virtual network assignment. 
+VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, Disaster Recovery requires a destination virtual network assignment. 
 
 NOTE: You can assign multiple source virtual networks to the same target virtual network. This might however create IP network configuration conflicts. You can map multiple source networks to a single target network to ensure that all source networks have the same configuration. 
 
@@ -167,7 +155,7 @@ Disaster Recovery supports an extensive set of configuration options for VM netw
 
 At the most basic (and default) level, the settings simply use the same TCP/IP network settings for each VM on the destination site as used on the source site. This requires that you configure the same TCP/IP settings on the source and destination virtual networks. 
 
-The service supports network settings of static or Dynamic Host Configuration Protocol (DHCP) IP configuration for VMs. DHCP provides a standards-based method of dynamically configuring the TCP/IP settings of a host network port. DHCP must provide, at a minimum, a TCP/IP address, and can also provide a default gateway address (for routing to an external internet connection), a subnet mask, and a DNS server address. DHCP is commonly used for end-user computing devices such as employee desktop, laptop, and mobile phone connections, while it can also be used for any networking computing device such as servers. 
+Disaster Recovery supports network settings of static or Dynamic Host Configuration Protocol (DHCP) IP configuration for VMs. DHCP provides a standards-based method of dynamically configuring the TCP/IP settings of a host network port. DHCP must provide, at a minimum, a TCP/IP address, and can also provide a default gateway address (for routing to an external internet connection), a subnet mask, and a DNS server address. DHCP is commonly used for end-user computing devices such as employee desktop, laptop, and mobile phone connections, while it can also be used for any networking computing device such as servers. 
 
 * *Use the same subnet mask, DNS, and gateway settings* option: Because these settings are typically the same for all VMs connected to the same virtual networks, you might find it easier to configure these once and let Disaster Recovery use the settings for all VMs in the resource group protected by the replication plan. If some VMs use different settings, you need to uncheck this box and provide those settings for each VM.
 
@@ -226,39 +214,7 @@ image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing the VM secti
 
 To enable application-consistent replicas of the VMs and their hosting datastores, check the box next to *Create application-consistent replicas* for each VM and provide guest login credentials with the appropriate privileges. 
 
-During a scheduled backup, Disaster Recovery quiesces the database server and  then takes a snapshot of the VM hosting the database server. This ensures that the database is in a consistent state when the snapshot is taken.
-
-* For Windows VMs, the service uses the Microsoft Volume Shadow Copy Service (VSS) to coordinate with either database server type. 
-
-* For Linux VMs, the service uses a set of scripts to place the Oracle server in backup mode. 
-
-.Expand this section for detailed considerations about application-consistent snapshots. 
-[%collapsible]
-====
-Many VMs host database servers such as Oracle or Microsoft SQL Server. These database servers require application-consistent snapshots to ensure that the database is in a consistent state when the snapshot is taken.
-
-Application-consistent snapshots ensure that the database is in a consistent state when the snapshot is taken. This is important because it ensures that the database can be restored to a consistent state after a failover or failback operation. 
-
-The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in NetApp Disaster Recovery:
-
-[cols=3*,options="header",cols="20,20,40a",width="100%"]
-|===
-| Data location
-| Supported
-| Notes
-
-
-| Within the same vCenter datastore as the VM | Yes | Because the database server and database both reside on the same datastore, both the server and the data will be in sync upon failover. 
-|Within a different vCenter datastore from the VM | No | Disaster Recovery can't identify when a database server's data is on a different vCenter datastore. The service can't replicate the data, but can replicate the database server VM. 
-
-While the database data cannot be replicated, the service ensures that the database server performs all necessary steps to ensure that the database is quiesced at the time of the VM backup. 
-| Within an external data source | No | If the data resides on a guest-mounted LUN or NFS share, Disaster Recovery can't replicate the data, but can replicate the database server VM.
-
-While the database data cannot be replicated, the service ensures that the database server performs all necessary steps to ensure that the database is quiesced at the time of the VM backup.
-
-|=== 
-====
-
+To learn more about how application-consistent replicas work, see link:concept-replication-plan#application-consistent-replicas[learn about application-consistent replicas].
 
 ==== Datastores section 
 

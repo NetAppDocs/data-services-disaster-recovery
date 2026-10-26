@@ -59,3 +59,33 @@ When using Disaster Recovery managed backups, the following guidelines apply to 
 
 - SnapMirror relationships can support the MirrorAll, MirrorVault, MirrorLatest, and Asynchronous replication policies.
 - Do *not* schedule updates for these relationships as they will be managed by the Disaster Recovery service.
+
+== Application-consistent replicas 
+
+Many VMs host database servers such as Oracle or Microsoft SQL Server. These database servers require application-consistent snapshots to ensure that the database is in a consistent state when the snapshot is taken.
+
+Application-consistent snapshots ensure that the database is in a consistent state when the snapshot is taken. This is important because it ensures that the database can be restored to a consistent state after a failover or failback operation. 
+
+The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in NetApp Disaster Recovery:
+
+[cols=3*,options="header",cols="20,20,40a",width="100%"]
+|===
+| Data location
+| Supported
+| Notes
+
+
+| Within the same vCenter datastore as the VM | Yes | Because the database server and database both reside on the same datastore, both the server and the data will be in sync upon failover. 
+|Within a different vCenter datastore from the VM | No | Disaster Recovery can't identify when a database server's data is on a different vCenter datastore. The service can't replicate the data, but can replicate the database server VM. 
+
+While the database data cannot be replicated, the service ensures that the database server performs all necessary steps to ensure that the database is quiesced at the time of the VM backup. 
+| Within an external data source | No | If the data resides on a guest-mounted LUN or NFS share, Disaster Recovery can't replicate the data, but can replicate the database server VM.
+
+While the database data cannot be replicated, the service ensures that the database server performs all necessary steps to ensure that the database is quiesced at the time of the VM backup.
+
+|=== 
+
+During a scheduled backup, Disaster Recovery quiesces the database server and  then takes a snapshot of the VM hosting the database server. This ensures that the database is in a consistent state when the snapshot is taken.
+
+* For Windows VMs, the service uses the Microsoft Volume Shadow Copy Service (VSS) to coordinate with either database server type. 
+* For Linux VMs, the service uses a set of scripts to place the Oracle server in backup mode. 
