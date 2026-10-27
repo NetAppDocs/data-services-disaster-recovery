@@ -214,7 +214,7 @@ image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing the VM secti
 
 To enable application-consistent replicas of the VMs and their hosting datastores, check the box next to *Create application-consistent replicas* for each VM and provide guest login credentials with the appropriate privileges. 
 
-To learn more about how application-consistent replicas work, see link:concept-replication-plan#application-consistent-replicas[learn about application-consistent replicas].
+To learn more about how application-consistent replicas work, see link:link:concept-replication-plan.html#application-consistent-replicas[learn about application-consistent replicas].
 
 ==== Datastores 
 

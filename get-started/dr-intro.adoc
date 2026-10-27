@@ -135,7 +135,7 @@ If this check is successful, Disaster Recovery performs the following initializa
 
 After Disaster Recovery creates and initializes all relationships, at each scheduled backup, the service perform the following data protection steps:
 
-. For each VM flagged as “application consistent,” use VMtools to place the supported application into a backup state.
+. For each VM flagged as “application consistent,” use VMware Tools to place the supported application into a backup state.
 . Create a new snapshot of all ONTAP volumes hosting protected VMware datastores.
 . Perform a SnapMirror update operation to replicate those snapshots to the destination ONTAP cluster.
 . Determine if the number of retained snapshots has exceeded the maximum snapshot retention defined in the replication plan and delete any extraneous snapshots from both the source and destination volumes.

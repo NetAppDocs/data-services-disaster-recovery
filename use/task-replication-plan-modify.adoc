@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: use/task-replication-plan-modify.html
 keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover
-summary: Modify a replication paln 
+summary: Modify a replication plan to adjust compliance time or failover settings. 
 ---
 = Modify a replication plan in NetApp Disaster Recovery
 :hardbreaks:

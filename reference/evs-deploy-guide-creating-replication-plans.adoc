@@ -32,7 +32,7 @@ This opens the Create replication plan wizard.
 .Steps
 . Enter a unique name for the replication plan.
 +
-Only alpha-numeric characters and underscores (_) are allowed for replication plan names.
+Only alphanumeric characters and underscores (_) are allowed for replication plan names.
 
 . Select a source vCenter cluster.
 

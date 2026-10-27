@@ -10,7 +10,7 @@ summary: Learn about the requirements for using multiple Console agents with Net
 :imagesdir: ../media/use/
 
 [.lead]
-The NetApp Console supports using multiple Console agents with a single working environment. Using multiple Console agents can be helpful for maintaining access to resources while performing maitenance on another Console agent or if a Console agent fails. Because each Console agent has a unique identifier, improperly switching Console agents can compromise the availability of resources in a working environment. 
+The NetApp Console supports using multiple Console agents with a single working environment. Using multiple Console agents can be helpful for maintaining access to resources while performing maintenance on another Console agent or if a Console agent fails. Because each Console agent has a unique identifier, improperly switching Console agents can compromise the availability of resources in a working environment. 
 
 ## Before you begin
 
