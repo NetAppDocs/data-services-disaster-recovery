@@ -6,7 +6,7 @@ summary: "Frequently asked questions about NetApp Disaster Recovery for VMware a
 ---
 
 = FAQ for NetApp Disaster Recovery
-:toc: macro
+
 :hardbreaks:
 :toclevels: 1
 :nofooter:

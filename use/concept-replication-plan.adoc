@@ -10,17 +10,26 @@ summary: Before deploying your replication in NetApp Disaster Recovery, understa
 :imagesdir: ../media/use/
 
 [.lead]
-The replication plan is an essential piece of the your disaster recovery strategy, defining snapshot frequency, boot order, network mapping, and other key details of failover and failback. Before creating a replication plan in NetApp Disaster Recovery, ensure you understand how replication plans work and the best practices. 
+The replication plan is an essential piece of your disaster recovery strategy, defining snapshot frequency, boot order, network mapping, and other key details of failover and failback. Before creating a replication plan in NetApp Disaster Recovery, ensure you understand how replication plans work and the best practices. 
 
 == About replication plans
 
-You can protect multiple VMs or namespaces multiple datastores with a single replication plan. Disaster Recovery creates ONTAP consistency groups for all ONTAP volumes that host protected data resources. 
+You can protect multiple VMs, datastores, or namespaces with a single replication plan. Disaster Recovery creates ONTAP consistency groups for all ONTAP volumes that host protected data resources. 
 
 == Resource planning
 
 Organize your VMs or namespaces before assigning resources to a replication plan to minimize sprawl. Place resources that need protection on a subset of datastores and place resources that are not going to be protected on a different subset of datastores. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
-== Replication plan snapshots
+
+== Test failover
+
+When you create the replication plan, you have the option to configure unique test failover mappings. 
+
+include::../_include/test-failover.adoc[]
+
+== 
+
+== Snapshots
 
 Disaster Recovery maintains the same number of snapshots on the source and destination clusters. By default, the service performs a snapshot reconciliation process every 24 hours to ensure that the number of snapshots on the source and destination clusters is the same.
 
@@ -36,7 +45,7 @@ In these cases, Disaster Recovery removes older snapshots from the source and de
 
 Disaster Recovery performs snapshot symmetry checks every 24 hours. 
 
-== Considerations for platform-managed backups
+== Platform-managed backups
 
 If you plan to use platform-managed backups (that is, ONTAP-managed snapshots), it's recommended you use the *MirrorAll* replication policy. Review the table to understand the impact of different SnapMirror replication policies and why MirrorAll is the recommended option. 
 
@@ -53,7 +62,7 @@ Do not use SnapMirror transfer snapshots for failover or failback operations.
 | *MirrorLatest* | _NOT_ recommended | This policy results in the destination having effectively only one common snapshot for failover, which is suboptimal for disaster recovery scenarios.
 |===
 
-== Considerations for Disaster Recovery-managed backups
+== Disaster Recovery-managed backups
 
 When using Disaster Recovery managed backups, the following guidelines apply to SnapMirror relationships created outside of NetApp Disaster Recovery:
 
