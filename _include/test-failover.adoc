@@ -1,0 +1,2 @@
+
+If you plan to perform test failovers as part of your replication plan, you should provide a set of test failover mappings to ensure that VMs started during the failover test don't interfere with production VMs. You can accomplish this by either providing test VMs with different IP addresses, or by mapping the virtual NICs of the test VMs to a different network that is isolated from production yet has the same IP configuration (referred to as a _bubble_ or _test network_).

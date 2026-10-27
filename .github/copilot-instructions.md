@@ -26,7 +26,8 @@ NetApp Disaster Recovery is a cloud-based service in the NetApp Console that pro
 - *SnapMirror* is the replication transport; protection is volume/LUN based even when users select VMs or datastores in the UI.
 - *Test failover* creates temporary recovery artifacts (including FlexClone-backed datastores) to validate recovery without disrupting production workloads.
 - *Subnet mapping* preserves host bits and remaps network portions during failover IP reassignment.
-
+* *Console agent* - NetApp component that ensures connectivity between on-premises storage systems and NetApp data services in the cloud.
+* *Storage VM* - an isolated, logical file/storage server running inside a NetApp ONTAP cluster that serves data to clients. Use "storage VM" in the first instance with the abbreviation (SVM). Subsequent uses can include SVM. Do not use vServer. 
 
 ## Typical user workflows
 

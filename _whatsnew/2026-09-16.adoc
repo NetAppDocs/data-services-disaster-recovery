@@ -14,7 +14,7 @@ Resource transformations are applied when you create a replication plan. You can
 
 You can now inject custom scripting into the failover workflow to coordinate the quiescence and resumption of applications. This feature helps ensure that applications are properly prepared before a snapshot is replicated and restored appropriately so operations can resume seamlessly after failover.
 
-To learn how to inject a custom script, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan^].
+To learn how to inject a custom script, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-kubernetes.html[Create a replication plan^].
 
 === New Workloads page
 
