@@ -9,7 +9,7 @@ entries:
     url: /use/resource-group.html
   - title: Replication plans
     entries:
-      - title: Optimize your replication plan
+      - title: Learn about replication plan
         url: /use/concept-replication-plan.html
       - title: Create a VMware replication plan
         url: /use/task-replication-plan-vmware.html

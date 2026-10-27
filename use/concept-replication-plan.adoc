@@ -27,8 +27,6 @@ When you create the replication plan, you have the option to configure unique te
 
 include::../_include/test-failover.adoc[]
 
-== 
-
 == Snapshots
 
 Disaster Recovery maintains the same number of snapshots on the source and destination clusters. By default, the service performs a snapshot reconciliation process every 24 hours to ensure that the number of snapshots on the source and destination clusters is the same.
