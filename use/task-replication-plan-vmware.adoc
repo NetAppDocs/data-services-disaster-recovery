@@ -1,0 +1,280 @@
+---
+sidebar: sidebar
+permalink: use/task-replication-plan-vmware.html
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plan, protection, disaster, recovery, virtual machines, vm
+summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. After you've added vCenter sites, you're ready to create a disaster recovery or replication plan for your VMware workloads. 
+---
+= Create a replication plan for VMware workloads in NetApp Disaster Recovery
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+[.lead]
+After you add vCenter sites and resources, create a _replication plan_ to protect your VMware workloads with NetApp Disaster Recovery. The plan defines the source and destination vCenters, resource groups, recovery mappings, and power-on behavior for your VMs. You can also configure compliance and test schedules and perform test failovers without affecting production data. 
+
+include::../_include/iam-failover-app-admin.adoc[]
+
+NOTE: To protect Kubernetes workloads, see link:task-replication-plan-kubernetes.html[Create a Kubernetes replication plan].
+
+== Before you begin
+
+* Before creating a SnapMirror relationship, set up the cluster and SVM peering outside of Disaster Recovery.
+* If you configure network mappings at the vCenter level, Disaster Recovery recognizes those mappings when you create the replication plan. If you modify or add the network mapping at the vCenter level after creating the replication plan, Disaster Recovery recognizes those mappings when you manually edit the replication plan. 
+* With Google Cloud, you can only add one volume or datastore to a replication plan. 
+* You can only enable protection if the replication plan is in one of the following states: Ready, Failback committed, or Test failover committed.
+
+== Create the replication plan
+
+When you create the plan, follow these guidelines: 
+
+* Use the same credentials for all VMs in the plan.
+* Use the same script for all VMs in the plan.
+* Use the same subnet, DNS, and gateway for all VMs in the plan.
+ 
+=== Select vCenter servers
+
+First, select the source vCenter and the destination vCenter. 
+
+.Steps 
+
+. From the Disaster Recovery menu, select *Replication plans*.
+. In the dropdown menu, choose *vCenter*.
++
+image::site-type-toggle.png[Screenshot of the site type toggle]
+. Select *Add*. 
+. Enter a name for the replication plan. 
++
+The name can only include letters, numbers, and underscores. Spaces, hyphens, and other special characters aren't supported. 
+. Under *Source vCenter*, select the vCenter where the data exists from the dropdown menu. Under *Target*, select the vCenter to use as the disaster recovery destination. 
++
+image:dr-plan-create-name2.png[Screenshot showing vCenter server page]
+. Select *Next*.
+
+=== Select applications to replicate and assign resource groups
+
+Group the required VMs or datastores into functional resource groups. Resource groups enable you to protect a set of VMs with a common snapshot. You can assign VMs to resource groups outside of the replication plan workflow. For recommendations about planning, see link:resource-group.html[best practices for resource groups].
+
+.Steps
+
+. If you have existing resource groups, select **Resource groups**, choose the resource group then **Next**.
++
+If you don't have existing resource groups or need to add resources to one, select *Virtual machines* (VMs) or *Datastores*. 
+. Select the VMs or datastores that you want to add to the replication plan from the auto-generated list. For VM, you can filter by the datastore. When you select a datastore or VM, it's automatically added to a resource group. 
++
+image:dr-plan-create-apps-vms6.png[Screenshot showing the Add replication plan > Applications to replicate page]
+. On the right half of the page, review the selected VMs or datastores. 
+* To remove a VM or datastore, hover over the name of the resource, and then select *X*.
+* To organize the resources into multiple resource groups, select *Click to add another resource group*. After you've added the resource group, you can drag and drop resources between groups. Select the pencil icon to edit the name of the resource group.
++
+image:dr-plan-create-apps-datastores.png[Screenshot showing the Add replication plan > Applications to replicate page]
+. Select *Next*. 
+
+=== Map source resources to the target 
+
+In Resource mapping, specify how the resources from the source environment should map to the target. When you create a replication plan, you can set a boot delay and order for each VM in the plan. This enables you to set a sequence for the VMs to start.
+
+include::../_include/test-failover.adoc[]
+
+.Before you begin
+
+If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of Disaster Recovery. 
+
+.Steps
+. In the Resource mapping page, check the box to use the same mappings for both failover and test operations. 
++
+image:dr-plan-resource-mapping2.png[Replication plan, Resource mapping tab]
+
+. In the Failover mappings tab, select the down arrow to the right of each resource and map the resources in each section: 
+
+* Compute resources 
+* Virtual networks
+* Virtual machines
+* Datastores   
+
+==== Compute resources 
+
+The Compute resources section defines where VMs are restored after failover. Map the source vCenter data center and cluster to a target data center and cluster. 
+
+Optionally, VMs can be restarted on a specific vCenter ESXi host. If VMware DRS is enabled, you can move the VM to an alternate host automatically if needed to meet the DR configured policy. 
+
+You also have the option to place all VMs in this replication plan into a unique folder within the vCenter inventory. This provides an easy way to quickly organize failed over VMs within the vCenter. 
+
+.Steps
+. Select the down arrow next to *Compute resources*. 
+. Provide the following information:
++
+* *Source and target datacenters*
+* *Target cluster* 
+* *Target host* (optional): After you select the cluster, you can then set this information. 
+* *Folder* (optional)
+
+TIP: If a vCenter has a Distributed Resource Scheduler (DRS) configured to manage multiple hosts in a cluster, you don't need to select a host. If you select a host, Disaster Recovery will place all the VMs on the selected host. 
+* *Target VM folder* (optional): Create a new root folder to store the selected VMs. 
+
+==== Virtual networks
+
+VMs use virtual NICs connected to virtual networks. In the failover process, the service connects these virtual NICs to virtual networks defined in the destination VMware environment. For each source virtual network used by the VMs in the resource group, Disaster Recovery requires a destination virtual network assignment. 
+
+NOTE: You can assign multiple source virtual networks to the same target virtual network. This might however create IP network configuration conflicts. You can map multiple source networks to a single target network to ensure that all source networks have the same configuration. 
+
+.Steps 
+. In the Failover mappings tab, select the down arrow next to *Virtual networks*.
+. Disaster Recovery automatically populates the source virtual networks. For each source network, select the appropriate destination network from the dropdown menu. 
+//. Select the network mapping to the appropriate virtual LAN. The virtual LANs should already be provisioned, so select the appropriate virtual LAN to map the VM.
+
+==== Virtual machines
+
+You can configure each VM in the resource group protected by the replication plan to suit the destination vCenter virtual environment by setting any of the following options: 
+
+* The number of virtual CPUs
+* The amount of virtual DRAM
+* The IP address configuration
+* The ability to execute guest-OS shell scripts as part of the failover process
+* The ability to change failed over VM names by using a unique prefix and suffix
+* The ability to set the restart order during VM failover 
+
+In the Failover mappings tab, select the down arrow next to *Virtual machines*. 
+
+The default for the VMs is mapped. Default mapping uses the same settings that the VMs use in the production environment (same IP address, subnet mask, and gateway).
+
+If you make any changes from the default settings, you must change the Target IP field to "Different from source." 
+
+NOTE: If you change settings to "Different from source," you need to provide VM guest OS credentials. 
+
+This section might display different fields depending on your selection. 
+//+
+//SnapMirror is at the volume level. So, all virtual machines are replicated to the replication target. Make sure to select all virtual machines that are part of the datastore. If they are not selected, only the virtual machines that are part of the replication plan are processed.
+
+You can increase or decrease the number of virtual CPUs assigned to each failed over VM. However, each VM requires at least one virtual CPU. You can change the number of virtual CPUs and virtual DRAM assigned to each VM. The most common reason why you might want to change the default virtual CPU and virtual DRAM settings is if the target vCenter cluster nodes do not have as many available resources as the source vCenter cluster. 
+
+[NOTE]
+Toggle the *Advanced settings* option to add scripts and configure application consistency.
+
+*Network settings* 
+Disaster Recovery supports an extensive set of configuration options for VM networks. Changing these might be required if the target site has virtual networks that use different TCP/IP settings as the production virtual networks on the source site.
+
+At the most basic (and default) level, the settings simply use the same TCP/IP network settings for each VM on the destination site as used on the source site. This requires that you configure the same TCP/IP settings on the source and destination virtual networks. 
+
+Disaster Recovery supports network settings of static or Dynamic Host Configuration Protocol (DHCP) IP configuration for VMs. DHCP provides a standards-based method of dynamically configuring the TCP/IP settings of a host network port. DHCP must provide, at a minimum, a TCP/IP address, and can also provide a default gateway address (for routing to an external internet connection), a subnet mask, and a DNS server address. DHCP is commonly used for end-user computing devices such as employee desktop, laptop, and mobile phone connections, while it can also be used for any networking computing device such as servers. 
+
+* *Use the same subnet mask, DNS, and gateway settings* option: Because these settings are typically the same for all VMs connected to the same virtual networks, you might find it easier to configure these once and let Disaster Recovery use the settings for all VMs in the resource group protected by the replication plan. If some VMs use different settings, you need to uncheck this box and provide those settings for each VM.
+
+* *IP address type*: Reconfigure the VM configuration to match the target virtual network requirements. Disaster Recovery offers two options: DHCP or static IP. For static IPs, configure the subnet mask, gateway, and DNS servers. Additionally, enter credentials for VMs. 
++
+** *DHCP*: Select this setting if you want your VMs to obtain network configuration information from a DHCP server. If you choose this option, you provide just the credentials for the VM. 
+** *Static IP*: Select this setting if you want to specify IP configuration information manually. You can select one of the following: same as source, different from source, or subnet mapping. If you choose the same as the source, you do not need to enter credentials. On the other hand, if you choose to use different information from the source, you can provide the credentials, IP address of the VM, subnet mask, DNS, and gateway information. VM guest OS credentials should be supplied to either the global level or at each VM level.
++
+This can be very helpful when recovering large environments to smaller target clusters or for conducting disaster recovery tests without having to provision a one-to-one physical VMware infrastructure. 
++
+image:dr-plan-vm-subnet-option2.png[Screenshot showing Add replication plan > Resource mapping > virtual machines] 
++
+* *Scripts*: You can include custom guest-OS hosted scripts in .sh, .bat, or .ps1 format as post processes. With custom scripts, Disaster Recovery can run your script after a failover, failback, and migrate processes. For example, you can use a custom script to resume all database transactions after the failover is complete. The service can run scripts within VMs running Microsoft Windows or any supported Linux variant with command-line parameters supported. You can assign a script to individual VMs or to all VMs in the replication plan.
++
+To enable script execution with the VM guest OS, the following conditions must be met: 
++
+** VMware Tools must be installed on the VM. 
+** Appropriate user credentials must be provided with adequate guest OS privileges to run the script. 
+** Optionally, include a timeout value in seconds for the script. 
++
+*VMs running Microsoft Windows*: can run either Windows batch (.bat) or PowerShell (ps1) scripts. Windows scripts can use command-line arguments. Format each argument in the `arg_name$value` format, where `arg_name` is the name of the argument and `$value` is the value of the argument, and a semicolon separates each `argument$value` pair. 
++
+*VMs running Linux*: can run any shell script (.sh) supported by the version of Linux used by the VM. Linux scripts can use command-line arguments. Provide arguments in a list of values separated by semi-colons. Named arguments are not supported. Add each argument to the `Arg[x]` argument list and reference each value using a pointer into the `Arg[x]` array, for example, `value1;value2;value3`.
++
+* *Downgrade VM hardware version and register*: Select this if the destination ESX host version is earlier than the source so they match during registration.
+* *Retain original folder hierarchy*: By default, Disaster Recovery retains the VM inventory hierarchy (folder structure) on failover. If the recovery target does _not_ have the original folder hierarchy, Disaster Recovery creates it. 
++
+Uncheck this box to disregard the original folder hierarchy.
+
+* *Target VM prefix and suffix*: Under the VM details, you can optionally add a prefix and suffix to each failed over VM name. This can be helpful in differentiating the failed over VMs from the production VMs running on the same vCenter cluster. For example, you can add a prefix of "DR-" and a suffix of "-failover" to the VM name. Some people add a second production vCenter to host VMs temporarily at a different site in the event of a disaster. Adding a prefix or suffix can help you quickly identify failed over VMs. You can also use the prefix or suffix in custom scripts. 
++
+You can use the alternative method of setting the Target VM folder in the Compute resources section. 
+
+* *CPU* and *Memory (GB)*: Under the VM details, you can optionally resize the VM CPU and memory. 
++
+NOTE: You can configure DRAM either in gigabytes (GiB) or megabytes (MiB). While each VM requires at least one MiB of RAM, the actual amount must ensure that the VM guest OS and any running applications can operate efficiently. 
++
+* *Boot order*: You can modify the boot order after a failover for all the selected VM across the resource groups. By default, all VMs boot together in parallel; however, you can make changes at this stage. This is helpful to ensure that all your priority one VMs are running before subsequent priority VMs are started. 
++
+Disaster Recovery boots any VMs with the same boot order number in parallel.
++
+** Sequential boot: Assign each VM a unique number to boot them in the assigned order, for example, 1,2,3,4,5.
+** Simultaneous boot: Assign the same number to any VMs to boot them at the same time, for example, 1,1,1,1,2,2,3,4,4.
++
+* *Boot delay*: Adjust the delay in minutes of the boot up action, indicating the amount of time that the VM will wait before it starts the power-on process. Enter a value from 0 to 10 minutes.
++
+* *App consistent*: Indicate whether to create application-consistent snapshot copies. The service will quiesce the application and then take a snapshot to get a consistent state of the application. This feature is supported with Oracle running on Windows and Linux and SQL Server running on Windows. See more details next.
++
+You must switch the *Advance settings* toggle for this option. If you enable application consistency, you must provide credentials in the form of username and password. 
+
+//* *Use Windows LAPS*: If you are using Windows Local Administrator Password Solution (Windows LAPS), check this box. This option is available only if you have selected the *Static IP* option. When you check this box, you do not need to provide a password for each of your VM. Instead, you provide the domain controller details. + If you do not use Windows LAPS, then the VM is a Windows VM and the credentials option on the VM row is enabled. You can provide the credentials for the VM.
+
+image:dr-plan-resource-mapping-vm-boot-order.png[Screenshot showing the VM section of resource mappings] 
+
+==== Create application-consistent replicas
+
+To enable application-consistent replicas of the VMs and their hosting datastores, check the box next to *Create application-consistent replicas* for each VM and provide guest login credentials with the appropriate privileges. 
+
+To learn more about how application-consistent replicas work, see link:concept-replication-plan.html#application-consistent-replicas[learn about application-consistent replicas].
+
+==== Datastores 
+
+VMware datastores are hosted on ONTAP FlexVol volumes, or ONTAP iSCSI or FC LUNs using VMware VMFS. Use the Datastores section to define the target ONTAP cluster, storage virtual machine (SVM), and volume or LUN to replicate the on-disk data to the destination.
+
+Select the down arrow next to *Datastores*. Based on the selection of VMs, datastore mappings are automatically selected.
+
+This section might be enabled or disabled depending on your selection.
+
+image:dr-plan-datastore-platform.png[Screenshot showing Add replication plan > Resource mapping > datastores]
+
+[TIP]
+Review the link:concept-replication-plan.html#platform-managed-backups[information about platform-managed backups (that is, ONTAP-managed snapshots)] before making these selections. 
+
+* *Use platform managed backups and retention schedules*: If you are using an external snapshot management solution, check this box. Disaster Recovery supports the use of external snapshot management solutions such as the native ONTAP SnapMirror policy scheduler or third-party integrations. If every datastore (volume) in the replication plan already has a SnapMirror relationship that is being managed elsewhere, you can use those snapshots as recovery points in Disaster Recovery. 
++
+When this option is selected, Disaster Recovery does not configure a backup schedule. However, you still need to configure a retention schedule because snapshots might still be taken for testing, failover, and failback operations. 
++
+After this is configured, the service doesn't take any regularly scheduled snapshots, but instead relies on the external entity to take and update those snapshots.
+
+* *Backups and retention start time*: Enter the date and time when you want backups and retention to start running. 
+
+* *Backups and retention frequency*: Enter the time interval in hours and minutes. For example, if you enter 1 hour, the service will take a snapshot every hour.
+
+* *Retention count for all datastores*: Enter the number of snapshots you want to retain. 
++
+TIP: The number of snapshots retained along with the data change rate between each snapshot determines the amount of storage space consumed on both the source and destination. The more snapshots you retain, the more storage space is consumed.
++
+* *Source and Target datastores*: If multiple (fan-out) SnapMirror relationships exist, you can select the destination to use. If a volume has a SnapMirror relationship already established, the corresponding source and target datastores appear. If a volume does not have a SnapMirror relationship, you can create one now by selecting a target cluster, selecting a target SVM, and providing a volume name. The service will create the volume and SnapMirror relationship. 
++
+NOTE: If you want to create a SnapMirror relationship in this service, the cluster and its SVM peering should have already been set up outside of Disaster Recovery.  
++
+** If the VMs are from same volume and same SVM, then the service performs a standard ONTAP snapshot and updates the secondary destinations.
+** If the VMs are from different volume and same SVM, the service creates a consistency group snapshot by including all the volumes and updates the secondary destinations.
+** If the VMs are from different volume and different SVM, the service performs a consistency group start phase and commit phase snapshot by including all the volumes in the same or different cluster and updates the secondary destinations.
+** During the failover, you can select any snapshot. If you select the latest snapshot, the service creates an on-demand backup, updates the destination, and uses that snapshot for the failover.
+
+// * *Preferred NFS LIF* and *Export policy*: Typically, let the service select the preferred NFS LIF and export policy. If you want to use a specific NFS LIF or export policy, select the down arrow next to each field and select the appropriate option. You can optionally use specific data interfaces (LIFs) for a volume after a failover event. This is useful for data traffic balancing if the target SVM has multiple LIFs. For additional control over NAS data access security, the service can assign different datastore volumes specific NAS export policies. Export policies define the access control rules for NFS clients that access the datastore volumes. If you don't specify an export policy, the service uses the default export policy for the SVM. It's recommended you create a dedicated export policy that limits volume access to _only_ the source and destination vCenter ESXi hosts that will host the protected VMs. This ensure external entities can't gain access to the NFS export. 
+
+
+=== Add test failover mappings 
+
+.Steps
+. To set different mappings for the test environment, uncheck the box and select the *Test mappings* tab. 
+. Go through each tab as before, but this time for the test environment. 
++
+On the Test mappings tab, the VM and Datastores mappings are disabled. 
++
+TIP: You can later test the entire plan. Right now, you are setting up the mappings for the test environment. 
+
+=== Review the replication plan
+
+Review the replication plan to ensure your selections are correct. You can link:task-replication-plan-modify.html[modify selective fields of a replication plan]. You can also disable or delete it later. 
+
+.Steps
+
+. Review information in each tab: Plan Details, Failover Mapping, and VMs.  
+
+. Select *Add plan*. 
++
+The plan is added to the list of plans.
+
+

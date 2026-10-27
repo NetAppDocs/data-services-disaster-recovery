@@ -63,4 +63,4 @@ If you no longer need a resource transformation, you can delete it.
 
 == Next steps
 
-* link:drplan-create.html[Create a replication plan]
+* link:task-replication-plan-kubernetes.html[Create a replication plan for Kubernetes workloads]

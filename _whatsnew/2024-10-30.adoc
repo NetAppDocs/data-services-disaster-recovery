@@ -24,8 +24,8 @@ Here's how:
 === Folder mapping 
 When you create a replication plan and map compute resources, you can now map folders so that VMs are recovered in a folder you specify for datacenter, cluster, and host.
 
-//For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+//For details, see link:../use/task-replication-plan-vmware.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].
 
 === VM details available for failover, failback, and test failover
 When a failure occurs and you are starting a failover, performing a failback, or testing the failover, you can now see details of the VMs and identify which VMs did not restart. 
@@ -36,21 +36,21 @@ Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/failo
 === VM boot delay with ordered boot sequence
 When you create a replication plan, you can now set a boot delay for each VM in the plan. This enables you to set a sequence for the VMs to start to ensure that all your priority one VMs are running before subsequent priority VMs are started. 
 
-//For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+//For details, see link:../use/task-replication-plan-vmware.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].
 
 === VM operating system information
 When you create a replication plan, you can now see the operating system for each VM in the plan. This is helpful in deciding how to group VMs together in a resource group.
 
-//For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+//For details, see link:../use/task-replication-plan-vmware.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].
 
 
 === VM name aliasing
 When you create a replication plan, you can now add a prefix and suffix to the VM names on the disaster recovery site. This enables you to use a more descriptive name for the VMs in the plan.
 
-//For details, see link:../use/drplan-create.html[Create a replication plan].
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/drplan-create.html[Create a replication plan].
+//For details, see link:../use/task-replication-plan-vmware.html[Create a replication plan].
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create a replication plan].
 
 === Clean up old snapshots
 You can delete any snapshots that are no longer needed beyond your specified retention count. Snapshots might accumulate over time when you lower your snapshot retention count, and you can now remove them to free up space. You can do this anytime on demand or when you delete a replication plan. 

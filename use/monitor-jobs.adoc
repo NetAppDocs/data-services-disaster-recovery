@@ -48,18 +48,3 @@ include::../_include/iam-failover-app-admin.adoc[]
 +
 The job must be in an "In progress" or "Queued" state. 
 . Select the action menu then **Cancel job**. 
-
-//. Access the NetApp Disaster Recovery Swagger URL: https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_[Swagger^].
-//+
-//"https://snapcenter.cloudmanager.cloud.netapp.com/api-doc/#/Jobs/put_jobmanager_v2_jobs__jobId_"
-//+ 
-//image:dr-swagger-job-cancel.png[Swagger page showing how to cancel a job]
-//+
-//For details about Swagger, see https://swagger.io/docs/[Swagger docs^].
-
-//. From Swagger, obtain the security token, also called the _bearer token_, from the Authorize option. 
-
-
-//. Enter the Account ID and Job ID. 
-//. Select *Try it out*.
-
