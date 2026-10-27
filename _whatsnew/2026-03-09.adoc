@@ -15,7 +15,7 @@ For more information, see link:https://docs.netapp.com/us-en/data-services-disas
 
 Disaster Recovery now includes new menu options to trigger vCenter refreshes from the replication plan dashboard. You can access the submenu from the replication plan dashboard's action menu: select **Plan Health** then **Refresh Source vCenter / Refresh Target vCenter**.
 
-For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html#modify-a-replication-plan[Modify a replication plan^].
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-modify.html[Modify a replication plan^].
 
 === Improved network discovery 
 

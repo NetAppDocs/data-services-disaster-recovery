@@ -12,7 +12,7 @@ summary: Modify a replication plan to adjust compliance time or failover setting
 [.lead]
 In NetApp Disaster Recovery, you can modify a replication plan's compliance time impact and to ensure failover tests complete successfully. 
 
-Not all fields of the replication plan are modifiable. If you need to change any fields not mentioned here, delete the replication plan and create a new one. 
+You can modify the compliance time and test failover impact. To edit plan recurrence, failover mappings, or VMs, delete the replication plan and create a new one. 
 
 == Modifiable fields
 

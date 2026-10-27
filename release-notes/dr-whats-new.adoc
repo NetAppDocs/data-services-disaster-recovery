@@ -268,9 +268,10 @@ For details about managing licenses for *all* NetApp Console data services, refe
 //*Licensing updates*: With NetApp Disaster Recovery, you can sign up for a 90-day free trial, purchase a pay-as-you-go (PAYGO) subscription with Amazon Marketplace, or Bring Your Own License (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep or from the NetApp Support Site (NSS). You can upload the NLF directly in NetApp Console Subscriptions page or use the license serial number to get the BYOL activated in NetApp Console Subscriptions page. NetApp Disaster Recovery charges are based on provisioned capacity of datastores. 
 
 === Edit schedules
-With this release, you can now set up schedules to test compliance and failover tests so that you ensure that they will work correctly should you need them. 
 
-For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Create the replication plan].
+With this release, you can now set up schedules to test compliance and failover tests so that you ensure that they will work correctly.
+
+For details, refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-modify.html[Modify a replication plan].
 
 //* *Terminology change*: In the UI, the "Backups" label has been changed to "Snapshots".
 
@@ -386,7 +387,7 @@ https://docs.netapp.com/us-en/data-services-disaster-recovery/get-started/dr-int
 This release includes the following updates: 
 
 === Resource groups update for boot order
-When you create a disaster recovery or replication plan, you can add virtual machines into functional resource groups. Resource groups enable you to put a set of dependent virtual machines into logical groups that meet your requirements. For example, groups could contain boot order that can be executed upon recovery. With this release, each resource group can include one or more virtual machines. The virtual machines will power on based on the sequence in which you include them in the plan. Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html#select-applications-to-replicate-and-assign-resource-groups[Select applications to replicate and assign resource groups].
+When you create a disaster recovery or replication plan, you can add virtual machines into functional resource groups. Resource groups enable you to put a set of dependent virtual machines into logical groups that meet your requirements. For example, groups could contain boot order that can be executed upon recovery. With this release, each resource group can include one or more virtual machines. The virtual machines will power on based on the sequence in which you include them in the plan. Refer to https://docs.netapp.com/us-en/data-services-disaster-recovery/use/task-replication-plan-vmware.html[Select applications to replicate and assign resource groups].
  
 
 
