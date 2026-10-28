@@ -35,7 +35,7 @@ After you add a site to Disaster Recovery, you must associate resources with the
 
 If you added vCenters in previous releases and want to customize the discovery schedule, you must edit the vCenter server site and set the schedule. 
 
-TIP: NetApp Disaster Recovery performs discovery once every 24 hours. After setting up a site, you can later edit the vCenter or Kubernetes cluster to customize the discovery schedule that meets your needs. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours. The minimum interval is 30 minutes and the maximum is 24 hours. 
+TIP: Disaster Recovery performs discovery once every 24 hours. After setting up a site, you can later edit the vCenter or Kubernetes cluster to customize the discovery schedule that meets your needs. For example, if you have a large number of VMs, you can set the discovery schedule to run every 23 hours and 59 minutes. If you have a small number of VMs, you can set the discovery schedule to run every 12 hours. The minimum interval is 30 minutes and the maximum is 24 hours. 
 
 You should first perform a few manual discoveries to get the most up-to-date information about your environment. After that, you can set the schedule to run automatically.
 
@@ -103,7 +103,7 @@ The source and target vCenters appear on the list of sites.
 +
 image:sites-list2.png[Sites page screenshot]
 
-After vCenters are added, NetApp Disaster Recovery performs a deep discovery of the vCenter environments, including vCenter clusters, ESXi hosts, datastores, storage foot print, virtual machine details, SnapMirror replicas, and virtual machine networks.
+After vCenters are added, Disaster Recovery performs a deep discovery of the vCenter environments, including vCenter clusters, ESXi hosts, datastores, storage foot print, virtual machine details, SnapMirror replicas, and virtual machine networks.
 
 --
 
@@ -131,7 +131,7 @@ After adding resources, select *Job Monitoring* to track the progress.
 
 You can manage IP addresses on failover operations using subnet mapping, which enables you to add subnets for each vCenter. When you do so, you define the IPv4 CIDR, the default gateway, and the DNS for each virtual network. 
 
-Upon failover, NetApp Disaster Recovery uses the mapped network's CIDR to assign each vNIC a new IP address. 
+Upon failover, Disaster Recovery uses the mapped network's CIDR to assign each vNIC a new IP address. 
 
 For example: 
 
@@ -141,7 +141,7 @@ For example:
 VM1 has a vNIC (10.1.1.50) that is connected to NetworkA. 
 NetworkA is mapped to NetworkB in the replication plan settings. 
 
-Upon failover, NetApp Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, NetApp Disaster Recovery looks at the CIDR settings for NetworkB and uses that the NetworkB network portion 192.168.1 while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
+Upon failover, Disaster Recovery replaces the Network portion of the original IP address (10.1.1) and keeps the host address (.50) of the original IP address (10.1.1.50). For VM1, Disaster Recovery looks at the CIDR settings for NetworkB and uses that the NetworkB network portion 192.168.1 while keeping the host portion (.50) to create the new IP address for VM1. The new IP becomes 192.168.1.50. 
 
 In summary, the host address stays the same, while the network address is replaced with whatever is configured in the site subnet mapping. This enables you to manage IP address reassignment upon failover more easily, especially if you have hundreds of networks and thousands of VMs to manage.
 
@@ -152,7 +152,7 @@ Using subnet mapping is an optional two-step process:
 
 .Steps
 
-. From the NetApp Disaster Recovery menu, select *Sites*.
+. From the Disaster Recovery menu, select *Sites*.
 . From the Actions image:icon-vertical-dots.png[Actions icon] icon on the right, select *Add subnet*.
 +
 image:dr-sites-subnet-menu.png[Add subnet menu screenshot]
@@ -183,7 +183,7 @@ Using subnet mapping is an optional two-step process:
 
 .Steps
 
-. From the NetApp Disaster Recovery menu, select *Replication plans*.
+. From the Disaster Recovery menu, select *Replication plans*.
 . Select *Add* to add a replication plan.     
 . Complete the fields in the usual way by adding the vCenter servers, selecting the resource groups or applications, and completing the mappings. 
 . In the Replication plan > Resource mapping page, select the *Virtual machines* section. 
@@ -207,7 +207,7 @@ If you have vCenters from earlier versions and want to change when discovery run
 If you don't want to schedule discovery, you can disable the scheduled discovery option and refresh the discovery manually at any time. 
 
 .Steps
-. From the NetApp Disaster Recovery menu, select *Sites*.
+. From the Disaster Recovery menu, select *Sites*.
 
 . Select the site you want to edit.
 . Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Edit*.
@@ -228,11 +228,11 @@ image:sites-edit-schedule.png[Edit discovery schedule screenshot]
 
 == Refresh discovery manually
 
-You can refresh the discovery manually at any time. This is useful if you have added or removed VMs and want to update the information in NetApp Disaster Recovery.
+You can refresh the discovery manually at any time. This is useful if you have added or removed VMs and want to update the information in Disaster Recovery.
 
 
 .Steps
-. From the NetApp Disaster Recovery menu, select *Sites*.
+. From the Disaster Recovery menu, select *Sites*.
 
 . Select the site you want to refresh.
 . Select the Actions image:icon-vertical-dots.png[Actions icon] icon on the right and select *Refresh*.

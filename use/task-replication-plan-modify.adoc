@@ -26,13 +26,13 @@ Based on the schedule, the failover test runs and ensures that workloads are mov
 
 == Modify a replication plan 
 
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
 
-. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] icon and select *Edit schedules*. 
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu then select *Edit schedules*. 
 
-. Enter how frequently in minutes that you want NetApp Disaster Recovery to check test compliance. 
+. Enter how frequently in minutes that you want Disaster Recovery to check test compliance. 
 
 . To check that your failover tests are healthy, check *Run failovers on a monthly schedule*. 
 .. Select the day of the month and time you want these tests to run. 
@@ -45,3 +45,19 @@ image:dr-plan-schedule-edit2.png[Screenshot showing where you can edit schedules
 +
 NOTE: This process deletes the FlexClone volume that was created and removes the temporary test resources from the test location. For VMware workloads, it also unregisters the temporary VMs and unmounts the temporary datastores. 
 . Select *Save*.
+
+== Delete or disable a replication plan
+
+You can temporarily disable a replication plan if, for example, you need to apply updates or perform maintenance that would impact the integrity of the replication plan and its related operations. 
+
+You can also delete a replication plan if you no longer need it or need to make significant changes to it that are beyond the scope of modification.
+
+.Steps
+. From the Disaster Recovery menu, select *Replication plans*. 
++
+image:dr-plan-list.png[Screenshot showing the list of replication plans]
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu for the replication plan you want to disable or delete. 
+. Select *Delete* or *Disable*. 
+. Review the instructions in the pop-up. To disable, select *Disable*. 
++
+If you choose *Delete*, select the associated snapshots or metadata to delete along with the replication plan: *Delete primary snapshots*, *Delete secondary snapshots*, or *Delete snapshot metadata*. In the text box, enter "delete" to confirm the operation, then select *Delete*.

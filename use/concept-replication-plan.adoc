@@ -62,7 +62,7 @@ Do not use SnapMirror transfer snapshots for failover or failback operations.
 
 == Disaster Recovery-managed backups
 
-When using Disaster Recovery managed backups, the following guidelines apply to SnapMirror relationships created outside of NetApp Disaster Recovery:
+When using Disaster Recovery managed backups, the following guidelines apply to SnapMirror relationships created outside of Disaster Recovery:
 
 - SnapMirror relationships can support the MirrorAll, MirrorVault, MirrorLatest, and Asynchronous replication policies.
 - Do *not* schedule updates for these relationships as they will be managed by the Disaster Recovery service.
@@ -73,7 +73,7 @@ Many VMs host database servers such as Oracle or Microsoft SQL Server. These dat
 
 Application-consistent snapshots ensure that the database is in a consistent state when the snapshot is taken. This is important because it ensures that the database can be restored to a consistent state after a failover or failback operation. 
 
-The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in NetApp Disaster Recovery:
+The data managed by the database server might be on the same datastore as the VM that hosts the database server, or it might be on a different datastore. The following table shows the supported configurations for application-consistent snapshots in Disaster Recovery:
 
 [cols=3*,options="header",cols="20,20,40a",width="100%"]
 |===

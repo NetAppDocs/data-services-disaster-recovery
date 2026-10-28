@@ -88,11 +88,11 @@ If you haven't already done so, https://docs.netapp.com/us-en/console-setup-admi
 
 === Gather credentials for ONTAP and VMware
 
-* Amazon FSx for ONTAP and AWS credentials must be added to the system within the NetApp Console project that manages NetApp Disaster Recovery.
+* Amazon FSx for ONTAP and AWS credentials must be added to the system within the NetApp Console project that manages Disaster Recovery.
 
-* NetApp Disaster Recovery requires vCenter credentials. You enter the vCenter credentials when you're adding a site in NetApp Disaster Recovery. 
+* Disaster Recovery requires vCenter credentials. You enter the vCenter credentials when you're adding a site in Disaster Recovery. 
 +
-For a list of vCenter privileges needed, refer to link:../reference/vcenter-privileges.html[vCenter privileges needed for NetApp Disaster Recovery]. 
+For a list of vCenter privileges needed, refer to link:../reference/vcenter-privileges.html[vCenter privileges needed for Disaster Recovery]. 
 For instructions on how to add a site, refer to link:../use/sites-add.html[Add a site].
 
 * For Kubernetes clusters, review the link:task-kubernetes-requirements.html[Kubernetes cluster requirements] before you add a Kubernetes site.
@@ -106,7 +106,7 @@ The Console agent is a software component that enables the Console to communicat
 
 A Console agent must be set up in the NetApp Console. When you use the agent, it will include the appropriate capabilities for the Disaster Recovery service.
  
-* NetApp Disaster Recovery works only with the standard mode agent deployment. See https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html[Getting started with the NetApp Console in standard mode^]. 
+* Disaster Recovery works only with the standard mode agent deployment. See https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-standard-mode.html[Getting started with the NetApp Console in standard mode^]. 
 * Ensure both the source and destination vCenter clusters or Kubernetes clusters use the same Console agent. 
 * Type of Console agent needed:
 ** *On-premises to on-premises disaster recovery*: Install the on-premises Console agent in the disaster recovery site. Using this method, a failure of the primary site doesn't prevent the service from restarting your virtual resources at the DR site. Refer to https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html[Install and set up the Console agent on premises^].
@@ -117,11 +117,11 @@ Disaster Recovery also supports using multiple Console agents with on-premises c
 TIP: For on-premises to on-premises, use the on-premises Console agent. For on-premises to AWS, use the AWS Console agent, which has access to the source on-premises vCenter and the destination on-premises vCenter.
 ** The installed Console agent must be able to access any VMware vCenter cluster instances and ESXi hosts managed by those vCenter clusters that Disaster Recovery will manage, and any Kubernetes clusters that Disaster Recovery will manage.
 
-* All ONTAP arrays to be managed by NetApp Disaster Recovery must be added to any system within the NetApp Console project that will be used to manage NetApp Disaster Recovery.
+* All ONTAP arrays to be managed by Disaster Recovery must be added to any system within the NetApp Console project that will be used to manage Disaster Recovery.
 +
 See https://docs.netapp.com/us-en/storage-management-ontap-onprem/task-discovering-ontap.html[Discover on-premises ONTAP clusters^]. 
 
-* For information about setting up an intelligent proxy for NetApp Disaster Recovery, see link:../get-started/dr-setup.html[Set up your infrastructure for NetApp Disaster Recovery].
+* For information about setting up an intelligent proxy for Disaster Recovery, see link:../get-started/dr-setup.html[Set up your infrastructure for Disaster Recovery].
 
 == Workload prerequisites
 
@@ -137,4 +137,4 @@ Depending on your deployment type, review the link:reference-vmware-prerequisite
 == More information
 
 * xref:../reference/vcenter-privileges.html[Required vCenter privileges]
-* xref:../reference/evs-deploy-guide-config-prereqs.html[Prerequisites for Amazon EVS with NetApp Disaster Recovery]
+* xref:../reference/evs-deploy-guide-config-prereqs.html[Prerequisites for Amazon EVS with Disaster Recovery]

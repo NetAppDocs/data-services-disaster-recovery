@@ -25,7 +25,7 @@ The _Super admin_ or _Organization admin_ role is required to deploy a Console a
 ** link:../get-started/reference-vmware-prerequisites.html[VMware prerequisites]
 ** link:../get-started/task-kubernetes-requirements.html[Kubernetes prerequisites]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Set up NetApp Disaster Recovery 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png[Two] Set up Disaster Recovery 
 
 [role="quick-margin-para"]
 These tasks require the _Super admin_ or _Disaster recovery admin_ role.
