@@ -17,7 +17,7 @@ After you add a replication plan in NetApp Disaster Recovery, verify that the pl
 
 Figure: Replication plans page image:evs-replication-plan-post-create.png[Replication plans page]
  
-NetApp Disaster Recovery runs a series of tests to verify that all components, including the ONTAP cluster, vCenter clusters, and VMs, are accessible and ready for protection. This is called a compliance check, and it is run on a regular basis.
+Disaster Recovery runs a series of tests to verify that all components, including the ONTAP cluster, vCenter clusters, and VMs, are accessible and ready for protection. This is called a compliance check, and it is run on a regular basis.
 
 The Replication plans page shows the following information:
 

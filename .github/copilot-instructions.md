@@ -20,7 +20,12 @@ NetApp Disaster Recovery is a cloud-based service in the NetApp Console that pro
 
 ## Product-specific context
 
-- *NetApp Disaster Recovery* is the official product name. Titles and the first reference in every file should use the full name: "NetApp Disaster Recovery." After the first use of the full product name in the body of a topic, all subsequent references to the product should only use "Disaster Recovery". (Do not apply the first use rule in the _include or _whatsnew directories.)
+- *NetApp Disaster Recovery* is the official product name.
+  - Use the full name, "NetApp Disaster Recovery," in every H1 and in the first product reference after the `[.lead]` paragraph marker.
+  - After that first use, use only "Disaster Recovery" for every subsequent reference in the topic. This includes H2 and lower headings, link text, UI menu names (for example, "From the Disaster Recovery menu"), and image alt text.
+  - Do not shorten the name in front matter (`keywords` and `summary`).
+  - Generic lowercase "disaster recovery" (the concept, not the product) is not the product name. Leave it as is.
+  - Do not apply these product name rules to files in the `_include`, `_whatsnew`, or `redirect` directories.
 - *Resource group* is the logical unit of protection (VMs, datastores, or Kubernetes resources) and is the object assigned to a replication plan.
 - *Replication plan* defines source/target mappings, schedule, retention, recovery mappings, and operations such as replicate, failover, and failback.
 - *SnapMirror* is the replication transport; protection is volume/LUN based even when users select VMs or datastores in the UI.

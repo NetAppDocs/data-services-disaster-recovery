@@ -26,13 +26,13 @@ Based on the schedule, the failover test runs and ensures that workloads are mov
 
 == Modify a replication plan 
 
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
 
 . Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu then select *Edit schedules*. 
 
-. Enter how frequently in minutes that you want NetApp Disaster Recovery to check test compliance. 
+. Enter how frequently in minutes that you want Disaster Recovery to check test compliance. 
 
 . To check that your failover tests are healthy, check *Run failovers on a monthly schedule*. 
 .. Select the day of the month and time you want these tests to run. 
@@ -53,7 +53,7 @@ You can temporarily disable a replication plan if, for example, you need to appl
 You can also delete a replication if you no longer need it or need to make significant changes to it that are beyond the scope of modification. 
 
 .Steps
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
 . Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu for the replication plan you want to disable or delete. 
