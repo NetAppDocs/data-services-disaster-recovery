@@ -5,7 +5,7 @@ keywords: disaster recovery, bluexp disaster recovery, failover, failback, repli
 summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. NetApp Disaster Recovery is a licensed product offering that must be purchased before it can be used. There are several types of licenses and several ways that you can purchase licenses. 
 
 ---
-= Add NetApp Disaster Recovery service to your NetApp Console account for Amazon EVS
+= Add NetApp Disaster Recovery to your Console account for Amazon EVS
 
 :hardbreaks:
 :icons: font
