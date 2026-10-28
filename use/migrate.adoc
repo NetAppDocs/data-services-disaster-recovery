@@ -28,6 +28,6 @@ Before you initiate migration, create a replication plan and configure it for mi
 . From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 . From the menu, select *Replication plans*. 
 . Select the replication plan.
-. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then and select *Migrate*. 
+. On the right, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service], hover over *Recover* then and select *Migrate*. 
 . In the dialog, choose to *Take a snapshot now* to create a new snapshot for the migration or *Select* to choose an existing snapshot for the migration. 
 . Enter "Migrate" in the text box to confirm the operation then select *Migrate*. 

@@ -202,7 +202,7 @@ image:evs-create-rp-wiz-c-datastore-mapping.png[Create replication plan, datasto
 
 == Verify settings 
 
-After you add the replication plan information in NetApp Disaster Recovery, verify that the information you entered is correct. This is the final step. 
+After you add the replication plan information in Disaster Recovery, verify that the information you entered is correct. This is the final step. 
 
 .Steps
 . Select *Save* to review your settings before activating the replication plan. 

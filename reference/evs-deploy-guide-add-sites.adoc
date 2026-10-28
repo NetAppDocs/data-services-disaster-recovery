@@ -13,7 +13,7 @@ summary: Before you can protect your VM infrastructure, the NetApp Disaster Reco
 :imagesdir: ../media/use/
 
 [.lead]
-Before you can protect your VM infrastructure, identify which VMware vCenter clusters are hosting the VMs to be protected and where those vCenters are located. The first step is to create a site to represent the source and destination datacenters. A site is a failure domain or a recovery domain. 
+Before you can protect your VM infrastructure with NetApp Disaster Recovery, identify which VMware vCenter clusters are hosting the VMs to be protected and where those vCenters are located. The first step is to create a site to represent the source and destination datacenters. A site is a failure domain or a recovery domain. 
 
 You need to create the following: 
 
@@ -28,7 +28,7 @@ Create a production vCenter site.
 
 . From the NetApp Console left navigation bar, select *Protection* > *Disaster Recovery*.
 
-. From any page in NetApp Disaster Recovery, select the *Sites* option.
+. From any page in Disaster Recovery, select the *Sites* option.
 +
 image:evs-create-site-op-1.png[Sites option]
 
@@ -50,7 +50,7 @@ If you have other production vCenter sites, you can add them using the same step
 
 Create a DR site for Amazon EVS using Amazon FSx for NetApp ONTAP storage.
 
-. From any page in NetApp Disaster Recovery, select the *Sites* option.
+. From any page in Disaster Recovery, select the *Sites* option.
 +
 image:evs-create-site-op-1.png[Sites option]
     
