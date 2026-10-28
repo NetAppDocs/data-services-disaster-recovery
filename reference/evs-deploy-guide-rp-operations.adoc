@@ -2,7 +2,7 @@
 sidebar: sidebar
 permalink: reference/evs-deploy-guide-rp-operations.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap,amazon elastic vmware service
-summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. Use NetApp Disaster Recovery with Amazon EVS and Amazon FSx for NetApp ONTAP to perform the failover, test failover, refresh resources, migrate, take a snapshot now, disable or enable replication plans, clean up old snapshots, reconcile snapshots, delete replication plan, and edit schedules.
+summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP. Use Disaster Recovery with Amazon EVS and Amazon FSx for NetApp ONTAP to perform the failover, test failover, refresh resources, migrate, take a snapshot now, disable or enable replication plans, clean up old snapshots, reconcile snapshots, delete replication plan, and edit schedules.
 
 ---
 
@@ -23,7 +23,7 @@ Failover is a manually initiated process.
 
 . From the NetApp Console left navigation bar, select *Protection* > *Disaster Recovery*.
 
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 
 .Steps to perform a failover
 
@@ -37,9 +37,9 @@ image:evs-rp-menu-failover.png[Failover menu option]
 
 . Select the backup to be used for the recovery.
 
-. (Optional) Select whether you want NetApp Disaster Recovery to force the failover process regardless of the state of the replication plan. This should only be done as a last resort. 
+. (Optional) Select whether you want Disaster Recovery to force the failover process regardless of the state of the replication plan. This should only be done as a last resort. 
 
-. (Optional) Select whether you want NetApp Disaster Recovery to automatically create a reverse protection relationship after the production site has been recovered.
+. (Optional) Select whether you want Disaster Recovery to automatically create a reverse protection relationship after the production site has been recovered.
 
 . Type the word “Failover” to verify that you would like to proceed.
 
@@ -53,7 +53,7 @@ A test failover is similar to a failover except for two differences.
 
 * The production site is still active and all VMs are still operating as expected.
 
-* NetApp Disaster Recovery protection of the production VMs continues.
+* Disaster Recovery protection of the production VMs continues.
 
 This is accomplished by using native ONTAP FlexClone volumes at the destination site. To learn more about test failover, see link:../use/failover.html[Fail over applications to a remote site | NetApp Documentation].
 
@@ -80,13 +80,13 @@ Compliance checks are run every three hours, by default. At any time, you might 
 
 .Steps 
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 . Select the *Run compliance check* option from the replication plan's Actions menu: 
 +
 image:evs-rp-menu-compliance-check.png[Run compliance check menu option]
  
-. To change how often NetApp Disaster Recovery automatically runs compliance checks, select *Edit schedules* option from the replication plan's Actions menu.
+. To change how often Disaster Recovery automatically runs compliance checks, select *Edit schedules* option from the replication plan's Actions menu.
  
 == Refresh resources
 
@@ -102,9 +102,9 @@ image::evs-rp-menu-refresh-resources.png[Refresh resources menu option]
 
 == Migrate
 
-In addition to using NetApp Disaster Recovery to manage replication and failover in the face of disasters, it can also support one-time VM migrations from the source site to the destination site. You might perform a one-time migration as part of a move to the cloud or a disaster avoidance procedure when responding to catastrophic events such as extreme weather or political turmoil.
+In addition to using Disaster Recovery to manage replication and failover in the face of disasters, it can also support one-time VM migrations from the source site to the destination site. You might perform a one-time migration as part of a move to the cloud or a disaster avoidance procedure when responding to catastrophic events such as extreme weather or political turmoil.
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 
 . To move the VMs in a replication plan to the destination Amazon EVS cluster, select *Migrate* from the replication plan's Actions menu:
@@ -117,9 +117,9 @@ image::evs-rp-menu-migrate.png[Migrate menu option]
  
 == Take a snapshot now
 
-At any time, you can take an immediate snapshot of the replication plan. This snapshot is included in the NetApp Disaster Recovery considerations set by the replication plan's snapshot retention count.
+At any time, you can take an immediate snapshot of the replication plan. This snapshot is included in the Disaster Recovery considerations set by the replication plan's snapshot retention count.
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 . To take an immediate snapshot of the replication plan's resources, select  *Take snapshot now* on the replication plan's Actions menu:
 +
@@ -142,7 +142,7 @@ image::evs-rp-menu-disable-enable.png[Disable/Enable menu option]
 
 You might want to clean up older snapshots that have been retained on the source and destination sites. This can happen if the replication plan's snapshot retention count is altered. 
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 . To remove these older snapshots manually, select *Clean up old snapshots* from the replication plan's Actions menu.
 +
@@ -152,7 +152,7 @@ image::evs-rp-menu-cleanup-old-snapshots.png[Clean up old snapshots menu option]
 
 Because Disaster Recovery orchestrates ONTAP volume snapshots, an ONTAP storage administrator can directly delete snapshots using either ONTAP System Manager, the ONTAP CLI, or the ONTAP REST APIs without the service's knowledge. Disaster Recovery  automatically deletes any snapshots on the source that are not on the destination cluster automatically every 24 hours. You can delete snapshots manually as needed. This feature enables you to ensure that the snapshots are consistent across all sites.
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 
 . To delete snapshots from the source cluster that do not exist on the destination cluster, select *Reconcile snapshots*  from the replication plan's Actions menu.
@@ -163,7 +163,7 @@ image::evs-rp-menu-reconcile-snapshots.png[Reconcile snapshots menu option]
 
 If the replication plan is no longer needed, you can delete it. 
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 . To delete the replication plan, select *Delete* from the replication plan's context menu.
 +
@@ -173,7 +173,7 @@ image::evs-rp-menu-delete.png[Delete menu option]
 
 Two operations are performed automatically on a regular schedule: test failovers and compliance checks. 
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 
 . To change these schedules for either of these two operations, select *Edit schedules* for the replication plan.
 +
@@ -194,7 +194,7 @@ Test failovers are manually executed by default. You can schedule automatic test
 
 .Steps to schedule test failovers
 
-. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] next to the replication plan.
+. Select the *Actions* option  image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] next to the replication plan.
 . Select *Run failover*. 
 
 . Check the *Run test failovers on a schedule* checkbox.

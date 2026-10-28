@@ -23,7 +23,7 @@ NOTE: To create a replication plan for VMware workloads, see link:task-replicati
 * Create an AppVault where Trident Protect saves protection data. You can create an AppVault while you create the replication plan or in advance. For more information, see link:task-appvault.html[Manage AppVaults].
 
 [TIP]
-Organize your Kubernetes clusters and namespaces before deploying NetApp Disaster Recovery to minimize sprawl. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
+Organize your Kubernetes clusters and namespaces before deploying Disaster Recovery to minimize sprawl. To organize resource groups before creating the replication plan, see link:resource-group.html[Create a resource group].
 
 == Create the replication plan
 
@@ -39,7 +39,7 @@ When you create the plan, follow these guidelines:
 First, select the source and the destination clusters for the replication plan.
 
 .Steps
-. From the NetApp Disaster Recovery menu, select *Replication plans*.
+. From the Disaster Recovery menu, select *Replication plans*.
 . In the dropdown menu, choose *Kubernetes*.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]

@@ -21,7 +21,7 @@ NetApp Disaster Recovery provides overviews and more detailed perspectives into 
 
 Tasks require different NetApp Console roles. For details, see the *Required NetApp Console role* section in each task.
 
-link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in NetApp Disaster Recovery].
+link:https://docs.netapp.com/us-en/console-setup-admin/reference-iam-disaster-rec-roles.html[Learn about user roles and permissions in Disaster Recovery].
 https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html[Learn about NetApp Console access roles for all services^].
 
 
@@ -33,7 +33,7 @@ include::../_include/iam-org-admin.adoc[]
 .Steps 
 
 . From the menu, select *Sites*. 
-. Select the *Actions* option image:../use/icon-vertical-dots.png[Actions menu icon in NetApp Disaster Recovery service]  on the right of the vCenter name and select *Edit*. 
+. Select the *Actions* option image:../use/icon-vertical-dots.png[Actions menu icon in Disaster Recovery service]  on the right of the vCenter name and select *Edit*. 
 . Edit the vCenter site name and location. 
 
 == Manage resource groups 
@@ -60,7 +60,7 @@ For details about creating a resource group, refer to link:resource-group.html[C
 
 . From the menu, select *Resource groups*. 
 . To add a resource group, select *Add group*.  
-. You can modify or delete the resource group by selecting the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service].
+. You can modify or delete the resource group by selecting the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service].
 
 == Manage replication plans 
 
@@ -77,7 +77,7 @@ include::../_include/iam-failover-app-admin.adoc[]
 . From the menu, select *Replication plans*. 
 +
 image:../use/dr-plan-list.png[Replication plan list]
-. To view the plan details, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] and select *View plan details*.  
+. To view the plan details, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] and select *View plan details*.  
 
 . Do any of the following: 
 +
@@ -87,9 +87,9 @@ image:../use/dr-plan-list.png[Replication plan list]
 
 . Return to the list of plans by selecting "Replication plans" in the breadcrumbs at the left. 
 
-. To perform actions with the plan, from the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] to the right of the plan then choose an action: *Edit schedules*, *Test failover*, *Fail over*, *Fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshots*, *Disable*, *Enable*, or *Delete*. 
+. To perform actions with the plan, from the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] to the right of the plan then choose an action: *Edit schedules*, *Test failover*, *Fail over*, *Fail back*, *Migrate*, *Take snapshot now*, *Clean up old snapshots*, *Disable*, *Enable*, or *Delete*. 
 
-. To set or change a test failover schedule or set the compliance frequency check, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Edit schedules*.
+. To set or change a test failover schedule or set the compliance frequency check, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service]  to the right of the plan and select *Edit schedules*.
 
 .. In the Edit schedules page, enter how often in minutes you want the failover compliance check to occur. 
 
@@ -109,7 +109,7 @@ include::../_include/iam-failover-app-admin.adoc[]
 +
 image:../use/dr-plan-list.png[Replication plan list]
 
-. From the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service] then *Reconcile snapshots*. 
+. From the list of replication plans, select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service] then *Reconcile snapshots*. 
 
 . Review the reconciliation information. 
 . Select *Reconcile*.
@@ -124,7 +124,7 @@ include::../_include/iam-failover-app-admin.adoc[]
 .Steps 
 
 . From the menu, select *Replication plans*. 
-. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service]  to the right of the plan and select *Delete*. 
+. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service]  to the right of the plan and select *Delete*. 
 . Select whether you want to delete the primary snapshots,  secondary snapshots, or only the metadata created by the plan. 
 . Enter "delete" to confirm the deletion.
 . Select *Delete*.
