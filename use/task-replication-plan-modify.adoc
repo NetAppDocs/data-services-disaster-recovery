@@ -50,7 +50,7 @@ NOTE: This process unregisters the temporary VMs from the test location, deletes
 
 You can temporarily disable a replication plan if, for example, you need to apply updates or perform maintenance that would impact the integrity of the replication plan and its related operations. 
 
-You can also delete a replication if you no longer need it or need to make significant changes to it that are beyond the scope of modification. 
+You can also delete a replication plan if you no longer need it or need to make significant changes to it that are beyond the scope of modification.
 
 .Steps
 . From the Disaster Recovery menu, select *Replication plans*. 
