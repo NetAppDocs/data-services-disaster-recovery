@@ -6,7 +6,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 
 ---
 
-= Add on-premises and Amazon EVS vCenter clusters in NetApp Disaster Recovery
+= Add on-premises and Amazon EVS vCenters in NetApp Disaster Recovery
 
 :hardbreaks:
 :icons: font

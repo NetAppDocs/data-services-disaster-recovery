@@ -6,7 +6,7 @@ summary: Before you can protect your VM infrastructure, the NetApp Disaster Reco
 
 ---
 
-= Add sites in NetApp Disaster Recovery for Amazon EVS 
+= Add sites in NetApp Disaster Recovery for Amazon EVS
 
 :hardbreaks:
 :icons: font

@@ -6,7 +6,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 
 ---
 
-= Verify that everything is working in NetApp Disaster Recovery
+= Verify replication plan health in NetApp Disaster Recovery for Amazon EVS
 
 :hardbreaks:
 :icons: font

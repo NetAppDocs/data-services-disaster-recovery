@@ -4,7 +4,7 @@ permalink: reference/evs-deploy-guide-introduction.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, netapp, ontap 
 summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FSx for NetApp ONTAP.
 ---
-= Learn about NetApp Disaster Recovery with Amazon Elastic VMware Service and Amazon FSx for NetApp ONTAP
+= Learn about NetApp Disaster Recovery for Amazon EVS
 
 :hardbreaks:
 :icons: font
