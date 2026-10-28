@@ -28,6 +28,7 @@ NetApp Disaster Recovery is a cloud-based service in the NetApp Console that pro
 - *Subnet mapping* preserves host bits and remaps network portions during failover IP reassignment.
 * *Console agent* - NetApp component that ensures connectivity between on-premises storage systems and NetApp data services in the cloud.
 * *Storage VM* - an isolated, logical file/storage server running inside a NetApp ONTAP cluster that serves data to clients. Use "storage VM" in the first instance with the abbreviation (SVM). Subsequent uses can include SVM. Do not use vServer. 
+* *Resource* - This is not a technical term but should be used as a generic reference when referring to data resources such as datastores, VMs, or Kubernetes. Use only for references that span workload types (that is, Kubernetes and VMware)
 
 ## Typical user workflows
 
