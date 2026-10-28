@@ -30,7 +30,7 @@ Based on the schedule, the failover test runs and ensures that workloads are mov
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
 
-. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] icon and select *Edit schedules*. 
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu then select *Edit schedules*. 
 
 . Enter how frequently in minutes that you want NetApp Disaster Recovery to check test compliance. 
 
@@ -43,15 +43,20 @@ image:dr-plan-schedule-edit2.png[Screenshot showing where you can edit schedules
 . *Use on-demand snapshot for scheduled test failover*: To take a new snapshot before initiating the automated test failover, check this box.
 . To clean up the test environment after the failover test finishes, check *Automatically clean up after test failover* and enter the number of minutes you want to wait before the cleanup starts.
 +
-NOTE: This process unregisters the temporary VMs  from the test location, deletes the FlexClone volume that was created, and unmounts the temporary datastores. 
+NOTE: This process unregisters the temporary VMs from the test location, deletes the FlexClone volume that was created, and unmounts the temporary datastores. 
 . Select *Save*.
 
 == Delete or disable a replication plan
 
+You can temporarily disable a replication plan if, for example, you need to apply updates or perform maintenance that would impact the integrity of the replication plan and its related operations. 
+
+You can also delete a replication if you no longer need it or need to make significant changes to it that are beyond the scope of modification. 
+
+.Steps
 . From the NetApp Disaster Recovery menu, select *Replication plans*. 
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
-. Select the action menu for the replication plan you want to disable or delete. 
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu for the replication plan you want to disable or delete. 
 . Select *Delete* or *Disable*. 
 . Review the instructions in the pop-up. To disable, select *Disable*. 
 +
