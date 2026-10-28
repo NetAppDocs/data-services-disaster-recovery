@@ -60,4 +60,4 @@ image:dr-plan-list.png[Screenshot showing the list of replication plans]
 . Select *Delete* or *Disable*. 
 . Review the instructions in the pop-up. To disable, select *Disable*. 
 +
-If you choose delete, select which associated snapshots you want to delete along with the replication plan. You can delete *Delete primary snapshots*, *Delete secondary snapshots*, or *Delete snapshot metadata*. In the textbox, enter "delete" to confirm the operation then select *Delete*. 
+If you choose *Delete*, select the associated snapshots or metadata to delete along with the replication plan: *Delete primary snapshots*, *Delete secondary snapshots*, or *Delete snapshot metadata*. In the text box, enter "delete" to confirm the operation, then select *Delete*.
