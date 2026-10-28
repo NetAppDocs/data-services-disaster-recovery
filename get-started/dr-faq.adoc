@@ -103,9 +103,9 @@ For the full list, see link:dr-prerequisites.html[Disaster Recovery prerequisite
 
 .What is a Console agent and why is it required?
 
-A Console agent is a software component that enables the NetApp Console to communicate with your ONTAP storage and VMware vCenter clusters. It's required for Disaster Recovery to function properly. The agent resides in your private network (either an on-premises data center or a cloud VPC) and communicates with your ONTAP storage instances and vCenter clusters.
+A Console agent is a software component that enables the NetApp Console to communicate with your ONTAP storage and VMware vCenter clusters or Kubernetes clusters. It's required for Disaster Recovery to function properly. The agent resides in your private network (either an on-premises data center or a cloud VPC) and communicates with your ONTAP storage instances and vCenter clusters or Kubernetes clusters.
 
-For on-premises to on-premises disaster recovery, install the on-premises Console agent in the disaster recovery site. For on-premises to AWS, install the Console agent for AWS in your AWS VPC. Both the source and destination vCenter clusters should use the same Console agent. Disaster Recovery works only with the standard mode agent deployment.
+For on-premises to on-premises disaster recovery, install the on-premises Console agent in the disaster recovery site. For on-premises to AWS, install the Console agent for AWS in your AWS VPC. Both the source and destination vCenter clusters or Kubernetes clusters should use the same Console agent. Disaster Recovery works only with the standard mode agent deployment.
 
 .What does a Kubernetes cluster need before it can be protected?
 
@@ -119,7 +119,7 @@ A site is a logical container, typically associated with a physical data center 
 
 .What is a resource group and how is it used?
 
-A resource group is a logical container that lets you manage multiple VMs, datastores, or Kubernetes namespaces and resources as a single unit, so they can be protected with a common snapshot. A VM can belong to only one resource group at a time. You can create a resource group for each application or workload that you want to protect, and VMs power on based on the boot order you configure within the group.
+A resource group is a logical container that lets you manage multiple VMs, datastores, or Kubernetes namespaces and resources as a single unit, so they can be protected with a common snapshot. A VM can belong to only one resource group at a time. You can create a resource group for each application or workload that you want to protect. Resources power on based on the boot order you configure within the group.
 
 .What is a replication plan in Disaster Recovery?
 
@@ -172,9 +172,11 @@ Yes. You can migrate VMware applications from a source site to another site usin
 
 .Can I test my disaster recovery plan without impacting production workloads?
 
-Yes. During a test failover, Disaster Recovery creates temporary VMs from a new FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the ESXi hosts. This doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
+Yes. During a test failover of VMware workloads, Disaster Recovery creates temporary VMs from a new FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the ESXi hosts. Test failovers of Kubernetes workloads follow the equivalent sequence for the protected applications and persistent volumes. A test failover doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
 
 .What happens during a failover operation?
+
+The following steps describe a failover of VMware workloads. Kubernetes workloads follow the equivalent sequence for their applications and persistent volumes.
 
 1. Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.
 2. If the latest snapshot was selected, it performs a SnapMirror update to replicate the latest changes.
@@ -190,7 +192,7 @@ Yes. During a test failover, Disaster Recovery creates temporary VMs from a new 
 
 .Can I customize the boot order of VMs during failover?
 
-Yes. By default, all VMs boot together in parallel, but you can assign each VM a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple VMs to boot them simultaneously. You can also set a boot delay (0–10 minutes) per VM to stagger startup, which is useful for ensuring priority VMs are running before later-priority VMs start.
+Yes. By default, all VMs boot together in parallel, but you can assign each VM a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple VMs to boot them simultaneously. You can also set a boot delay (0–10 minutes) per VM to stagger startup, which is useful for ensuring priority VMs are running before later-priority VMs start. For Kubernetes resource groups in a replication plan, you can optionally specify a priority order and a delay time for resources.
 
 == Failback
 
@@ -199,11 +201,13 @@ Yes. By default, all VMs boot together in parallel, but you can assign each VM a
 Failback returns operations to the original source site after a disaster has been resolved. Starting from a relationship that has failed over to the target, Disaster Recovery resyncs any changes back to the original source VM or Kubernetes cluster before reversing the replication direction. The process:
 
 1. Performs a compliance check on the recovered site.
-2. Refreshes vCenter information for each vCenter cluster in the recovered site.
-3. On the target site, powers off and unregisters the VMs, and unmounts volumes.
+2. Refreshes discovery information for each vCenter cluster or Kubernetes cluster in the recovered site.
+3. On the target site, stops the protected workloads (for VMware, powers off and unregisters the VMs), and unmounts volumes.
 4. Breaks the SnapMirror relationship on the original source to make it read/write.
 5. Resynchronizes the SnapMirror relationship to reverse replication direction.
-6. Powers on and registers the source VMs, and mounts the volumes on the source.
+6. Starts the protected workloads on the source (for VMware, powers on and registers the source VMs), and mounts the volumes on the source.
+
+Kubernetes workloads follow the same sequence as VMware workloads.
 
 See link:../use/failback.html[Fail back applications to the original source].
 

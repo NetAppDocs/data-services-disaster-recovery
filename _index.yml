@@ -1,8 +1,8 @@
 indexpage:
   title: NetApp Disaster Recovery documentation
-  lead: Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events (for example, ransomware). With NetApp Disaster Recovery, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud or to another on-premises site as a disaster recovery site. 
-  summary: "With NetApp Disaster Recovery, you can replicate your on-premises VMware workloads running ONTAP storage to a VMware software-defined data center in a public cloud as a disaster recovery site using NetApp cloud storage."
-  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage
+  lead: Disaster recovery to the cloud is a resilient and cost-effective way of protecting workloads against site outages and data corruption events (for example, ransomware). With NetApp Disaster Recovery, you can protect your on-premises VMware and Kubernetes workloads running ONTAP storage by replicating them to a disaster recovery site, such as another on-premises site or, for VMware workloads, a VMware software-defined data center in a public cloud. 
+  summary: "With NetApp Disaster Recovery, you can replicate your on-premises VMware and Kubernetes workloads running ONTAP storage to a disaster recovery site."
+  keywords: disaster, disaster recovery, bluexp, replicate, replication, cloud storage, vmware, kubernetes, trident protect, openshift
   tiles:
   - title: Get started
     #image: ./media/outline_directions_run_black_18dp.png
@@ -23,7 +23,7 @@ indexpage:
       url: /get-started/dr-faq.html 
   - title: Use NetApp Disaster Recovery
     links:
-    - title: Add vCenters to a site
+    - title: Add sites
       url: /use/sites-add.html
     - title: Create a VMware disaster recovery plan
       url: /use/task-replication-plan-vmware.html

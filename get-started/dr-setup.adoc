@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: get-started/dr-setup.html
-keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap
+keywords: bluexp, disaster recovery, aws, amazon web services, amazon fsx for netapp ontap, vmware, kubernetes, trident protect
 summary: To use NetApp Disaster Recovery, perform a few steps to set it up.    
 ---
 = Set up your infrastructure for NetApp Disaster Recovery
@@ -22,6 +22,7 @@ You can use NetApp Disaster Recovery in the following infrastructures:
 * Private cloud disaster recovery that replicates an on-premises VMware plus ONTAP vCenter to another on-premises VMware plus ONTAP vCenter.
 * Cloud disaster recovery that replicates an AWS disaster recovery infrastructure based on VMware Cloud on AWS or EVS to another AWS-based disaster recovery infrastructure using FSx for NetApp ONTAP.
 * Hybrid cloud disaster recovery that replicates an on-premises VMware plus ONTAP datacenter to a Google disaster recovery infrastructure based on Google Cloud VMware Engine and Google Cloud NetApp Volumes.
+* Kubernetes disaster recovery between Kubernetes clusters using Trident-managed ONTAP storage. For the cluster requirements, see link:task-kubernetes-requirements.html[Kubernetes cluster requirements].
 
 == Hybrid cloud with VMware Cloud and Amazon FSx for NetApp ONTAP 
 

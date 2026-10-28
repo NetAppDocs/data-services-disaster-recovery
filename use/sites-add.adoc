@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: use/sites-add.html
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter
-summary: Before you can create a disaster recovery plan, you need to add a primary vCenter site and a target vCenter disaster recovery site in NetApp Disaster Recovery. 
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, kubernetes, trident protect, openshift
+summary: Before you can create a disaster recovery plan, you need to add a primary site and a target disaster recovery site, which can be vCenter sites or Kubernetes sites, in NetApp Disaster Recovery. 
 ---
 = Add sites in NetApp Disaster Recovery
 :hardbreaks:

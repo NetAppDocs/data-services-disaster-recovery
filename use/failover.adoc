@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: use/failover.html
-keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter
+keywords: disaster recovery, bluexp disaster recovery, failover, replicate, fail over, vmware, vcenter, kubernetes, trident protect, openshift
 summary: NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
 
@@ -24,25 +24,25 @@ During failover, NetApp Disaster Recovery uses the most recent SnapMirror snapsh
 
 This process differs depending on whether the production site is healthy and you are performing a failover to the disaster recovery site for reasons other than a critical infrastructure failure:
 
-* Critical production site failure where the source vCenter or ONTAP cluster is not accessible: NetApp Disaster Recovery lets you select any available snapshot from which to restore. 
+* Critical production site failure where the source vCenter, Kubernetes cluster, or ONTAP cluster is not accessible: NetApp Disaster Recovery lets you select any available snapshot from which to restore. 
 * Production environment is healthy: You can either "Take a snapshot now" or select a previously created snapshot. 
 
-This procedure breaks the replication relationship, places the vCenter source VMs offline, registers the volumes as datastores in the disaster recovery vCenter, restarts the protected VMs using the failover rules in the plan, and enables read/write on the target site. 
+This procedure breaks the replication relationship, takes the source workloads offline, makes the replicated volumes available at the disaster recovery site, restarts the protected workloads using the failover rules in the plan, and enables read/write on the target site. For VMware workloads, the service places the vCenter source VMs offline, registers the volumes as datastores in the disaster recovery vCenter, and restarts the protected VMs. Kubernetes workloads follow the equivalent sequence for their applications and persistent volumes.
 
 
 == Test the failover process
 
 Before conducting a live failover, you can perform a test to verify readiness. Workloads remain online during the test process. 
 
-During a failover test, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts.
+During a failover test of VMware workloads, Disaster Recovery temporarily creates VMs. Disaster Recovery maps a temporary datastore backing the FlexClone volume to the ESXi hosts. A failover test of Kubernetes workloads follows the equivalent sequence for the protected applications and persistent volumes on the destination cluster.
 
 This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
-When you finish the test, you should reset the VMs with the *Clean up test* option. While this is recommended, it is not required. 
+When you finish the test, you should reset the test environment with the *Clean up test* option. While this is recommended, it is not required. 
 
 A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
 
-For a test failover, Disaster Recovery performs the following operations:
+For a test failover, Disaster Recovery performs the following operations. The operations that refer to vCenter, VMs, or datastores apply to VMware workloads; Kubernetes workloads follow the equivalent operations for their applications and volumes.
 
 * Perform prechecks on the destination cluster and the SnapMirror relationship.
 * Create a new FlexClone volume from the selected snapshot for each protected ONTAP volume on the target site ONTAP cluster. 
@@ -70,7 +70,7 @@ Then enter “Test failover” and select *Test failover*.
 
 == Clean up the test environment after a failover test
 
-After the failover test finishes, you should clean up the test environment. This process removes the temporary VMs from the test location, the FlexClones, and the temporary datastores. 
+After the failover test finishes, you should clean up the test environment. This process removes the temporary test resources and the FlexClones from the test location. For VMware workloads, this includes the temporary VMs and the temporary datastores. 
 
 .Steps 
 
@@ -84,9 +84,9 @@ After the failover test finishes, you should clean up the test environment. This
 
 == Fail over the source site to a disaster recovery site
 
-If a disaster occurs, fail over your primary on-premises VMware site on demand to another on-premises VMware site or VMware Cloud on AWS with FSx for NetApp ONTAP. 
+If a disaster occurs, fail over your primary site on demand to the disaster recovery site. For VMware workloads, you can fail over your primary on-premises VMware site to another on-premises VMware site or VMware Cloud on AWS with FSx for NetApp ONTAP. For Kubernetes workloads, you fail over to the destination cluster in the replication plan. 
 
-The failover process involves the following operations: 
+The failover process involves the following operations. The operations that refer to vCenter, VMs, or datastores apply to VMware workloads; Kubernetes workloads follow the equivalent operations for their applications and persistent volumes: 
 
 * Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship. 
 * If you selected the latest snapshot, the SnapMirror update is performed to replicate the latest changes. 
@@ -102,7 +102,7 @@ The failover process involves the following operations:
 
 
 
-TIP: After the failover starts, you can see the recovered VMs in the vCenter of the disaster recovery site (VMs, networks, and datastores). By default, the VMs are recovered to the Workload folder.
+TIP: For VMware workloads, after the failover starts, you can see the recovered VMs in the vCenter of the disaster recovery site (VMs, networks, and datastores). By default, the VMs are recovered to the Workload folder.
 
 
 [role="tabbed-block"]
