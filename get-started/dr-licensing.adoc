@@ -24,7 +24,7 @@ You can use the following licensing options:
 * Bring your own license (BYOL), which is a NetApp License File (NLF) that you obtain from your NetApp Sales Rep. You can use the license serial number to get the BYOL activated in the NetApp Console.
 
 
-NOTE: Disaster Recovery charges are based on used capacity of datastores on the source site when there is at least one VM or Kubernetes resource that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.  
+NOTE: Disaster Recovery charges are based on used capacity on the source site when there is at least one VM or Kubernetes resource that has a replication plan. Capacity for a failed over datastore is not included in the capacity allowance. For a BYOL, if the data exceeds the allowed capacity, operations in the service are limited until you obtain an additional capacity license or upgrade the license in the NetApp Console.
 
 //After you set up your BYOL or purchase a subscription in AWS, you can see the license in the NetApp Console *Data service Licenses* option or the active subscription in the Console *Subscriptions* option.
 
