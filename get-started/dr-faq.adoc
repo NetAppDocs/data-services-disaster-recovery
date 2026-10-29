@@ -184,7 +184,7 @@ Yes. A test failover doesn't modify the original source volume or disrupt the Sn
 6. The replicated volumes are made available at the disaster recovery site based on the information in the replication plan. For VMware workloads, datastores are created and mounted to the VMware or VMC cluster or host (VMFS datastores also get an iGroup mapped to each LUN). For Kubernetes workloads, the volumes are made available to the destination cluster.
 7. The target resources are registered with the destination host.
 8. The target resources are powered on based on the boot order in the resource group, if a boot order was specified.
-9. If any resources on the source are still active, they are powered off.
+9. If the protected workloads on the source are still active, they are stopped.
 10. Any application-consistent resources are unquiesced.
 11. If the source and ONTAP clusters are still active, a reverse SnapMirror relationship is created to replicate changes back to the original source site (unless *Skip protection* was selected).
 
