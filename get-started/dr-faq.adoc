@@ -119,7 +119,7 @@ A site is a logical container, typically associated with a physical data center 
 
 .What is a resource group and how is it used?
 
-A resource group is a logical container that lets you manage multiple VMs, datastores, or Kubernetes namespaces and resources as a single unit, so they can be protected with a common snapshot. A VM can belong to only one resource group at a time. You can create a resource group for each application or workload that you want to protect. Resources power on based on the boot order you configure within the group.
+A resource group is a logical container that lets you manage multiple VMs, datastores, or Kubernetes namespaces and resources as a single unit, so they can be protected with a common snapshot. A VM can belong to only one resource group at a time. You can create a resource group for each application or workload that you want to protect.
 
 .What is a replication plan in Disaster Recovery?
 
