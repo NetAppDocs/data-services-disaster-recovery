@@ -172,7 +172,7 @@ Yes. You can migrate VMware applications from a source site to another site usin
 
 .Can I test my disaster recovery plan without impacting production workloads?
 
-Yes. During a test failover, Disaster Recovery creates a temporary FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the hosts. This doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
+Yes. A test failover doesn't modify the original source volume or disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. For VMware workloads, Disaster Recovery creates temporary VMs from a FlexClone volume of the selected snapshot and maps a temporary FlexClone-backed datastore to the ESXi hosts. For Kubernetes workloads, the test recovers the protected applications and persistent volumes on the destination cluster. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
 
 .What happens during a failover operation?
 
