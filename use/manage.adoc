@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar
 permalink: use/manage.html
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, replication plans, resource groups
-summary: You can get a quick glance of all your NetApp Disaster Recovery resources and manage vCenter sites, resource groups, and replication plans.
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, kubernetes, trident protect, replication plans, resource groups
+summary: You can get a quick glance of all your NetApp Disaster Recovery resources and manage sites, resource groups, and replication plans for VMware and Kubernetes workloads.
 ---
 
 = Manage sites, resource groups, and replication plans with NetApp Disaster Recovery
@@ -13,11 +13,12 @@ summary: You can get a quick glance of all your NetApp Disaster Recovery resourc
 [.lead]
 NetApp Disaster Recovery provides overviews and more detailed perspectives into all of your resources: 
 
-* Sites
+* Sites (vCenter and Kubernetes)
 * Resource groups
 * Replication plans
-* Datastores 
-* Virtual machines
+* Datastores (VMware)
+* Virtual machines (VMware)
+* Kubernetes clusters and Trident Protect
 
 Tasks require different NetApp Console roles. For details, see the *Required NetApp Console role* section in each task.
 
@@ -26,7 +27,7 @@ https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles
 
 
 == Manage vCenter sites
-You can edit the vCenter site name and type (on-premises or AWS).
+You can edit the vCenter site name and type (on-premises or AWS). To manage Kubernetes clusters and sites, see link:manage.html#manage-trident-protect[Manage Trident Protect].
 
 include::../_include/iam-org-admin.adoc[]
 
@@ -38,7 +39,7 @@ include::../_include/iam-org-admin.adoc[]
 
 == Manage resource groups 
 
-You can create resource groups by VMs or datastores. You can add them when you create the replication plan or later. 
+You can create resource groups by VMs, datastores, or Kubernetes resources. You can add them when you create the replication plan or later. 
 
 include::../_include/iam-super-admin.adoc[]
 
@@ -172,7 +173,7 @@ From the Disaster Recovery UI, you can upgrade or remove Trident Protect.
 
 == View datastore information 
 
-You can view how many datastores exist on the source and target sites. 
+For VMware workloads, you can view how many datastores exist on the source and target sites. 
 
 include::../_include/iam-viewer.adoc[]
 
@@ -184,7 +185,7 @@ include::../_include/iam-viewer.adoc[]
 
 == View virtual machines information 
 
-You can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity. 
+For VMware workloads, you can view how many virtual machines exist on the source and target sites, along with CPU, memory, and available capacity. 
 
 include::../_include/iam-viewer.adoc[]
 
