@@ -38,11 +38,11 @@ During a failover test of VMware workloads, Disaster Recovery temporarily create
 
 This process doesn't consume additional physical capacity on on-premises ONTAP storage or FSx for NetApp ONTAP storage in AWS. The original source volume is not modified and replica jobs can continue even during disaster recovery.
 
-When you finish the test, you should reset the test environment with the *Clean up test* option. While this is recommended, it is not required. 
+When you complete the test, it's recommended you reset the test environment with the *Clean up test* option.
 
 A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
 
-For a test failover, Disaster Recovery performs the following operations. The operations that refer to vCenter, VMs, or datastores apply to VMware workloads; Kubernetes workloads follow the equivalent operations for their applications and volumes.
+For a test failover, Disaster Recovery performs the following operations.
 
 * Perform prechecks on the destination cluster and the SnapMirror relationship.
 * Create a new FlexClone volume from the selected snapshot for each protected ONTAP volume on the target site ONTAP cluster. 

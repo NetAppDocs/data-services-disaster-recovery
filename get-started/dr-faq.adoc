@@ -172,27 +172,25 @@ Yes. You can migrate VMware applications from a source site to another site usin
 
 .Can I test my disaster recovery plan without impacting production workloads?
 
-Yes. During a test failover of VMware workloads, Disaster Recovery creates temporary VMs from a new FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the ESXi hosts. Test failovers of Kubernetes workloads follow the equivalent sequence for the protected applications and persistent volumes. A test failover doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
+Yes. During a test failover, Disaster Recovery creates a temporary FlexClone volume of the selected snapshot, and maps a temporary FlexClone-backed datastore to the hosts. This doesn't consume additional physical capacity, doesn't modify the original source volume, and doesn't disrupt the SnapMirror relationship or production workloads, which continue to replicate normally. After testing, clean up the test environment using the *Clean up failover test* action. See link:../use/failover.html[Fail over applications to a remote site].
 
 .What happens during a failover operation?
 
-The following steps describe a failover of VMware workloads. Kubernetes workloads follow the equivalent sequence for their applications and persistent volumes.
-
 1. Disaster Recovery performs prechecks on the destination cluster and SnapMirror relationship.
 2. If the latest snapshot was selected, it performs a SnapMirror update to replicate the latest changes.
-3. The source VMs are powered down.
+3. The source is powered down.
 4. The SnapMirror relationship is broken and the target volume is made read/write.
 5. Based on the snapshot selection, the active file system is restored to the specified snapshot.
-6. Datastores are created and mounted to the VMware or VMC cluster or host (VMFS datastores also get an iGroup mapped to each LUN).
-7. The target VMs are registered within vCenter as new datastores.
-8. The target VMs power on based on the boot order in the resource group.
-9. If the source vCenter is still active, source-side VMs being failed over are powered off.
-10. Any application-consistent VMs are unquiesced.
-11. If the source vCenter and ONTAP clusters are still active, a reverse SnapMirror relationship is created to replicate changes back to the original source site (unless *Skip protection* was selected).
+6. The replicated volumes are made available at the disaster recovery site based on the information in the replication plan. For VMware workloads, datastores are created and mounted to the VMware or VMC cluster or host (VMFS datastores also get an iGroup mapped to each LUN). For Kubernetes workloads, the volumes are made available to the destination cluster.
+7. The target resources are registered with the destination host.
+8. The target resources are powered on based on the boot order in the resource group, if a boot order was specified.
+9. If any resources on the source are still active, they are powered off.
+10. Any application-consistent resources are unquiesced.
+11. If the source and ONTAP clusters are still active, a reverse SnapMirror relationship is created to replicate changes back to the original source site (unless *Skip protection* was selected).
 
-.Can I customize the boot order of VMs during failover?
+.Can I customize the boot order of entities in a resource group during failover?
 
-Yes. By default, all VMs boot together in parallel, but you can assign each VM a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple VMs to boot them simultaneously. You can also set a boot delay (0–10 minutes) per VM to stagger startup, which is useful for ensuring priority VMs are running before later-priority VMs start. For Kubernetes resource groups in a replication plan, you can optionally specify a priority order and a delay time for resources.
+Yes. By default, all entities boot together in parallel, but you can assign each entity a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple resources to boot them simultaneously. You can also set a boot delay (0–10 minutes) per resource to stagger startup, which is useful for ensuring priority resources are running first. Boot order is supported for both VMware and Kubernetes workloads.
 
 == Failback
 
@@ -206,8 +204,6 @@ Failback returns operations to the original source site after a disaster has bee
 4. Breaks the SnapMirror relationship on the original source to make it read/write.
 5. Resynchronizes the SnapMirror relationship to reverse replication direction.
 6. Starts the protected workloads on the source (for VMware, powers on and registers the source VMs), and mounts the volumes on the source.
-
-Kubernetes workloads follow the same sequence as VMware workloads.
 
 See link:../use/failback.html[Fail back applications to the original source].
 

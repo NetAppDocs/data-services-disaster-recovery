@@ -115,7 +115,7 @@ Disaster Recovery also supports using multiple Console agents with on-premises c
 ** *On-premises to AWS*: Install the Console agent for AWS in your AWS VPC. Refer to https://docs.netapp.com/us-en/console-setup-admin/concept-install-options-aws.html[Console agent installation options in AWS^].
 +
 TIP: For on-premises to on-premises, use the on-premises Console agent. For on-premises to AWS, use the AWS Console agent, which has access to the source on-premises vCenter and the destination on-premises vCenter.
-** The installed Console agent must be able to access any VMware vCenter cluster instances and ESXi hosts managed by those vCenter clusters that Disaster Recovery will manage, and any Kubernetes clusters that Disaster Recovery will manage.
+** The installed Console agent must be able to access any Kubernetes clusters that Disaster Recovery will manage. It must also be able to access any VMware vCenter cluster instances and ESXi hosts managed by those vCenter clusters that Disaster Recovery will manage.
 
 * All ONTAP arrays to be managed by Disaster Recovery must be added to any system within the NetApp Console project that will be used to manage Disaster Recovery.
 +
