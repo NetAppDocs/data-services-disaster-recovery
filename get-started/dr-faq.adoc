@@ -183,14 +183,14 @@ Yes. A test failover doesn't modify the original source volume or disrupt the Sn
 5. Based on the snapshot selection, the active file system is restored to the specified snapshot.
 6. The replicated volumes are made available at the disaster recovery site based on the information in the replication plan. For VMware workloads, datastores are created and mounted to the VMware or VMC cluster or host (VMFS datastores also get an iGroup mapped to each LUN). For Kubernetes workloads, the volumes are made available to the destination cluster.
 7. The target resources are registered with the destination host.
-8. The target resources are powered on based on the boot order in the resource group, if a boot order was specified.
+8. The target resources are powered on based on the boot order in the replication plan, if a boot order was specified.
 9. If the protected workloads on the source are still active, they are stopped.
 10. Any application-consistent resources are unquiesced.
 11. If the source and ONTAP clusters are still active, a reverse SnapMirror relationship is created to replicate changes back to the original source site (unless *Skip protection* was selected).
 
-.Can I customize the boot order of entities in a resource group during failover?
+.Can I customize the boot order of entities in a replication plan during failover?
 
-Yes. By default, all entities boot together in parallel, but you can assign each entity a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple resources to boot them simultaneously. You can also set a boot delay (0–10 minutes) per resource to stagger startup, which is useful for ensuring priority resources are running first. Boot order is supported for both VMware and Kubernetes workloads.
+Yes. You configure boot order in the replication plan. By default, all entities boot together in parallel, but you can assign each entity a sequential number (for example, 1, 2, 3) to control boot order, or assign the same number to multiple resources to boot them simultaneously. You can also set a boot delay (0–10 minutes) per resource to stagger startup, which is useful for ensuring priority resources are running first. Boot order is supported for both VMware and Kubernetes workloads.
 
 == Failback
 
