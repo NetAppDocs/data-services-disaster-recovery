@@ -59,7 +59,7 @@ Disaster Recovery provides you with full use of several NetApp technologies to a
 * In case of disaster, fail over your primary site on demand to the disaster recovery site. For VMware workloads, the disaster recovery site can be VMware Cloud on AWS with Amazon FSx for NetApp ONTAP or an on-premises VMware environment with ONTAP. For Kubernetes workloads, you fail over to the destination cluster in the replication plan. 
 * After the disaster has been resolved, fail back on demand from the disaster recovery site to the primary site.
 * Group VMs, datastores, or Kubernetes resources into logical resource groups for efficient management. 
-* For Kubernetes workloads, use resource transformations and scripts to adapt applications to the recovery environment during failover. 
+* For Kubernetes workloads, use resource transformations to adapt applications to the recovery environment during failover, and pre-snapshot or post-snapshot scripts to manage application quiescence and resumption.
  
 image:../use/evs-use-cases.png[Diagram showing use cases for Disaster Recovery]
 
