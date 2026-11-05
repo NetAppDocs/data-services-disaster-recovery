@@ -13,7 +13,7 @@ summary: Introduction of NetApp Disaster Recovery using Amazon EVS and Amazon FS
 :imagesdir: ../media/use/
 
 [.lead]
-After you create sites, add the vCenter clusters for each site in NetApp Disaster Recovery. The site type determines the access NetApp Disaster Recovery requires for the vCenters in that site. Amazon EVS vCenters and on-premises vCenters use the same connection and authentication information.
+After you create sites, add the vCenter clusters for each site in NetApp Disaster Recovery. The site type determines the access Disaster Recovery requires for the vCenters in that site. Amazon EVS vCenters and on-premises vCenters use the same connection and authentication information.
 
 .Steps to add a vCenter to each site
 
@@ -29,7 +29,7 @@ image:evs-add-vcenter-1.png[Add vCenter option]
 
 .. If needed, change the port to the TCP port used by your vCenter server.
 
-.. The vCenter username for the account created earlier that will be used by NetApp Disaster Recovery to manage the vCenter.
+.. The vCenter username for the account created earlier that will be used by Disaster Recovery to manage the vCenter.
 
 // .. The vCenter password for the provided username.
 

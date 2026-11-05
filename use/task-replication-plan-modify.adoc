@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar
 permalink: use/task-replication-plan-modify.html
-keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover
+keywords: disaster recovery, bluexp disaster recovery, failover, replication plan, modify, compliance time, test failover, vmware, kubernetes
 summary: Modify a replication plan to adjust compliance time or failover settings. 
 ---
 = Modify a replication plan in NetApp Disaster Recovery
@@ -12,27 +12,27 @@ summary: Modify a replication plan to adjust compliance time or failover setting
 [.lead]
 In NetApp Disaster Recovery, you can modify a replication plan's compliance time impact and to ensure failover tests complete successfully. 
 
-You can modify the compliance time and test failover impact. To edit plan recurrence, failover mappings, or VMs, delete the replication plan and create a new one. 
+You can modify the compliance time and test failover impact. To edit plan recurrence, failover mappings, or associated resources, delete the replication plan and create a new one. 
 
 == Modifiable fields
 
 * *Compliance time impact*: When a replication plan is created, the service creates a compliance schedule by default. The default compliance time is 30 minutes. To change this time, you can use edit the schedule in the replication plan.
 
-* *Test failover impact*: You can test a failover process on demand or by a schedule. This lets you test the failover of VM to a destination that is specified in a replication plan. 
+* *Test failover impact*: You can test a failover process on demand or by a schedule. This lets you test the failover of VMs or Kubernetes applications to a destination that is specified in a replication plan. 
 +
-A test failover creates a FlexClone volume, mounts the datastore, and moves the workload on that datastore. A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
+A test failover creates a FlexClone volume and, for VMware workloads, mounts the datastore and moves the workload on that datastore. A test failover operation does _not_ impact production workloads, the SnapMirror relationship used on the test site, and protected workloads that must continue to operate normally. 
 
 Based on the schedule, the failover test runs and ensures that workloads are moving to the destination specified by the replication plan. 
 
 == Modify a replication plan 
 
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 +
 image:dr-plan-list.png[Screenshot showing the list of replication plans]
 
-. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] icon and select *Edit schedules*. 
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu then select *Edit schedules*. 
 
-. Enter how frequently in minutes that you want NetApp Disaster Recovery to check test compliance. 
+. Enter how frequently in minutes that you want Disaster Recovery to check test compliance. 
 
 . To check that your failover tests are healthy, check *Run failovers on a monthly schedule*. 
 .. Select the day of the month and time you want these tests to run. 
@@ -43,5 +43,21 @@ image:dr-plan-schedule-edit2.png[Screenshot showing where you can edit schedules
 . *Use on-demand snapshot for scheduled test failover*: To take a new snapshot before initiating the automated test failover, check this box.
 . To clean up the test environment after the failover test finishes, check *Automatically clean up after test failover* and enter the number of minutes you want to wait before the cleanup starts.
 +
-NOTE: This process unregisters the temporary VMs  from the test location, deletes the FlexClone volume that was created, and unmounts the temporary datastores. 
+NOTE: This process deletes the FlexClone volume that was created and removes the temporary test resources from the test location. For VMware workloads, it also unregisters the temporary VMs and unmounts the temporary datastores. 
 . Select *Save*.
+
+== Delete or disable a replication plan
+
+You can temporarily disable a replication plan if, for example, you need to apply updates or perform maintenance that would impact the integrity of the replication plan and its related operations. 
+
+You can also delete a replication plan if you no longer need it or need to make significant changes to it that are beyond the scope of modification.
+
+.Steps
+. From the Disaster Recovery menu, select *Replication plans*. 
++
+image:dr-plan-list.png[Screenshot showing the list of replication plans]
+. Select the *Actions* image:icon-horizontal-dots.png[Horizontal dots Actions menu] menu for the replication plan you want to disable or delete. 
+. Select *Delete* or *Disable*. 
+. Review the instructions in the pop-up. To disable, select *Disable*. 
++
+If you choose *Delete*, select the associated snapshots or metadata to delete along with the replication plan: *Delete primary snapshots*, *Delete secondary snapshots*, or *Delete snapshot metadata*. In the text box, enter "delete" to confirm the operation, then select *Delete*.

@@ -1,11 +1,11 @@
 ---
 sidebar: sidebar
 permalink: use/failback.html
-keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter
+keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, kubernetes, trident protect, openshift
 summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows.
 ---
 
-= Fail back applications to the original source with NetApp Disaster Recovery
+= Fail back to the source site with NetApp Disaster Recovery
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/use/
@@ -17,18 +17,18 @@ include::../_include/iam-failover.adoc[]
 
 == About failback
 
-In failback, NetApp Disaster Recovery replicates (resyncs) any changes back to the original source virtual machine before reversing the replication direction. This process starts after a relationship has failed over to the target and involves the following steps:
+In failback, NetApp Disaster Recovery replicates (resyncs) any changes back to the original source workloads before reversing the replication direction. This process starts after a relationship has failed over to the target and involves the following steps. Kubernetes workloads follow the same sequence as VMware workloads; the VMware-specific details are noted in parentheses.
 
 * Perform a compliance check on the recovered site. 
-* Refresh the vCenter information for each vCenter cluster identified as located in the recovered site. 
-* On the target site, power off and unregister the virtual machines, and unmount volumes.  
+* Refresh the discovery information for each vCenter cluster or Kubernetes cluster identified as located in the recovered site. 
+* On the target site, stop the protected workloads (for VMware, power off and unregister the virtual machines), and unmount volumes.  
 * Break the SnapMirror relationship on the original source to make it read/write.
 * Resynchronize the SnapMirror relationship to reverse the replication.
-* Power on and register the source virtual machines, and mount the volumes on the source. 
+* Start the protected workloads on the source (for VMware, power on and register the source virtual machines), and mount the volumes on the source. 
 
 == Before you begin
 
-If you're using datastore-based protection, VMs might be added to the datastore during failover. If this has happened, ensure you provide the additional mapping information for these VMs before initiating failback. To edit the resource mapping, see link:manage.html#manage-replication-plans[Manage replication plans].
+For VMware workloads, if you're using datastore-based protection, VMs might be added to the datastore during failover. If this has happened, ensure you provide the additional mapping information for these VMs before initiating failback. To edit the resource mapping, see link:manage.html#manage-replication-plans[Manage replication plans].
 
 == Steps 
 
@@ -37,11 +37,11 @@ If you're using datastore-based protection, VMs might be added to the datastore 
 .vCenter
 --
 .Steps
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 . In the dropdown menu, set the filter to *VMware*.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
-. Identify the replication plan that you want to fail back. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Failback*.
+. Identify the replication plan that you want to fail back. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service], hover over *Recover* then select *Failback*.
  
 . Choose the snapshot for the datastore from which to recover. Select *Take snapshot now* to initiate a new snapshot or *Select* to choose from available snapshots. 
 +
@@ -56,11 +56,11 @@ To monitor the job's progress, select *Job monitoring* in the Disaster Recovery 
 
 .Kubernetes
 --
-. From the NetApp Disaster Recovery menu, select *Replication plans*. 
+. From the Disaster Recovery menu, select *Replication plans*. 
 . In the dropdown menu, filter to *Kubernetes* replication plans.
 +
 image::site-type-toggle.png[Screenshot of the site type toggle]
-. Identify the replication plan that you want to fail back. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in NetApp Disaster Recovery service], hover over *Recover* then select *Failback*.
+. Identify the replication plan that you want to fail back. Select the *Actions* option image:../use/icon-horizontal-dots.png[Actions menu icon in Disaster Recovery service], hover over *Recover* then select *Failback*.
  
 . Choose the snapshot for the cluster from which to recover. Select *Take snapshot now* to initiate a new snapshot or *Use latest snapshot* to use the most recent, successful snapshot. 
 . Enter "Failback" to confirm the operation then select *Failback*.
