@@ -13,6 +13,10 @@ summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service
 [.lead]
 Monitor NetApp Disaster Recovery jobs to view their history, status, and details. Tracking job status and progress enables you to catch failed or stalled operations before they affect recovery readiness.
 
+== About job monitoring
+
+If you rerun failed, cancelled, or timed-out discovery, resync, compliance, protection, replication plan, and backup retention jobs, Disaster Recovery registers that as a new job and records the user who initiated the operation to clarify visibility into actions. Rerun failback, failover, and migration operations are listed under the original job; the user who initiates the rerun operation isn't listed.
+
 == View jobs 
 
 include::../_include/iam-app-admin-viewer.adoc[]
@@ -43,8 +47,8 @@ include::../_include/iam-failover-app-admin.adoc[]
 . From the NetApp Console left navigation bar, select *Protection* > *Disaster recovery*. 
 . From the menu, select *Job monitoring*. 
 
-
 . On the Job monitoring page, note the ID of the job that you want to cancel. 
 +
 The job must be in an "In progress" or "Queued" state. 
 . Select the action menu then **Cancel job**. 
+
