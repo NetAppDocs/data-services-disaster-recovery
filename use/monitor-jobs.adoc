@@ -2,9 +2,8 @@
 sidebar: sidebar
 permalink: use/monitor-jobs.html
 keywords: disaster recovery, bluexp disaster recovery, failover, failback, replicate, fail over, fail back, vmware, vcenter, monitor, bluexp
-summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service that automates disaster recovery workflows. You can monitor all disaster recovery jobs and determine their progress.
+summary: Monitor jobs in NetApp Disaster Recovery to view their history, audit user operations, and track potentially problematic or timed-out operations. 
 ---
-
 = Monitor NetApp Disaster Recovery jobs
 :hardbreaks:
 :icons: font
@@ -12,6 +11,10 @@ summary: The NetApp Disaster Recovery is a cloud-based disaster recovery service
 
 [.lead]
 Monitor NetApp Disaster Recovery jobs to view their history, status, and details. Tracking job status and progress enables you to catch failed or stalled operations before they affect recovery readiness.
+
+== About job monitoring
+
+If you rerun a failed, canceled, or timed-out discovery, resync, compliance, protection, replication plan, or backup retention job, Disaster Recovery registers the rerun as a new job and records the user who initiated it, so you can see who performed each action. Reruns of failback, failover, and migration operations are listed under the original job, and the user who initiated the rerun isn't listed.
 
 == View jobs 
 
@@ -34,17 +37,16 @@ When you review job details, Disaster Recovery shows the user who initiated the 
 
 == Cancel a job
 
-You can cancel a job that's in progress or in a queued state if it's stuck or to prioritize a pending operation.
+You can cancel a job that's in progress or queued if it's stuck or if you need to prioritize a pending operation.
 
 include::../_include/iam-failover-app-admin.adoc[]
 
 .Steps 
 
-. From the NetApp Console left navigation bar, select *Protection* > *Disaster recovery*. 
+. From the NetApp Console left navigation, select *Protection* > *Disaster recovery*. 
 . From the menu, select *Job monitoring*. 
-
 
 . On the Job monitoring page, note the ID of the job that you want to cancel. 
 +
 The job must be in an "In progress" or "Queued" state. 
-. Select the action menu then **Cancel job**. 
+. Select the action menu, then select **Cancel job**. 

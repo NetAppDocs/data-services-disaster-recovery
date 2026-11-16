@@ -1,0 +1,5 @@
+=== Job monitoring enhancement when rerunning jobs
+
+If you rerun certain failed, canceled, or timed-out operations, NetApp Disaster Recovery now registers these operations as new jobs and identifies the user who initiated the action. Previously, Disaster Recovery listed new jobs under the initial job. This enhancement creates a more visible audit trail for jobs in Disaster Recovery as long as the request hasn't been redacted. It applies only to discovery, resync, compliance, protection, replication plan, and backup retention jobs. Rerun failback, failover, and migration operations aren't listed as new jobs. Only the latest job in a rerun chain qualifies, and at most one rerun can be queued behind a running one.
+
+For more information, see link:https://docs.netapp.com/us-en/data-services-disaster-recovery/use/monitor-jobs.html[Monitor jobs in Disaster Recovery^].
